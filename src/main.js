@@ -1,6 +1,5 @@
 import 'normalize.css';
 
-import './pages/start-page/start-page.js';
+import './globals/fonts.css'; 
+import './globals/global.css'; 
 
-import './globals/global.css';
-import './globals/fonts.css';   

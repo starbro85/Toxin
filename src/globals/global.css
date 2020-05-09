@@ -1,0 +1,70 @@
+
+:root {
+
+    /* dark shade color set */
+
+    --dark-shade-hue:       238;
+    --dark-shade-100per:    hsla(var(--dark-shade-hue), 35%, 19%, 1);
+    --dark-shade-75per:     hsla(var(--dark-shade-hue), 35%, 19%, .75);
+    --dark-shade-50per:     hsla(var(--dark-shade-hue), 35%, 19%, .50);
+    --dark-shade-25per:     hsla(var(--dark-shade-hue), 35%, 19%, .25);
+    --dark-shade-5per:      hsla(var(--dark-shade-hue), 35%, 19%, .05);
+
+    /* purple color set */
+
+    --purple-hue:           259;
+    --purple-100per:        hsla(var(--purple-hue), 100%, 81%, 1);
+    --purple-gradient:      linear-gradient(180deg, var(--purple-hue) 0%, #8BA4F9 100%);
+
+    /* green color set */
+
+    --green-hue:            145;
+    --green-100per:         hsla(var(--green-hue), 50%, 62%, 1);
+    --purple-gradient:      linear-gradient(180deg, var(--green-hue) 0%, #66D2EA 100%);
+
+    /* body font */
+
+    --body-font:     normal 14px/171% "Montserrat", sans-serif;
+
+    /* h1 font */
+
+    --h1-font:       normal bold 24px/30px "Quicksand", "Open Sans", sans-serif;
+
+    /* h2 font */
+
+    --h2-font:       normal bold 19px/24px "Quicksand", "Open Sans", sans-serif;
+
+    /* h3 font */
+
+    --h3-font:       normal bold 12px "Montserrat", sans-serif;
+
+}
+
+/* body text format */
+
+body {
+    font: var(--body-font);
+    color: var(--dark-shade-75per)
+}
+
+/* h1 text format */
+
+h1 {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
+}
+
+/* h2 text format */
+
+h2 {
+    font: var(--h2-font);
+    color: var(--dark-shade-100per);
+}
+
+/* h3 text format */
+
+h3 {
+    font: var(--h3-font);
+    color: var(--dark-shade-100per);
+    text-transform: uppercase;
+}
