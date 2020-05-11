@@ -14,9 +14,9 @@ class Dropdown {
     }
 
     setEventListener = (event) =>   (!this.root.contains(event.target)) ?
-                                        this.root.classList.remove('dropdown_is_showed'); :
+                                        this.root.classList.remove('dropdown_is_showed') :
                                     (Object.is(event.target, this.button)) ?
-                                        this.root.classList.toggle('dropdown_is_showed');
+                                        this.root.classList.toggle('dropdown_is_showed') :
                                     this.root.classList.add('dropdown_is_showed');
 
     init() {
