@@ -1,0 +1,8 @@
+include ../dropdown/dropdown
+include ../counter/counter
+
+mixin quantity-dropdown({ name, placeholder, show, disabled })
+    div.quantity-dropdown.js-quantity-dropdown(data-mode=mode)
+        +dropdown({name, placeholder, show})
+            if block
+                block

@@ -3,6 +3,7 @@ extends ../../components/ui-kit-layout/ui-kit-layout
 include ../../components/label-wrapper/label-wrapper
 include ../../components/text-field/text-field
 include ../../components/dropdown/dropdown
+include ../../components/quantity-dropdown/quantity-dropdown
 
 block title
     | Form elements
@@ -12,13 +13,16 @@ block content
         div.form-elements__group-1
             div.form-elements__text-field
                 +label-wrapper({label: 'text field'})
-                    +text-field({label: 'text field', name: 'text-field', placeholder: 'Email', mask: 'date'})
+                    +text-field({label: 'text field', name: 'text-field', placeholder: 'Email'})
             div.form-elements__text-field
                 +label-wrapper({label: 'text field'})
                     +text-field({label: 'text field', name: 'text-field', placeholder: 'text field', value: 'This is pretty awesome'})
             div.form-elements__dropdown
                 +label-wrapper({label: 'dropdown'})
-                    +dropdown({label: 'dropdown', name: 'dropdown', placeholder: 'Сколько гостей'})
+                    +quantity-dropdown({name: 'dropdown', placeholder: 'Сколько гостей'})
+                        +counter({label: 'спальни', name: 'bedroom', minValue: '1', maxValue: '3', plural: {one: 'спальня', few: 'спальни', many: 'спален'}})
+                        +counter({label: 'кровать', name: 'bedroom', minValue: '1', maxValue: '3', plural: {one: 'кровать', few: 'кровати', many: 'кроватей'}})
+                        +counter({label: 'ванная комната', name: 'bedroom', minValue: '1', maxValue: '3', plural: {one: 'ванная комната', few: 'ванные комнаты', many: 'ванных комнат'}})
             div.form-elements__text-field
                 +label-wrapper({label: 'masked text field'})
                     +text-field({label: 'text field', name: 'text-field', placeholder: 'дд.мм.гггг', mask: 'date'})

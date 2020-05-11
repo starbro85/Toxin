@@ -1,3 +1,5 @@
+/* root styles */
+
 .ui-kit-layout {
     min-height: 100vh;
     display: grid;
@@ -11,18 +13,6 @@
         145px auto 145px;
 }
 
-.ui-kit-layout__link {
-    width: min-content; height: min-content;
-    display: flex;
-    grid-area: link;
-    justify-self: center;
-    align-self: center;
-}
-
-.ui-kit-layout__content {
-    grid-area: content;
-}
-
 @media(max-width: 487px) {
     .ui-kit-layout {
         grid-template-areas: 
@@ -31,3 +21,20 @@
          '. . .';
     }
 }
+
+/* ui-kit-layout__link styles */
+
+.ui-kit-layout__link {
+    width: min-content; height: min-content;
+    display: flex;
+    grid-area: link;
+    justify-self: center;
+    align-self: center;
+}
+
+/* ui-kit-layout__content */
+
+.ui-kit-layout__content {
+    grid-area: content;
+}
+

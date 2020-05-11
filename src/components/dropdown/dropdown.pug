@@ -1,8 +1,8 @@
 include ../text-field/text-field
 include ../icon/icon
 
-mixin dropdown({ name, placeholder, disabled=false, show=false })
-    div.dropdown.js-dropdown
+mixin dropdown({ name, placeholder, disabled=false, show=false, theme='default' })
+    div.dropdown.js-dropdown(data-state-show=show data-state-disabled=disabled data-theme=theme)
         button(type='button').dropdown__button.js-dropdown__button
             div.dropdown__input.js-dropdown__input
                 +text-field({ name, placeholder, readonly: true, tabindex: '-1' })

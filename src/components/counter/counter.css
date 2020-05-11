@@ -1,0 +1,73 @@
+/* root styles */
+
+.counter {
+    height: 30px;
+    display: grid;
+    grid-template-columns: 
+        auto 1fr 30px 32px 30px;
+    grid-template-areas: 
+        'label . decrement counter increment';
+}
+
+/* counter__decrement styles */
+
+.counter__decrement {
+    grid-area: decrement;
+    width: 30px; height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: var(--border-dark-shade-50per);
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--dark-shade-50per);
+    cursor: pointer;
+}
+
+.counter__decrement:disabled {
+    border: var(--border-dark-shade-25per);
+}
+
+/* counter__increment styles */
+
+.counter__increment {
+    grid-area: increment;
+    width: 30px; height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: var(--border-dark-shade-50per);
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--dark-shade-50per);
+    cursor: pointer;
+}
+
+.counter__increment:disabled {
+    border: var(--border-dark-shade-25per);
+}
+
+/* counter__input styles */
+
+.counter__input {
+    grid-area: counter;
+    text-align: center;
+    pointer-events: none;
+    font: var(--h3-font);
+}
+
+.counter__input::-webkit-outer-spin-button,
+.counter__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* counter__label styles */
+
+.counter__label {
+    grid-area: label;
+    display: flex;
+    align-items: center;
+    font: var(--h3-font);
+    text-transform: uppercase;
+}

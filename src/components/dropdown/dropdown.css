@@ -1,6 +1,15 @@
+/* root style */
 .dropdown {
     position: relative;
 }
+
+/* dropdown__input styles */
+
+.dropdown__input {
+    pointer-events: none;
+}
+
+/* dropdown__button styles */
 
 .dropdown__button {
     width: 100%;
@@ -9,42 +18,59 @@
     border-radius: 4px;
 }
 
-.dropdown__input {
-    pointer-events: none;
-}
-
-.dropdown__button:hover,
-.dropdown__button:focus {
+.dropdown__button:hover {
     border: var(--border-dark-shade-50per);
 }
 
-
 .dropdown__button:focus {
+    border: var(--border-dark-shade-50per);
     outline-offset: 1px;
 }
 
-.dropdown__viewport {
-    min-width: 100%;
-    position: absolute;
-    z-index: -1;
-    overflow: hidden;
-    opacity: 0;
-    transition: z-index .6s step-end, opacity .6s;
+.dropdown_is_showed.dropdown_theme_default .dropdown__button {
+    border: var(--border-dark-shade-50per);
+    border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+    transition: border-bottom-left-radius .6s, border-bottom-right-radius .6s;
 }
 
-.dropdown__container {
-    transform: translateY(-100%);
-    transition: transform .6s;
+/* dropdown__viewport styles */
+
+.dropdown__viewport {
+    max-height: 0;
+    min-width: 100%;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .6s, opacity .6s;
 }
 
 .dropdown_is_showed .dropdown__viewport {
     opacity: 1;
-    z-index: 5;
+    max-height: 100vh;
+    background-color: white;
     box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-    transition: opacity .6s, box-shadow 1.2s;
+    transition: max-height .6s, opacity .6s, box-shadow 1.2s;
+}
+
+/* dropdown__container styles */
+
+.dropdown__container {
+    display: grid;    
+    gap: 7px;
+    padding: 7px 15px;
+    padding-right: 7px;
+    transform: translateY(-100%);
+    transition: transform .6s;
 }
 
 .dropdown_is_showed .dropdown__container {
     transform: translateY(0);   
     transition: transform .6s;
 }
+
+.dropdown_theme_default .dropdown__container {
+    border: var(--border-dark-shade-50per);
+    border-top: none;
+    border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;
+}
+

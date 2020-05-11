@@ -1,3 +1,5 @@
+/* root styles */
+
 .text-field {
     height: 44px;
     display: grid;
@@ -5,11 +7,15 @@
     grid-auto-columns: auto 44px;
 }
 
+/* text-field__icon styles */
+
 .text-field__icon {
     width: 44px;
     font-size: 24px;
     color: var(--dark-shade-50per);
 }
+
+/* text-field__input styles */
 
 .text-field__input {
     width: 100%;
@@ -19,12 +25,12 @@
     padding: 0 12px;
 }
 
-.text-field__input:hover,
-.text-field__input:focus {
+.text-field__input:hover {
     border: var(--border-dark-shade-50per);
 }
 
 .text-field__input:focus {
+    border: var(--border-dark-shade-50per);
     outline-offset: 2px;
 }
 
