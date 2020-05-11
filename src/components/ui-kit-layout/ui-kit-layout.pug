@@ -1,0 +1,17 @@
+include ../logo/logo
+
+doctype html
+
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title
+            block title
+
+    body
+        main.ui-kit-layout
+            a.ui-kit-layout__link(href='start-page.html' title='move to start page')
+                +logo({ type: 'ui-kit' })
+            div.ui-kit-layout__content
+                block content

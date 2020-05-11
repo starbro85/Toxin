@@ -1,0 +1,5 @@
+.label-wrapper {
+    width: max-content;
+    display: grid;
+    gap: 5px;
+}

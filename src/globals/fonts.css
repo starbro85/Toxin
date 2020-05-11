@@ -107,3 +107,19 @@
     url("../fonts/montserrat/montserrat-v14-latin_cyrillic-700.svg#Montserrat")
       format("svg");
 }
+
+/* material icon font */
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/iconfont/MaterialIcons-Regular.eot");
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url("../fonts/iconfont/MaterialIcons-Regular.woff2") 
+      format("woff2"),
+    url("../fonts/iconfont/MaterialIcons-Regular.woff") 
+      format("woff"),
+    url("../fonts/iconfont/MaterialIcons-Regular.ttf") 
+      format("truetype");
+}

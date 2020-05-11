@@ -1,0 +1,25 @@
+.ui-kit-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+        "link . ."
+        ". content ."
+        ". . .";
+    grid-template-columns: 
+        1fr minmax(672px, 1159px) 1fr;
+    grid-template-rows: 
+        145px auto 145px;
+}
+
+.ui-kit-layout__link {
+    width: min-content; height: min-content;
+    margin-right: 71px; margin-bottom: 67px;
+    display: flex;
+    grid-area: link;
+    justify-self: end;
+    align-self: end;
+}
+
+.ui-kit-layout__content {
+    grid-area: content;
+}

@@ -1,0 +1,8 @@
+.form-elements {
+    display: grid;
+}
+
+.form-elements__group-1 {
+    display: grid;
+    gap: 20px;
+}

@@ -26,6 +26,15 @@ const config = {
                 exclude: [/node_modules/],
             },
             {
+                test: /\.pug$/,
+                use: {
+                    loader: 'pug-loader',
+                    options: {
+                      pretty: true
+                    }
+                },
+            },
+            {
                 test: /\.(ico|png|jpg|svg|gif|ttf|eot|woff|woff2|xml|webmanifest)$/,
                 loader: 'file-loader?name=[path][name].[ext]'
             }
@@ -37,7 +46,13 @@ const config = {
         new HtmlWebpackPlugin({
             title: 'start-page',
             filename: 'start-page.html',
-            template: '../src/pages/start-page/start-page.html',
+            template: '../src/pages/start-page/start-page.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'form-elements',
+            filename: 'form-elements.html',
+            template: '../src/pages/form-elements/form-elements.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

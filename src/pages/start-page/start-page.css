@@ -1,0 +1,30 @@
+.start-page {
+    height: 100%;
+    display: grid;
+    gap: 100px;
+    grid-auto-rows: max-content;
+    grid-auto-flow: column;
+    align-content: center;
+}
+
+.start-page__list {
+    display: grid;
+    gap: 20px; 
+    list-style: none;
+}
+
+.start-page__list-item {
+    text-align: center;
+}
+
+.start-page__link {
+    font-size: 20px;
+}
+
+.start-page__link:hover {
+    color: var(--purple-100per);
+}
+
+.start-page__link:active {
+    color: var(--green-100per);
+}

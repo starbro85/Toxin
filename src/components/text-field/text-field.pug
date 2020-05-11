@@ -1,0 +1,17 @@
+mixin text-field({ type='text', name, value, mask, placeholder, readonly=false, autofocus=false, disabled=false, required=false, tabindex='0', borderless=false })
+    div.text-field.js-text-field
+        input.text-field__input.js-text-field__input(
+                                                    type=type
+                                                    name=name
+                                                    value=value
+                                                    placeholder=placeholder
+                                                    data-mask=mask
+                                                    readonly=readonly
+                                                    required=required
+                                                    spellcheck='false'
+                                                    disabled=disabled
+                                                    autofocus=autofocus
+                                                    tabindex=tabindex
+                                                    )
+        if block
+            block

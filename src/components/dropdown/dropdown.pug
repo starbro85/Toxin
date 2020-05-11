@@ -1,0 +1,13 @@
+include ../text-field/text-field
+include ../icon/icon
+
+mixin dropdown({ name, placeholder, disabled=false, show=false })
+    div.dropdown.js-dropdown
+        button(type='button').dropdown__button.js-dropdown__button
+            +text-field({ name, placeholder, readonly: true, tabindex: '-1' })
+                div.text-field__icon
+                    +icon({ icon: 'expand_more' })
+        div.dropdown__viewport.js-dropdown__viewport
+            div.dropdown__container.js-dropdown__container
+                if block
+                    block
