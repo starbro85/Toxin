@@ -13,27 +13,15 @@ class Dropdown {
         this.init();
     }
 
-    show() {
-        this.root.classList.add('dropdown_is_showed');
-    };
-
-    hide() {
-        this.root.classList.remove('dropdown_is_showed');
-    };
-
-    toggle() {
-        this.root.classList.toggle('dropdown_is_showed');
-    };
-
     setEventListener = (event) =>   (!this.root.contains(event.target)) ?
-                                        this.hide() :
+                                        this.root.classList.remove('dropdown_is_showed'); :
                                     (Object.is(event.target, this.button)) ?
-                                        this.toggle() :
-                                    this.show();
+                                        this.root.classList.toggle('dropdown_is_showed');
+                                    this.root.classList.add('dropdown_is_showed');
 
     init() {
         if (this.root.dataset.show === true)
-            this.show();
+            this.root.classList.add('dropdown_is_showed');
 
         document.onclick = this.setEventListener;
     }
