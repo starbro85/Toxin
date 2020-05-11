@@ -1,13 +1,12 @@
 .text-field {
-    width: 320px;
     height: 44px;
-    display: flex;
-    border: var(--border);
-    border-radius: 4px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto 44px;
 }
+
 .text-field__icon {
-    min-width: 44px;
-    height: 100%;
+    width: 44px;
     font-size: 24px;
     color: var(--dark-shade-50per);
 }
@@ -15,7 +14,14 @@
 .text-field__input {
     width: 100%;
     align-items: center;
+    border: var(--border-dark-shade-25per);
+    border-radius: 4px;
     padding: 0 12px;
+}
+
+.text-field__input:hover,
+.text-field__input:focus {
+    border: var(--border-dark-shade-50per);
 }
 
 .text-field__input:focus {
@@ -36,5 +42,5 @@
 }
 
 .text-field__input:read-only {
-    pointer-events: none;
+    border: none;
 }

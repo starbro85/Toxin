@@ -1,13 +1,23 @@
 .dropdown {
-    width: max-content;
     position: relative;
 }
 
 .dropdown__button {
-    display: flex;
-    align-items: center; 
+    width: 100%;
     cursor: pointer; 
+    border: var(--border-dark-shade-25per);
+    border-radius: 4px;
 }
+
+.dropdown__input {
+    pointer-events: none;
+}
+
+.dropdown__button:hover,
+.dropdown__button:focus {
+    border: var(--border-dark-shade-50per);
+}
+
 
 .dropdown__button:focus {
     outline-offset: 1px;

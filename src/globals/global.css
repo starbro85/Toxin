@@ -22,7 +22,11 @@
 
     --outline:              2px var(--purple-100per) dashed; 
 
-    --border:               1px solid var(--dark-shade-25per);
+    /* dark shade border set */
+
+    --border-dark-shade-25per:         1px solid var(--dark-shade-25per);
+    --border-dark-shade-50per:         1px solid var(--dark-shade-50per);
+
 
     --body-font:            normal 14px/171% "Montserrat", sans-serif;
 
@@ -33,7 +37,7 @@
     --h3-font:              normal bold 12px "Montserrat", sans-serif;
 }
 
-/* zero all paddings and margins, border-box for all tags */
+/* zero padding and margin, remove border and background, add border-box for headings, button, input tags */
 
 *, h1, h2, h3, button, input {
     margin: 0;
@@ -51,7 +55,7 @@ button:focus, input:focus, a:focus {
 
 /* text format for body */
 
-body {
+body, input {
     font: var(--body-font);
     color: var(--dark-shade-75per)
 }

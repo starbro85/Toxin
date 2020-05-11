@@ -37,6 +37,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "cleave.js": "^1.5.10",
     "normalize.css": "^8.0.1"
   },
   "keywords": []

@@ -6,22 +6,35 @@ class Dropdown {
     constructor(node) {
         this.root = node;
         this.button = this.root.querySelector('.js-dropdown__button');
-        this.container = this.root.querySelector('.js-dropdown__container')
-        
-        this.tabbableElements = this.root.querySelector('[tabindex]');
+        this.container = this.root.querySelector('.js-dropdown__container');
+        this.input = this.root.querySelector('.js-dropdown__input');
 
         this.init();
     }
 
+    show() {
+        this.root.classList.add('dropdown_is_showed');
+        this.container.hidden = false;
+    };
+
+    hide() {
+        this.root.classList.remove('dropdown_is_showed');
+        this.container.hidden = true;
+    };
+
+    toggle = () => (this.root.classList.contains('dropdown_is_showed')) ? this.hide() : this.show();
+
     setEventListener = (event) =>   (!this.root.contains(event.target)) ?
-                                        this.root.classList.remove('dropdown_is_showed') :
+                                        this.hide() :
                                     (Object.is(event.target, this.button)) ?
-                                        this.root.classList.toggle('dropdown_is_showed') :
-                                    this.root.classList.add('dropdown_is_showed');
+                                        this.toggle() :
+                                    this.show();
 
     init() {
+        this.container.hidden = true;
+
         if (this.root.dataset.show === true)
-            this.root.classList.add('dropdown_is_showed');
+            this.show();   
 
         document.onclick = this.setEventListener;
     }
