@@ -1,8 +1,6 @@
-/* quantity-dropdown__counter-bar styles */
+/* root */
 
-.quantity-dropdown__counter-bar {
-    display: grid;    
-    gap: 7px;
-    padding: 7px 15px;
-    padding-right: 7px;
+.quantity-dropdown {
 }
+
+
