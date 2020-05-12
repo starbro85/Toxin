@@ -20,7 +20,9 @@
     --green-100per:         hsla(var(--green-hue), 50%, 62%, 1);
     --green-gradient:      linear-gradient(180deg, var(--green-hue) 0%, #66D2EA 100%);
 
-    --outline:              2px var(--purple-100per) dashed; 
+    /* custom outline style */
+
+    --outline:              1px var(--dark-shade-50per) dashed; 
 
     /* dark shade border set */
 
@@ -51,6 +53,13 @@
 
 button:focus, input:focus, a:focus {
     outline: var(--outline);
+    outline-offset: 2px;
+}
+
+/* custom selection */
+
+*::selection {
+    background-color: var(--dark-shade-25per);
 }
 
 /* text format for body */

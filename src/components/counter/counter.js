@@ -30,8 +30,11 @@ class Counter {
 
         this.input.value = this.value;
 
-        const trigger = new Event('value-changed');
-        this.root.dispatchEvent(trigger);
+        this.root.dispatchEvent(new CustomEvent('counterValueChange', {
+            detail: {
+                value: this.value,
+            }
+        }));
         
         this.normalizeRange();
     }

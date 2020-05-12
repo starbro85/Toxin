@@ -11,8 +11,10 @@
 
 .text-field__icon {
     width: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 24px;
-    color: var(--dark-shade-50per);
 }
 
 /* text-field__input styles */
@@ -23,15 +25,13 @@
     border: var(--border-dark-shade-25per);
     border-radius: 4px;
     padding: 0 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.text-field__input:hover {
+.text-field__input:hover, .text-field__input:focus {
     border: var(--border-dark-shade-50per);
-}
-
-.text-field__input:focus {
-    border: var(--border-dark-shade-50per);
-    outline-offset: 2px;
 }
 
 .text-field__input::placeholder {
@@ -40,13 +40,6 @@
 
 .text-field__input:focus::placeholder, 
 .text-field__input:hover::placeholder {
-    color: var(--dark-shade-50per);
+    color: var(--dark-shade-75per);
 }
 
-.text-field__input::selection {
-    background-color: var(--dark-shade-25per);
-}
-
-.text-field__input:read-only {
-    border: none;
-}

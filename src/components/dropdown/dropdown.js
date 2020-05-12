@@ -7,7 +7,7 @@ class Dropdown {
         this.root = node;
         this.button = this.root.querySelector('.js-dropdown__button');
         this.container = this.root.querySelector('.js-dropdown__container');
-        this.input = this.root.querySelector('.js-dropdown__input');
+        this.input = this.root.querySelector('.js-text-field__input');
         this.tabbableElements = this.container.querySelectorAll('[tabindex]');
         this.theme = this.root.dataset.theme;
         this.stateDisabled = this.root.dataset.stateDisabled;
@@ -45,29 +45,31 @@ class Dropdown {
         this.hideTabbableElements();
     };
 
-    toggle = () => (this.root.classList.contains('dropdown_is_showed')) ? this.hide() : this.show();
+    toggle = () => (this.root.classList.contains('dropdown_is_showed')) ? this.hide() : this.show(); /* temporarily not used this */
 
-    handleToggleEvent = (event) =>  (!this.root.contains(event.target)) ?
-                                        this.hide() :
-                                    (Object.is(event.target, this.button)) ?
-                                        this.toggle() :
-                                    this.show();
+    handleClickEvent = (event) =>   this.button.contains(event.target) ? this.toggle() : 
+                                    this.container.contains(event.target) ? this.show() : 
+                                    this.hide();
 
-    setToggleEventListener() {
-        if (!this.root.dataset.disabled)
-            document.onclick = this.handleToggleEvent;
+    handleFocusEvent = (event) => { if (!this.root.contains(event.target)) this.hide() };
+
+    setEventListeners() {
+        if (!this.root.dataset.disabled) {
+            document.addEventListener('focusin', this.handleFocusEvent);
+            document.addEventListener('click', this.handleClickEvent);
+        }
     }
 
     init() {
         this.hideTabbableElements();
         this.setTheme();
         this.setState();
-        this.setToggleEventListener();
+        this.setEventListeners();
     }
 };
 
 function render() {
-    const components = document.querySelectorAll('.js-dropdown');
+    const components = document.body.querySelectorAll('.js-dropdown');
     if (components.length > 0) {
         Array.from(components).map((node) => new Dropdown(node));
     };

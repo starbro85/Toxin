@@ -1,6 +1,6 @@
 mixin counter({ label, name, minValue, maxValue, defaultValue=minValue, plural={ one: label } })
     div.counter.js-counter(data-name=name, data-default-value=defaultValue, data-min-value=minValue, data-max-value=maxValue, data-plural=plural)
         span.counter__label.js-counter__label #{ label }
-        button.counter__decrement.js-counter__decrement(type='button') -
+        button.counter__decrement.js-counter__decrement(type='button' tabindex='0') -
         input.counter__input.js-counter__input(type='number', name=name, value=minValue, disabled)
-        button.counter__increment.js-counter__increment(type='button') +
+        button.counter__increment.js-counter__increment(type='button' tabindex='0') +
