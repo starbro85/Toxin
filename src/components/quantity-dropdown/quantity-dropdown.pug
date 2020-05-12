@@ -3,6 +3,8 @@ include ../counter/counter
 
 mixin quantity-dropdown({ name, placeholder, show, disabled })
     div.quantity-dropdown.js-quantity-dropdown(data-mode=mode)
-        +dropdown({name, placeholder, show})
-            if block
-                block
+        input.quantity-dropdown__hidden-input.js-quantity-dropdown__submit-input(name=name hidden size="35")
+        +dropdown({placeholder, show, disabled})
+            div.quantity-dropdown__counter-bar
+                if block
+                    block
