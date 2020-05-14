@@ -5,5 +5,5 @@ mixin counters-bar({ mode='autoApply' })
         if block
             block
         div.counters-bar__footer.js-counters-bar__footer(hidden)
-            button.counters-bar__clear-button.js-counters-bar__clear-button(type='button') очистить
-            button.counters-bar__apply-button.js-counters-bar__apply-button(type='button') применить
+            button.counters-bar__clear-button.js-counters-bar__clear-button(type='button' disabled tabindex='0') очистить
+            button.counters-bar__apply-button.js-counters-bar__apply-button(type='button' tabindex='0') применить

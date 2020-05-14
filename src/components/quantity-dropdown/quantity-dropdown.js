@@ -4,7 +4,7 @@ import './../dropdown/dropdown.js';
 class Quantity {
     constructor(node) {
         this.root = node;
-        this.viewInput = this.root.querySelector('.js-text-field__input');
+        this.input = this.root.querySelector('.js-text-field__input');
         this.button = this.root.querySelector('.js-dropdown__button');
         this.countersBar = this.root.querySelectorAll('.js-counters-bar');
         this.counterData = {};
@@ -17,7 +17,7 @@ class Quantity {
 
         const inputValue = counterValues.reduce((acc, data) => (data.value !== 0) ? `${acc} ${formatValue(data.plural, data.value)},` : `${acc}`, '');
 
-        this.viewInput.value = inputValue.substr(0, inputValue.length - 1);
+        this.input.value = inputValue.substr(0, inputValue.length - 1);
         this.button.title = inputValue.substr(0, inputValue.length - 1);
     }
 

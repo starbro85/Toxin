@@ -67,10 +67,12 @@ class CountersBar {
         if (Object.is(this.mode, 'manualApply')) {
             this.buttonsBar.hidden = false;
             this.applyButton.addEventListener('click', event => {
+                this.clearButton.disabled = false;
                 this.clearButton.style.opacity = '1';
                 this.handleCounterValueDispatch(event, this.counterData);
             });
             this.clearButton.addEventListener('click', event => {
+                this.clearButton.disabled = true;
                 this.clearButton.style.opacity = '0';
                 this.handleCounterValueDispatch(event, {});
             })
