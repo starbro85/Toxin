@@ -4,7 +4,7 @@ import './../dropdown/dropdown.js';
 class Quantity {
     constructor(node) {
         this.root = node;
-        this.input = this.root.querySelector('.js-text-field__input');
+        this.viewInput = this.root.querySelector('.js-text-field__input');
         this.button = this.root.querySelector('.js-dropdown__button');
         this.countersBar = this.root.querySelectorAll('.js-counters-bar');
         this.counterData = {};
@@ -14,19 +14,10 @@ class Quantity {
 
     updateInputValue() {
         const counterValues = Object.values(this.counterData);
-        const inputSize = Math.floor(parseInt(this.input.getComputetStyle().width) / 0.125);
 
-        const inputValue = counterValues.reduce((acc, data) => {
-            if (data.value !== 0) 
-                if (`${acc} ${formatValue(data.plural, data.value)},`.length > inputSize)
-                    return `${acc}`;
-                else
-                    return `${acc} ${formatValue(data.plural, data.value)},`; 
-            else 
-                return `${acc}`;
-        }, '');
+        const inputValue = counterValues.reduce((acc, data) => (data.value !== 0) ? `${acc} ${formatValue(data.plural, data.value)},` : `${acc}`, '');
 
-        this.input.value = inputValue.substr(0, inputValue.length - 1);
+        this.viewInput.value = inputValue.substr(0, inputValue.length - 1);
         this.button.title = inputValue.substr(0, inputValue.length - 1);
     }
 
