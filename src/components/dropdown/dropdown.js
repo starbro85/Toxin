@@ -45,7 +45,7 @@ class Dropdown {
         this.hideTabbableElements();
     };
 
-    toggle = () => (this.root.classList.contains('dropdown_is_showed')) ? this.hide() : this.show(); /* temporarily not used this */
+    toggle = () => (this.root.classList.contains('dropdown_is_showed')) ? this.hide() : this.show();
 
     handleClickEvent = (event) =>   this.button.contains(event.target) ? this.toggle() : 
                                     this.container.contains(event.target) ? this.show() : 

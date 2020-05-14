@@ -4,7 +4,7 @@ include ../icon/icon
 mixin dropdown({ placeholder, disabled=false, show=false, theme='default' })
     div.dropdown.js-dropdown(data-state-show=show data-state-disabled=disabled data-theme=theme)
         button(type='button').dropdown__button.js-dropdown__button
-            +text-field({ placeholder, disabled: true, style: 'border: none; cursor: pointer; padding-right: 0;' })
+            +text-field({ placeholder, disabled: 'true', tabindex: '-1', style: 'border: none; cursor: pointer; pointer-events: none; padding-right: 0;' })
                 div.text-field__icon
                     div.dropdown__icon
                         +icon({ icon: 'expand_more' })  

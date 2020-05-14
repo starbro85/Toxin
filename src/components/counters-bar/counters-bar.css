@@ -1,0 +1,33 @@
+/* root styles */
+
+.counters-bar {    
+    display: grid;    
+    gap: 7px;
+    padding: 7px 15px; padding-right: 7px;
+}
+
+.counters-bar__footer {
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* apply/clear buttons styles */
+
+.counters-bar__apply-button,
+.counters-bar__clear-button {
+    padding: 5px 0;
+    font: var(--h3-font);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.counters-bar__apply-button {
+    color: var(--purple-100per);
+}
+
+.counters-bar__clear-button {
+    opacity: 0;
+    transition: opacity .4s;
+    color: var(--dark-shade-50per);
+}

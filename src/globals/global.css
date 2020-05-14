@@ -22,7 +22,7 @@
 
     /* custom outline style */
 
-    --outline:              1px var(--dark-shade-50per) dashed; 
+    --outline:              1px dashed var(--dark-shade-50per); 
 
     /* dark shade border set */
 
@@ -51,7 +51,7 @@
 
 /* custom outline for buttons, inputs and anchors */ 
 
-button:focus, input:focus, a:focus {
+button[type]:focus, input:focus, a:focus {
     outline: var(--outline);
     outline-offset: 2px;
 }

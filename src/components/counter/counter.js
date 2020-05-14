@@ -6,8 +6,7 @@ class Counter {
         this.increment = this.root.querySelector('.js-counter__increment');
         this.decrement = this.root.querySelector('.js-counter__decrement');
         this.input = this.root.querySelector('.js-counter__input');
-        this.value = Number(this.input.value);
-        this.defaultValue = Number(this.root.dataset.defaultValue);
+        this.value = Number(this.root.dataset.defaultValue);
         this.minValue = Number(this.root.dataset.minValue);
         this.maxValue = Number(this.root.dataset.maxValue);
 
@@ -17,6 +16,18 @@ class Counter {
     normalizeRange() {
         this.increment.disabled = this.value >= this.maxValue;
         this.decrement.disabled = this.value <= this.minValue;
+    }
+
+    handleCounterValueChange = event => {
+        this.root.dispatchEvent(new CustomEvent('counter-value-change', {
+            detail: {
+                name: this.input.name,
+                value: Number(this.input.value),
+                plural: JSON.parse(this.root.dataset.plural),
+                isBound: JSON.parse(this.root.dataset.isBound),
+                boundName: this.root.dataset.boundName
+            }
+        }));
     }
 
     handleCountChange = event => {
@@ -30,20 +41,19 @@ class Counter {
 
         this.input.value = this.value;
 
-        this.root.dispatchEvent(new CustomEvent('counterValueChange', {
-            detail: {
-                value: this.value,
-            }
-        }));
+        this.handleCounterValueChange(event);
         
         this.normalizeRange();
     }
 
     init() {
-        this.input.value = this.defaultValue;
+        this.input.value = this.value;
+        
         this.normalizeRange();
-        this.increment.onclick = this.handleCountChange;   
-        this.decrement.onclick = this.handleCountChange;
+
+        document.addEventListener('DOMContentLoaded', this.handleCounterValueChange);
+        this.increment.addEventListener('click', this.handleCountChange);   
+        this.decrement.addEventListener('click', this.handleCountChange);
     }
 };
 

@@ -19,10 +19,10 @@ block content
                     +text-field({name: 'text-field', placeholder: 'This is pretty awesome', autofocus: 'true'})
             div.form-elements__dropdown
                 +label-wrapper({label: 'dropdown'})
-                    +quantity-dropdown({name: 'guests', placeholder: 'Сколько гостей'})
-                        +counter({label: 'взрослые', name: 'adult', minValue: '0', maxValue: '5', plural: {one: 'взрослый', few: 'взрослых', many: 'взрослых'}})
-                        +counter({label: 'дети', name: 'kid', minValue: '0', maxValue: '5', plural: {one: 'ребенок', few: 'детей', many: 'детей'}})
-                        +counter({label: 'младенцы', name: 'baby', minValue: '0', maxValue: '5', plural: {one: 'младенец', few: 'младенцев', many: 'младенцев'}})   
+                    +quantity-dropdown({name: 'guests', placeholder: 'Сколько гостей', mode: 'manualApply'})
+                        +counter({label: 'взрослые', name: 'adults', minValue: '0', maxValue: '5', defaultValue: '5', plural: {one: 'гость', few: 'гостя', many: 'гостей'}, isBound: 'true', boundName: 'guests'})
+                        +counter({label: 'дети', name: 'kids', minValue: '0', maxValue: '5', defaultValue: '2', plural: {one: 'гость', few: 'гостя', many: 'гостей'}, isBound: 'true', boundName: 'guests'})
+                        +counter({label: 'младенцы', name: 'babies', minValue: '0', maxValue: '5', plural: {one: 'младенец', few: 'младенцев', many: 'младенцев'}})   
             div.form-elements__text-field
                 +label-wrapper({label: 'masked text field'})
                     +text-field({label: 'text field', name: 'text-field', placeholder: 'дд.мм.гггг', mask: 'date'})

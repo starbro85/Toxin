@@ -1,60 +1,44 @@
-import './../counter/counter.js';
+import './../counters-bar/counters-bar.js';
 import './../dropdown/dropdown.js';
-import './quantity-dropdown.css';
 
 class Quantity {
     constructor(node) {
         this.root = node;
-        this.viewInput = this.root.querySelector('.js-text-field__input');
-        this.submitInput = this.root.querySelector('.js-quantity-dropdown__submit-input');
+        this.input = this.root.querySelector('.js-text-field__input');
         this.button = this.root.querySelector('.js-dropdown__button');
-        this.counters = this.root.querySelectorAll('.js-counter');
-        this.counterData = this.getCounterData();
+        this.countersBar = this.root.querySelectorAll('.js-counters-bar');
+        this.counterData = {};
 
         this.init();
     }
 
-    getCounterData = () => Array.from(this.counters).reduce((counterData, counter) => {
-        const counterName = counter.dataset.name;
-        const counterPlural = counter.dataset.plural;
-        const counterValue = counter.dataset.defaultValue;
-
-        counterData[counterName] = {
-            name: counterName,
-            plural: JSON.parse(counterPlural),
-            value: Number(counterValue),
-        };
-        return counterData;
-    }, {});
-
-
-    updateSubmitValue() {   
+    updateInputValue() {
         const counterValues = Object.values(this.counterData);
-        const inputValue = counterValues.reduce((acc, data) => `${acc} ${data.name}: ${data.value},`,'');
-        this.submitInput.value = inputValue;
-    }
+        const inputSize = Math.floor(parseInt(this.input.getComputetStyle().width) / 0.125);
 
-    updateViewValue() {
-        const counterValues = Object.values(this.counterData);
-        const inputValue = counterValues.reduce((acc, data) => (data.value !== 0) ? `${acc} ${formatValue(data.plural, data.value)},` : `${acc}`, '');
+        const inputValue = counterValues.reduce((acc, data) => {
+            if (data.value !== 0) 
+                if (`${acc} ${formatValue(data.plural, data.value)},`.length > inputSize)
+                    return `${acc}`;
+                else
+                    return `${acc} ${formatValue(data.plural, data.value)},`; 
+            else 
+                return `${acc}`;
+        }, '');
 
-        this.viewInput.value = inputValue.substr(0, inputValue.length - 1);
+        this.input.value = inputValue.substr(0, inputValue.length - 1);
         this.button.title = inputValue.substr(0, inputValue.length - 1);
     }
 
-    setCounterValueChangeEventListener() {
-        Array.from(this.counters).forEach((counter) => counter.addEventListener('counterValueChange', (event) => {
-            const counterName = counter.dataset.name;
-            this.counterData[counterName].value = event.detail.value;
-            this.updateViewValue();
-            this.updateSubmitValue();
-        }));
+    setCounterValueDispatchEventListener() {
+        Array.from(this.countersBar).forEach((counter) => counter.addEventListener('counter-value-dispatch', event => {
+            this.counterData = event.detail.counterData;
+            this.updateInputValue()
+        }));  
     }
 
     init() {
-        this.updateViewValue();
-        this.updateSubmitValue();
-        this.setCounterValueChangeEventListener();
+        this.setCounterValueDispatchEventListener();
     }
 };
 
