@@ -9,8 +9,6 @@
         'label . decrement counter increment';
 }
 
-/* counter__decrement styles */
-
 .counter__decrement {
     grid-area: decrement;
     width: 30px; height: 30px;
@@ -27,8 +25,6 @@
 .counter__decrement:disabled {
     border: var(--border-dark-shade-25per);
 }
-
-/* counter__increment styles */
 
 .counter__increment {
     grid-area: increment;
@@ -47,8 +43,6 @@
     border: var(--border-dark-shade-25per);
 }
 
-/* counter__input styles */
-
 .counter__input {
     grid-area: counter;
     text-align: center;
@@ -61,8 +55,6 @@
     -webkit-appearance: none;
     margin: 0;
 }
-
-/* counter__label styles */
 
 .counter__label {
     grid-area: label;

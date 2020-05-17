@@ -2,8 +2,9 @@ include ../counter/counter
 
 mixin counters-bar({ mode='autoApply' })
     div.counters-bar.js-counters-bar(data-mode=mode)
-        if block
-            block
-        div.counters-bar__footer.js-counters-bar__footer(hidden)
-            button.counters-bar__clear-button.js-counters-bar__clear-button(type='button' disabled tabindex='0') очистить
-            button.counters-bar__apply-button.js-counters-bar__apply-button(type='button' tabindex='0') применить
+        ul.counters-bar__list
+            if block
+                block
+        if (mode==='manualApply')
+            button.counters-bar__clear-button.js-counters-bar__clear-button(type='button' disabled) очистить
+            button.counters-bar__apply-button.js-counters-bar__apply-button(type='button') применить

@@ -1,10 +1,9 @@
 include ../dropdown/dropdown
 include ../counters-bar/counters-bar
 
-mixin quantity-dropdown({ name, placeholder, show, disabled, mode='autoApply' })
+mixin quantity-dropdown({ label, name, placeholder, show, disabled, mode })
     div.quantity-dropdown.js-quantity-dropdown
-        input.quantity-dropdown__hidden-input.js-quantity-dropdown__submit-input(name=name hidden size="35")
-        +dropdown({ placeholder, show, disabled })
+        +dropdown({ label, placeholder, show, disabled })
             +counters-bar({ mode })
                 if block
                     block

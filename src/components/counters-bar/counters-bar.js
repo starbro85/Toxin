@@ -5,7 +5,6 @@ class CountersBar {
     constructor(node) {
         this.root = node;
         this.counters = this.root.querySelectorAll('.js-counter');
-        this.buttonsBar = this.root.querySelectorAll('.js-counters-bar__footer');
         this.clearButton = this.root.querySelector('.js-counters-bar__clear-button');
         this.applyButton = this.root.querySelector('.js-counters-bar__apply-button');
         this.mode = this.root.dataset.mode;
@@ -44,39 +43,59 @@ class CountersBar {
         }
     }  
 
-    handleCounterValueDispatch = (event, data) => {
-        this.root.dispatchEvent(new CustomEvent('counter-value-dispatch', {
+    addDataSentEvent(data) {
+        this.root.dispatchEvent(new CustomEvent('data-sent', {
             detail: {
                 counterData: data,
             }
         }));
     };
 
-    setCounterValueChangeEventListener() {
-        Array.from(this.counters).forEach((counter) => counter.addEventListener('counter-value-change', event => {
+    addDataClearEvent() {
+        Array.from(this.counters).forEach(counter => counter.dispatchEvent(new CustomEvent('counter-clear')));
+    }
+
+    setClearButtonState() {
+        const clearButtonIsDisabled = Object.values(this.counterData).reduce((isDisabled, data) => data.value > 0 ? isDisabled = false : isDisabled, true);
+        this.clearButton.disabled = clearButtonIsDisabled;
+    }
+
+    handleManualControlEvent = event => {
+        if (Object.is(event.target, this.applyButton)) {
+            this.addDataSentEvent(this.counterData);
+        }
+
+        if (Object.is(event.target, this.clearButton)) {
+            this.counterData = {};
+            this.addDataSentEvent(this.counterData);
+            this.addDataClearEvent();
+        }
+
+        this.setClearButtonState()
+    }
+
+    counterValueSubmit() {
+        if (Object.is(this.mode, 'autoApply')) {
+            this.addDataSentEvent(this.counterData);
+        }
+
+        if (Object.is(this.mode, 'manualApply')) {
+            this.applyButton.addEventListener('click',this.handleManualControlEvent);
+            this.clearButton.addEventListener('click', this.handleManualControlEvent);
+        }
+    }
+
+    setCounterChangedEventListenter() {
+        Array.from(this.counters).forEach((counter) => counter.addEventListener('counter-changed',  event => {
             this.handleUpdateCounterData(event);
-            if (Object.is(this.mode, 'autoApply')) {
-                this.handleCounterValueDispatch(event, this.counterData);
-            }
+            this.counterValueSubmit();
         }));  
     }
 
     init() {
-        this.setCounterValueChangeEventListener();
 
-        if (Object.is(this.mode, 'manualApply')) {
-            this.buttonsBar.hidden = false;
-            this.applyButton.addEventListener('click', event => {
-                this.clearButton.disabled = false;
-                this.clearButton.style.opacity = '1';
-                this.handleCounterValueDispatch(event, this.counterData);
-            });
-            this.clearButton.addEventListener('click', event => {
-                this.clearButton.disabled = true;
-                this.clearButton.style.opacity = '0';
-                this.handleCounterValueDispatch(event, {});
-            })
-        }
+
+        this.setCounterChangedEventListenter();
     }
 };
 

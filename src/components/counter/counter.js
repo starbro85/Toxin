@@ -18,8 +18,8 @@ class Counter {
         this.decrement.disabled = this.value <= this.minValue;
     }
 
-    handleCounterValueChange = event => {
-        this.root.dispatchEvent(new CustomEvent('counter-value-change', {
+    addCounterChangeEvent() {
+        this.root.dispatchEvent(new CustomEvent('counter-changed', {
             detail: {
                 name: this.input.name,
                 value: Number(this.input.value),
@@ -40,20 +40,30 @@ class Counter {
         }
 
         this.input.value = this.value;
-
-        this.handleCounterValueChange(event);
-        
+        this.addCounterChangeEvent();
         this.normalizeRange();
+    }
+
+    setCounterClearEventListener() {
+        this.root.addEventListener('counter-clear', event => {
+            this.value = 0
+            this.input.value = this.value;
+            this.normalizeRange()
+        })
+    }
+
+    setCounterChangeEventListeners() {
+        window.addEventListener('load', event => this.addCounterChangeEvent());
+        this.increment.addEventListener('click', this.handleCountChange);   
+        this.decrement.addEventListener('click', this.handleCountChange);
     }
 
     init() {
         this.input.value = this.value;
         
         this.normalizeRange();
-
-        document.addEventListener('DOMContentLoaded', this.handleCounterValueChange);
-        this.increment.addEventListener('click', this.handleCountChange);   
-        this.decrement.addEventListener('click', this.handleCountChange);
+        this.setCounterChangeEventListeners();
+        this.setCounterClearEventListener();
     }
 };
 

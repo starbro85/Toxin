@@ -1,21 +1,22 @@
 /* root styles */
 
 .counters-bar {    
-    display: grid;    
-    gap: 7px;
+    display: grid;
+    gap: 13px;
+    grid-template-areas: 'list list';
     padding: 7px 15px; padding-right: 7px;
 }
 
-.counters-bar__footer {
-    padding-top: 13px;
-    display: flex;
-    justify-content: space-between;
+.counters-bar__list {
+    grid-area: list;
+    display: grid; 
+    gap: 7px;
+    list-style: none;   
 }
-
-/* apply/clear buttons styles */
 
 .counters-bar__apply-button,
 .counters-bar__clear-button {
+    width: min-content;
     padding: 5px 0;
     font: var(--h3-font);
     text-transform: uppercase;
@@ -23,11 +24,17 @@
 }
 
 .counters-bar__apply-button {
+    justify-self: self-end;
     color: var(--purple-100per);
 }
 
 .counters-bar__clear-button {
-    opacity: 0;
+    opacity: 1;
     transition: opacity .4s;
     color: var(--dark-shade-50per);
+}
+
+.counters-bar__clear-button:disabled {
+    opacity: 0;
+    pointer-events: none;
 }

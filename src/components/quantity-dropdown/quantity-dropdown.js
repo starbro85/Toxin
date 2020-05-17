@@ -6,30 +6,75 @@ class Quantity {
         this.root = node;
         this.input = this.root.querySelector('.js-text-field__input');
         this.button = this.root.querySelector('.js-dropdown__button');
-        this.countersBar = this.root.querySelectorAll('.js-counters-bar');
+        this.countersBar = this.root.querySelector('.js-counters-bar');
         this.counterData = {};
 
         this.init();
     }
 
-    updateInputValue() {
+    getInputSizeInChar() {
+        const style = getComputedStyle(this.input);
+        const inputWidth = parseInt(style.width);
+        const inputSizeInChar = Math.floor(inputWidth * 0.125);
+
+        return inputSizeInChar;
+    }
+    
+    getInputValue() {
         const counterValues = Object.values(this.counterData);
+        const inputValue = counterValues.reduce((acc, data) => {
+            if (data.value !== 0) {
+                return `${acc} ${formatValue(data.plural, data.value)},`;
+            } 
+            else {
+                return `${acc}`;
+            } 
+        }, '');
 
-        const inputValue = counterValues.reduce((acc, data) => (data.value !== 0) ? `${acc} ${formatValue(data.plural, data.value)},` : `${acc}`, '');
-
-        this.input.value = inputValue.substr(0, inputValue.length - 1);
-        this.button.title = inputValue.substr(0, inputValue.length - 1);
+        return inputValue.substring(0, inputValue.length -1);
     }
 
-    setCounterValueDispatchEventListener() {
-        Array.from(this.countersBar).forEach((counter) => counter.addEventListener('counter-value-dispatch', event => {
+    getInputValueNormalized() {
+        const counterValues = Object.values(this.counterData);
+        let addEllipsis = false;
+        const inputSize = this.getInputSizeInChar();
+        const inputValueNoramlized = counterValues.reduce((acc, data) => {
+            if (data.value !== 0) {
+                if (`${acc} ${formatValue(data.plural, data.value)},`.length < inputSize) {
+                    return `${acc} ${formatValue(data.plural, data.value)},`;
+                }
+                else {
+                    addEllipsis = true;
+                    return `${acc}`;
+                }
+            } 
+            else {
+                return `${acc}`;
+            } 
+        }, '');
+
+        if (addEllipsis) {
+            return `${inputValueNoramlized.substr(0, inputValueNoramlized.length - 1)}…`
+        }
+        else {
+            return inputValueNoramlized.substr(0, inputValueNoramlized.length - 1);
+        }
+    }
+
+    updateInputValue() {
+        this.input.value = this.getInputValueNormalized();
+        this.button.title = this.getInputValue();
+    }
+
+    setDataSentEventListener() {
+        this.countersBar.addEventListener('data-sent', event => {
             this.counterData = event.detail.counterData;
-            this.updateInputValue()
-        }));  
+            this.updateInputValue();
+        });
     }
 
     init() {
-        this.setCounterValueDispatchEventListener();
+        this.setDataSentEventListener();
     }
 };
 
