@@ -5,3 +5,4 @@ import './../../components/label-wrapper/label-wrapper.js';
 import './../../components/text-field/text-field.js';
 import './../../components/dropdown/dropdown.js';
 import './../../components/quantity-dropdown/quantity-dropdown.js';
+import './../../components/date-dropdown/date-dropdown.js';

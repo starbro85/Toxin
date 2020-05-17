@@ -1,0 +1,13 @@
+/* default theme styles */
+
+.date-dropdown_theme_twin {
+    display: grid;
+    grid-auto-flow: column;
+    gap: min(1vw, 20px);
+}
+
+/* filter theme styles */
+
+.date-dropdown_theme_single {
+    width: min(100%, 266px);
+}
