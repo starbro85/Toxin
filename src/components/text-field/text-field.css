@@ -1,15 +1,23 @@
 /* root styles */
 
 .text-field {
-    height: 44px;
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: auto 44px;
+    grid-template-areas: 
+        'label label'
+        'input icon';
+    grid-template-columns: 1fr min-content;
+    
 }
 
-/* text-field__icon styles */
+.text-field__label {
+    grid-area: label;
+    margin-bottom: 5px;
+    font: var(--h3-font);
+    text-transform: uppercase;
+}
 
 .text-field__icon {
+    grid-area: icon;
     width: 44px;
     display: flex;
     justify-content: center;
@@ -17,29 +25,41 @@
     font-size: 24px;
 }
 
-/* text-field__input styles */
-
 .text-field__input {
+    grid-area: input;
     width: 100%;
-    align-items: center;
-    border: var(--border-dark-shade-25per);
-    border-radius: 4px;
+    height: 44px;
     padding: 0 12px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
-.text-field__input:hover, .text-field__input:focus {
+/* default theme styles */
+
+.text-field_theme_default .text-field__input {
+    border: var(--border-dark-shade-25per);
+    border-radius: 4px;
+}
+
+.text-field_theme_default .text-field__input:hover, .text-field__input:focus {
     border: var(--border-dark-shade-50per);
 }
 
-.text-field__input::placeholder {
+.text-field_theme_default .text-field__input::placeholder {
     color: var(--dark-shade-25per);
 }
 
-.text-field__input:focus::placeholder, 
-.text-field__input:hover::placeholder {
+.text-field_theme_default .text-field__input:focus::placeholder, 
+.text-field_theme_default .text-field__input:hover::placeholder {
     color: var(--dark-shade-75per);
 }
 
+/* dropdown theme styles */
+
+.text-field_theme_dropdown .text-field__input {
+    border: none;
+    padding-right: 0;
+    pointer-events: none;
+}
+
+.text-field_theme_dropdown .text-field__input::placeholder {
+    color: var(--dark-shade-75per);
+}

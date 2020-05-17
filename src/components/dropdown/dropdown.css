@@ -4,26 +4,21 @@
     position: relative;
 }
 
-/* dropdown__button styles */
+.dropdown__label {
+    margin-bottom: 5px;
+}
 
 .dropdown__button {
-    width: 100%;
     border: var(--border-dark-shade-25per);
     border-radius: 4px;
     cursor: pointer; 
 }
 
-.dropdown__button:hover, .dropdown__button:focus {
+.dropdown__button:hover, 
+.dropdown__button:focus, 
+.dropdown_is_showed .dropdown__button {
     border: var(--border-dark-shade-50per);
 }
-
-.dropdown_is_showed.dropdown_theme_default .dropdown__button {
-    border: var(--border-dark-shade-50per);
-    border-bottom-left-radius: 0; border-bottom-right-radius: 0;
-    transition: border-bottom-left-radius .6s, border-bottom-right-radius .6s;
-}
-
-/* icon style */
 
 .dropdown__icon {
     width: min-content;
@@ -42,30 +37,30 @@
     color: var(--dark-shade-75per);
 }
 
-/* dropdown__viewport styles */
-
 .dropdown__viewport {
+    z-index: -1;
     min-width: calc(100% + 40px); 
     padding: 0 20px 20px 20px;
     position: absolute;
     overflow: hidden;
     left: -20px;
     opacity: 0;
-    transition: opacity .6s;
+    visibility: hidden;
+    transition: visibility step-end .6s, opacity .6s;
     pointer-events: none;
 }
 
 .dropdown_is_showed .dropdown__viewport {
+    z-index: 1;
     opacity: 1;
-    background-color: white;
+    visibility: visible;
     transition: opacity .6s;
     pointer-events: auto;
 }
 
-/* dropdown__container styles */
-
 .dropdown__container {
     box-shadow: 0px 10px 20px var(--dark-shade-5per);
+    background-color: white;
     transform: translateY(-100%);
     transition: transform .6s;
 }
@@ -73,6 +68,13 @@
 .dropdown_is_showed .dropdown__container {
     transform: translateY(0);   
     transition: transform .6s;
+}
+
+/* default theme styles */
+
+.dropdown_theme_default.dropdown_is_showed .dropdown__button {
+    border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+    transition: border-bottom-left-radius .6s, border-bottom-right-radius .6s;
 }
 
 .dropdown_theme_default .dropdown__container {
@@ -84,3 +86,5 @@
     border: var(--border-dark-shade-50per);
     border-top: none;
 }
+
+/*  */

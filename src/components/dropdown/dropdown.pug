@@ -1,10 +1,12 @@
 include ../text-field/text-field
 include ../icon/icon
 
-mixin dropdown({ placeholder, disabled=false, show=false, theme='default' })
-    div.dropdown.js-dropdown(data-state-show=show data-state-disabled=disabled data-theme=theme)
-        button(type='button').dropdown__button.js-dropdown__button
-            +text-field({ placeholder, disabled: 'true', tabindex: '-1', style: 'border: none; cursor: pointer; pointer-events: none; padding-right: 0;' })
+mixin dropdown({ label, placeholder, disabled=false, mask, show=false, theme='default' })
+    div.dropdown.js-dropdown(data-state-show=show data-theme=theme)
+        if label
+            h3.dropdown__label #{label}
+        div(type='button' disabled=disabled).dropdown__button.js-dropdown__button
+            +text-field({ placeholder, mask, disabled: 'true', tabindex: '-1', theme: 'dropdown' })
                 div.text-field__icon
                     div.dropdown__icon
                         +icon({ icon: 'expand_more' })  

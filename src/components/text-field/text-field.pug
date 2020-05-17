@@ -1,5 +1,7 @@
-mixin text-field({ type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false })
-    div.text-field.js-text-field
+mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false, theme='default' })
+    div.text-field.js-text-field(data-theme=theme)
+        if label
+            h3.text-field__label #{label}
         input.text-field__input.js-text-field__input(
                                                     type=type
                                                     name=name
