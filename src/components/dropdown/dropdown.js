@@ -44,7 +44,7 @@ class Dropdown {
     init() {
         this.root.classList.add('dropdown_theme_' + this.theme);
 
-        if (this.stateShow) {
+        if (this.isShow) {
             this.show();
         }
 

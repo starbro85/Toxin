@@ -52,14 +52,35 @@
     color: var(--dark-shade-75per);
 }
 
-/* dropdown theme styles */
+/* borderless theme styles */
 
-.text-field_theme_dropdown .text-field__input {
+.text-field_theme_borderless .text-field__input {
     border: none;
     padding-right: 0;
     pointer-events: none;
 }
 
-.text-field_theme_dropdown .text-field__input::placeholder {
+.text-field_theme_borderless .text-field__input::placeholder {
+    color: var(--dark-shade-75per);
+}
+
+/* subscribtion field theme styles */
+
+.text-field_theme_subscribtion .text-field__input {
+    border: var(--border-dark-shade-25per);
+    border-right: none;
+    border-top-left-radius: 4px; border-bottom-left-radius: 4px;
+}
+
+.text-field_theme_subscribtion .text-field__input:hover, .text-field__input:focus {
+    border: var(--border-dark-shade-50per);
+}
+
+.text-field_theme_subscribtion .text-field__input::placeholder {
+    color: var(--dark-shade-25per);
+}
+
+.text-field_theme_subscribtion .text-field__input:focus::placeholder, 
+.text-field_theme_subscribtion .text-field__input:hover::placeholder {
     color: var(--dark-shade-75per);
 }

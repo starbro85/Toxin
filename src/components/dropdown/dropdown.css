@@ -2,6 +2,7 @@
 
 .dropdown {
     position: relative;
+    height: 65px;
 }
 
 .dropdown__label {
@@ -9,9 +10,14 @@
 }
 
 .dropdown__button {
+    width: 100%;
     border: var(--border-dark-shade-25per);
     border-radius: 4px;
     cursor: pointer; 
+}
+
+.dropdown__button:disabled {
+    cursor: default;
 }
 
 .dropdown__button:hover, 
@@ -43,11 +49,11 @@
     padding: 0 20px 20px 20px;
     position: absolute;
     overflow: hidden;
+    top: 65.7px;
     left: -20px;
     opacity: 0;
     visibility: hidden;
     transition: visibility step-end .6s, opacity .6s;
-    pointer-events: none;
 }
 
 .dropdown_is_showed .dropdown__viewport {
@@ -55,7 +61,6 @@
     opacity: 1;
     visibility: visible;
     transition: opacity .6s;
-    pointer-events: auto;
 }
 
 .dropdown__container {
@@ -74,7 +79,6 @@
 
 .dropdown_theme_default.dropdown_is_showed .dropdown__button {
     border-bottom-left-radius: 0; border-bottom-right-radius: 0;
-    transition: border-bottom-left-radius .6s, border-bottom-right-radius .6s;
 }
 
 .dropdown_theme_default .dropdown__container {

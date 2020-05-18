@@ -5,7 +5,7 @@ mixin dropdown({ label, placeholder, disabled=false, mask, show=false, theme='de
     div.dropdown.js-dropdown(data-state-show=show data-theme=theme)
         if label
             h3.dropdown__label #{label}
-        div(type='button' disabled=disabled).dropdown__button.js-dropdown__button
+        button(type='button' disabled=disabled).dropdown__button.js-dropdown__button
             +text-field({ placeholder, mask, disabled: 'true', tabindex: '-1', theme: 'dropdown' })
                 div.text-field__icon
                     div.dropdown__icon
