@@ -6,13 +6,16 @@ include ../../components/dropdown/dropdown
 include ../../components/quantity-dropdown/quantity-dropdown
 include ../../components/date-dropdown/date-dropdown
 include ../../components/subscribtion-field/subscribtion-field
+include ../../components/expander/expander
+include ../../components/list/list
+include ../../components/checkbox/checkbox
 
 block title
     | Form elements
 
 block content
-    main.form-elements
-        div.form-elements__group-1
+    main.form-elements    
+        div.form-elements__group
             div.form-elements__text-field
                 +text-field({ label: 'text field', name: 'text-field', type: 'email', placeholder: 'Email' })
             div.form-elements__text-field
@@ -37,20 +40,90 @@ block content
             div.form-elements__subscribtion-field
                 +subscribtion-field({ label: 'subscribtion field' })
 
-        div.form-elements__group-2
-            div.form-elements__filter-dropdown
-                +quantity-dropdown({ label: 'dropdown', name: 'guests', placeholder: 'Сколько комнат', mode: 'autoApply', disabled: 'true' })
+        div.form-elements__group
+            div.form-elements__checkbox-buttons
+                +list({ label: 'checkbox buttons' })
+                    li.lisst__item
+                        +checkbox({ name: 'smoke', label: 'Можно курить' })
+                    li.lisst__item
+                        +checkbox({ name: 'pet', label: 'Можно с питомцами', checked: 'true' })
+                    li.lisst__item
+                        +checkbox({ name: 'guests', label: 'Можно пригласить гостей (до 10 человек)', checked: 'true' })
+
+        div.form-elements__group
+        
+        div.form-elements__group
+                div.form-elements__filter-dropdown
+                    +quantity-dropdown({ label: 'dropdown', name: 'guests', placeholder: 'Сколько комнат', mode: 'autoApply', disabled: 'true' })
+                        li.counter-bar__list-item
+                            +counter({ label: 'спальни', name: 'bedrooms', minValue: '0', maxValue: '5', plural: { one: 'спальня', few: 'спальни', many: 'спален' } })
+                        li.counter-bar__list-item
+                            +counter({ label: 'кровати', name: 'beds', minValue: '0', maxValue: '5', plural: { one: 'кровать', few: 'кровати', many: 'кроватей' } })
+                        li.counter-bar__list-item
+                            +counter({ label: 'ванные комнаты', name: 'bathroom', minValue: '0', maxValue: '5', plural: { one: 'ванная комната', few: 'ванные комнаты', many: 'ванных комнат' } })
+                div.form-elements__filter-dropdown
+                    +quantity-dropdown({ label: 'dropdown', name: 'guests', placeholder: 'Сколько комнат', mode: 'autoApply', show: 'true', disabled: 'true' })
+                        li.counter-bar__list-item
+                            +counter({ label: 'спальни', name: 'bedrooms', minValue: '0', maxValue: '5', defaultValue: '2', plural: { one: 'спальня', few: 'спальни', many: 'спален' } })
+                        li.counter-bar__list-item
+                            +counter({ label: 'кровати', name: 'beds', minValue: '0', maxValue: '5', defaultValue: '2', plural: { one: 'кровать', few: 'кровати', many: 'кроватей' } })
+                        li.counter-bar__list-item
+                            +counter({ label: 'ванные комнаты', name: 'bathroom', minValue: '0', maxValue: '5', plural: { one: 'ванная комната', few: 'ванные комнаты', many: 'ванных комнат' } }) 
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__double-gap
+                div.form-elements__expandable-checkbox-list
+                    +expander({ label: 'expandable checkbox list' })
+                        +list({})
+                            li.lisst__item
+                                +checkbox({ name: 'breakfast', label: 'Завтрак' })
+                            li.lisst__item
+                                +checkbox({ name: 'desk', label: 'Письменный стол' })
+                            li.lisst__item
+                                +checkbox({ name: 'feedingChair', label: 'Стул для кормления' })
+                            li.lisst__item
+                                +checkbox({ name: 'crib', label: 'Кроватка' })
+                            li.lisst__item
+                                +checkbox({ name: 'tv', label: 'Телевизор' })
+                            li.lisst__item
+                                +checkbox({ name: 'schampoo', label: 'Шампунь' })
+                div.form-elements__expandable-checkbox-list
+                    +expander({ label: 'expandable checkbox list', expand: 'true' })
+                        +list({})
+                            li.lisst__item
+                                +checkbox({ name: 'breakfast', label: 'Завтрак' })
+                            li.lisst__item
+                                +checkbox({ name: 'desk', label: 'Письменный стол', checked: 'true' })
+                            li.lisst__item
+                                +checkbox({ name: 'feedingChair', label: 'Стул для кормления', checked: 'true' })
+                            li.lisst__item
+                                +checkbox({ name: 'crib', label: 'Кроватка', checked: 'true' })
+                            li.lisst__item
+                                +checkbox({ name: 'tv', label: 'Телевизор' })
+                            li.lisst__item
+                                +checkbox({ name: 'schampoo', label: 'Шампунь' })
+
+        div.form-elements__group
+            div.form-elements__dropdown
+                +quantity-dropdown({ label: 'dropdown', name: 'guests', placeholder: 'Сколько гостей', mode: 'manualApply', show: 'true', disabled: 'true' })
                     li.counter-bar__list-item
-                        +counter({ label: 'спальни', name: 'bedrooms', minValue: '0', maxValue: '5', plural: { one: 'спальня', few: 'спальни', many: 'спален' } })
+                        +counter({ label: 'взрослые', name: 'adults', minValue: '0', maxValue: '5', plural: { one: 'гость', few: 'гостя', many: 'гостей' }, isBound: 'true', boundName: 'guests' })
                     li.counter-bar__list-item
-                        +counter({ label: 'кровати', name: 'beds', minValue: '0', maxValue: '5', plural: { one: 'кровать', few: 'кровати', many: 'кроватей' } })
+                        +counter({ label: 'дети', name: 'kids', minValue: '0', maxValue: '5', plural: { one: 'гость', few: 'гостя', many: 'гостей' }, isBound: 'true', boundName: 'guests' })
                     li.counter-bar__list-item
-                        +counter({ label: 'ванные комнаты', name: 'bathroom', minValue: '0', maxValue: '5', plural: { one: 'ванная комната', few: 'ванные комнаты', many: 'ванных комнат' } })
-            div.form-elements__filter-dropdown
-                +quantity-dropdown({ label: 'dropdown', name: 'guests', placeholder: 'Сколько комнат', mode: 'autoApply', show: 'true', disabled: 'true' })
+                        +counter({ label: 'младенцы', name: 'babies', minValue: '0', maxValue: '5', plural: { one: 'младенец', few: 'младенцев', many: 'младенцев' } })
+                               
+        div.form-elements__group
+            div.form-elements__dropdown
+                +quantity-dropdown({ label: 'dropdown', name: 'guests', placeholder: 'Сколько гостей', mode: 'manualApply', show: 'true', disabled: 'true' })
                     li.counter-bar__list-item
-                        +counter({ label: 'спальни', name: 'bedrooms', minValue: '0', maxValue: '5', defaultValue: '2', plural: { one: 'спальня', few: 'спальни', many: 'спален' } })
+                        +counter({ label: 'взрослые', name: 'adults', defaultValue: '2', minValue: '0', maxValue: '5', plural: { one: 'гость', few: 'гостя', many: 'гостей' }, isBound: 'true', boundName: 'guests' })
                     li.counter-bar__list-item
-                        +counter({ label: 'кровати', name: 'beds', minValue: '0', maxValue: '5', defaultValue: '2', plural: { one: 'кровать', few: 'кровати', many: 'кроватей' } })
+                        +counter({ label: 'дети', name: 'kids', defaultValue: '1', minValue: '0', maxValue: '5', plural: { one: 'гость', few: 'гостя', many: 'гостей' }, isBound: 'true', boundName: 'guests' })
                     li.counter-bar__list-item
-                        +counter({ label: 'ванные комнаты', name: 'bathroom', minValue: '0', maxValue: '5', plural: { one: 'ванная комната', few: 'ванные комнаты', many: 'ванных комнат' } })      
+                        +counter({ label: 'младенцы', name: 'babies', minValue: '0', maxValue: '5', plural: { one: 'младенец', few: 'младенцев', many: 'младенцев' } })

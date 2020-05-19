@@ -1,21 +1,25 @@
+/* root styles */
+
 .form-elements {
     display: grid;
+    grid-template-columns: repeat(auto-fit, min(100%, 320px));
+    gap: 99px;
+    justify-content: center;
+}
+
+.form-elements__column {
+    display: grid;
     gap: 100px;
+    
 }
 
-.form-elements__group-1 {
-    width: min(100%, 320px);
+.form-elements__group {
     display: grid;
     gap: 20px;
 }
 
-.form-elements__group-2 {
-    width: min(100%, 320px);
-    display: grid;
-    gap: 20px;
-}
-
-.form-elements__filter-dropdown, .form-elements__filter-datepicker {
+.form-elements__filter-dropdown, 
+.form-elements__filter-datepicker, 
+.form-elements__expandable-checkbox-list {
     width: min(100%, 266px);
 }
-
