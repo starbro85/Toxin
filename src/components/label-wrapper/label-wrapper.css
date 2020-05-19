@@ -1,4 +1,14 @@
 .label-wrapper {
     display: grid;
-    gap: 5px;
+    gap: 10px;
+}
+
+.label-wrapper__heading {
+    margin-bottom: 6px;
+}
+
+.label-wrapper__horizontal-block {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
 }

@@ -12,13 +12,13 @@
 
     --purple-hue:           259;
     --purple-100per:        hsla(var(--purple-hue), 100%, 81%, 1);
-    --purple-gradient:      linear-gradient(180deg, var(--purple-hue) 0%, #8BA4F9 100%);
+    --purple-gradient:      linear-gradient(180deg, var(--purple-100per) 0%, #8BA4F9 100%);
 
     /* green color set */
 
     --green-hue:            145;
     --green-100per:         hsla(var(--green-hue), 50%, 62%, 1);
-    --green-gradient:      linear-gradient(180deg, var(--green-hue) 0%, #66D2EA 100%);
+    --green-gradient:      linear-gradient(180deg, var(--green-100per) 0%, #66D2EA 100%);
 
     /* custom outline style */
 
@@ -26,6 +26,7 @@
 
     /* dark shade border set */
 
+    --border-dark-shade-5per:          1px solid var(--dark-shade-5per);
     --border-dark-shade-25per:         1px solid var(--dark-shade-25per);
     --border-dark-shade-50per:         1px solid var(--dark-shade-50per);
 

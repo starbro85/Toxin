@@ -3,11 +3,6 @@
     cursor: pointer;
 }
 
-.checkbox__label {
-    color: var(--dark-shade-50per);
-    line-height: 18px;
-}
-
 .checkbox__mark {
     min-width: 20px;
     height: 20px;
@@ -26,7 +21,7 @@
     height: 8px;
     clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 66.666666666% 0%, 66.666666666% 75%, 0% 75%);
     transform: rotate(45deg);
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background: var(--purple-gradient);
     opacity: 0;
     transition: opacity .4s; 
 }
@@ -60,4 +55,9 @@
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
+}
+
+.checkbox__label {
+    color: var(--dark-shade-50per);
+    line-height: 18px;
 }
