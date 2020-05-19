@@ -7,6 +7,13 @@
         auto 1fr 30px 32px 30px;
     grid-template-areas: 
         'label . decrement counter increment';
+    align-items: center;
+}
+
+.counter__label {
+    grid-area: label;
+    font: var(--h3-font);
+    text-transform: uppercase;
 }
 
 .counter__decrement {
@@ -54,12 +61,4 @@
 .counter__input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-
-.counter__label {
-    grid-area: label;
-    display: flex;
-    align-items: center;
-    font: var(--h3-font);
-    text-transform: uppercase;
 }

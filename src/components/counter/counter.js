@@ -48,6 +48,7 @@ class Counter {
         this.root.addEventListener('counter-clear', event => {
             this.value = 0
             this.input.value = this.value;
+            this.addCounterChangeEvent();
             this.normalizeRange()
         })
     }
@@ -60,7 +61,7 @@ class Counter {
 
     init() {
         this.input.value = this.value;
-        
+
         this.normalizeRange();
         this.setCounterChangeEventListeners();
         this.setCounterClearEventListener();

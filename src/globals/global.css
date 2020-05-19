@@ -30,7 +30,7 @@
     --border-dark-shade-50per:         1px solid var(--dark-shade-50per);
 
 
-    --body-font:            normal 14px/171% "Montserrat", sans-serif;
+    --body-font:            normal 14px/24px "Montserrat", sans-serif;
 
     --h1-font:              normal bold 24px/30px "Quicksand", "Open Sans", sans-serif;
 
@@ -66,7 +66,7 @@ button[type]:focus, input:focus, a:focus {
 
 body, input {
     font: var(--body-font);
-    color: var(--dark-shade-75per)
+    color: var(--dark-shade-75per);
 }
 
 /* text format for anchors */
@@ -92,7 +92,7 @@ h2 {
 
 /* text format for third level headings */
 
-h3 {
+h3, lh {
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
