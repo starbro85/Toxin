@@ -10,3 +10,4 @@ import './../../components/subscribtion-field/subscribtion-field.js';
 import './../../components/expander/expander.js';
 import './../../components/list/list.js';
 import './../../components/checkbox/checkbox.js';
+import './../../components/radio/radio.js';

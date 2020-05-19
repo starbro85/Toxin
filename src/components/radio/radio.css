@@ -1,0 +1,57 @@
+/* root styles */
+
+.radio {
+    display: flex;
+    cursor: pointer;
+}
+.radio__mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 21px;
+    height: 21px;
+    margin-right: 10px;
+    border: var(--border-dark-shade-25per);
+    border-radius: 50%; 
+} 
+
+.radio__mark::before {
+    content: '';
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    background: var(--purple-gradient);
+    transform: scale(0);
+    transition: transform .3s;
+}  
+
+.radio__input:checked + .radio__mark {
+    border-color: var(--purple-100per);
+}
+
+.radio__input:checked + .radio__mark::before {
+    transform: scale(1);
+    transition: transform .3s;
+}
+
+.radio__input:disabled + .radio__mark {
+    border: var(--barder-dark-shader-5per);
+}
+
+.radio__input:checked:disabled + .radio__mark::before{
+    background-color: var(--barder-dark-shader-25per); 
+}
+
+.radio__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); 
+} 
+
+.radio__label {
+    color: var(--dark-shade-50per);
+    line-height: 18px;
+}

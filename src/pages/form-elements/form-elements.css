@@ -7,19 +7,19 @@
     justify-content: center;
 }
 
-.form-elements__column {
-    display: grid;
-    gap: 100px;
-    
-}
-
 .form-elements__group {
     display: grid;
+    grid-auto-rows: max-content;
     gap: 20px;
 }
 
 .form-elements__filter-dropdown, 
-.form-elements__filter-datepicker, 
+.form-elements__filter-datepicker,
 .form-elements__expandable-checkbox-list {
     width: min(100%, 266px);
 }
+
+.form-elements__checkbox-buttons {
+    width: min(100%, 222px); height: min-content;
+}
+

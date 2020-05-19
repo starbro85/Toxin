@@ -9,6 +9,7 @@ include ../../components/subscribtion-field/subscribtion-field
 include ../../components/expander/expander
 include ../../components/list/list
 include ../../components/checkbox/checkbox
+include ../../components/radio/radio
 
 block title
     | Form elements
@@ -30,13 +31,13 @@ block content
                         +counter({ label: 'младенцы', name: 'babies', minValue: '0', maxValue: '5', plural: { one: 'младенец', few: 'младенцев', many: 'младенцев' } })   
             div.form-elements__text-field
                 +text-field({  label: 'masked text field', name: 'text-field', placeholder: 'дд.мм.гггг', mask: 'date' })
-            div.form-elements__double-gap
+            div.double-gap
             div.form-elements__date-dropdown
                 +date-dropdown({ labelFrom: 'date dropdown', labelTo: 'date dropdown', theme: 'twin', disabled: 'true' })
-            div.form-elements__double-gap
+            div.double-gap
             div.form-elements__filter-datepicker
                 +date-dropdown({ label: 'filter date dropdown', theme: 'single', disabled: 'true' })
-            div.form-elements__double-gap
+            div.double-gap
             div.form-elements__subscribtion-field
                 +subscribtion-field({ label: 'subscribtion field' })
 
@@ -49,6 +50,13 @@ block content
                         +checkbox({ name: 'pet', label: 'Можно с питомцами', checked: 'true' })
                     li.lisst__item
                         +checkbox({ name: 'guests', label: 'Можно пригласить гостей (до 10 человек)', checked: 'true' })
+            div.double-gap
+            div.form-elements__checkbox-buttons
+                +label-wrapper({ label: 'radio buttons' })
+                    div.label-wrapper__horizontal-block
+                        +radio({ name: 'gender', value: 'male', label: 'Мужчина', checked: 'true' })
+                        div.double-gap
+                        +radio({ name: 'gender', value: 'female', label: 'Женщина' })
 
         div.form-elements__group
         
@@ -69,14 +77,14 @@ block content
                             +counter({ label: 'кровати', name: 'beds', minValue: '0', maxValue: '5', defaultValue: '2', plural: { one: 'кровать', few: 'кровати', many: 'кроватей' } })
                         li.counter-bar__list-item
                             +counter({ label: 'ванные комнаты', name: 'bathroom', minValue: '0', maxValue: '5', plural: { one: 'ванная комната', few: 'ванные комнаты', many: 'ванных комнат' } }) 
-                div.form-elements__double-gap
-                div.form-elements__double-gap
-                div.form-elements__double-gap
-                div.form-elements__double-gap
-                div.form-elements__double-gap
-                div.form-elements__double-gap
-                div.form-elements__double-gap
-                div.form-elements__double-gap
+                div.double-gap
+                div.double-gap
+                div.double-gap
+                div.double-gap
+                div.double-gap
+                div.double-gap
+                div.double-gap
+                div.double-gap
                 div.form-elements__expandable-checkbox-list
                     +expander({ label: 'expandable checkbox list' })
                         +list({})
