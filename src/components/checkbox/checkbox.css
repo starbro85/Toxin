@@ -1,12 +1,15 @@
+/* root styles */
+
 .checkbox {
-    display: flex;
+    display: grid;
+    grid-template-columns: 20px auto;
     cursor: pointer;
 }
 
 .checkbox__mark {
+    grid-area: mark;
     min-width: 20px;
     height: 20px;
-    margin-right: 9.74px;
     padding-bottom: 3px;
     display: flex;
     justify-content: center;
@@ -58,6 +61,40 @@
 }
 
 .checkbox__label {
-    color: var(--dark-shade-50per);
+    grid-area: label;
     line-height: 18px;
+}
+
+/* default theme styles */
+
+.checkbox_theme_default.checkbox {
+    grid-template-areas: 
+        'mark label';
+    grid-column-gap: 10px;
+}
+
+.checkbox_theme_default .checkbox__label {
+    color: var(--dark-shade-50per); 
+}
+
+/* rich theme styles */
+
+.checkbox_theme_rich.checkbox {
+    grid-template-areas: 
+        'mark label'
+        '. describtion';
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+}
+
+.checkbox_theme_rich .checkbox__label {
+    font-weight: bold;
+    color: var(--dark-shade-75per);
+}
+
+.checkbox_theme_rich .checkbox__describtion {
+    grid-area: describtion;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--dark-shade-50per);
 }
