@@ -1,0 +1,6 @@
+mixin list({ label, theme='default' })
+    ul.list.js-list
+        if label
+            lh.list__header #{label}
+        if block
+            block

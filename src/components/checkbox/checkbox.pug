@@ -1,0 +1,6 @@
+mixin checkbox({ name, label, checked=false, disabled=false })
+    label.checkbox      
+        input.checkbox__input(type="checkbox" name=name checked=checked disabled=disabled)
+        div.checkbox__mark
+        if label
+            span.checkbox__label #{label}
