@@ -9,7 +9,7 @@ class Dropdown {
         this.container = this.root.querySelector('.js-dropdown__container');
         this.input = this.root.querySelector('.js-text-field__input');
         this.theme = this.root.dataset.theme;
-        this.isShow = this.root.dataset.stateShow;
+        this.isShowed = this.root.dataset.isShowed;
 
         this.init();
     }
@@ -44,7 +44,7 @@ class Dropdown {
     init() {
         this.root.classList.add('dropdown_theme_' + this.theme);
 
-        if (this.isShow) {
+        if (this.isShowed) {
             this.show();
         }
 

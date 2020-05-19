@@ -66,11 +66,13 @@ class Quantity {
         this.button.title = this.getInputValue();
     }
 
+    handleDataSentEvent = event => {
+        this.counterData = event.detail.counterData;
+        this.updateInputValue();
+    }
+
     setDataSentEventListener() {
-        this.countersBar.addEventListener('data-sent', event => {
-            this.counterData = event.detail.counterData;
-            this.updateInputValue();
-        });
+        this.countersBar.addEventListener('data-sent', this.handleDataSentEvent);
     }
 
     init() {

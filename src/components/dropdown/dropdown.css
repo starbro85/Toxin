@@ -27,7 +27,6 @@
 }
 
 .dropdown__icon {
-    width: min-content;
     color: var(--dark-shade-50per);
     transform: rotate(0);
     transition: transform .6s;

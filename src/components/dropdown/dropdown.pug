@@ -2,7 +2,7 @@ include ../text-field/text-field
 include ../icon/icon
 
 mixin dropdown({ label, placeholder, disabled=false, mask, show=false, theme='default' })
-    div.dropdown.js-dropdown(data-state-show=show data-theme=theme)
+    div.dropdown.js-dropdown(data-is-showed=show data-theme=theme)
         if label
             h3.dropdown__label #{label}
         button(type='button' disabled=disabled).dropdown__button.js-dropdown__button
