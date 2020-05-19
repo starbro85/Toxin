@@ -5,7 +5,7 @@ mixin expander({ label, expand=false, disabled=false })
         button.expander__button.js-expander__button(type="button" disabled=disabled)
             h3.expander__label #{label}
             div.expander__icon
-                +icon({icon: 'expand_more'})
+                +icon() expand_more
         div.expander__viewport
             div.expander__container.js-expander__container
                 if block

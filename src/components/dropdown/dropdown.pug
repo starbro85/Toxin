@@ -9,7 +9,7 @@ mixin dropdown({ label, placeholder, disabled=false, mask, show=false, theme='de
             +text-field({ placeholder, mask, disabled: 'true', tabindex: '-1', theme: 'dropdown' })
                 div.text-field__icon
                     div.dropdown__icon
-                        +icon({ icon: 'expand_more' })  
+                        +icon() expand_more
         div.dropdown__viewport.js-dropdown__viewport
             div.dropdown__container.js-dropdown__container
                 if block

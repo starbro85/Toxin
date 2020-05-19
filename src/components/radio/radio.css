@@ -26,7 +26,7 @@
 }  
 
 .radio__input:checked + .radio__mark {
-    border-color: var(--purple-100per);
+    border: var(--border-purple-100per);
 }
 
 .radio__input:checked + .radio__mark::before {
@@ -40,6 +40,11 @@
 
 .radio__input:checked:disabled + .radio__mark::before{
     background-color: var(--barder-dark-shader-25per); 
+}
+
+.radio__input:focus + .radio__mark {
+    outline: var(--outline);
+    outline-offset: 1px;
 }
 
 .radio__input {
