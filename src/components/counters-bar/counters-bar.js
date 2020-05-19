@@ -13,6 +13,22 @@ class CountersBar {
         this.init();
     }
 
+    addDataSentEvent() {
+        this.root.dispatchEvent(new CustomEvent('data-sent', {
+            detail: {
+                counterData: this.counterData,
+            }
+        }));
+    }
+
+    addDataUpdatedEvent() {
+        this.root.dispatchEvent(new CustomEvent('data-updated'));
+    }
+
+    addDataClearEvent() {
+        Array.from(this.counters).forEach(counter => counter.dispatchEvent(new CustomEvent('counter-clear')));
+    }
+
     handleUpdateCounterData = event => {
         const counterName = event.detail.name;
         const counterPlural = event.detail.plural;
@@ -41,61 +57,55 @@ class CountersBar {
                 isBound: isBound
             }
         }
-    }  
 
-    addDataSentEvent(data) {
-        this.root.dispatchEvent(new CustomEvent('data-sent', {
-            detail: {
-                counterData: data,
-            }
-        }));
-    };
+        this.addDataUpdatedEvent();
+    } 
 
-    addDataClearEvent() {
-        Array.from(this.counters).forEach(counter => counter.dispatchEvent(new CustomEvent('counter-clear')));
+    setCounterChangedEventListenter() {
+        Array.from(this.counters).forEach((counter) => counter.addEventListener('counter-changed', this.handleUpdateCounterData));  
     }
 
-    setClearButtonState() {
-        const clearButtonIsDisabled = Object.values(this.counterData).reduce((isDisabled, data) => data.value > 0 ? isDisabled = false : isDisabled, true);
-        this.clearButton.disabled = clearButtonIsDisabled;
+    setClearButtonDisabledState() {
+        const isDisabled = Object.values(this.counterData).reduce((isDisabled, data) => data.value > 0 ? isDisabled = false : isDisabled , true);
+
+        this.clearButton.disabled = isDisabled;
     }
 
-    handleManualControlEvent = event => {
+    handleManualApplyEvent = event => {
         if (Object.is(event.target, this.applyButton)) {
-            this.addDataSentEvent(this.counterData);
+            this.addDataSentEvent();
         }
 
         if (Object.is(event.target, this.clearButton)) {
-            this.counterData = {};
-            this.addDataSentEvent(this.counterData);
             this.addDataClearEvent();
+            this.addDataSentEvent();      
         }
 
-        this.setClearButtonState()
+        this.setClearButtonDisabledState();
+    };
+
+    setDataUpdatedEventListener() {
+        this.root.addEventListener('data-updated',  event => this.addDataSentEvent());
     }
 
-    counterValueSubmit() {
-        if (Object.is(this.mode, 'autoApply')) {
-            this.addDataSentEvent(this.counterData);
-        }
+    setManualApplyEventListeners() {
+        window.addEventListener('load', event => {
+            this.setClearButtonDisabledState();
+            this.addDataSentEvent();
+        })
+        this.applyButton.addEventListener('click', this.handleManualApplyEvent);
+        this.clearButton.addEventListener('click', this.handleManualApplyEvent);
+    }
+    
+    init() {
+        this.setCounterChangedEventListenter();
 
         if (Object.is(this.mode, 'manualApply')) {
-            this.applyButton.addEventListener('click',this.handleManualControlEvent);
-            this.clearButton.addEventListener('click', this.handleManualControlEvent);
+            this.setManualApplyEventListeners();
         }
-    }
-
-    setCounterChangedEventListenter() {
-        Array.from(this.counters).forEach((counter) => counter.addEventListener('counter-changed',  event => {
-            this.handleUpdateCounterData(event);
-            this.counterValueSubmit();
-        }));  
-    }
-
-    init() {
-
-
-        this.setCounterChangedEventListenter();
+        if (Object.is(this.mode, 'autoApply')) {
+            this.setDataUpdatedEventListener();
+        }
     }
 };
 

@@ -30,7 +30,7 @@
 
 .counters-bar__clear-button {
     opacity: 1;
-    transition: opacity .4s;
+    transition: opacity .2s;
     color: var(--dark-shade-50per);
 }
 
