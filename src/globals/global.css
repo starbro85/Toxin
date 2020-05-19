@@ -29,7 +29,11 @@
     --border-dark-shade-5per:          1px solid var(--dark-shade-5per);
     --border-dark-shade-25per:         1px solid var(--dark-shade-25per);
     --border-dark-shade-50per:         1px solid var(--dark-shade-50per);
+    --border-dark-shade-75per:         1px solid var(--dark-shade-50per);
 
+    /* purple border set */
+
+    --border-purple-100per:              1px solid var(--purple-100per);
 
     --body-font:            normal 14px/24px "Montserrat", sans-serif;
 
@@ -52,7 +56,7 @@
 
 /* custom outline for buttons, inputs and anchors */ 
 
-button[type]:focus, input:focus, a:focus {
+button:focus, button[type]:focus, input:focus, a:focus {
     outline: var(--outline);
     outline-offset: 2px;
 }
@@ -93,7 +97,7 @@ h2 {
 
 /* text format for third level headings */
 
-h3, lh {
+h3 {
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;

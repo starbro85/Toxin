@@ -11,3 +11,6 @@ import './../../components/expander/expander.js';
 import './../../components/list/list.js';
 import './../../components/checkbox/checkbox.js';
 import './../../components/radio/radio.js';
+import './../../components/toggle/toggle.js';
+import './../../components/like-button/like-button.js';
+import './../../components/rate-button/rate-button.js';

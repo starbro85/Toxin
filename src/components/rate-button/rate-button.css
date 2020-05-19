@@ -1,0 +1,26 @@
+/* root styles */
+
+.rate-button {
+    height: 24px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.rate-button::before {
+    content: 'star';
+    font: 24px Material Icons;
+    line-height: 20px;
+    background: var(--purple-gradient);   
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    cursor: pointer;
+}
+
+.rate-button:hover .rate-button::before {
+    content: 'star';
+}
+
+.rate-button:checked ~ .rate-button::before {
+    content: 'star_border';   
+}

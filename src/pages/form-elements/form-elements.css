@@ -15,11 +15,19 @@
 
 .form-elements__filter-dropdown, 
 .form-elements__filter-datepicker,
-.form-elements__expandable-checkbox-list {
+.form-elements__expandable-checkbox-list,
+.form-elements__rich-checkbox-buttons {
     width: min(100%, 266px);
+}
+
+.form-elements__bullet-list {
+    width: min(100%, 260px);
 }
 
 .form-elements__checkbox-buttons {
     width: min(100%, 222px); height: min-content;
 }
 
+.form-elements__rate-bar {
+    display: flex;
+}
