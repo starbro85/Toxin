@@ -1,6 +1,7 @@
 mixin list({ label, theme='default' })
-    ul.list.js-list
+    ul.list.js-list(data-theme=theme)
         if label
-            lh.list__heading #{label}
+            lh.list__heading 
+                h3 #{label}
         if block
             block
