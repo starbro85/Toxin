@@ -1,6 +1,13 @@
 mixin checkbox({ name, label, describtion, checked=false, disabled=false, theme='default' })
-    label.checkbox.js-checkbox(data-theme=theme)     
-        input.checkbox__input(type="checkbox" name=name checked=checked disabled=disabled)
+    label.checkbox.js-checkbox(
+        data-theme=theme
+        )     
+        input.checkbox__input(
+            type="checkbox" 
+            name=name 
+            checked=checked 
+            disabled=disabled
+            )
         div.checkbox__mark
         if theme==='default'
             if label

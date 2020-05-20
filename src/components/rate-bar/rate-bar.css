@@ -1,0 +1,7 @@
+/* root styles */
+
+.rate-bar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+}

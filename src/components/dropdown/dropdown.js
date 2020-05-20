@@ -1,6 +1,7 @@
+import './dropdown.css';
+
 import './../icon/icon.js';
 import './../text-field/text-field.js';
-import './dropdown.css';
 
 class Dropdown {
     constructor(node) {

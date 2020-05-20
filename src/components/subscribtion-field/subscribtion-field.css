@@ -1,9 +1,5 @@
 /* root styles */
 
-.subscribtion-field {
-    width: min(100%, 266px);
-}
-
 .subscribtion-field__button {
     height: 100%; width: 100%;
     border: var(--border-dark-shade-25per);

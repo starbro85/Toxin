@@ -1,12 +1,13 @@
-import './../counter/counter.js';
-import './counters-bar.css';
+import './counter-bar.css';
 
-class CountersBar {
+import './../counter/counter.js';
+
+class CounterBar {
     constructor(node) {
         this.root = node;
         this.counters = this.root.querySelectorAll('.js-counter');
-        this.clearButton = this.root.querySelector('.js-counters-bar__clear-button');
-        this.applyButton = this.root.querySelector('.js-counters-bar__apply-button');
+        this.clearButton = this.root.querySelector('.js-counter-bar__clear-button');
+        this.applyButton = this.root.querySelector('.js-counter-bar__apply-button');
         this.mode = this.root.dataset.mode;
         this.counterData = {};
 
@@ -110,9 +111,9 @@ class CountersBar {
 };
 
 function render() {
-    const components = document.body.querySelectorAll('.js-counters-bar');
+    const components = document.body.querySelectorAll('.js-counter-bar');
     if (components.length > 0) {
-        Array.from(components).map((node) => new CountersBar(node));
+        Array.from(components).map((node) => new CounterBar(node));
     };
 };
 

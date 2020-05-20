@@ -1,7 +1,0 @@
-include ../icon/icon
-
-mixin like-button({ value, active=false })
-    button.like-button.js-like-button(data-active=active)
-        span.like-button__icon
-            +icon()
-        span.like-button__value.js-like-button__value #{value}

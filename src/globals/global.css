@@ -97,7 +97,7 @@ h2 {
 
 /* text format for third level headings */
 
-h3 {
+h3, lh {
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;

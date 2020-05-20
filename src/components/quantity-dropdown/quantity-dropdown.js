@@ -1,4 +1,4 @@
-import './../counters-bar/counters-bar.js';
+import './../counter-bar/counter-bar.js';
 import './../dropdown/dropdown.js';
 
 class Quantity {
@@ -6,7 +6,7 @@ class Quantity {
         this.root = node;
         this.input = this.root.querySelector('.js-text-field__input');
         this.button = this.root.querySelector('.js-dropdown__button');
-        this.countersBar = this.root.querySelector('.js-counters-bar');
+        this.countersBar = this.root.querySelector('.js-counter-bar');
         this.counterData = {};
 
         this.init();

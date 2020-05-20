@@ -1,9 +1,12 @@
 import './list.css';
 
+import '../checkbox/checkbox.js';
+
 class List {
     constructor(node) {
         this.root = node;
         this.theme = this.root.dataset.theme;
+        this.childrens = this.root.children;
 
         this.init();
     }

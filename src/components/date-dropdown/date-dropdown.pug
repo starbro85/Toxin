@@ -5,7 +5,7 @@ mixin date-dropdown({ label, labelFrom, labelTo, show, disabled, theme='twin'})
     if (theme === 'twin')
         div.date-dropdown.date-dropdown_theme_twin
             +dropdown({ label: labelFrom, show, disabled, placeholder: 'дд.мм.гггг', mask: 'date', theme: 'offset' })
-            +dropdown({ label: labelTo, show, disabled, placeholder: 'дд.мм.гггг', mask: 'date', theme: 'offset' })
+            +dropdown({ label: labelTo, show, disabled, placeholder: 'дд.мм.гггг', mask: 'date', theme: 'offset' })           
     if (theme === 'single')
         div.date-dropdown.date-dropdown_theme_single
             +dropdown({ label, show, disabled, placeholder: 'дд.мм-дд-мм', mask: 'date', theme: 'offset' })

@@ -1,0 +1,11 @@
+include ../icon/icon
+
+mixin button({ label, theme="default", disabled=false, icon })
+    button.button.js-button(
+        data-theme=theme
+        disabled=disabled
+        )
+        span.button__label #{label}
+        if icon
+            span.button__icon
+                +icon() #{icon}

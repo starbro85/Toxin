@@ -1,0 +1,122 @@
+/* root styles */
+
+.range {
+    height: 44px;
+    display: grid;
+    grid-template-areas:
+        "label input"
+        "slider slider";
+}
+
+.range__input {
+    grid-area: input;
+    color: var(--dark-shade-50per);
+    height: 15px;
+    text-align: right;
+    pointer-events: none;
+}
+
+.range__slider {
+    height: 6px;
+    grid-area: slider;
+    align-self: end;
+}
+
+.range__base {
+    background: white;
+    border-radius: 3px;
+    border: var(--border-dark-shade-25per);
+    cursor: pointer;
+}
+
+.range__connect {
+    background: var(--green-gradient);
+}
+
+.range__handle {
+    width: 14px; height: 14px;
+    right: -10px; top: -5px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: var(--green-gradient);
+    cursor: pointer;
+}
+
+.range__handle:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
+
+/* NoUiSlider plugin styles. */
+
+.range__target {
+    position: relative;
+}
+
+.range__base,
+.range__connects {
+    width: 100%; height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.range__connects {
+    overflow: hidden;
+    z-index: 0;
+}
+
+.range__connect,
+.range__origin {
+    will-change: transform;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform-style: preserve-3d;
+    transform-origin: 0 0;
+    transform-style: flat;
+}
+
+.range__connect {
+    width: 100%; height: 100%;
+}
+
+.range__origin {
+    width: 10%; height: 10%;
+}
+
+.range__txt-dir-rtl.range__horizontal .range__origin {
+    left: 0;
+    right: auto;
+}
+
+.range__horizontal .range__origin {
+    height: 0;
+}
+
+.range__handle {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.range__touch-area {
+    height: 100%;
+    width: 100%;
+}
+
+.range__state-tap .range__connect,
+.range__state-tap .range__origin {
+    -webkit-transition: transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.range__state-drag * {
+    cursor: inherit !important;
+}
+
+
+

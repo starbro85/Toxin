@@ -27,7 +27,7 @@
 
 /* max-width 487px */
 
-@media(max-width: 487px) {
+@media(max-width: 1285px) {
     .ui-kit-layout {
         grid-template-areas: 
          '. link .'

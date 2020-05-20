@@ -1,0 +1,6 @@
+include ../rate/rate
+
+mixin rate-bar({ rate })
+    div.rate-bar
+        each data in rate
+            +rate(data)

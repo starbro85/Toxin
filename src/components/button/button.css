@@ -1,0 +1,46 @@
+/* root styles */
+
+.button {
+    width: 100%;
+    height: 44px;
+    border-radius: 22px;
+    cursor: pointer;
+} 
+
+.button__label {
+    font: var(--h3-font);
+    text-transform: uppercase;
+}
+
+/* default theme styles */
+
+.button_theme_default.button {
+    background: var(--purple-gradient);
+}   
+
+.button_theme_default .button__label, 
+.button_theme_default .button__icon  {
+    color: white;
+}
+
+/* shaped theme styles */
+        
+.button_theme_shaped.button {
+    background: white;
+    border: 2px solid;
+    border-color: var(--purple-100per);
+}
+
+.button_theme_shaped .button__label, 
+.button_theme_shaped .button__icon {
+    color: var(--purple-100per);
+}
+    
+.button_theme_hollow.button {
+    height: auto;
+    width: max-content;
+}
+
+.button_theme_hollow .button__label {
+    color: var(--purple-100per);
+}

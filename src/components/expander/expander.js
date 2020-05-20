@@ -1,5 +1,6 @@
-import '../icon/icon.js';
 import './expander.css';
+
+import '../icon/icon.js';
 
 class Expander {
     constructor(node) {

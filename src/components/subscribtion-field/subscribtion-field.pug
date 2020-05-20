@@ -6,5 +6,7 @@ mixin subscribtion-field({ label })
         div.subscribtion-field__input
             +text-field({ label, type: 'email', placeholder: 'Email', theme: 'subscribtion', required: 'true' })
                 div.text-field__icon
-                    button.subscribtion-field__button( type='submit' )
+                    button.subscribtion-field__button( 
+                        type='submit' 
+                        )
                         +icon() arrow_forward

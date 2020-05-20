@@ -1,6 +1,6 @@
 /* root styles */
 
-.like-button {
+.like {
     width: 41px; height: 20px;
     display: flex;
     align-items: center;
@@ -10,22 +10,22 @@
     cursor: pointer;
 }
 
-.like-button:hover,
-.like-button:focus {
+.like:hover,
+.like:focus {
     box-shadow: 0 0 5px var(--dark-shade-25per);
 }
 
-.like-button_active.like-button {
+.like_active.like {
     border: var(--border-purple-100per);
 }
 
-.like-button__value {
+.like__count {
     font-size: 10px;
     line-height: 12px;
     color: var(--dark-shade-25per);
 }
 
-.like-button__icon {
+.like__icon {
     width: 20px;
     display: flex;
     justify-content: center;
@@ -34,12 +34,12 @@
     color: var(--dark-shade-25per);
 }
 
-.like-button:hover .like-button__value,
-.like-button:focus .like-button__value {
+.like:hover .like__count,
+.like:focus .like__count {
     color: var(--dark-shade-75per);
 }
 
-.like-button_active.like-button .like-button__icon,
-.like-button_active.like-button .like-button__value {
+.like_active.like .like__icon,
+.like_active.like .like__count {
     color: var(--purple-100per);
 }

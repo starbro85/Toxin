@@ -1,13 +1,13 @@
 /* root styles */
 
-.rate-button {
+.rate {
     height: 24px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-.rate-button::before {
+.rate::before {
     content: 'star';
     font: 24px Material Icons;
     line-height: 20px;
@@ -17,10 +17,10 @@
     cursor: pointer;
 }
 
-.rate-button:hover .rate-button::before {
+.rate:hover .rate::before {
     content: 'star';
 }
 
-.rate-button:checked ~ .rate-button::before {
+.rate:checked ~ .rate::before {
     content: 'star_border';   
 }

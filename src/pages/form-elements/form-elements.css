@@ -14,20 +14,39 @@
 }
 
 .form-elements__filter-dropdown, 
-.form-elements__filter-datepicker,
+.form-elements__filter-date-dropdown,
+.form-elements__subscribtion-text-field,
 .form-elements__expandable-checkbox-list,
-.form-elements__rich-checkbox-buttons {
+.form-elements__rich-checkbox-buttons,
+.form-elements__range {
     width: min(100%, 266px);
 }
 
-.form-elements__bullet-list {
+.form-elements__bullet-list,
+.form-elements__rate-buttons,
+.form-elements__toggle {
     width: min(100%, 260px);
 }
 
 .form-elements__checkbox-buttons {
-    width: min(100%, 222px); height: min-content;
+    width: min(100%, 222px);
 }
 
-.form-elements__rate-bar {
-    display: flex;
+.form-elements__toggle-bar {
+    display: grid;
+    gap: 10px;
+}
+
+.form-elements__rate-buttons-bar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    gap: 20px;
+}
+
+.form-elements__like-bar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    gap: 10px;
 }
