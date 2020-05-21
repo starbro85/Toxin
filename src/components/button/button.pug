@@ -1,9 +1,10 @@
 include ../icon/icon
 
-mixin button({ label, theme="default", disabled=false, icon })
+mixin button({ label, type='submit', theme='default', disabled=false, icon })
     button.button.js-button(
         data-theme=theme
         disabled=disabled
+        type=type
         )
         span.button__label #{label}
         if icon

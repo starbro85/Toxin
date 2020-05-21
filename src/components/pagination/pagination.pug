@@ -1,0 +1,22 @@
+include ../icon/icon
+
+mixin pagination({ pages, active, description })
+    div.pagination.js-pagination
+        nav.pagination__navigation
+            button.pagination__prev-button.js-pagination__prev-button 
+                +icon()
+                    |arrow_back
+            ul.pagination__list
+                each link, index in pages
+                    -const number = index + 1
+                    if number === Number(active)
+                        li.pagination__item.js-pagination__item.pagination__item_active.js-pagination__item_active
+                            a.pagination__link #{number}
+                    else 
+                        li.pagination__item.js-pagination__item
+                            a.pagination__link(href=link) #{number}
+            button.pagination__next-button.js-pagination__next-button 
+                +icon() 
+                    |arrow_forward
+        if description
+            span.pagination__description #{description}

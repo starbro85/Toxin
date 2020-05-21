@@ -12,6 +12,7 @@
 
     --purple-hue:           259;
     --purple-100per:        hsla(var(--purple-hue), 100%, 81%, 1);
+    --purple-50per:        hsla(var(--purple-hue), 100%, 81%, .5);
     --purple-gradient:      linear-gradient(180deg, var(--purple-100per) 0%, #8BA4F9 100%);
 
     /* green color set */
@@ -34,6 +35,7 @@
     /* purple border set */
 
     --border-purple-100per:              1px solid var(--purple-100per);
+    --border-purple-50per:              1px solid var(--purple-50per);
 
     --body-font:            normal 14px/24px "Montserrat", sans-serif;
 

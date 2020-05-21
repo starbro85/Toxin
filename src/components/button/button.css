@@ -1,8 +1,11 @@
 /* root styles */
 
 .button {
-    width: 100%;
-    height: 44px;
+    width: min(100%, 320px); height: 44px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 22px;
     cursor: pointer;
 } 
@@ -12,11 +15,25 @@
     text-transform: uppercase;
 }
 
+.button__icon {
+    width: 44px;
+    position: absolute;
+    right: 0;
+    font-size: 24px;
+    line-height: 24px;
+}
+
 /* default theme styles */
 
 .button_theme_default.button {
     background: var(--purple-gradient);
 }   
+
+.button_theme_default.button:active,
+.button_theme_default.button:disabled {
+    opacity: 0.5;
+    transition: opacity .2s;
+}
 
 .button_theme_default .button__label, 
 .button_theme_default .button__icon  {
@@ -31,10 +48,18 @@
     border-color: var(--purple-100per);
 }
 
+.button_theme_shaped.button:active,
+.button_theme_shaped.button:disabled {
+    border-color: var(--purple-50per);
+    transition: border-color .2s;
+}
+
 .button_theme_shaped .button__label, 
 .button_theme_shaped .button__icon {
     color: var(--purple-100per);
 }
+
+/* hollow theme styles */
     
 .button_theme_hollow.button {
     height: auto;
@@ -43,4 +68,10 @@
 
 .button_theme_hollow .button__label {
     color: var(--purple-100per);
+}
+
+.button_theme_hollow.button:active .button__label,
+.button_theme_hollow.button:disabled .button__label {
+    color: var(--dark-shade-50per);
+    transition: color .2s;
 }

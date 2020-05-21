@@ -16,3 +16,4 @@ import './../../components/like/like.js';
 import './../../components/rate-bar/rate-bar.js';
 import './../../components/range/range.js';
 import './../../components/button/button.js';
+import './../../components/pagination/pagination.js';

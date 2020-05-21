@@ -42,6 +42,11 @@
     cursor: pointer;
 }
 
+.range__handle:hover,
+.range__handle:focus {
+    box-shadow: 0 0 5px var(--dark-shade-50per);
+}
+
 .range__handle:focus {
     outline: var(--outline);
     outline-offset: 2px;

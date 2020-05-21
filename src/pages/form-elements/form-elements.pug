@@ -14,6 +14,7 @@ include ../../components/like/like
 include ../../components/rate-bar/rate-bar
 include ../../components/range/range
 include ../../components/button/button
+include ../../components/pagination/pagination
 
 block title
     | Form elements
@@ -168,10 +169,10 @@ block content
                 })
                     div.form-elements__like-bar
                         +like({
-                            value: '2',
+                            count: '2',
                         })
                         +like({
-                            value: '12',
+                            count: '12',
                             active: 'true'
                         })
             div.form-elements__rate-buttons
@@ -244,7 +245,69 @@ block content
                     step: '500', 
                     margin: '1000'
                 })
-
+            div.form-elements__buttons
+                +label-wrapper({
+                    label: 'buttons'
+                })
+                    div.form-elements__buttons-column
+                        div.form-elements__buttons-bar
+                            +button({
+                                label: 'click me'
+                            })
+                            +button({
+                                label: 'click me',
+                                disabled: 'true'
+                            })
+                        div.form-elements__buttons-bar
+                            +button({
+                                label: 'click me',
+                                theme: 'shaped'
+                            })
+                            +button({
+                                label: 'click me',
+                                theme: 'shaped',
+                                disabled: 'true'
+                            })
+                        div.form-elements__buttons-bar
+                            +button({
+                                label: 'click me',
+                                theme: 'hollow'
+                            })
+                            +button({
+                                label: 'click me',
+                                theme: 'hollow',
+                                disabled: 'true'
+                            })
+            div.form-elements__submit-button
+                +button({
+                    label: 'перейти к оплате',
+                    icon: 'arrow_forward'
+                })
+            div.form-elements__pagination
+                +label-wrapper({
+                    label: 'pagination'
+                })
+                    +pagination({
+                        pages: [
+                            '1',
+                            '2',
+                            '3',
+                            '4',
+                            '5',
+                            '6',
+                            '7',
+                            '8',
+                            '9',
+                            '10',
+                            '11',
+                            '12',
+                            '13',
+                            '14',
+                            '15',
+                        ],
+                        active: '1',
+                        description: '1 – 12 из 100+ вариантов аренды '
+                    })
         div.form-elements__group
                 div.form-elements__filter-dropdown
                     +quantity-dropdown({ 

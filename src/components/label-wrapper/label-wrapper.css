@@ -1,5 +1,4 @@
 .label-wrapper {
     display: grid;
-    grid-auto-columns: min-content;
     gap: 16px;
 }

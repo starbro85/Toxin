@@ -32,6 +32,10 @@
     width: min(100%, 222px);
 }
 
+.form-elements__buttons {
+    width: min(100%, 218px)
+}
+
 .form-elements__toggle-bar {
     display: grid;
     gap: 10px;
@@ -49,4 +53,20 @@
     grid-auto-flow: column;
     grid-auto-columns: min-content;
     gap: 10px;
+}
+
+.form-elements__buttons-column {
+    display: grid;
+    gap: 30px;
+}
+
+.form-elements__buttons-bar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    gap: 20px;
+}
+
+.form-elements__buttons-bar:last-child {
+    grid-auto-columns: max-content;
 }

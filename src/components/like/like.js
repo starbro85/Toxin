@@ -5,9 +5,7 @@ import '../icon/icon.js';
 class Like {
     constructor(node) {
         this.root = node;
-        this.count = this.root.querySelector('.js-like__count');
         this.icon = this.root.querySelector('.js-icon');
-        this.value = this.root.dataset.value;
         this.isActive = this.root.dataset.active;
    
         this.init();
@@ -21,8 +19,6 @@ class Like {
         else {
             this.icon.innerHTML = 'favorite_border';
         }
-
-        this.count.innerHTML = this.value;
     }
 };
 

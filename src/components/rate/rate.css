@@ -17,8 +17,9 @@
     cursor: pointer;
 }
 
-.rate:hover .rate::before {
-    content: 'star';
+.rate:hover::before,
+.rate:focus::before {
+    text-shadow: 0 0 1px var(--dark-shade-50per);
 }
 
 .rate:checked ~ .rate::before {
