@@ -39,10 +39,8 @@ block content
             div.form-elements__dropdown
                 +quantity-dropdown({ 
                     label: 'dropdown', 
-                    name: 'guests', 
-                    placeholder: 'Сколько гостей', 
-                    mode: 'manualApply', 
-                    disabled: 'true',
+                    value: 'Сколько гостей',
+                    mode: 'manualApply',
                     counter: [
                         { 
                             label: 'взрослые', 
@@ -94,15 +92,12 @@ block content
                 +date-dropdown({ 
                     labelFrom: 'date dropdown', 
                     labelTo: 'date dropdown', 
-                    theme: 'twin', 
-                    disabled: 'true' 
+                    theme: 'twin'
                 })
-            div.double-gap
             div.form-elements__filter-date-dropdown
                 +date-dropdown({ 
                     label: 'filter date dropdown', 
-                    theme: 'single', 
-                    disabled: 'true' 
+                    theme: 'single'
                 })
             div.form-elements__subscribtion-text-field
                 +subscribtion-field({ 
@@ -252,35 +247,36 @@ block content
                     div.form-elements__buttons-column
                         div.form-elements__buttons-bar
                             +button({
-                                label: 'click me'
+                                label: 'click me',
+                                theme: 'filled-purple'
                             })
                             +button({
                                 label: 'click me',
+                                theme: 'filled-purple',
                                 disabled: 'true'
                             })
                         div.form-elements__buttons-bar
                             +button({
                                 label: 'click me',
-                                theme: 'shaped'
+                                theme: 'shaped-purple'
                             })
                             +button({
                                 label: 'click me',
-                                theme: 'shaped',
+                                theme: 'shaped-purple',
                                 disabled: 'true'
                             })
                         div.form-elements__buttons-bar
                             +button({
                                 label: 'click me',
-                                theme: 'hollow'
                             })
                             +button({
                                 label: 'click me',
-                                theme: 'hollow',
                                 disabled: 'true'
                             })
             div.form-elements__submit-button
                 +button({
                     label: 'перейти к оплате',
+                    theme: 'filled-purple',
                     icon: 'arrow_forward'
                 })
             div.form-elements__pagination
@@ -312,10 +308,8 @@ block content
                 div.form-elements__filter-dropdown
                     +quantity-dropdown({ 
                         label: 'dropdown', 
-                        name: 'guests', 
-                        placeholder: 'Сколько комнат', 
-                        mode: 'autoApply', 
-                        disabled: 'true',
+                        value: 'Конфигурация номера',
+                        mode: 'autoApply',
                         counter: [
                             { 
                                 label: 'спальни', 
@@ -355,11 +349,9 @@ block content
                 div.form-elements__filter-dropdown
                     +quantity-dropdown({ 
                         label: 'dropdown', 
-                        name: 'guests', 
-                        placeholder: 'Сколько комнат', 
+                        value: 'Конфигурация номера',
                         mode: 'autoApply', 
-                        show: 'true', 
-                        disabled: 'true',
+                        show: 'true',
                         counter: [
                             { 
                                 label: 'спальни', 
@@ -470,11 +462,9 @@ block content
             div.form-elements__dropdown
                 +quantity-dropdown({ 
                     label: 'dropdown', 
-                    name: 'guests', 
-                    placeholder: 'Сколько гостей', 
+                    value: 'Сколько гостей',
                     mode: 'manualApply', 
-                    show: 'true', 
-                    disabled: 'true',
+                    show: 'true',
                     counter: [
                         { 
                             label: 'взрослые', 
@@ -537,12 +527,10 @@ block content
         div.form-elements__group
             div.form-elements__dropdown
                 +quantity-dropdown({ 
-                    label: 'dropdown', 
-                    name: 'guests', 
-                    placeholder: 'Сколько гостей', 
+                    label: 'dropdown',
+                    value: 'Сколько гостей',
                     mode: 'manualApply', 
-                    show: 'true', 
-                    disabled: 'true',
+                    show: 'true',
                     counter: [
                         { 
                             label: 'взрослые', 

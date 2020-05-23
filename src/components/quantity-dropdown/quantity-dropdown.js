@@ -5,8 +5,8 @@ class Quantity {
     constructor(node) {
         this.root = node;
         this.input = this.root.querySelector('.js-text-field__input');
-        this.button = this.root.querySelector('.js-dropdown__button');
         this.countersBar = this.root.querySelector('.js-counter-bar');
+        this.defaultValue = this.input.value;
         this.counterData = {};
 
         this.init();
@@ -62,8 +62,22 @@ class Quantity {
     }
 
     updateInputValue() {
-        this.input.value = this.getInputValueNormalized();
-        this.button.title = this.getInputValue();
+        const inputValue = this.getInputValue();
+        const inputValueNormalized = this.getInputValueNormalized();
+
+        if (inputValueNormalized) {
+            this.input.value = inputValueNormalized;
+        }
+        else {
+            this.input.value = this.defaultValue;
+        }
+
+        if (inputValue) {
+            this.input.title = inputValue;
+        }
+        else {
+            this.input.value = this.defaultValue;
+        }
     }
 
     handleDataSentEvent = event => {

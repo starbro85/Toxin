@@ -1,13 +1,12 @@
 import './counter-bar.css';
 
 import './../counter/counter.js';
+import './../button/button.js';
 
 class CounterBar {
     constructor(node) {
         this.root = node;
         this.counters = this.root.querySelectorAll('.js-counter');
-        this.clearButton = this.root.querySelector('.js-counter-bar__clear-button');
-        this.applyButton = this.root.querySelector('.js-counter-bar__apply-button');
         this.mode = this.root.dataset.mode;
         this.counterData = {};
 
@@ -79,7 +78,7 @@ class CounterBar {
 
         if (Object.is(event.target, this.clearButton)) {
             this.addDataClearEvent();
-            this.addDataSentEvent();      
+            this.addDataSentEvent();     
         }
 
         this.setClearButtonDisabledState();
@@ -102,6 +101,8 @@ class CounterBar {
         this.setCounterChangedEventListenter();
 
         if (Object.is(this.mode, 'manualApply')) {
+            this.clearButton = this.root.querySelector('.js-counter-bar__clear-button-container').querySelector('button');
+            this.applyButton = this.root.querySelector('.js-counter-bar__apply-button-container').querySelector('button');
             this.setManualApplyEventListeners();
         }
         if (Object.is(this.mode, 'autoApply')) {

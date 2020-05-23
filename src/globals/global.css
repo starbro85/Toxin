@@ -1,106 +1,59 @@
 :root {
     /* dark shade color set */
 
-    --dark-shade-hue:       238;
-    --dark-shade-100per:    hsla(var(--dark-shade-hue), 35%, 19%, 1);
-    --dark-shade-75per:     hsla(var(--dark-shade-hue), 35%, 19%, .75);
-    --dark-shade-50per:     hsla(var(--dark-shade-hue), 35%, 19%, .50);
-    --dark-shade-25per:     hsla(var(--dark-shade-hue), 35%, 19%, .25);
-    --dark-shade-5per:      hsla(var(--dark-shade-hue), 35%, 19%, .05);
+    --dark-shade-hue:           238;
+    --dark-shade-100per:        hsla(var(--dark-shade-hue), 35%, 19%, 1);
+    --dark-shade-75per:         hsla(var(--dark-shade-hue), 35%, 19%, .75);
+    --dark-shade-50per:         hsla(var(--dark-shade-hue), 35%, 19%, .50);
+    --dark-shade-25per:         hsla(var(--dark-shade-hue), 35%, 19%, .25);
+    --dark-shade-5per:          hsla(var(--dark-shade-hue), 35%, 19%, .05);
 
     /* purple color set */
 
-    --purple-hue:           259;
-    --purple-100per:        hsla(var(--purple-hue), 100%, 81%, 1);
-    --purple-50per:        hsla(var(--purple-hue), 100%, 81%, .5);
-    --purple-gradient:      linear-gradient(180deg, var(--purple-100per) 0%, #8BA4F9 100%);
+    --purple-hue:               259;
+    --purple-100per:            hsla(var(--purple-hue), 100%, 81%, 1);
+    --purple-50per:             hsla(var(--purple-hue), 100%, 81%, .5);
+    --purple-gradient:          linear-gradient(180deg, var(--purple-100per) 0%, #8BA4F9 100%);
 
     /* green color set */
 
-    --green-hue:            145;
-    --green-100per:         hsla(var(--green-hue), 50%, 62%, 1);
-    --green-gradient:      linear-gradient(180deg, var(--green-100per) 0%, #66D2EA 100%);
+    --green-hue:                145;
+    --green-100per:             hsla(var(--green-hue), 50%, 62%, 1);
+    --green-gradient:           linear-gradient(180deg, var(--green-100per) 0%, #66D2EA 100%);
 
     /* custom outline style */
 
-    --outline:              1px dashed var(--dark-shade-50per); 
+    --outline:                  1px dashed var(--dark-shade-50per); 
 
-    /* dark shade border set */
+    /* box-shadow */
 
-    --border-dark-shade-5per:          1px solid var(--dark-shade-5per);
-    --border-dark-shade-25per:         1px solid var(--dark-shade-25per);
-    --border-dark-shade-50per:         1px solid var(--dark-shade-50per);
-    --border-dark-shade-75per:         1px solid var(--dark-shade-50per);
+    --shadow:                   0 10px 20px var(--dark-shade-5per);
+    --shadow-hover:             0px 0 3px var(--dark-shade-50per);
 
-    /* purple border set */
+    /* border */
 
-    --border-purple-100per:              1px solid var(--purple-100per);
-    --border-purple-50per:              1px solid var(--purple-50per);
+    --border: 1px solid var(--dark-shade-25per);
 
-    --body-font:            normal 14px/24px "Montserrat", sans-serif;
+    /* font styles */
 
-    --h1-font:              normal bold 24px/30px "Quicksand", "Open Sans", sans-serif;
-
-    --h2-font:              normal bold 19px/24px "Quicksand", "Open Sans", sans-serif;
-
-    --h3-font:              normal bold 12px "Montserrat", sans-serif;
+    --body-font:                normal 14px/24px "Montserrat", sans-serif;
+    --h1-font:                  normal bold 24px/30px "Quicksand", "Open Sans", sans-serif;
+    --h2-font:                  normal bold 19px/24px "Quicksand", "Open Sans", sans-serif;
+    --h3-font:                  normal bold 12px "Montserrat", sans-serif;
+    --icon-font:                normal 100%/100% "Material Icons";
 }
 
 /* zero padding and margin, remove border and background, add border-box for headings, button, input tags */
 
-*, h1, h2, h3, button, input {
+*, h1, h2, h3, button, input, a {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: none;
     background: none;
-}
-
-/* custom outline for buttons, inputs and anchors */ 
-
-button:focus, button[type]:focus, input:focus, a:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
-}
-
-/* custom selection */
-
-*::selection {
-    background-color: var(--dark-shade-25per);
-}
-
-/* text format for body */
-
-body, input {
-    font: var(--body-font);
-    color: var(--dark-shade-75per);
-}
-
-/* text format for anchors */
-
-a {
-    color: var(--dark-shade-50per);
     text-decoration: none;
 }
 
-/* text format for first level headings */
-
-h1 {
-    font: var(--h1-font);
-    color: var(--dark-shade-100per);
-}
-
-/* text format for second level headings */
-
-h2 {
-    font: var(--h2-font);
-    color: var(--dark-shade-100per);
-}
-
-/* text format for third level headings */
-
-h3, lh {
-    font: var(--h3-font);
-    color: var(--dark-shade-100per);
-    text-transform: uppercase;
+*::selection {
+    background-color: var(--dark-shade-25per);
 }

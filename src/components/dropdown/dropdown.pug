@@ -1,21 +1,24 @@
 include ../text-field/text-field
-include ../icon/icon
 
-mixin dropdown({ label, placeholder, disabled=false, mask, show=false, theme='default' })
-    div.dropdown.js-dropdown(
-        data-is-showed=show 
-        data-theme=theme
-        )
-        if label
-            h3.dropdown__label #{label}
-        button.dropdown__button.js-dropdown__button(
-            type='button' 
-            disabled=disabled
-            )
-            +text-field({ placeholder, mask, disabled: 'true', tabindex: '-1', theme: 'dropdown' })
-                div.text-field__icon
-                    div.dropdown__icon
-                        +icon() expand_more
+mixin dropdown({ label, value, disabled=false, theme, mask, show=false })
+
+    -const classes = theme ? `dropdown js-dropdown dropdown_theme_${theme}` : 'dropdown js-dropdown';
+
+    div(class = show ? `${classes} dropdown_is_showed` : classes)
+        div.dropdown__button-container.js-dropdown__button-container
+            +text-field({ 
+                type: 'button',
+                theme: 'icon',
+                style: 'cursor: pointer',
+                icon: {
+                    text: 'expand_more',
+                    wrapperClass: 'dropdown__icon'
+                },
+                value, 
+                mask, 
+                label,
+                disabled
+            })
         div.dropdown__viewport.js-dropdown__viewport
             div.dropdown__container.js-dropdown__container
                 if block

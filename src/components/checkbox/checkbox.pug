@@ -1,7 +1,8 @@
-mixin checkbox({ name, label, describtion, checked=false, disabled=false, theme='default' })
-    label.checkbox.js-checkbox(
-        data-theme=theme
-        )     
+mixin checkbox({ name, label, describtion, theme, checked=false, disabled=false })
+
+    -const classes = theme ? `checkbox js-checkbox checkbox_theme_${theme}` : 'checkbox js-checkbox';
+
+    label(class = classes)     
         input.checkbox__input(
             type="checkbox" 
             name=name 
@@ -9,11 +10,7 @@ mixin checkbox({ name, label, describtion, checked=false, disabled=false, theme=
             disabled=disabled
             )
         div.checkbox__mark
-        if theme==='default'
-            if label
-                span.checkbox__label #{label}
-        if theme==='rich'
-            if label
-                span.checkbox__label #{label}
-            if describtion
-                span.checkbox__describtion #{describtion}
+        if label
+            span.checkbox__label #{label}
+        if describtion
+            span.checkbox__describtion #{describtion}

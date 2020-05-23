@@ -1,40 +1,43 @@
-/* root styles */
-
+/* root styles
+*/
 .like {
     width: 41px; height: 20px;
     display: flex;
     align-items: center;
     background: none;
-    border: var(--border-dark-shade-25per);
+    border: var(--border);
     border-radius: 10px;
     cursor: pointer;
 }
-
-.like:hover,
-.like:focus {
-    box-shadow: 0 0 5px var(--dark-shade-50per);
-    text-shadow: 0 0 1px var(--dark-shade-50per);
+.like:hover:not(:disabled),
+.like:focus:not(:disabled) {
+    box-shadow: var(--shadow-hover);
 }
-
 .like_active.like {
-    border: var(--border-purple-100per);
+    border: var(--border);
+    border-color: var(--purple-100per);
 }
 
+/* __count styles
+*/
 .like__count {
+    font: var(--body-font);
     font-size: 10px;
     line-height: 12px;
     color: var(--dark-shade-25per);
 }
 
+/* __icon styles
+*/
 .like__icon {
     width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font: var(--icon-font);
     font-size: 10px;
     color: var(--dark-shade-25per);
 }
-
 .like_active.like .like__icon,
 .like_active.like .like__count {
     color: var(--purple-100per);

@@ -1,10 +1,12 @@
 import './counter.css';
 
+import './../button/button.js';
+
 class Counter {
     constructor(node) {
         this.root = node;
-        this.increment = this.root.querySelector('.js-counter__increment');
-        this.decrement = this.root.querySelector('.js-counter__decrement');
+        this.increment = this.root.querySelector('.js-counter__increment-container').querySelector('button');
+        this.decrement = this.root.querySelector('.js-counter__decrement-container').querySelector('button');
         this.input = this.root.querySelector('.js-counter__input');
         this.value = Number(this.root.dataset.defaultValue);
         this.minValue = Number(this.root.dataset.minValue);

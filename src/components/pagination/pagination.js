@@ -1,14 +1,12 @@
 import './pagination.css';
 
-import './../icon/icon.js';
-
 class Pagination {
     constructor(node) {
         this.root = node;
         this.items = Array.from(this.root.querySelectorAll('.js-pagination__item'));
         this.activeItem = this.root.querySelector('.js-pagination__item_active');
-        this.prevButton = this.root.querySelector('.js-pagination__prev-button');
-        this.nextButton = this.root.querySelector('.js-pagination__next-button');
+        this.prevButton = this.root.querySelector('.js-pagination__prev-button-container').querySelector('button');
+        this.nextButton = this.root.querySelector('.js-pagination__next-button-container').querySelector('button');
         this.ellipsis = '<div class="pagination__ellipsis">...</div>';
 
         this.init();
@@ -16,11 +14,13 @@ class Pagination {
 
     setPrevButtonsDisabledState() {
         const isDisabled = Object.is(this.items[0], this.activeItem);
+        
         this.prevButton.disabled = isDisabled;
     }
 
     setNextButtonsDisabledState() {
         const isDisabled = Object.is(this.items[this.items.length - 1], this.activeItem);
+        
         this.nextButton.disabled = isDisabled;
     }
 
@@ -38,7 +38,7 @@ class Pagination {
 
 
         this.items.forEach((item, index) => {
-            if ((index >= activeItemIndex - 2) && (index <= activeItemIndex + 2)) { 
+            if ((index >= activeItemIndex - 2) && (index <= activeItemIndex + 2) && (index !== activeItemIndex)) {
                 item.classList.add('pagination__item_is_showed');
             }
         })

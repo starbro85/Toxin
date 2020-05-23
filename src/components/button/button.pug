@@ -1,12 +1,15 @@
-include ../icon/icon
+mixin button({ label, type='submit', style, theme, disabled=false, icon })
 
-mixin button({ label, type='submit', theme='default', disabled=false, icon })
-    button.button.js-button(
-        data-theme=theme
+    -const classes = theme ? `button js-button button_theme_${theme}` : 'button js-button';
+
+    button(
+        class = classes,
         disabled=disabled
+        style=style
         type=type
         )
         span.button__label #{label}
+
         if icon
             span.button__icon
-                +icon() #{icon}
+                |#{icon}

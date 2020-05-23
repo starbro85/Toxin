@@ -1,5 +1,5 @@
-/* root styles */
-
+/* root styles
+*/
 .pagination {
     width: max-content;
     display: grid;
@@ -7,60 +7,68 @@
     justify-items: center;
 }
 
-.pagination__navigation {
-    display: flex;
+/* __description styles
+*/
+.pagination__description {
+    font: var(--body-font);
+    color: var(--dark-shade-75per);
+    line-height: 24px;
 }
 
+/* __list styles
+*/
 .pagination__list {
     display: flex;
     list-style: none;
 }
 
+/* __item styles
+*/
 .pagination__item {
     display: none;
 }
-
-.pagination__item_is_showed {
+.pagination__item_is_showed, .pagination__item_active {
     display: flex;
 }
 
+/* __ellipsis styles
+*/
 .pagination__ellipsis {
     width: 40px; height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: default;
 }
 
-.pagination__item_is_showed .pagination__link {
+/* __link styles
+*/
+.pagination__link {
     width: 40px; height: 40px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; align-items: center;
+    font: var(--body-font);
+    color: var(--dark-shade-50per);
+    text-decoration: none;
 }
-
+.pagination__item_is_showed:hover .pagination__link {
+    text-decoration: underline;
+}
 .pagination__item_active .pagination__link {
-    display: flex;
     background: var(--purple-gradient);
     border-radius: 50%;
     color: white;
+    cursor: default;
 }
 
-.pagination__next-button:not(:disabled),
-.pagination__prev-button:not(:disabled) {
+/* [type="button"] styles
+*/
+.pagination__next-button-container [type="button"]:not(:disabled),
+.pagination__prev-button-container [type="button"]:not(:disabled) {
     width: 40px; height: 40px;
-    background: var(--green-gradient);
-    border-radius: 50%;
-    font-size: 24px;
-    line-height: 20px;
-    color: white;
-    cursor: pointer;
 }
-
-.pagination__next-button:disabled,
-.pagination__prev-button:disabled {
+.pagination__next-button-container [type="button"]:disabled,
+.pagination__prev-button-container [type="button"]:disabled {
     display: none;
 }
 
-.pagination__description {
-    line-height: 24px;
-}

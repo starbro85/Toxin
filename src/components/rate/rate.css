@@ -1,5 +1,5 @@
-/* root styles */
-
+/* root styles 
+*/
 .rate {
     height: 24px;
     -webkit-appearance: none;
@@ -7,21 +7,22 @@
     appearance: none;
 }
 
+/* ::before styles
+*/
 .rate::before {
     content: 'star';
-    font: 24px Material Icons;
+    font: var(--icon-font);
+    font-size: 24px;
     line-height: 20px;
     background: var(--purple-gradient);   
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     cursor: pointer;
 }
-
 .rate:hover::before,
 .rate:focus::before {
     text-shadow: 0 0 1px var(--dark-shade-50per);
 }
-
 .rate:checked ~ .rate::before {
     content: 'star_border';   
 }

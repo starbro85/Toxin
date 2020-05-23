@@ -1,11 +1,9 @@
 import './like.css';
 
-import '../icon/icon.js';
-
 class Like {
     constructor(node) {
         this.root = node;
-        this.icon = this.root.querySelector('.js-icon');
+        this.icon = this.root.querySelector('.js-like__icon');
         this.isActive = this.root.dataset.active;
    
         this.init();

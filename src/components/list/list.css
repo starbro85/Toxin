@@ -1,5 +1,5 @@
-/* root styles */
-
+/* root styles 
+*/
 .list {
     display: grid;
     gap: 10px;
@@ -8,21 +8,31 @@
     margin: 0;
 }
 
+
+/* __heading styles
+*/
 .list__heading {
     margin-bottom: 6px;
+    font: var(--h3-font);
+    color: var(--dark-shade-100per);
+    text-transform: uppercase;
 }
 
+
+/* __item styles
+*/
 .list__item {
+    font: var(--body-font);
+    color: var(--dark-shade-75per);
     line-height: 24px;
 }
 
-/* bullet theme styles */
-
+/* _theme_bullet styles 
+*/
 .list_theme_bullet .list__item {
     position: relative;
     margin-left: 20px;
 }
-
 .list_theme_bullet .list__item::before {
     position: absolute;
     content: '';

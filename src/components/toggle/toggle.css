@@ -1,23 +1,56 @@
-/* root styles */
+/* root styles 
+*/
 
 .toggle {   
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: max-content;
-    grid-column-gap: 10px;
+    gap: 0 10px;
     cursor: pointer;   
 }
 
+/* __input styles
+*/
+.toggle__input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}    
+
+/* __label styles
+*/
+.toggle__label {
+    font: var(--body-font);
+    line-height: 24px;
+    color: var(--dark-shade-50per);
+}
+
+/* __box styles
+*/
 .toggle__box {
     width: 41px;
     height: 21px;
     padding: 0 4px;
     display: flex;
     align-items: center;
-    border: var(--border-dark-shade-25per);
+    border: var(--border);
     border-radius: 10px;
 }  
-    
+.toggle:hover:not(:disabled) .toggle__box,
+.toggle:focus:not(:disabled) .toggle__box {
+    box-shadow: var(--shadow-hover);
+}
+.toggle__input:checked + .toggle__box {
+    border-color: var(--purple-100per);
+}
+.toggle__input:focus + .toggle__box {
+    outline: var(--outline);
+    outline-offset: 1px;
+}
+
+/* __box::before styles
+*/
 .toggle__box::before {
     content: '';
     width: 13px;
@@ -25,33 +58,18 @@
     border-radius: 10px;
     background: var(--dark-shade-25per);
     transition: transform .3s;
-}   
-
-.toggle__input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-}    
-
-.toggle__input:checked + .toggle__box {
-    border: var(--border-purple-100per);
-}
-
+}  
 .toggle__input:checked + .toggle__box::before {
     background: var(--purple-gradient);
     transform: translateX(135%);
     transition: transform .3s;
 }
 
-.toggle__input:focus + .toggle__box {
-    outline: var(--outline);
-    outline-offset: 1px;
-}
 
-.toggle__label {
-    color: var(--dark-shade-50per);
-    line-height: 24px;
-}
+
+
+
+
+
+
+

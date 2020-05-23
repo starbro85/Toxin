@@ -59,14 +59,18 @@
     display: grid;
     gap: 30px;
 }
-
 .form-elements__buttons-bar {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: auto;
     gap: 20px;
 }
-
+.form-elements__buttons-bar:not(:last-child) {
+    grid-auto-rows: 44px;
+}
 .form-elements__buttons-bar:last-child {
     grid-auto-columns: max-content;
+}
+.form-elements__submit-button {
+    height: 44px;
 }

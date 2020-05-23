@@ -1,100 +1,94 @@
-/* root styles */
-
+/* root styles 
+*/
 .checkbox {
     display: grid;
+    grid-template-areas: 
+        'mark label'
+        '. describtion';
     grid-template-columns: 20px auto;
+    gap: 0 10px;
     cursor: pointer;
 }
 
+/* __input styles
+*/
+.checkbox__input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* __label styles
+*/
+.checkbox__label {
+    grid-area: label;
+    align-self: center;   
+    font: var(--body-font);   
+    line-height: 18px;
+    color: var(--dark-shade-50per); 
+}
+
+/* __description styles
+*/
+.checkbox__describtion {
+    grid-area: describtion;
+    margin-top: 5px;
+    font: var(--body-font);
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--dark-shade-50per);
+}
+
+/* __mark styles
+*/
 .checkbox__mark {
     grid-area: mark;
-    min-width: 20px;
-    height: 20px;
-    padding-bottom: 3px;
+    width: 20px; height: 20px;
+    padding-bottom: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: var(--border-dark-shade-25per);
+    border: var(--border);
     border-radius: 4px;
 }
+.checkbox:hover .checkbox__mark {
+    box-shadow: var(--shadow-hover);
+}
+.checkbox__input:checked + .checkbox__mark {
+    border-color: var(--purple-100per);
+}
+.checkbox__input:disabled + .checkbox__mark {
+    border-color: var(--dark-shade-5per);
+}
+.checkbox__input:focus + .checkbox__mark {
+    outline: var(--outline);
+    outline-offset: 1px;
+}
 
+/* __mark::before styles
+*/
 .checkbox__mark::before {
     content: '';
-    width: 6px;
-    height: 8px;
+    width: 6px; height: 8px;
     clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 66.666666666% 0%, 66.666666666% 75%, 0% 75%);
     transform: rotate(45deg);
     background: var(--purple-gradient);
     opacity: 0;
     transition: opacity .4s; 
 }
-
-.checkbox__input:checked + .checkbox__mark {
-    border-color: var(--purple-100per);
-}
-
 .checkbox__input:checked + .checkbox__mark::before {
     opacity: 1;
     transition: opacity .4s;  
 }
-
-.checkbox__input:disabled + .checkbox__mark {
-    border: var(--barder-dark-shader-5per);
-}
-
 .checkbox__input:checked:disabled + .checkbox__mark::before {
-    background-color: var(--barder-dark-shader-25per);
+    background: var(--dark-shade-25per);
 }
 
-.checkbox__input:focus + .checkbox__mark {
-    outline: var(--outline);
-    outline-offset: 1px;
-}
-
-.checkbox__input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-}
-
-.checkbox__label {
-    grid-area: label;
-    line-height: 18px;
-}
-
-/* default theme styles */
-
-.checkbox_theme_default.checkbox {
-    grid-template-areas: 
-        'mark label';
-    grid-column-gap: 10px;
-}
-
-.checkbox_theme_default .checkbox__label {
-    color: var(--dark-shade-50per); 
-}
-
-/* rich theme styles */
-
-.checkbox_theme_rich.checkbox {
-    grid-template-areas: 
-        'mark label'
-        '. describtion';
-    grid-column-gap: 10px;
-    grid-row-gap: 5px;
-}
-
+/* _theme_rich styles 
+*/
 .checkbox_theme_rich .checkbox__label {
-    font-weight: bold;
+    grid-area: label;
     color: var(--dark-shade-75per);
-}
-
-.checkbox_theme_rich .checkbox__describtion {
-    grid-area: describtion;
-    font-size: 12px;
-    line-height: 14px;
-    color: var(--dark-shade-50per);
+    font-weight: bold;
 }

@@ -1,12 +1,23 @@
 include ../text-field/text-field
-include ../icon/icon
 
 mixin subscribtion-field({ label })
     form.subscribtion-field
         div.subscribtion-field__input
-            +text-field({ label, type: 'email', placeholder: 'Email', theme: 'subscribtion', required: 'true' })
-                div.text-field__icon
-                    button.subscribtion-field__button( 
-                        type='submit' 
-                        )
-                        +icon() arrow_forward
+            +text-field({ 
+                label, 
+                type: 'email', 
+                placeholder: 'Email', 
+                theme: 'icon-button', 
+                required: 'true',
+                button: {
+                    type: 'submit',
+                    icon: {
+                        text: 'arrow_forward',
+                        wrapperClass: 'subscribtion-field__icon'
+                    }
+                }
+            })
+                button.text-field__button(type='submit')
+                    span.text-field__icon
+                        span.subscribtion-field__icon
+                            +icon() arrow_forward

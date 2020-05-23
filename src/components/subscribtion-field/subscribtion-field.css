@@ -1,16 +1,13 @@
-/* root styles */
+/* root styles
+*/
+.subscribtion-field {
+    width: min(100%, 266px);
+}
 
-.subscribtion-field__button {
-    height: 100%; width: 100%;
-    border: var(--border-dark-shade-25per);
-    border-left: none;
-    border-top-right-radius: 4px; border-bottom-right-radius: 4px;
+/* __icon styles
+*/
+.subscribtion-field__icon {
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);   
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    cursor: pointer;
-}
-
-.subscribtion-field__button:hover, .subscribtion-field__button:focus {
-    border: var(--border-dark-shade-50per);
 }

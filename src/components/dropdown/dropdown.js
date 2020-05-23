@@ -1,16 +1,12 @@
 import './dropdown.css';
 
-import './../icon/icon.js';
 import './../text-field/text-field.js';
 
 class Dropdown {
     constructor(node) {
         this.root = node;
-        this.button = this.root.querySelector('.js-dropdown__button');
+        this.button = this.root.querySelector('.js-dropdown__button-container').querySelector('[type="button"]');
         this.container = this.root.querySelector('.js-dropdown__container');
-        this.input = this.root.querySelector('.js-text-field__input');
-        this.theme = this.root.dataset.theme;
-        this.isShowed = this.root.dataset.isShowed;
 
         this.init();
     }
@@ -43,12 +39,6 @@ class Dropdown {
     }
 
     init() {
-        this.root.classList.add('dropdown_theme_' + this.theme);
-
-        if (this.isShowed) {
-            this.show();
-        }
-
         this.button.addEventListener('click', event => this.setEventListeners());
     }
 };

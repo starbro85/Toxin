@@ -1,7 +1,8 @@
-mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false, theme='default' })
-    div.text-field.js-text-field(
-        data-theme=theme
-        )
+mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false, theme='default', button, icon })
+    
+    -const classes = theme ? `text-field js-text-field text-field_theme_${theme}` : 'text-field js-text-field';
+    
+    div(class=classes)
         if label
             h3.text-field__label #{label}
         input.text-field__input.js-text-field__input(
@@ -19,5 +20,20 @@ mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength
                                                     style=style
                                                     maxlength=maxlength
                                                     )
-        if block
-            block
+        if button
+            button.text-field__button(type=button.type)
+                span.text-field__icon
+                    if button.icon
+                        if button.icon.wrapperClass
+                            span(class=button.icon.wrapperClass) 
+                                |#{button.icon.text}
+                        else
+                            |#{button.icon.text}
+        if icon
+            span.text-field__icon
+                if icon.wrapperClass
+                    span(class=icon.wrapperClass) 
+                        |#{icon.text}
+                else
+                    |#{icon.text}
+    

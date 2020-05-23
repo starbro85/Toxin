@@ -8,6 +8,16 @@ mixin counter({ label, name, minValue, maxValue, defaultValue=minValue, plural={
         data-bound-name=boundName
         )
         span.counter__label #{ label }
-        button.counter__decrement.js-counter__decrement(type='button') -
+        div.counter__decrement-container.js-counter__decrement-container
+            +button({
+                label: '-',
+                type: 'button',
+                theme: 'shaped-dark-thin'
+            })
         input.counter__input.js-counter__input(type='number' name=name value=minValue tabindex='-1')
-        button.counter__increment.js-counter__increment(type='button') +
+        div.counter__increment-container.js-counter__increment-container
+            +button({
+                label: '+',
+                type: 'button',
+                theme: 'shaped-dark-thin'
+            })

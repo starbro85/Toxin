@@ -1,5 +1,8 @@
-/* root styles */
+/* root styles 
+*/
 
+/* __button styles
+*/
 .expander__button {
     width: 100%; height: 44px;
     padding-right: 10px;
@@ -8,40 +11,55 @@
     align-items: center;
     cursor: pointer;
 }
+.expander__button:focus {
+    outline: var(--outline);
+    outline-offset: 1px;
+}
 
+/* __label styles
+*/
+.expander__label {
+    font: var(--h3-font);
+    color: var(--dark-shade-100per);
+    text-transform: uppercase;
+}
+/* __icon styles
+*/
 .expander__icon {
     display: flex;
     align-items: center;
     justify-content: center;   
-    color: var(--dark-shade-50per);
+    font: var(--icon-font);
     font-size: 24px; 
+    color: var(--dark-shade-50per);
     transform: rotate(0);
     transition: transform .6s;
 }   
-
 .expander__button:hover .expander__icon {
     color: var(--dark-shade-75per);
 }
-
-.expander_is_showed .expander__icon {
+.expander_is_expanded .expander__icon {
     transform: rotate(180deg);
     transition: transform .6s;
 }
 
+/* __viewport styles
+*/
 .expander__viewport {
     opacity: 0;          
     max-height: 0;       
     visibility: hidden;
     transition: visibility step-end .6s, opacity .6s, max-height .6s;
  }   
-
- .expander_is_showed .expander__viewport {
+ .expander_is_expanded .expander__viewport {
     max-height: 1000px;
     opacity: 1;  
     visibility: visible;
     transition: opacity .6s, max-height .6s;
 }
 
+/* __container styles
+*/
 .expander__container {
     padding-top: 2.44px;
 }

@@ -1,4 +1,5 @@
 include ../counter/counter
+include ../button/button
 
 mixin counter-bar({ mode='autoApply', counter })
     div.counter-bar.js-counter-bar(
@@ -7,8 +8,17 @@ mixin counter-bar({ mode='autoApply', counter })
         ul.counter-bar__list
             if counter
                 each data in counter
-                    li.counter-bal__list-item
+                    li.counter-bar__list-item
                         +counter(data)
         if (mode==='manualApply')
-            button.counter-bar__clear-button.js-counter-bar__clear-button(type='button') очистить
-            button.counter-bar__apply-button.js-counter-bar__apply-button(type='button') применить
+            div.counter-bar__clear-button-container.js-counter-bar__clear-button-container
+                +button({
+                    type: 'button',
+                    style: 'color: var(--dark-shade-50per)',
+                    label: 'очистить'
+                })
+            div.counter-bar__apply-button-container.js-counter-bar__apply-button-container
+                +button({
+                    type: 'button',
+                    label: 'применить'
+                })

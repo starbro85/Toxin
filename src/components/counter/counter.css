@@ -1,5 +1,5 @@
-/* root styles */
-
+/* root styles 
+*/
 .counter {
     height: 30px;
     display: grid;
@@ -10,53 +10,40 @@
     align-items: center;
 }
 
+/* __label styles
+*/
 .counter__label {
     grid-area: label;
     font: var(--h3-font);
+    color: var(--dark-shade-100per);
     text-transform: uppercase;
 }
 
-.counter__decrement {
+/* __increment/__decrement styles
+*/
+.counter__decrement-container,
+.counter__increment-container {
+    width: 30px; height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.counter__decrement-container {
     grid-area: decrement;
-    width: 30px; height: 30px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border: var(--border-dark-shade-50per);
-    border-radius: 50%;
-    font-size: 18px;
-    color: var(--dark-shade-50per);
-    cursor: pointer;
 }
-
-.counter__decrement:disabled {
-    border: var(--border-dark-shade-25per);
-}
-
-.counter__increment {
+.counter__increment-container {
     grid-area: increment;
-    width: 30px; height: 30px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border: var(--border-dark-shade-50per);
-    border-radius: 50%;
-    font-size: 18px;
-    color: var(--dark-shade-50per);
-    cursor: pointer;
 }
 
-.counter__increment:disabled {
-    border: var(--border-dark-shade-25per);
-}
-
+/* __input styles
+*/
 .counter__input {
     grid-area: counter;
     text-align: center;
     pointer-events: none;
     font: var(--h3-font);
+    color: var(--dark-shade-100per);
 }
-
 .counter__input::-webkit-outer-spin-button,
 .counter__input::-webkit-inner-spin-button {
     -webkit-appearance: none;
