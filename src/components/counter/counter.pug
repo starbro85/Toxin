@@ -14,7 +14,7 @@ mixin counter({ label, name, minValue, maxValue, defaultValue=minValue, plural={
                 type: 'button',
                 theme: 'shaped-dark-thin'
             })
-        input.counter__input.js-counter__input(type='number' name=name value=minValue tabindex='-1')
+        input.counter__input.js-counter__input(name=name value=minValue tabindex='-1')
         div.counter__increment-container.js-counter__increment-container
             +button({
                 label: '+',

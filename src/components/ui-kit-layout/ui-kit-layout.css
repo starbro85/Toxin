@@ -15,23 +15,30 @@
 
 .ui-kit-layout__link {
     width: min-content; height: min-content;
-    display: flex;
+    margin-right: 62px; margin-bottom: 60px;
     grid-area: link;
-    justify-self: center;
-    align-self: center;
+    justify-self: end;
+    align-self: end;
 }
 
 .ui-kit-layout__content {
     grid-area: content;
 }
 
-/* max-width 487px */
+/* max-width 1435px */
 
-@media(max-width: 1285px) {
+@media(max-width: 1435px) {
     .ui-kit-layout {
         grid-template-areas: 
          '. link .'
          '. content .'
          '. . .';
+    }
+    .ui-kit-layout__link {
+        width: min-content; height: min-content;
+        margin-right: 0; margin-bottom: 60px;
+        grid-area: link;
+        justify-self: start;
+        align-self: end;
     }
 }

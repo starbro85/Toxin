@@ -31,12 +31,12 @@
 
 /* __description styles
 */
-.checkbox__describtion {
+.checkbox__description {
     grid-area: describtion;
-    margin-top: 5px;
+    margin-top: 6px;
     font: var(--body-font);
     font-size: 12px;
-    line-height: 14px;
+    line-height: 13px;
     color: var(--dark-shade-50per);
 }
 

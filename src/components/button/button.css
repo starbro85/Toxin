@@ -114,9 +114,9 @@
     border-color: var(--dark-shade-25per);
     border-radius: calc(var(--height) / 2);
 }
+
 .button_theme_shaped-dark-thin.button:active,
 .button_theme_shaped-dark-thin.button:disabled {
-    color: var(--dark-shade-25per);
     border-color: var(--dark-shade-5per);
     transition: border .2s;  
 }
@@ -126,4 +126,10 @@
 }
 .button_theme_shaped-dark-thin .button__label {
     font: var(--body-font);
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--dark-shade-50per);
+}
+.button_theme_shaped-dark-thin:disabled .button__label{
+    color: var(--dark-shade-25per);
 }

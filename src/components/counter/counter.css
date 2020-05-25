@@ -15,7 +15,7 @@
 .counter__label {
     grid-area: label;
     font: var(--h3-font);
-    color: var(--dark-shade-100per);
+    line-height: 24px;
     text-transform: uppercase;
 }
 
@@ -42,10 +42,6 @@
     text-align: center;
     pointer-events: none;
     font: var(--h3-font);
+    line-height: 24px;
     color: var(--dark-shade-100per);
-}
-.counter__input::-webkit-outer-spin-button,
-.counter__input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }

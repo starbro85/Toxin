@@ -1,3 +1,5 @@
+/* root styles
+*/
 .start-page {
     height: 100%;
     display: grid;
@@ -7,24 +9,38 @@
     align-content: center;
 }
 
+/* __list styles
+*/
 .start-page__list {
     display: grid;
     gap: 20px; 
     list-style: none;
 }
 
+/* __list-heading styles
+*/
+.start-page__list-heading {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
+    text-align: center;
+}
+
+/* __list-item styles
+*/
 .start-page__list-item {
     text-align: center;
 }
 
+/* __link styles
+*/
 .start-page__link {
+    font: var(--body-font);
+    color: var(--dark-shade-75per);
     font-size: 20px;
 }
-
 .start-page__link:hover {
-    color: var(--purple-100per);
+    text-decoration: underline;
 }
-
 .start-page__link:active {
-    color: var(--green-100per);
+    color: var(--purple-100per);
 }

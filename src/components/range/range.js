@@ -1,6 +1,7 @@
 import './range.css';
 
 import noUiSlider from 'nouislider';
+import wNumb from 'wnumb';
 
 class Range {
     constructor(node) {
@@ -26,14 +27,11 @@ class Range {
                 'max': Number(this.valueRange.maxValue)
             },
             cssPrefix: 'range__',
-            format: {
-                to: function (value) {
-                    return value  + '₽';
-                },
-                from: function (value) {
-                    return Number(value.replace('-', ''));
-                }
-            }
+            format: wNumb({
+                decimals: 0,
+                thousand: ' ',
+                suffix: '₽'
+            })
         });
     }
 

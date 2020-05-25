@@ -12,6 +12,9 @@
     color: var(--dark-shade-50per);
     line-height: 18px;
 }
+.radio__input:checked ~ .radio__label {
+    color: var(--dark-shade-75per);
+}
 
 /* __input styles
 */
@@ -28,8 +31,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 21px;
-    height: 21px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
     border: var(--border);
     border-radius: 50%; 
@@ -53,8 +56,8 @@
 .radio__mark::before {
     content: '';
     border-radius: 50%;
-    width: 13px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
     background: var(--purple-gradient);
     transform: scale(0);
     transition: transform .3s;

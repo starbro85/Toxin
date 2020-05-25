@@ -9,9 +9,12 @@
     border-radius: 10px;
     cursor: pointer;
 }
-.like:hover:not(:disabled),
-.like:focus:not(:disabled) {
+.like:hover:not(:disabled) {
     box-shadow: var(--shadow-hover);
+}
+.like:focus {
+    outline: var(--outline);
+    outline-offset: 1px;
 }
 .like_active.like {
     border: var(--border);

@@ -22,7 +22,7 @@
 */
 .toggle__label {
     font: var(--body-font);
-    line-height: 24px;
+    line-height: 18px;
     color: var(--dark-shade-50per);
 }
 

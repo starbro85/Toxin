@@ -6,6 +6,7 @@
     --dark-shade-75per:         hsla(var(--dark-shade-hue), 35%, 19%, .75);
     --dark-shade-50per:         hsla(var(--dark-shade-hue), 35%, 19%, .50);
     --dark-shade-25per:         hsla(var(--dark-shade-hue), 35%, 19%, .25);
+    --dark-shade-10per:          hsla(var(--dark-shade-hue), 35%, 19%, .1);
     --dark-shade-5per:          hsla(var(--dark-shade-hue), 35%, 19%, .05);
 
     /* purple color set */

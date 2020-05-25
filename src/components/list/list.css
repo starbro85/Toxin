@@ -29,6 +29,9 @@
 
 /* _theme_bullet styles 
 */
+.list_theme_bullet .list__heading {
+    margin-bottom: 4px;
+}
 .list_theme_bullet .list__item {
     position: relative;
     margin-left: 20px;

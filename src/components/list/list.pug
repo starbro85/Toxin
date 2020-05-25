@@ -1,9 +1,10 @@
 include ../checkbox/checkbox
 
 mixin list({ label, theme='default', checkbox, text })
-    ul.list.js-list(
-        data-theme=theme
-        )
+
+    -const classes = theme ? `list js-list list_theme_${theme}` : 'list js-list';
+
+    ul(class=classes)
         if label
             lh.list__heading.js-list__heading #{label}
         if checkbox

@@ -1,4 +1,4 @@
-mixin checkbox({ name, label, describtion, theme, checked=false, disabled=false })
+mixin checkbox({ name, label, description, theme, checked=false, disabled=false })
 
     -const classes = theme ? `checkbox js-checkbox checkbox_theme_${theme}` : 'checkbox js-checkbox';
 
@@ -12,5 +12,5 @@ mixin checkbox({ name, label, describtion, theme, checked=false, disabled=false 
         div.checkbox__mark
         if label
             span.checkbox__label #{label}
-        if describtion
-            span.checkbox__describtion #{describtion}
+        if description
+            span.checkbox__description !{description}

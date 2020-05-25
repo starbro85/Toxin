@@ -2,9 +2,9 @@
 */
 .counter-bar {    
     display: grid;
-    gap: 13px;
+    gap: 19px 0;
     grid-template-areas: 'list list';
-    padding: 7px 15px; padding-right: 7px;
+    padding: 5.5px 6px 7px 13.5px; 
 }
 
 /* __list style
@@ -18,6 +18,11 @@
 
 /* __apply-container/__clear-container styles
 */
+.counter-bar__apply-button-container,
+ .counter-bar__clear-button-container {
+     padding-top: 2px;
+     padding-bottom: 5px;
+ }
 .counter-bar__apply-button-container {
     justify-self: self-end;
 }

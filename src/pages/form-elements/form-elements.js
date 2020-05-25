@@ -17,3 +17,5 @@ import './../../components/rate-bar/rate-bar.js';
 import './../../components/range/range.js';
 import './../../components/button/button.js';
 import './../../components/pagination/pagination.js';
+import './../../components/feature/feature.js';
+import './../../components/review/review.js';

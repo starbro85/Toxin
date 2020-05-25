@@ -24,6 +24,7 @@
 .range__input {
     grid-area: input;
     font: var(--body-font);
+    font-size: 12px;
     color: var(--dark-shade-50per);
     height: 15px;
     text-align: right;
@@ -56,8 +57,8 @@
 /* handle styles
 */
 .range__handle {
-    width: 14px; height: 14px;
-    right: -10px; top: -5px;
+    width: 16px; height: 16px;
+    right: -10px; top: -6px;
     border: 2px solid white;
     border-radius: 50%;
     background: var(--green-gradient);

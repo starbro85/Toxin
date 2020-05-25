@@ -3,7 +3,7 @@
 .pagination {
     width: max-content;
     display: grid;
-    gap: 10.56px;
+    gap: 9px 0;
     justify-items: center;
 }
 
@@ -48,6 +48,7 @@
     display: flex;
     justify-content: center; align-items: center;
     font: var(--body-font);
+    font-size: 12px;
     color: var(--dark-shade-50per);
     text-decoration: none;
 }

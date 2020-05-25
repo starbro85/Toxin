@@ -31,7 +31,7 @@ class Quantity {
             } 
         }, '');
 
-        return inputValue.substring(0, inputValue.length -1);
+        return inputValue.substring(1, inputValue.length -1);
     }
 
     getInputValueNormalized() {
@@ -54,10 +54,10 @@ class Quantity {
         }, '');
 
         if (addEllipsis) {
-            return `${inputValueNoramlized.substr(0, inputValueNoramlized.length - 1)}…`
+            return `${inputValueNoramlized.substr(1, inputValueNoramlized.length - 2)}…`
         }
         else {
-            return inputValueNoramlized.substr(0, inputValueNoramlized.length - 1);
+            return inputValueNoramlized.substr(1, inputValueNoramlized.length - 2);
         }
     }
 
