@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHardDiskPlugin = require('html-webpack-harddisk-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 const config = {
     context: path.resolve(__dirname, '..', 'src'),
@@ -43,6 +44,9 @@ const config = {
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new MomentLocalesPlugin({
+            localesToKeep: ['ru'],
+        }),
         new HtmlWebpackPlugin({
             title: 'start-page',
             filename: 'start-page.html',
@@ -53,6 +57,12 @@ const config = {
             title: 'form-elements',
             filename: 'form-elements.html',
             template: '../src/pages/form-elements/form-elements.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'cards',
+            filename: 'cards.html',
+            template: '../src/pages/cards/cards.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

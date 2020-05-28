@@ -6,7 +6,7 @@
         'group-1 . group-2 . group-3'
         'group-4 . group-5 . group-6'
         'group-7 group-7 group-7 group-7 group-7';
-    grid-template-columns: minmax(266px, 320px) minmax(25px, 126px) minmax(266px, 320px) minmax(25px, 72px) minmax(266px, 320px);
+    grid-template-columns: 320px minmax(25px, 126px) 320px minmax(25px, 72px) 320px;
     gap: 100px 0;
     justify-content: center;
 }
@@ -211,22 +211,22 @@
     padding-top: 32px;
 }
 
-/* max-width 946px media query
+/* max-width 1085px media query
 */
-@media(max-width: 946px) {
+@media(max-width: 1085px) {
     .form-elements {
         grid-template-areas:
             'group-1 group-4' 
             'group-2 group-3'
             'group-5 group-6'
             'group-7 group-7';
-        grid-template-columns: repeat(2, minmax(266px, 320px));
+        grid-template-columns: repeat(2, 320px);
         gap: 25px;
     }
 }
-/* max-width 620px media query
+/* max-width 725px media query
 */
-@media(max-width: 620px) {
+@media(max-width: 725px) {
     .form-elements {
         grid-template-areas:
             'group-1' 
@@ -236,7 +236,7 @@
             'group-5' 
             'group-6'
             'group-7';
-        grid-template-columns: min(100%, 320px);
+        grid-template-columns: min(90vw, 320px);
         gap: 72px;
     }
     .form-elements__group-7 {

@@ -1,0 +1,22 @@
+extends ../layout/layout
+
+include ../logo/logo
+
+block title
+    block title
+block style
+    block style
+
+block content
+    body.ui-kit
+        header.ui-kit__header
+            a.ui-kit__link(
+                href='start-page.html' 
+                title='move to start page'
+                )
+                +logo({
+                    theme: 'ui-kit' 
+                })
+
+        main.ui-kit__main
+            block main

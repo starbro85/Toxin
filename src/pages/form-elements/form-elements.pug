@@ -1,4 +1,4 @@
-extends ../../components/ui-kit-layout/ui-kit-layout
+extends ../../components/ui-kit/ui-kit
 
 include ../../components/label-wrapper/label-wrapper
 include ../../components/text-field/text-field
@@ -21,8 +21,8 @@ include ../../components/review/review
 block title
     | Form elements
 
-block content
-    main.form-elements    
+block main
+    div.form-elements    
         div.form-elements__group-1
             div.form-elements__text-field
                 +text-field({   
@@ -92,8 +92,14 @@ block content
                 })
             div.form-elements__date-dropdown
                 +date-dropdown({ 
-                    labelFrom: 'date dropdown', 
-                    labelTo: 'date dropdown', 
+                    label: {
+                        from: 'date dropdown',
+                        to: 'date dropdown'
+                    },
+                    name: {
+                        from: 'from',
+                        to: 'to'
+                    },
                     theme: 'twin'
                 })
             div.form-elements__filter-date-dropdown
@@ -249,29 +255,25 @@ block content
                 })
                     div.form-elements__buttons-column
                         div.form-elements__buttons-bar
-                            div.form-elements__buttons-item
-                                +button({
-                                    label: 'click me',
-                                    theme: 'filled-purple'
-                                })
-                            .form-elements__buttons-item
-                                +button({
-                                    label: 'click me',
-                                    theme: 'filled-purple',
-                                    disabled: 'true'
-                                })
+                            +button({
+                                label: 'click me',
+                                theme: 'filled-purple'
+                            })
+                            +button({
+                                label: 'click me',
+                                theme: 'filled-purple',
+                                disabled: 'true'
+                            })
                         div.form-elements__buttons-bar
-                            div.form-elements__buttons-item
-                                +button({
-                                    label: 'click me',
-                                    theme: 'shaped-purple'
-                                })
-                            div.form-elements__buttons-item
-                                +button({
-                                    label: 'click me',
-                                    theme: 'shaped-purple',
-                                    disabled: 'true'
-                                })
+                            +button({
+                                label: 'click me',
+                                theme: 'shaped-purple'
+                            })
+                            +button({
+                                label: 'click me',
+                                theme: 'shaped-purple',
+                                disabled: 'true'
+                            })
                         div.form-elements__buttons-bar.form-elements__buttons-bar_size_max-content
                             +button({
                                 label: 'click me',
