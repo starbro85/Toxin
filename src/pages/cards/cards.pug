@@ -1,0 +1,34 @@
+extends ../../components/ui-kit/ui-kit
+
+include ../../components/form-search/form-search
+include ../../components/form-reservation/form-reservation
+include ../../components/form-registration/form-registration
+include ../../components/form-login/form-login
+include ../../components/datepicker/datepicker
+
+block title
+    | Start page
+block style
+    | .ui-kit { background-color: var(--dark-shade-5per); }
+
+
+block main
+    div.cards
+        div.cards__column
+            div.cards__item
+                +form-search()
+            div.cards__item
+                +form-registration()
+        div.cards__column
+            div.cards__item
+                +form-reservation({
+                    roomNumber: '888',
+                    rentPrice: '9 990₽',
+                    servicesPrice: '0₽',
+                    additionalPrice: '300₽',
+                    isLuxury: 'true',
+                    discount: '2 179₽'
+                })
+            div.cards__item
+                +form-login()
+    

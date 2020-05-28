@@ -1,0 +1,39 @@
+include ../text-field/text-field
+include ../button/button
+
+mixin form-login()
+    form.form-login(name='login' method='get')
+        div.form-login__header
+            h2.form-login__title Войти
+
+        div.form-login__main
+            div.form-login__fieldset
+                div.form-login__input
+                    +text-field({
+                        name: 'email',
+                        type: 'email',
+                        placeholder: 'Email',
+                        required: 'true'
+                    })
+                div.form-login__input
+                    +text-field({
+                        name: 'password',
+                        type: 'password',
+                        placeholder: 'Пароль',
+                        required: 'true'
+                    })
+
+        div.form-login__footer
+            div.form-login__submit-button
+                +button({
+                    label: 'войти',
+                    theme: 'filled-purple',
+                    icon: 'arrow_forward'
+                })
+            div.form-login__registration
+                span.form-login__registration-text Нет аккаунта на Toxin?
+                span.form-login__registration-button
+                    +button({
+                        label: 'Создать',
+                        theme: 'shaped-purple'
+                    })

@@ -48,10 +48,9 @@
 /* _theme_filled-purple styles 
 */
 .button_theme_filled-purple.button {
-    --height: min(100%, 44px);
-    width: 100%; height: var(--height);
+    width: 100%; height: 44px;
     background: var(--purple-gradient);
-    border-radius: calc(var(--height) / 2);
+    border-radius: 22px;
     color: white;
 }
 .button_theme_filled-purple.button:active,
@@ -66,10 +65,9 @@
 /* _theme_filled-green styles 
 */
 .button_theme_filled-green.button {
-    --height: min(100%, 44px);
-    width: 100%; height: var(--height);
+    width: 100%; height: 44px;
     background: var(--green-gradient);
-    border-radius: calc(var(--height) / 2);
+    border-radius: 22px;
     color: white;
 }
 .button_theme_filled-green.button:active,
@@ -85,13 +83,12 @@
 /* _theme_shaped-purple styles 
 */
 .button_theme_shaped-purple.button {
-    --height: min(100%, 44px);
-    width: 100%; height: var(--height);
+    width: 100%; height: 44px;
     background: white;
     border: var(--border);
     border-color: var(--purple-100per);
     border-width: 2px;
-    border-radius: calc(var(--height) / 2);
+    border-radius: 22px;
     color: var(--purple-100per);
 }
 .button_theme_shaped-purple.button:active,

@@ -1,3 +1,3 @@
 import './start-page.css';
 
-import './../../components/ui-kit-layout/ui-kit-layout.js';
+import './../../components/ui-kit/ui-kit.js';

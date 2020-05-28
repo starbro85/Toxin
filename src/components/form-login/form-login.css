@@ -1,0 +1,61 @@
+/* root styles
+*/
+.form-login {
+    padding: 40px 30px 30px 30px;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px; 
+} 
+
+/*  __title styles
+*/
+.form-login__title {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
+}
+
+/* __main styles
+*/
+.form-login__main {
+    display: grid;
+    gap: 20px 0;
+    padding: 20px 0 20px 0; 
+}
+
+/* __fieldset styles
+*/
+.form-login__fieldset {
+    display: grid;
+    gap: 10px 0;
+}
+
+/* __footer styles 
+*/
+.form-login__footer {
+    display: grid;
+    gap: 30px 0;
+}
+
+/* __registration styles
+*/
+.form-login__registration{
+    display: grid;
+    grid-template-areas: 
+        'text . button';
+    grid-template-columns: max-content 1fr 99px;
+    align-items: center;
+}
+
+/* __registration-text
+*/
+.form-login__registration-text {
+    grid-area: text;
+    font: var(--body-font);
+}
+
+/* __registration-button
+*/
+.form-login__registration-button {
+    grid-area: button;
+}

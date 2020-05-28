@@ -1,0 +1,76 @@
+include ../quantity-dropdown/quantity-dropdown
+include ../date-dropdown/date-dropdown
+include ../button/button
+
+mixin form-search()
+    form.form-search(name='search' method='get')
+        div.form-search__header
+            h2.form-search__title Найдем номера под ваши пожелания
+        div.form-search__main
+            div.form-search__date-input
+                +date-dropdown({ 
+                    theme: 'twin',
+                    name: {
+                        from: 'arrival',
+                        to: 'departure'
+                    },
+                    label: {
+                        from: 'прибытие', 
+                        to: 'выезд',
+                    },
+                    required: 'true'
+                })
+            div.form-search__quantity-input
+                +quantity-dropdown({ 
+                    name: 'guestCount',
+                    label: 'гости', 
+                    value: 'Сколько гостей',
+                    required: 'true',
+                    mode: 'manualApply',
+                    counter: [
+                        { 
+                            label: 'взрослые', 
+                            name: 'adults', 
+                            minValue: '0', 
+                            maxValue: '5', 
+                            plural: { 
+                                one: 'гость', 
+                                few: 'гостя', 
+                                many: 'гостей' 
+                            }, 
+                            isBound: 'true', 
+                            boundName: 'guests' 
+                        },
+                        { 
+                            label: 'дети', 
+                            name: 'kids', 
+                            minValue: '0', 
+                            maxValue: '5', 
+                            plural: { 
+                                one: 'гость', 
+                                few: 'гостя', 
+                                many: 'гостей' 
+                            }, 
+                            isBound: 'true', 
+                            boundName: 'guests'
+                        },
+                        { 
+                            label: 'младенцы', 
+                            name: 'babies', 
+                            minValue: '0', 
+                            maxValue: '5', 
+                            plural: { 
+                                one: 'младенец', 
+                                few: 'младенцев', 
+                                many: 'младенцев' 
+                            } 
+                        }
+                    ] 
+                })
+        div.form-search__footer
+            div.form-search__submit-button
+                +button({
+                    label: 'подобрать номер',
+                    theme: 'filled-purple',
+                    icon: 'arrow_forward'
+                })

@@ -1,0 +1,84 @@
+include ../text-field/text-field
+include ../radio-bar/radio-bar
+include ../toggle/toggle
+include ../button/button
+
+mixin form-registration()
+    form.form-registration(name='registration' method='get')
+        div.form-registration__header
+            h2.form-registration__title Регистрация аккаунта
+        div.form-registration__main
+            div.form-registration__fieldset
+                div.form-registration__input
+                    +text-field({
+                        name: 'name',
+                        placeholder: 'Имя',
+                        required: 'true'
+                    })
+                div.form-registration__input
+                    +text-field({
+                        name: 'surname',
+                        placeholder: 'Фамилия',
+                        required: 'true'
+                    })
+                div.form-registration__gender-select
+                    +radio-bar({
+                        radio: [
+                            {
+                                name: 'gender', 
+                                value: 'male', 
+                                label: 'Мужчина', 
+                                checked: 'true'
+                            },
+                            {
+                                name: 'gender', 
+                                value: 'female', 
+                                label: 'Женщина',
+                            },
+                        ]
+                    })
+
+            div.form-registration__input
+                +text-field({
+                    label: 'дата рождения',
+                    name: 'birthday',
+                    mask: 'date',
+                    placeholder: 'ДД.ММ.ГГГГ',
+                    required: 'true'
+                })
+            
+            div.form-registration__fieldset
+                div.form-registration__input
+                    +text-field({
+                        label: 'данные для входа в сервис',
+                        name: 'email',
+                        type: 'email',
+                        placeholder: 'Email',
+                        required: 'true'
+                    })
+                div.form-registration__input
+                    +text-field({
+                        name: 'password',
+                        type: 'password',
+                        placeholder: 'Пароль',
+                        required: 'true'
+                    })
+                div.form-registration__special-request 
+                    +toggle({
+                        label: 'Получать спецпредложения',
+                        name: 'special'
+                    })
+        div.form-registration__footer
+            div.form-registration__submit-button
+                +button({
+                    label: 'перейти к оплате',
+                    theme: 'filled-purple',
+                    icon: 'arrow_forward'
+                })
+            div.form-registration__login
+                span.form-registration__login-text Уже есть аккаунт на Toxin
+                span.form-registration__login-button
+                    +button({
+                        label: 'войти',
+                        theme: 'shaped-purple'
+                    })

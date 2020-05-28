@@ -1,0 +1,102 @@
+include ../quantity-dropdown/quantity-dropdown
+include ../date-dropdown/date-dropdown
+include ../button/button
+
+mixin form-reservation({ roomNumber, rentPrice, servicesPrice, additionalPrice, discount, isLuxury=false })
+    form.form-reservation.js-form-reservation(name='reservation')
+        div.form-reservation__header
+            span.form-reservation__header-room-number № #{roomNumber} 
+            if isLuxury
+                span.form-reservation__header-luxury люкс
+            span.form-reservation__header-rent-price #{rentPrice} 
+                span.form-reservation__header-text-small в сутки
+            
+        div.form-reservation__main
+            div.form-search__date-input
+                +date-dropdown({ 
+                    theme: 'twin',
+                    name: {
+                        from: 'arrival',
+                        to: 'departure'
+                    },
+                    label: {
+                        from: 'прибытие', 
+                        to: 'выезд',
+                    },
+                    required: 'true'
+                })
+            div.form-search__quantity-input
+                +quantity-dropdown({ 
+                    name: 'guestCount',
+                    label: 'гости', 
+                    value: 'Сколько гостей',
+                    required: 'true',
+                    mode: 'manualApply',
+                    counter: [
+                        { 
+                            label: 'взрослые', 
+                            name: 'adults', 
+                            minValue: '0', 
+                            maxValue: '5', 
+                            plural: { 
+                                one: 'гость', 
+                                few: 'гостя', 
+                                many: 'гостей' 
+                            }, 
+                            isBound: 'true', 
+                            boundName: 'guests' 
+                        },
+                        { 
+                            label: 'дети', 
+                            name: 'kids', 
+                            minValue: '0', 
+                            maxValue: '5', 
+                            plural: { 
+                                one: 'гость', 
+                                few: 'гостя', 
+                                many: 'гостей' 
+                            }, 
+                            isBound: 'true', 
+                            boundName: 'guests'
+                        },
+                        { 
+                            label: 'младенцы', 
+                            name: 'babies', 
+                            minValue: '0', 
+                            maxValue: '5', 
+                            plural: { 
+                                one: 'младенец', 
+                                few: 'младенцев', 
+                                many: 'младенцев' 
+                            } 
+                        }
+                    ] 
+                })
+            div.form-reservation__calc
+                div.form-reservation__calc-detail
+                    span.form-reservation__calc-description
+                        span.form-reservation__rent-price.js-form-reservation__rent-price #{rentPrice} 
+                        | &ensp;x&ensp;
+                        span.form-reservation__rent-interval 4 суток
+                    span.form-reservation__calc-value
+                        span.form-reservation__rent-price-total 39 960₽
+                div.form-reservation__calc-detail
+                    span.form-reservation__calc-description Сбор за услуги
+                        if discount
+                            span.form-reservation__discount : скидка #{discount}
+                    span.form-reservation__calc-value #{servicesPrice}
+                div.form-reservation__calc-detail
+                    span.form-reservation__calc-description Сбор за дополнительные <br> услуги
+                    span.form-reservation__calc-value #{additionalPrice}
+
+        div.form-reservation__footer
+            div.form-reservation__total
+                span.form-reservation__total-text Итого
+                div.form-reservation__total-dashed-line
+                span.form-reservation__total-rent-price 38 081₽
+            div.form-reservation__submit-button
+                +button({
+                    label: 'перейти к оплате',
+                    theme: 'filled-purple',
+                    icon: 'arrow_forward'
+                })

@@ -1,0 +1,111 @@
+/* root styles
+*/
+.form-reservation {
+    padding: 40px 30px 30px 30px;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px; 
+} 
+
+/* __header styles
+*/
+.form-reservation__header {
+    display: grid;
+    grid-template-areas: 
+        'number luxury . price';
+    grid-template-columns: max-content max-content 1fr max-content;
+    gap: 0 5px;
+}
+.form-reservation__header-room-number {
+    grid-area: number;
+    font: var(--h2-font);
+    line-height: 17px;
+}
+.form-reservation__header-room-number::first-letter {
+    font: var(--h3-font);
+}
+.form-reservation__header-luxury {
+    grid-area: luxury;
+    display: inline-flex;
+    align-items: flex-end;
+    font: var(--h3-font);
+    line-height: 15px;
+    color: var(--purple-100per);
+}
+.form-reservation__header-rent-price {
+    grid-area: price;
+    font: var(--body-font);
+    line-height: 17px;
+    font-weight: bold;
+    color: var(--dark-shade-50per);
+}
+.form-reservation__header-text-small {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* __main styles
+*/
+.form-reservation__main {
+    display: grid;
+    gap: 20px 0;
+    padding: 20px 0 30px 0; 
+}
+
+/* __calc styles
+*/
+.form-reservation__calc {
+    display: grid;
+    gap: 10px 0;
+}
+.form-reservation__calc-detail {
+    display: grid;
+    grid-template-areas: 
+        'description . value';
+    grid-template-columns: max-content 1fr max-content;
+}
+.form-reservation__calc-description {
+    grid-area: description;
+    font: var(--body-font);
+    line-height: 24px;
+    color: var(--dark-shade-75per);
+}
+.form-reservation__calc-detail:last-child .form-reservation__calc-description {
+    line-height: 18px;
+}
+.form-reservation__calc-value {
+    grid-area: value;
+    font: var(--body-font);
+    line-height: 24px;
+    color: var(--dark-shade-75per);
+}
+
+/* __footer styles
+*/
+.form-reservation__footer {
+    display: grid;
+    gap: 20px 0;
+}
+
+/* __total styles
+*/
+.form-reservation__total {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: baseline;
+    font: var(--h2-font);
+    color: var(--dark-shade-100per);
+    gap: 0 5px;
+}
+.form-reservation__total-text {
+    font: var(--h2-font);
+    color: var(--dark-shade-100per);
+}
+.form-reservation__total-dashed-line {
+    border-bottom: 1px dashed var(--dark-shade-50per);
+}
+.form-reservation__total-rent-price {
+    font: var(--h2-font);
+    color: var(--dark-shade-100per);
+}
