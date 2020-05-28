@@ -20,11 +20,13 @@
 /* __input styles
 */
 .text-field__input {
+    position: relative;
     grid-area: input;
     width: 100%; height: 44px;
     padding: 0 20px 0 15px;
     border: var(--border);
     border-radius: 4px;
+    background-color: white;
     font: var(--body-font);
     font-size: 14px;
     line-height: 24px;
@@ -43,6 +45,20 @@
     outline-offset: 2px;
 }
 
+/* __hidden-input styles
+*/
+.text-field__hidden-input {
+    position: absolute;
+    bottom: 2px;
+    width: 100%; height: 44px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    pointer-events: none;
+}
+.text-field__hidden-input:invalid {
+    box-shadow: none; /* reset firefox box-shadow for invalid input */
+}
 /* __icon styles
 */
 .text-field__icon {
@@ -73,7 +89,6 @@
 /* _theme_icon styles 
 */
 .text-field_theme_icon .text-field__input {
-    position: relative;
     text-align: start;
 }
 .text-field_theme_icon .text-field__icon {
@@ -81,7 +96,8 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* _theme_icon-button styles 

@@ -67,7 +67,7 @@ const config = {
         }),
         new HtmlWebpackHardDiskPlugin(),
     ],
-    devServer: {
+    devServer: { 
         inline: true,
         hot: true,
         contentBase: 'dist',

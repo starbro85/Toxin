@@ -1,10 +1,16 @@
-mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false, theme='default', button, icon })
+mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false, theme='default', button, icon, hiddenInput })
     
     -const classes = theme ? `text-field js-text-field text-field_theme_${theme}` : 'text-field js-text-field';
     
     div(class=classes)
         if label
             h3.text-field__label #{label}
+        if type === 'button'
+            input.text-field__hidden-input.js-text-field__hidden-input(
+                name=hiddenInput.name
+                required=hiddenInput.required
+                tabindex='-1'
+                )
         input.text-field__input.js-text-field__input(
                                                     type=type
                                                     name=name

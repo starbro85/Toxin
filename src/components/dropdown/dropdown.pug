@@ -1,6 +1,6 @@
 include ../text-field/text-field
 
-mixin dropdown({ label, value, disabled=false, theme, mask, show=false })
+mixin dropdown({ name, label, value, disabled=false, theme, align, mask, required=false, show=false })
 
     -const classes = theme ? `dropdown js-dropdown dropdown_theme_${theme}` : 'dropdown js-dropdown';
 
@@ -14,12 +14,19 @@ mixin dropdown({ label, value, disabled=false, theme, mask, show=false })
                     text: 'expand_more',
                     wrapperClass: 'dropdown__icon'
                 },
+                hiddenInput: {
+                    name,
+                    required
+                },
                 value, 
                 mask, 
                 label,
                 disabled
             })
-        div.dropdown__viewport.js-dropdown__viewport
+        
+        -const viewportAlignClasses = align ? `dropdown__viewport js-dropdown__viewport dropdown__viewport_align_${align}` : 'dropdown__viewport js-dropdown__viewport';
+
+        div(class=viewportAlignClasses)
             div.dropdown__container.js-dropdown__container
                 if block
                     block

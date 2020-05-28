@@ -1,0 +1,123 @@
+/* root styles
+*/
+.datepicker {
+    width: min(90vw, 320px); height: 369px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px; 
+}
+
+/* __calendar styles
+*/
+.datepicker__calendar {
+    display: grid;
+    grid-template-areas: 
+        'prev label next'
+        'table table table';
+    grid-template-columns: 24px 1fr 24px;
+    grid-template-rows: 24px 1fr;
+    gap: 30px 0;
+}
+
+/* __prev-button styles
+*/
+.datepicker__prev-button {
+    grid-area: prev;
+    cursor: pointer;
+}
+.datepicker__prev-button:hover {
+    transform: scale(1.2);
+}
+.datepicker__prev-button:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+.datepicker__prev-button::after {
+    content: 'arrow_back';
+    font: var(--icon-font);
+    font-size: 24px;
+    color: var(--purple-100per);
+}
+
+/* __next-button styles
+*/
+.datepicker__next-button {
+    grid-area: next;
+    cursor: pointer;
+}
+.datepicker__next-button:hover {
+    transform: scale(1.2);
+
+}
+.datepicker__next-button:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+.datepicker__next-button::after {
+    content: 'arrow_forward';
+    font: var(--icon-font);
+    font-size: 24px;
+    color: var(--purple-100per);
+}
+
+/* __label styles
+*/
+.datepicker__label {
+    grid-area: label;
+    font: var(--h2-font);
+    color: var(--dark-shade-100per);
+    text-align: center;
+}
+.datepicker__label::first-letter {
+    text-transform: uppercase;
+}
+
+/* __table/__row styles
+*/
+.datepicker__table {
+    grid-area: table;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* __cell styles
+*/
+.datepicker__cell {
+    width: min(10vw, 39px); height: min(10vw, 40px);
+    display: inline-flex;
+    justify-content: center; align-items: center;
+    font: var(--h3-font);
+    font-weight: normal;
+    color: var(--dark-shade-75per);
+}
+.datepicker__cell_selected {
+    background: var(--purple-gradient);
+    border-radius: 50%;
+    color: white;
+}
+.datepicker__cell_heading {
+    font-weight: bold;
+    color: var(--purple-100per);
+}
+.datepicker__cell_prev,
+.datepicker__cell_next {
+    color: var(--dark-shade-25per);
+}
+
+
+/* rome-datepicker plugin style
+*/
+.rd-container {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+

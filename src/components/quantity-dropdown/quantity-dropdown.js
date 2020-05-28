@@ -1,12 +1,15 @@
 import './../counter-bar/counter-bar.js';
 import './../dropdown/dropdown.js';
+import {normalizeStr} from './../../helpers/normalizeStr.js';
+import {pluralize} from '../../helpers/pluralize.js';
+
+import './quantity-dropdown.css';
 
 class Quantity {
     constructor(node) {
         this.root = node;
-        this.input = this.root.querySelector('.js-text-field__input');
+        this.input = this.root.querySelector('.js-text-field');
         this.countersBar = this.root.querySelector('.js-counter-bar');
-        this.defaultValue = this.input.value;
         this.counterData = {};
 
         this.init();
@@ -22,67 +25,34 @@ class Quantity {
     
     getInputValue() {
         const counterValues = Object.values(this.counterData);
-        const inputValue = counterValues.reduce((acc, data) => {
-            if (data.value !== 0) {
-                return `${acc} ${formatValue(data.plural, data.value)},`;
-            } 
-            else {
-                return `${acc}`;
-            } 
-        }, '');
+        const inputValue = counterValues.reduce((acc, data) => (data.value !== 0) ? `${acc} ${pluralize(data.plural, data.value)},` : `${acc}`, '');
 
-        return inputValue.substring(1, inputValue.length -1);
+        return inputValue.slice(1, -1);
     }
 
-    getInputValueNormalized() {
+    getSubmitValue() {
         const counterValues = Object.values(this.counterData);
-        let addEllipsis = false;
-        const inputSize = this.getInputSizeInChar();
-        const inputValueNoramlized = counterValues.reduce((acc, data) => {
-            if (data.value !== 0) {
-                if (`${acc} ${formatValue(data.plural, data.value)},`.length < inputSize) {
-                    return `${acc} ${formatValue(data.plural, data.value)},`;
-                }
-                else {
-                    addEllipsis = true;
-                    return `${acc}`;
-                }
-            } 
-            else {
-                return `${acc}`;
-            } 
-        }, '');
+        const submitValue = counterValues.reduce((acc, data) => data.value ? `${acc} ${data.name}: "${data.value}",` : `${acc}`, '');
 
-        if (addEllipsis) {
-            return `${inputValueNoramlized.substr(1, inputValueNoramlized.length - 2)}…`
-        }
-        else {
-            return inputValueNoramlized.substr(1, inputValueNoramlized.length - 2);
-        }
+        return submitValue ? `{${submitValue.slice(1, -1)}}` : '';
     }
 
-    updateInputValue() {
-        const inputValue = this.getInputValue();
-        const inputValueNormalized = this.getInputValueNormalized();
-
-        if (inputValueNormalized) {
-            this.input.value = inputValueNormalized;
-        }
-        else {
-            this.input.value = this.defaultValue;
-        }
-
-        if (inputValue) {
-            this.input.title = inputValue;
-        }
-        else {
-            this.input.value = this.defaultValue;
-        }
+    addUpdateInputValueEvent() {
+        this.input.dispatchEvent(new CustomEvent('update-input-value', {
+            detail: {
+                inputValue: normalizeStr({
+                                str: this.getInputValue(),
+                                size: this.getInputSizeInChar()
+                            }),
+                hiddenInputValue: this.getSubmitValue(),
+                title: this.getInputValue()
+            }
+        }));
     }
 
     handleDataSentEvent = event => {
         this.counterData = event.detail.counterData;
-        this.updateInputValue();
+        this.addUpdateInputValueEvent();
     }
 
     setDataSentEventListener() {
@@ -92,12 +62,6 @@ class Quantity {
     init() {
         this.setDataSentEventListener();
     }
-};
-
-function formatValue(plural, count) {
-    if (count === 1) return `${count} ${plural.one}`;
-    if (count > 1 && count < 5) return `${count} ${plural.few}`;
-    if (count >= 5) return `${count} ${plural.many}`;
 };
 
 function render() {

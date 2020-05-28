@@ -7,9 +7,19 @@ class TextField {
     constructor(node) {
         this.root = node;
         this.input = node.querySelector('.js-text-field__input');
+        this.hiddenInput = node.querySelector('.js-text-field__hidden-input');
+        this.defaultValue = this.input.value;
         this.mask = this.input.dataset.mask;
 
         this.init();
+    }
+
+    setValueUpdateEventListener() {
+        this.root.addEventListener('update-input-value', event => {
+            this.input.value = event.detail.inputValue ? event.detail.inputValue : this.defaultValue;
+            this.input.title = event.detail.inputTitle ? event.detail.inputTitle : this.defaultValue;
+            this.hiddenInput.value = event.detail.hiddenInputValue;
+        })
     }
 
     setMask() {
@@ -37,7 +47,11 @@ class TextField {
     }
 
     init() {
-       this.setMask();
+        if (this.input.type === 'button') {
+            this.hiddenInput.addEventListener('focusin', event => this.input.focus());
+        }
+        this.setValueUpdateEventListener();
+        this.setMask();
     }
 };
 

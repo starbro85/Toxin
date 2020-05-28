@@ -32,6 +32,7 @@
     "html-webpack-harddisk-plugin": "^1.0.1",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "moment-locales-webpack-plugin": "^1.2.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss": "^7.0.30",
     "postcss-loader": "^3.0.0",
@@ -44,7 +45,9 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@bevacqua/rome": "^3.0.3",
     "cleave.js": "^1.5.10",
+    "moment": "^2.26.0",
     "normalize.css": "^8.0.1",
     "nouislider": "^14.5.0",
     "wnumb": "^1.2.0"
