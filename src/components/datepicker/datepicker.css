@@ -3,10 +3,42 @@
 .datepicker {
     width: min(90vw, 320px); height: 369px;
     padding: 20px;
+    display: grid;
+    grid-template-areas: 
+        'calendar calendar'
+        'clear apply';
+    grid-template-rows: min-content max-content;
+    gap: 20px 0;
     background-color: white;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 4px; 
+}
+
+/* __rome-dp
+*/
+.datepicker__rome-dp {
+    height: min-content;
+    grid-area: calendar;
+}
+
+/* __container styles
+*/
+.datepicker__container {
+    height: min-content;
+}
+
+/* __clear-button-container
+*/
+.datepicker__clear-button-container {
+    grid-area: clear;
+}
+
+/* __apply-button-container
+*/
+.datepicker__apply-button-container {
+    grid-area: apply;
+    justify-self: end;
 }
 
 /* __calendar styles
@@ -83,10 +115,25 @@
     align-items: center;
 }
 
+/* __heading styles
+*/
+.datepicker__heading{
+    height: 40px;
+}
+
+/* __row styles
+*/
+
+.datepicker__row {
+    height: 40px;
+    display: grid;
+    grid-auto-flow: column;
+}
+
 /* __cell styles
 */
 .datepicker__cell {
-    width: min(10vw, 39px); height: min(10vw, 40px);
+    width: min(11vw, 39.88px); height: min(11vw, 40px);
     display: inline-flex;
     justify-content: center; align-items: center;
     font: var(--h3-font);

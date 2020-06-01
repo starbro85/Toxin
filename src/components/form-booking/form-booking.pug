@@ -1,0 +1,42 @@
+include ../quantity-dropdown/quantity-dropdown
+include ../date-dropdown/date-dropdown
+include ../button/button
+
+mixin form-booking({ room, dropdownDate, dropdownQuantity, buttonSubmit })
+    form.form-booking.js-form-booking(name='booking')
+        div.form-booking__header
+            span.form-booking__header-room-number № #{room.number} 
+            if room.category
+                span.form-booking__header-room-luxury #{room.category}
+            span.form-booking__header-rent-price #{room.rent.price} 
+                span.form-booking__header-rent-period #{room.rent.period}
+            
+        div.form-booking__main
+            div.form-search__date-input
+                +date-dropdown(dropdownDate)
+            div.form-search__quantity-input
+                +quantity-dropdown(dropdownQuantity)
+            div.form-booking__calc
+                div.form-booking__calc-detail
+                    span.form-booking__calc-description
+                        span.form-booking__calc-rent-price.js-form-booking__calc-rent-price #{room.rent.price} 
+                        | &ensp;x&ensp;
+                        span.form-booking__calc-rent-term.js-form-booking__calc-rent-term 4 суток
+                    span.form-booking__calc-value
+                        span.form-booking__calc-value 39 960₽
+                div.form-booking__calc-detail
+                    span.form-booking__calc-description #{room.service.description}:
+                        if room.discount
+                            span.form-booking__calc-discount : #{room.discount.description} #{room.discount.count}
+                    span.form-booking__calc-value #{room.service.price}
+                div.form-booking__calc-detail
+                    span.form-booking__calc-description !{room.addition.description}
+                    span.form-booking__calc-value #{room.addition.price}
+
+        div.form-booking__footer
+            div.form-booking__total
+                span.form-booking__total-title #{room.title}
+                div.form-booking__total-dashed-line
+                span.form-booking__total-price 38 081₽
+            div.form-booking__submit-button
+                +button(buttonSubmit)

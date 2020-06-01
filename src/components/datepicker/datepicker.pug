@@ -1,2 +1,15 @@
+include ../button/button
+
 mixin datepicker()
     div.datepicker.js-datepicker
+        div.datepicker__clear-button-container.js-datepicker__clear-button-container
+                +button({
+                    type: 'button',
+                    style: 'color: var(--dark-shade-50per)',
+                    label: 'очистить'
+                })
+        div.datepicker__apply-button-container.js-datepicker__apply-button-container
+            +button({
+                type: 'button',
+                label: 'применить'
+            })

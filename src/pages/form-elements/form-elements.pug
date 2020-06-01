@@ -27,85 +27,119 @@ block main
             div.form-elements__text-field
                 +text-field({   
                     label: 'text field', 
-                    name: 'text-field', 
-                    type: 'email', 
-                    placeholder: 'Email' 
+                    input: {
+                        name: 'text-field', 
+                        type: 'email', 
+                        placeholder: 'Email' 
+                    }
                 })
-            div.form-elements__text-field.form-elements__text-field_hovered
+            div.form-elements__text-field.form-elements__text-field_hover
                 +text-field({ 
                     label: 'text field',
-                    name: 'text-field', 
-                    placeholder: 'This is pretty awesome', 
-                    autofocus: 'true' 
+                    input: {
+                        name: 'text-field', 
+                        placeholder: 'This is pretty awesome', 
+                        autofocus: 'true' 
+                    }
                 })
             div.form-elements__dropdown
                 +quantity-dropdown({ 
-                    label: 'dropdown', 
-                    value: 'Сколько гостей',
-                    mode: 'manualApply',
-                    counter: [
-                        { 
-                            label: 'взрослые', 
-                            name: 'adults', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'гость', 
-                                few: 'гостя', 
-                                many: 'гостей' 
-                            }, 
-                            isBound: 'true', 
-                            boundName: 'guests' 
-                        },
-                        { 
-                            label: 'дети', 
-                            name: 'kids', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'гость', 
-                                few: 'гостя', 
-                                many: 'гостей' 
-                            }, 
-                            isBound: 'true', 
-                            boundName: 'guests'
-                        },
-                        { 
-                            label: 'младенцы', 
-                            name: 'babies', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'младенец', 
-                                few: 'младенцев', 
-                                many: 'младенцев' 
-                            } 
+                    dropdown: {
+                        textField: {
+                            label: 'dropdown', 
+                            input: {
+                                name: 'dropdown',
+                                value: 'Сколько гостей'
+                            }
                         }
-                    ] 
+                    },
+                    counterBar: {
+                        mode: 'manualApply',
+                        counter: [
+                            { 
+                                label: 'взрослые', 
+                                name: 'adults', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'гость', 
+                                    few: 'гостя', 
+                                    many: 'гостей' 
+                                }, 
+                                isBound: 'true', 
+                                boundName: 'guests' 
+                            },
+                            { 
+                                label: 'дети', 
+                                name: 'kids', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'гость', 
+                                    few: 'гостя', 
+                                    many: 'гостей' 
+                                }, 
+                                isBound: 'true', 
+                                boundName: 'guests'
+                            },
+                            { 
+                                label: 'младенцы', 
+                                name: 'babies', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'младенец', 
+                                    few: 'младенцев', 
+                                    many: 'младенцев' 
+                                } 
+                            }
+                        ] 
+                    }
                 })
             div.form-elements__masked-text-field
-                +text-field({  
+                +text-field({
                     label: 'masked text field', 
-                    name: 'text-field', 
-                    placeholder: 'ДД.ММ.ГГГГ', 
-                    mask: 'date' 
+                    input: {
+                        name: 'text-field',
+                        placeholder: 'ДД.ММ.ГГГГ', 
+                        mask: 'date' 
+                    }          
                 })
             div.form-elements__date-dropdown
                 +date-dropdown({ 
-                    label: {
-                        from: 'date dropdown',
-                        to: 'date dropdown'
-                    },
-                    name: {
-                        from: 'from',
-                        to: 'to'
-                    },
-                    theme: 'twin'
+                    twin: 'true',
+                    dropdown: {
+                        from: {
+                            textField: {
+                                label: 'date dropdown',
+                                input: {
+                                    name: 'dateDropdownFrom',
+                                    value: 'ДД.ММ.ГГГГ'
+                                }
+                            }
+                        },
+                        to: {
+                            textField: {
+                                label: 'date dropdown',
+                                input: {
+                                    name: 'dateDropdownTo',
+                                    value: 'ДД.ММ.ГГГГ'
+                                }
+                            }
+                        },  
+                    }   
                 })
             div.form-elements__filter-date-dropdown
-                +date-dropdown({ 
-                    label: 'filter date dropdown', 
-                    theme: 'single'
+                +date-dropdown({
+                    dropdown: {
+                        textField: {
+                                label: 'filter date dropdown',
+                                input: {
+                                    name: 'filterDateDropdown',
+                                    value: 'ДД.ММ - ДД.ММ'
+                                }
+                            }
+                    }   
                 })
             div.form-elements__subscribtion-text-field
                 +subscribtion-field({ 
@@ -317,92 +351,110 @@ block main
         div.form-elements__group-4
                 div.form-elements__filter-dropdown
                     +quantity-dropdown({ 
-                        label: 'dropdown', 
-                        value: 'Конфигурация номера',
-                        mode: 'autoApply',
-                        counter: [
-                            { 
-                                label: 'спальни', 
-                                name: 'bedrooms', 
-                                minValue: '0', 
-                                maxValue: '5', 
-                                defaultValue: '2',
-                                plural: { 
-                                    one: 'спальня', 
-                                    few: 'спальни', 
-                                    many: 'спален' 
-                                } 
-                            },
-                            { 
-                                label: 'кровати', 
-                                name: 'beds', 
-                                minValue: '0', 
-                                maxValue: '5', 
-                                defaultValue: '2',
-                                plural: { 
-                                    one: 'кровать', 
-                                    few: 'кровати', 
-                                    many: 'кроватей' 
-                                } 
-                            },
-                            { 
-                                label: 'ванные комнаты', 
-                                name: 'bathroom', 
-                                minValue: '0',
-                                maxValue: '5',
-                                defaultValue: '1',
-                                plural: { 
-                                    one: 'ванная комната', 
-                                    few: 'ванные комнаты', 
-                                    many: 'ванных комнат' 
+                        dropdown: {   
+                            textField: {
+                                label: 'dropdown', 
+                                input: {
+                                    name: 'dropdown',
+                                    value: 'Конфигурация номера'
                                 }
                             }
-                        ]
+                        },
+                        counterBar: {   
+                            mode: 'autoApply',
+                            counter: [
+                                { 
+                                    label: 'спальни', 
+                                    name: 'bedrooms', 
+                                    minValue: '0', 
+                                    maxValue: '5', 
+                                    defaultValue: '2',
+                                    plural: { 
+                                        one: 'спальня', 
+                                        few: 'спальни', 
+                                        many: 'спален' 
+                                    } 
+                                },
+                                { 
+                                    label: 'кровати', 
+                                    name: 'beds', 
+                                    minValue: '0', 
+                                    maxValue: '5', 
+                                    defaultValue: '2',
+                                    plural: { 
+                                        one: 'кровать', 
+                                        few: 'кровати', 
+                                        many: 'кроватей' 
+                                    } 
+                                },
+                                { 
+                                    label: 'ванные комнаты', 
+                                    name: 'bathroom', 
+                                    minValue: '0',
+                                    maxValue: '5',
+                                    defaultValue: '1',
+                                    plural: { 
+                                        one: 'ванная комната', 
+                                        few: 'ванные комнаты', 
+                                        many: 'ванных комнат' 
+                                    }
+                                }
+                            ]
+                        }
                     })
                 div.form-elements__filter-dropdown.form-elements__filter-dropdown_is_showed
                     +quantity-dropdown({ 
-                        label: 'dropdown', 
-                        value: 'Конфигурация номера',
-                        mode: 'autoApply', 
-                        show: 'true',
-                        counter: [
-                            { 
-                                label: 'спальни', 
-                                name: 'bedrooms', 
-                                minValue: '0', 
-                                maxValue: '5', 
-                                defaultValue: '2', 
-                                plural: { 
-                                    one: 'спальня', 
-                                    few: 'спальни', 
-                                    many: 'спален' 
-                                } 
-                            },
-                            { 
-                                label: 'кровати', 
-                                name: 'beds', 
-                                minValue: '0', 
-                                maxValue: '5', 
-                                defaultValue: '2', 
-                                plural: { 
-                                    one: 'кровать', 
-                                    few: 'кровати', 
-                                    many: 'кроватей'
-                                }
-                            },
-                            { 
-                                label: 'ванные комнаты', 
-                                name: 'bathroom', 
-                                minValue: '0', 
-                                maxValue: '5', 
-                                defaultValue: '1',
-                                plural: { 
-                                    one: 'ванная комната', 
-                                    few: 'ванные комнаты', 
-                                    many: 'ванных комнат' 
+                        dropdown: {  
+                            show: 'true',
+                            textField: {
+                                label: 'dropdown', 
+                                input: {
+                                    name: 'dropdown',
+                                    value: 'Конфигурация номера'
                                 }
                             }
-                        ]
+                        },
+                        counterBar: {
+                            mode: 'autoApply',
+                            counter: [
+                                    { 
+                                        label: 'спальни', 
+                                        name: 'bedrooms', 
+                                        minValue: '0', 
+                                        maxValue: '5', 
+                                        defaultValue: '2', 
+                                        plural: { 
+                                            one: 'спальня', 
+                                            few: 'спальни', 
+                                            many: 'спален' 
+                                        } 
+                                    },
+                                    { 
+                                        label: 'кровати', 
+                                        name: 'beds', 
+                                        minValue: '0', 
+                                        maxValue: '5', 
+                                        defaultValue: '2', 
+                                        plural: { 
+                                            one: 'кровать', 
+                                            few: 'кровати', 
+                                            many: 'кроватей'
+                                        }
+                                    },
+                                    { 
+                                        label: 'ванные комнаты', 
+                                        name: 'bathroom', 
+                                        minValue: '0', 
+                                        maxValue: '5', 
+                                        defaultValue: '1',
+                                        plural: { 
+                                            one: 'ванная комната', 
+                                            few: 'ванные комнаты', 
+                                            many: 'ванных комнат' 
+                                        }
+                                    }
+                            ],
+                        }
                     })
                 div.form-elements__expandable-checkbox-list
                     +expander({ 
@@ -475,49 +527,58 @@ block main
         div.form-elements__group-5
             div.form-elements__dropdown.form-elements__dropdown_is_showed
                 +quantity-dropdown({ 
-                    label: 'dropdown', 
-                    value: 'Сколько гостей',
-                    mode: 'manualApply', 
-                    show: 'true',
-                    counter: [
-                        { 
-                            label: 'взрослые', 
-                            name: 'adults', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'гость', 
-                                few: 'гостя', 
-                                many: 'гостей' 
-                            }, 
-                            isBound: 'true', 
-                            boundName: 'guests' 
-                        },
-                        { 
-                            label: 'дети', 
-                            name: 'kids', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'гость', 
-                                few: 'гостя', 
-                                many: 'гостей' 
-                            }, 
-                            isBound: 'true', 
-                            boundName: 'guests' 
-                        },
-                        { 
-                            label: 'младенцы', 
-                            name: 'babies', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'младенец', 
-                                few: 'младенцев', 
-                                many: 'младенцев' 
-                            } 
+                    dropdown: {
+                        show: 'true',
+                        textField: {
+                            label: 'dropdown', 
+                            input: {
+                                name: 'dropdown',
+                                value: 'Сколько гостей'
+                            }
                         }
-                    ],
+                    },
+                    counterBar: {
+                        mode: 'manualApply',
+                        counter: [
+                            { 
+                                label: 'взрослые', 
+                                name: 'adults', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'гость', 
+                                    few: 'гостя', 
+                                    many: 'гостей' 
+                                }, 
+                                isBound: 'true', 
+                                boundName: 'guests' 
+                            },
+                            { 
+                                label: 'дети', 
+                                name: 'kids', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'гость', 
+                                    few: 'гостя', 
+                                    many: 'гостей' 
+                                }, 
+                                isBound: 'true', 
+                                boundName: 'guests' 
+                            },
+                            { 
+                                label: 'младенцы', 
+                                name: 'babies', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'младенец', 
+                                    few: 'младенцев', 
+                                    many: 'младенцев' 
+                                } 
+                            }
+                        ],
+                    }
                 })
             div.form-elements__rich-checkbox-buttons
                 +list({ 
@@ -541,51 +602,60 @@ block main
         div.form-elements__group-6
             div.form-elements__dropdown.form-elements__dropdown_is_showed
                 +quantity-dropdown({ 
-                    label: 'dropdown',
-                    value: 'Сколько гостей',
-                    mode: 'manualApply', 
-                    show: 'true',
-                    counter: [
-                        { 
-                            label: 'взрослые', 
-                            name: 'adults', 
-                            defaultValue: '2', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'гость', 
-                                few: 'гостя', 
-                                many: 'гостей' 
-                            }, 
-                            isBound: 'true', 
-                            boundName: 'guests' 
-                        },
-                        { 
-                            label: 'дети', 
-                            name: 'kids', 
-                            defaultValue: '1', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'гость', 
-                                few: 'гостя', 
-                                many: 'гостей' 
-                            }, 
-                            isBound: 'true', 
-                            boundName: 'guests' 
-                        },
-                        { 
-                            label: 'младенцы', 
-                            name: 'babies', 
-                            minValue: '0', 
-                            maxValue: '5', 
-                            plural: { 
-                                one: 'младенец', 
-                                few: 'младенцев', 
-                                many: 'младенцев' 
-                            } 
+                    dropdown: {
+                        show: 'true',
+                        textField: {
+                            label: 'dropdown', 
+                            input: {
+                                name: 'dropdown',
+                                value: 'Сколько гостей'
+                            }
                         }
-                    ],
+                    },
+                    counterBar: {
+                        mode: 'manualApply', 
+                        counter: [
+                            { 
+                                label: 'взрослые', 
+                                name: 'adults', 
+                                defaultValue: '2', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'гость', 
+                                    few: 'гостя', 
+                                    many: 'гостей' 
+                                }, 
+                                isBound: 'true', 
+                                boundName: 'guests' 
+                            },
+                            { 
+                                label: 'дети', 
+                                name: 'kids', 
+                                defaultValue: '1', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'гость', 
+                                    few: 'гостя', 
+                                    many: 'гостей' 
+                                }, 
+                                isBound: 'true', 
+                                boundName: 'guests' 
+                            },
+                            { 
+                                label: 'младенцы', 
+                                name: 'babies', 
+                                minValue: '0', 
+                                maxValue: '5', 
+                                plural: { 
+                                    one: 'младенец', 
+                                    few: 'младенцев', 
+                                    many: 'младенцев' 
+                                } 
+                            }
+                        ],
+                    }
                 })
             div.form-elements__bullet-list
                 +list({ 
@@ -615,7 +685,7 @@ block main
                     userName: 'Мурад Сарафанов',
                     reviewDate: '5 дней назад',
                     reviewText: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-                    like: {
+                    likeData: {
                         count: '12',
                         active: 'true',
                     },

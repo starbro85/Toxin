@@ -20,7 +20,6 @@
 /* __input styles
 */
 .text-field__input {
-    position: relative;
     grid-area: input;
     width: 100%; height: 44px;
     padding: 0 20px 0 15px;
@@ -30,6 +29,7 @@
     font: var(--body-font);
     font-size: 14px;
     line-height: 24px;
+    text-align: start;
     color: var(--dark-shade-75per);
 }
 .text-field__input::placeholder {
@@ -44,6 +44,25 @@
     outline: var(--outline);
     outline-offset: 2px;
 }
+.text-field_with_icon .text-field__input {  
+    position: relative;
+}
+.text-field_with_button.text-field {
+    grid-template-areas: 
+        'label label'
+        'input button';
+    grid-template-columns: 1fr min-content;
+}
+.text-field_with_button .text-field__input {
+    border-right: none;
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+}
+.text-field_with_button .text-field__input:hover:not(:disabled),
+.text-field_with_button .text-field__input:focus {
+    border: var(--border);
+    border-color: var(--dark-shade-50per);
+}
+
 
 /* __hidden-input styles
 */
@@ -59,6 +78,7 @@
 .text-field__hidden-input:invalid {
     box-shadow: none; /* reset firefox box-shadow for invalid input */
 }
+
 /* __icon styles
 */
 .text-field__icon {
@@ -73,6 +93,15 @@
 .text-field:hover:not(:disabled) .text-field__icon  {
     color: var(--dark-shade-75per);
 }
+.text-field_with_icon .text-field__icon {
+    position: absolute;
+    height: 44px;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
 /* __button styles
 */
 .text-field__button {
@@ -85,48 +114,16 @@
     outline: var(--outline);
     outline-offset: 2px;
 }
-
-/* _theme_icon styles 
-*/
-.text-field_theme_icon .text-field__input {
-    text-align: start;
-}
-.text-field_theme_icon .text-field__icon {
-    height: 44px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* _theme_icon-button styles 
-*/
-.text-field_theme_icon-button.text-field {
-    grid-template-areas: 
-        'label label'
-        'input button';
-    grid-template-columns: 1fr min-content;
-}
-.text-field_theme_icon-button .text-field__input {
-    border-right: none;
-    border-top-right-radius: 0; border-bottom-right-radius: 0;
-}
-.text-field_theme_icon-button .text-field__input:hover:not(:disabled),
-.text-field_theme_icon-button .text-field__input:focus {
-    border: var(--border);
-    border-color: var(--dark-shade-50per);
-}
-.text-field_theme_icon-button .text-field__button {
+.text-field_with_button .text-field__button {
     grid-area: button;
     border-left: none; 
     border-top-left-radius: 0; border-bottom-left-radius: 0;
 }
-.text-field_theme_icon-button .text-field__button:hover:not(:disabled),
-.text-field_theme_icon-button .text-field__button:focus {
+.text-field_with_button .text-field__button:hover:not(:disabled),
+.text-field_with_button .text-field__button:focus {
     border: var(--border);
     border-color: var(--dark-shade-50per);
 }
-.text-field_theme_icon-button .text-field__input:focus + .text-field__button:hover {
+.text-field_with_button .text-field__input:focus + .text-field__button:hover {
     border-left: none; 
 }

@@ -2,9 +2,9 @@ import './../button/button.js';
 import './../date-dropdown/date-dropdown.js';
 import './../dropdown/dropdown.js';
 
-import './form-reservation.css';
+import './form-booking.css';
 
-class FormReservation {
+class FormBooking {
     constructor(node) {
         this.root = node;
         
@@ -18,9 +18,9 @@ class FormReservation {
 };
 
 function render() {
-    const components = document.body.querySelectorAll('.js-form-reservation');
+    const components = document.body.querySelectorAll('.js-form-booking');
     if (components.length > 0) {
-        Array.from(components).map((node) => new FormReservation(node));
+        Array.from(components).map((node) => new FormBooking(node));
     };
 };
 

@@ -21,6 +21,7 @@ class Datepicker {
             "styles": {
                 "next":             "datepicker__next-button",
                 "back":             "datepicker__prev-button",
+                "container":        "datepicker__rome-dp",
                 "date":             "datepicker__container",
                 "month":            "datepicker__calendar",
                 "monthLabel":       "datepicker__label",

@@ -1,40 +1,28 @@
 include ../dropdown/dropdown
 include ../datepicker/datepicker
 
-mixin date-dropdown({ name, label, show, disabled, required, theme='twin'})
-    if (theme === 'twin')
-        div.date-dropdown.date-dropdown_theme_twin.js-date-dropdown
+mixin date-dropdown({ dropdown, twin})
+    if twin
+        div(class = 'date-dropdown date-dropdown_twin js-date-dropdown')
             +dropdown({
-                label: label.from, 
-                value: 'ДД.ММ.ГГГГ',
-                theme: 'offset',
-                name: name.from,
-                required,
-                show, 
-                disabled
+                offset: 'true',
+                show: dropdown.from.show,
+                textField: dropdown.from.textField
             })
-                div.date-dropdown__datepicker
+                div(class = 'date-dropdown__datepicker')
                     +datepicker()
             +dropdown({
-                label: label.to, 
-                value: 'ДД.ММ.ГГГГ',
-                theme: 'offset',
-                name: name.to,
-                align: 'right',
-                required,
-                show, 
-                disabled
+                offset: 'true',
+                alignRight: 'true',
+                show: dropdown.to.show,
+                textField: dropdown.to.textField
             })
-                div.date-dropdown__datepicker           
+                div(class = 'date-dropdown__datepicker')           
                     +datepicker()
-    if (theme === 'single')
-        div.date-dropdown.date-dropdown_theme_single.js-date-dropdown
+    else
+        div(class = 'date-dropdown date-dropdown_single js-date-dropdown')
             +dropdown({ 
-                value: 'дд.мм-дд-мм',
-                mask: 'date', 
-                theme: 'offset', 
-                name,
-                label, 
-                show, 
-                disabled
+                offset: 'true',
+                show: dropdown.show,
+                textField: dropdown.textField
             })

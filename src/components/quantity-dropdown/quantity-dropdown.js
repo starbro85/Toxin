@@ -38,14 +38,18 @@ class Quantity {
     }
 
     addUpdateInputValueEvent() {
+        const inputValue = this.getInputValue();
+        const inputValueNormalized = normalizeStr({
+                                        str: this.getInputValue(),
+                                        size: this.getInputSizeInChar()
+                                    });
+        const hiddenInputValue = this.getSubmitValue();
+
         this.input.dispatchEvent(new CustomEvent('update-input-value', {
             detail: {
-                inputValue: normalizeStr({
-                                str: this.getInputValue(),
-                                size: this.getInputSizeInChar()
-                            }),
-                hiddenInputValue: this.getSubmitValue(),
-                title: this.getInputValue()
+                inputValue: inputValueNormalized,
+                inputTitle: inputValue,
+                hiddenInputValue: hiddenInputValue
             }
         }));
     }

@@ -12,7 +12,7 @@ mixin list({ label, theme='default', checkbox, text })
                 li.list__item
                     +checkbox(data)
         if text
-            each item in text
+            each data in text
                 li.list__item
-                    | #{item}
+                    | #{data}
         

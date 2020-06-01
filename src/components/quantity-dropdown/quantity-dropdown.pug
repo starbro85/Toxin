@@ -1,7 +1,9 @@
 include ../dropdown/dropdown
 include ../counter-bar/counter-bar
 
-mixin quantity-dropdown({ name, label, value, show, disabled, required, mode, counter })
+mixin quantity-dropdown({ dropdown, counterBar })
     div.quantity-dropdown.js-quantity-dropdown
-        +dropdown({ name, label, value, show, disabled, required })
-            +counter-bar({ mode, counter })
+        if dropdown
+            +dropdown(dropdown)
+                if counterBar
+                    +counter-bar(counterBar)

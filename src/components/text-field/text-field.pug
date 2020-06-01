@@ -1,45 +1,42 @@
-mixin text-field({ label, type='text', name, value, mask, placeholder, maxlength, style, tabindex='0', borderless=false, readonly=false, autofocus=false, disabled=false, required=false, theme='default', button, icon, hiddenInput })
+mixin text-field({ label, input, button, icon })
     
-    -const classes = theme ? `text-field js-text-field text-field_theme_${theme}` : 'text-field js-text-field';
+    -let classes = `text-field js-text-field`;
+    -classes =  icon ? `${classes} text-field_with_icon` : button ? `${classes} text-field_with_button` : `${classes}`;
     
-    div(class=classes)
+    div(class = classes)
         if label
-            h3.text-field__label #{label}
-        if type === 'button'
-            input.text-field__hidden-input.js-text-field__hidden-input(
-                name=hiddenInput.name
-                required=hiddenInput.required
-                tabindex='-1'
-                )
-        input.text-field__input.js-text-field__input(
-                                                    type=type
-                                                    name=name
-                                                    value=value
-                                                    placeholder=placeholder
-                                                    data-mask=mask
-                                                    readonly=readonly
-                                                    required=required
-                                                    spellcheck='false'
-                                                    disabled=disabled
-                                                    autofocus=autofocus
-                                                    tabindex=tabindex
-                                                    style=style
-                                                    maxlength=maxlength
-                                                    )
+            h3(class = 'text-field__label') #{label}
+        if input.type === 'button'
+            input(
+                class = 'text-field__hidden-input js-text-field__hidden-input'
+                name = input.name
+                required = input.required
+                tabindex = '-1'
+            )
+        input(
+            class = input.activityClass ? `text-field__input js-text-field__input ${input.activityClass}` : 'text-field__input js-text-field__input'
+            type = input.type
+            name = input.name
+            value = input.value
+            placeholder = input.placeholder
+            data-mask = input.mask
+            readonly = input.readonly
+            required = input.required
+            spellcheck = input.spellcheck
+            disabled = input.disabled
+            autofocus = input.autofocus
+            tabindex = input.tabindex
+            style = input.style
+            maxlength = input.maxlength
+        )
         if button
-            button.text-field__button(type=button.type)
-                span.text-field__icon
-                    if button.icon
-                        if button.icon.wrapperClass
-                            span(class=button.icon.wrapperClass) 
-                                |#{button.icon.text}
-                        else
-                            |#{button.icon.text}
+            button(
+                class = button.activityClass ? `text-field__button ${button.activityClass}` : 'text-field__button' 
+                type=button.type
+            )
+                span(class = button.icon.activityClass ? `text-field__icon ${button.icon.activityClass}` : 'text-field__icon')
+                    |#{button.icon.text}
         if icon
-            span.text-field__icon
-                if icon.wrapperClass
-                    span(class=icon.wrapperClass) 
-                        |#{icon.text}
-                else
-                    |#{icon.text}
+            span(class = icon.activityClass ? `text-field__icon ${icon.activityClass}` : 'text-field__icon')
+                |#{icon.text}
     

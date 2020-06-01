@@ -1,32 +1,30 @@
 include ../text-field/text-field
 
-mixin dropdown({ name, label, value, disabled=false, theme, align, mask, required=false, show=false })
+mixin dropdown({ textField, offset, alignRight,  show })
 
-    -const classes = theme ? `dropdown js-dropdown dropdown_theme_${theme}` : 'dropdown js-dropdown';
+    -let classes = 'dropdown js-dropdown';
+    -classes = offset ? `${classes} dropdown_with_offset` : `${classes}`;
+    -classes = show ? `${classes} dropdown_shown` : `${classes}`;
+    -classes = alignRight ? `${classes} dropdown_align_right` : `${classes}`;
 
-    div(class = show ? `${classes} dropdown_is_showed` : classes)
-        div.dropdown__button-container.js-dropdown__button-container
-            +text-field({ 
+    div(class = classes)
+        +text-field({ 
+            label: textField.label,
+            input: {
                 type: 'button',
-                theme: 'icon',
-                style: 'cursor: pointer',
-                icon: {
-                    text: 'expand_more',
-                    wrapperClass: 'dropdown__icon'
-                },
-                hiddenInput: {
-                    name,
-                    required
-                },
-                value, 
-                mask, 
-                label,
-                disabled
-            })
-        
-        -const viewportAlignClasses = align ? `dropdown__viewport js-dropdown__viewport dropdown__viewport_align_${align}` : 'dropdown__viewport js-dropdown__viewport';
+                name: textField.input.name,
+                value: textField.input.value,
+                disabled: textField.input.disabled,  
+                required: textField.input.required,
+                activityClass: 'dropdown__button js-dropdown__button'
+            },
+            icon: {
+                text: 'expand_more',
+                activityClass: 'dropdown__icon'
+            },
+        })
 
-        div(class=viewportAlignClasses)
-            div.dropdown__container.js-dropdown__container
+        div(class = 'dropdown__viewport')
+            div(class = 'dropdown__container js-dropdown__container')
                 if block
                     block

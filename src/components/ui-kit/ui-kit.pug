@@ -8,15 +8,16 @@ block style
     block style
 
 block content
-    body.ui-kit
-        header.ui-kit__header
-            a.ui-kit__link(
-                href='start-page.html' 
-                title='move to start page'
-                )
+    body(class = 'ui-kit')
+        header(class = 'ui-kit__header')
+            a( 
+                class = ui-kit__link
+                href = 'start-page.html' 
+                title = 'move to start page'
+            )
                 +logo({
                     theme: 'ui-kit' 
                 })
 
-        main.ui-kit__main
+        main(class = 'ui-kit__main')
             block main

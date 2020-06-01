@@ -5,22 +5,22 @@ import './../text-field/text-field.js';
 class Dropdown {
     constructor(node) {
         this.root = node;
-        this.button = this.root.querySelector('.js-dropdown__button-container').querySelector('[type="button"]');
+        this.button = this.root.querySelector('.js-dropdown__button');
         this.container = this.root.querySelector('.js-dropdown__container');
 
         this.init();
     }
 
     show() {
-        this.root.classList.add('dropdown_is_showed');
+        this.root.classList.add('dropdown_shown');
     };
 
     hide() {
-        this.root.classList.remove('dropdown_is_showed');
+        this.root.classList.remove('dropdown_shown');
         this.removeEventListeners();
     };
 
-    toggle = () => (this.root.classList.contains('dropdown_is_showed')) ? this.hide() : this.show();
+    toggle = () => (this.root.classList.contains('dropdown_shown')) ? this.hide() : this.show();
 
     handleClickEvent = (event) =>   this.button.contains(event.target) ? this.toggle() : 
                                     this.container.contains(event.target) ? this.show() : 

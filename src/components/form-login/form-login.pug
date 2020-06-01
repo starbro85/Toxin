@@ -1,39 +1,22 @@
 include ../text-field/text-field
 include ../button/button
 
-mixin form-login()
+mixin form-login({ inputEmail, inputPassword, buttonSubmit, buttonRegistration, title, registrationText })
     form.form-login(name='login' method='get')
         div.form-login__header
-            h2.form-login__title Войти
+            h2.form-login__title #{title}
 
         div.form-login__main
             div.form-login__fieldset
                 div.form-login__input
-                    +text-field({
-                        name: 'email',
-                        type: 'email',
-                        placeholder: 'Email',
-                        required: 'true'
-                    })
+                    +text-field(inputEmail)
                 div.form-login__input
-                    +text-field({
-                        name: 'password',
-                        type: 'password',
-                        placeholder: 'Пароль',
-                        required: 'true'
-                    })
+                    +text-field(inputPassword)
 
         div.form-login__footer
             div.form-login__submit-button
-                +button({
-                    label: 'войти',
-                    theme: 'filled-purple',
-                    icon: 'arrow_forward'
-                })
+                +button(buttonSubmit)
             div.form-login__registration
-                span.form-login__registration-text Нет аккаунта на Toxin?
+                span.form-login__registration-text #{registrationText}
                 span.form-login__registration-button
-                    +button({
-                        label: 'Создать',
-                        theme: 'shaped-purple'
-                    })
+                    +button(buttonRegistration)

@@ -1,11 +1,11 @@
 include ../like/like
 
-mixin review({ userAvatar, userName, reviewDate, reviewText, like  })
+mixin review({ userAvatar, userName, reviewDate, reviewText, likeData  })
     div.review.js-review
         img.review__avatar.js-review__avatar(url=userAvatar)
         div.review__info
             span.review__name.js-review__name #{userName}
             span.review__date.js-review__date #{reviewDate}
         div.review__like.js-review__like
-            +like(like)
+            +like(likeData)
         p.review__text.js-review__text !{reviewText}
