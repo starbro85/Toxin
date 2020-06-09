@@ -1,0 +1,17 @@
+/*!
+ * 
+ *     Litepicker v1.4.5 (https://github.com/wakirin/Litepicker)
+ *     Package: litepicker (https://www.npmjs.com/package/litepicker)
+ *     License: MIT (https://github.com/wakirin/Litepicker/blob/master/LICENCE.md)
+ *     Copyright 2019-2020 Rinat G.
+ *     
+ *     Hash: a40e40fe2fd7821d251c
+ *     Generated on: 1589809451890
+ *     
+ */
+
+/*! nouislider - 14.5.0 - 5/11/2020 */
+
+//! moment.js
+
+//! moment.js locale configuration
