@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --config ./webpack/webpack.dev.config.js",
-    "prod": "webpack --progress  --config ./webpack/webpack.prod.config.js",
+    "prod": "webpack --config ./webpack/webpack.prod.config.js",
     "deploy": "gh-pages -d dist"
   },
   "repository": {

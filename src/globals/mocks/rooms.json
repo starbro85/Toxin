@@ -32,19 +32,19 @@
         "image": {
             "size_small": [
                 {
-                    "src": "./room_id_1/img-1.jpg",
+                    "src": "#",
                     "alt": "image-1"
                 },
                 {
-                    "src": "./room_id_1/img-1.jpg",
+                    "src": "#",
                     "alt": "image-2"
                 },
                 {
-                    "src": "./room_id_1/img-1.jpg",
+                    "src": "#",
                     "alt": "image-3"
                 },
                 {
-                    "src": "./room_id_1/img-4.jpg",
+                    "src": "#",
                     "alt": "image-4"
                 }
             ]

@@ -1,7 +1,6 @@
 import './datepicker.css';
 
 import Litepicker from 'litepicker/dist/js/main.nocss';
-import 'litepicker-module-navkeyboard';
 
 class Datepicker {
     constructor(node) {
