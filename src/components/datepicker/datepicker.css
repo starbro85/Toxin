@@ -87,7 +87,7 @@
     height: 40px;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 39px;
+    grid-auto-columns: min(11vw, 39px);;
     justify-items: center;
     align-content: center;
     font: var(--h3-font); 
@@ -104,8 +104,8 @@
 }
 
 .day-item {
-    width: 39px; 
-    height: 40px;
+    width: min(11vw, 39px); 
+    height: min(11vw, 40px);
     display: inline-flex;
     justify-content: center;
     align-items: center;

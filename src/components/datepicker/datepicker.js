@@ -48,8 +48,8 @@ class Datepicker {
         }
 
         if (Object.is(event.target, this.clearButton)) {
-            this.datepickerData = {};
-            this.addDataSentEvent();     
+            this.datepickerData.date = this.isRange ? ['', ''] : '';
+            this.addDataSentEvent();    
         }
 
         this.setClearButtonDisabledState();
@@ -61,8 +61,10 @@ class Datepicker {
             parentEl: this.main,
             lang: 'ru',
             inlineMode: true,
+            numberOfMonths: 1,
             singleMode: !this.isRange,
             showTooltip: false,
+            mobileFriendly: true,
             buttonText: {
                 previousMonth: 'arrow_back',
                 nextMonth: 'arrow_forward'

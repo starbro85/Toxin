@@ -19,6 +19,31 @@ const config = {
         path: path.resolve(__dirname, '..', 'dist'),
     },
 
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MomentLocalesPlugin({
+            localesToKeep: ['ru'],
+        }),
+        new HtmlWebpackPlugin({
+            title: 'start-page',
+            filename: 'start-page.html',
+            template: '../src/pages/start-page/start-page.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'cards',
+            filename: 'cards.html',
+            template: '../src/pages/cards/cards.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'form-elements',
+            filename: 'form-elements.html',
+            template: '../src/pages/form-elements/form-elements.pug',
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css',
+        })
+    ],
+
     module: {
         rules: [
             {
@@ -68,26 +93,7 @@ const config = {
                 }
             },
         ]
-    },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new MomentLocalesPlugin({
-            localesToKeep: ['ru'],
-        }),
-        new HtmlWebpackPlugin({
-            title: 'start-page',
-            filename: 'start-page.html',
-            template: '../src/pages/start-page/start-page.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'form-elements',
-            filename: 'form-elements.html',
-            template: '../src/pages/form-elements/form-elements.pug',
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-        })
-    ]
+    }
 }
 
 module.exports = config;
