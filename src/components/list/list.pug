@@ -1,18 +1,18 @@
 include ../checkbox/checkbox
 
-mixin list({ label, theme='default', checkbox, text })
+mixin list({ label, checkbox, bullet, text })
 
-    -const classes = theme ? `list js-list list_theme_${theme}` : 'list js-list';
+    -let classes = checkbox ? `list js-list list_with_checkbox` :  bullet ? `list js-list list_with_bullet` : 'list js-list';
 
-    ul(class=classes)
+    ul(class = classes)
         if label
-            lh.list__heading.js-list__heading #{label}
+            lh(class = 'list__heading js-list__heading') #{label}
         if checkbox
             each data in checkbox
-                li.list__item
+                li(class = 'list__item')
                     +checkbox(data)
         if text
             each data in text
-                li.list__item
+                li(class = 'list__item')
                     | #{data}
         

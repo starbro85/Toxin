@@ -1,15 +1,20 @@
+/* feature */
+
 .feature {
-    width: 280px; height: 88px;
+    width: 280px; 
+    height: 88px;
     padding: 20px 0;
     display: grid;
     grid-template-areas: 
         'icon label'
         'icon description';
     grid-template-columns: max-content;
-    gap: 0 10px;
+    column-gap: 10px;
     border-bottom: var(--border);
     border-color: var(--dark-shade-10per);
 }
+
+/* icon */
 
 .feature__icon {
     grid-area: icon;
@@ -19,12 +24,18 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* label */
+
 .feature__label {
     grid-area: label;
     font: var(--body-font);
     font-weight: bold;
     color: var(--dark-shade-75per);
 }
+
+/* description */
+
 .feature__description {
     grid-area: description;
     font: var(--body-font);

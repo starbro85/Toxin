@@ -7,4 +7,4 @@ const normalizeStr = function({str, size}) {
     }
 };
 
-export {normalizeStr};
+module.exports = normalizeStr;

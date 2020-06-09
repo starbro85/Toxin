@@ -1,14 +1,16 @@
 mixin range({ label, valueRange, defaultValueRange, step, margin  })
-    div.range.js-range
-        h3.range__label #{label}
-        input.range__input.js-range__input(
-            type='text' 
-            tabindex='-1' 
+    div(class = 'range js-range')
+        h3(class = 'range__label') #{label}
+        input(
+            class = 'range__input js-range__input'
+            type = 'text' 
+            tabindex = '-1' 
             readonly
-            )
-        div.range__slider.js-range__slider(
-            data-value-range=valueRange 
-            data-default-value-range=defaultValueRange 
-            data-step=step
-            data-margin=margin
-            )
+        )
+        div(
+            class = 'range__slider js-range__slider'
+            data-value-range = valueRange 
+            data-default-value-range = defaultValueRange 
+            data-step = step
+            data-margin = margin
+        )

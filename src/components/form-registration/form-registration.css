@@ -1,44 +1,50 @@
-/* root styles
-*/
+/* form-registration */
+
 .form-registration {
-    padding: 40px 30px 30px 30px;
+    padding: 38px 30px 30px 28px;
     background-color: white;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 4px; 
 } 
 
-/*  __title styles
-*/
+/*  title */
+
 .form-registration__title {
     font: var(--h1-font);
     color: var(--dark-shade-100per);
 }
 
-/* __main styles
-*/
+/* main */
+
 .form-registration__main {
     display: grid;
-    gap: 20px 0;
-    padding: 20px 0 20px 0; 
+    gap: 23.5px 0;
+    padding: 20px 0 22px 0; 
 }
 
-/* __fieldset styles
-*/
+/* special-request */
+
+.form-registration__special-request  {
+    margin-top: -1px;
+}
+
+/* fieldset */
+
 .form-registration__fieldset {
     display: grid;
     gap: 10px 0;
 }
 
-/* __footer styles 
-*/
+/* footer */
+
 .form-registration__footer {
     display: grid;
     gap: 30px 0;
 }
 
-/* __login styles
-*/
+/* login */
+
 .form-registration__login {
     display: grid;
     grid-template-areas: 
@@ -47,15 +53,15 @@
     align-items: center;
 }
 
-/* __login-text
-*/
+/* login-text */
+
 .form-registration__login-text {
     grid-area: text;
     font: var(--body-font);
 }
 
-/* __login-button
-*/
+/* login-button */
+
 .form-registration__login-button {
     grid-area: button;
 }

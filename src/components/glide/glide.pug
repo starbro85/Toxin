@@ -1,0 +1,15 @@
+mixin glide({ img })
+    div(class = 'glide js-glide')
+        div(
+            class = 'glide__track' 
+            data-glide-el = 'track'
+        )
+            ul(class = 'glide__slides')
+                each item in img
+                    li(class = 'glide__slide') 
+                        img(
+                            class = 'glide__image' 
+                            src = item.src
+                            alt = item.alt
+                        )
+                        

@@ -2,8 +2,17 @@ include ../dropdown/dropdown
 include ../counter-bar/counter-bar
 
 mixin quantity-dropdown({ dropdown, counterBar })
-    div.quantity-dropdown.js-quantity-dropdown
-        if dropdown
-            +dropdown(dropdown)
-                if counterBar
-                    +counter-bar(counterBar)
+    div(class = 'quantity-dropdown js-quantity-dropdown')
+        +dropdown({
+            expanded: dropdown.expanded,
+            textField: {
+                label: dropdown.textField.label,
+                activityClass: 'js-quantity-dropdown__input',
+                input: dropdown.textField.input
+            }
+        })
+            +counter-bar({
+                mode: counterBar.mode,
+                counter: counterBar.counter,
+                activityClass: 'js-quantity-dropdown__counter-bar'
+            })

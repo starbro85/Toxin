@@ -15,18 +15,6 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
-            },
-            {
-                test: /\.js$/,
-                use: 'babel-loader',
-                exclude: [/node_modules/],
-            },
-            {
                 test: /\.pug$/,
                 use: {
                     loader: 'pug-loader',
@@ -34,6 +22,18 @@ const config = {
                       pretty: true
                     }
                 },
+            },
+            {
+                test: /\.js$/,
+                use: 'babel-loader',
+                exclude: [/node_modules/],
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
             },
             {
                 test: /\.(ico|png|jpg|svg|gif|ttf|eot|woff|woff2|xml|webmanifest)$/,

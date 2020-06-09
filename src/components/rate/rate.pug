@@ -1,8 +1,10 @@
-mixin rate({ name, value, checked=false, disabled=false })
+mixin rate({ label, name, value, checked=false, disabled=false })
     input.rate(
-        type="radio"
-        name=name
-        value=value
-        checked=checked
-        disabled=disabled
-        )
+        class = 'rate'
+        type = 'radio'
+        name = name
+        value = value
+        checked = checked
+        disabled = disabled
+        aria-label = label
+    )

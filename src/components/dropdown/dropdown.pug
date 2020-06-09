@@ -1,22 +1,27 @@
 include ../text-field/text-field
 
-mixin dropdown({ textField, offset, alignRight,  show })
+mixin dropdown({ textField, offset, alignRight, expanded=false })
 
     -let classes = 'dropdown js-dropdown';
+    -classes = expanded ? `${classes} dropdown_expanded` : `${classes}`;
     -classes = offset ? `${classes} dropdown_with_offset` : `${classes}`;
-    -classes = show ? `${classes} dropdown_shown` : `${classes}`;
     -classes = alignRight ? `${classes} dropdown_align_right` : `${classes}`;
 
-    div(class = classes)
+    div(
+        class = classes
+        data-expanded = `${expanded}`
+    )
         +text-field({ 
             label: textField.label,
+            activityClass: textField.activityClass,
             input: {
                 type: 'button',
                 name: textField.input.name,
                 value: textField.input.value,
                 disabled: textField.input.disabled,  
                 required: textField.input.required,
-                activityClass: 'dropdown__button js-dropdown__button'
+                title: textField.input.title,
+                activityClass: textField.input.activityClass ? `dropdown__button js-dropdown__button ${textField.input.activityClass}` : 'dropdown__button js-dropdown__button'
             },
             icon: {
                 text: 'expand_more',

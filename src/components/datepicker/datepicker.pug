@@ -1,15 +1,26 @@
 include ../button/button
 
-mixin datepicker()
-    div.datepicker.js-datepicker
-        div.datepicker__clear-button-container.js-datepicker__clear-button-container
+mixin datepicker({ range=false, mode='auto', activityClass })
+    div(
+        class = activityClass ? `datepicker js-datepicker ${activityClass}` : 'datepicker js-datepicker'
+        data-is-range = range
+        data-mode = mode
+    )
+        div.datepicker__main.js-datepicker__main
+        
+        if mode === 'manual'
+            div(class = 'datepicker__footer')
                 +button({
                     type: 'button',
-                    style: 'color: var(--dark-shade-50per)',
-                    label: 'очистить'
+                    label: 'очистить',
+                    inline: 'true',
+                    color: 'dark-shade',
+                    activityClass: 'datepicker__clear-button js-datepicker__clear-button'
                 })
-        div.datepicker__apply-button-container.js-datepicker__apply-button-container
-            +button({
-                type: 'button',
-                label: 'применить'
-            })
+                +button({
+                    type: 'button',
+                    label: 'применить',
+                    inline: 'true',
+                    color: 'purple',
+                    activityClass: 'js-datepicker__apply-button'
+                })

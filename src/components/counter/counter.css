@@ -1,5 +1,4 @@
-/* root styles 
-*/
+/* counter */
 .counter {
     height: 30px;
     display: grid;
@@ -10,8 +9,8 @@
     align-items: center;
 }
 
-/* __label styles
-*/
+/* label */
+
 .counter__label {
     grid-area: label;
     font: var(--h3-font);
@@ -19,24 +18,8 @@
     text-transform: uppercase;
 }
 
-/* __increment/__decrement styles
-*/
-.counter__decrement-container,
-.counter__increment-container {
-    width: 30px; height: 30px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-.counter__decrement-container {
-    grid-area: decrement;
-}
-.counter__increment-container {
-    grid-area: increment;
-}
+/* input */
 
-/* __input styles
-*/
 .counter__input {
     grid-area: counter;
     text-align: center;
@@ -45,3 +28,79 @@
     line-height: 24px;
     color: var(--dark-shade-100per);
 }
+
+/* decrement */
+
+.counter__decrement {
+    grid-area: decrement;
+    width: 30px; height: 30px;
+    background: white;
+    border: var(--border);
+    border-color: var(--dark-shade-25per);
+    border-radius: 50%;
+    font: var(--body-font);
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--dark-shade-50per);
+    cursor: pointer;
+}
+
+.counter__decrement:active {
+    border-color: var(--dark-shade-5per);
+    transition: border .2s;  
+}
+
+.counter__decrement:hover:not(:disabled) {
+    box-shadow: var(--shadow-hover);
+}
+
+.counter__decrement:disabled {
+    border-color: var(--dark-shade-5per);
+    transition: border .2s; 
+    color: var(--dark-shade-25per);
+    cursor: default;
+}
+
+.counter__decrement:focus {
+    outline: var(--outline);
+    outline-offset: 1px;
+}
+
+/* increment */
+
+.counter__increment {
+    grid-area: increment;
+    width: 30px; height: 30px;
+    background: white;
+    border: var(--border);
+    border-color: var(--dark-shade-25per);
+    border-radius: 50%;
+    font: var(--body-font);
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--dark-shade-50per);
+    cursor: pointer;
+}
+
+.counter__increment:active {
+    border-color: var(--dark-shade-5per);
+    transition: border .2s;  
+}
+
+.counter__increment:hover:not(:disabled) {
+    box-shadow: var(--shadow-hover);
+}
+
+.counter__increment:disabled {
+    border-color: var(--dark-shade-5per);
+    transition: border .2s; 
+    color: var(--dark-shade-25per);
+    cursor: default;
+}
+
+.counter__increment:focus {
+    outline: var(--outline);
+    outline-offset: 1px;
+}
+
+

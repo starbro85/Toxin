@@ -5,48 +5,46 @@ class Pagination {
         this.root = node;
         this.items = Array.from(this.root.querySelectorAll('.js-pagination__item'));
         this.activeItem = this.root.querySelector('.js-pagination__item_active');
-        this.prevButton = this.root.querySelector('.js-pagination__prev-button-container').querySelector('button');
-        this.nextButton = this.root.querySelector('.js-pagination__next-button-container').querySelector('button');
+        this.prev = this.root.querySelector('.js-pagination__item_prev');
+        this.next = this.root.querySelector('.js-pagination__item_next');
         this.ellipsis = '<div class="pagination__ellipsis">...</div>';
 
         this.init();
     }
 
-    setPrevButtonsDisabledState() {
-        const isDisabled = Object.is(this.items[0], this.activeItem);
-        
-        this.prevButton.disabled = isDisabled;
-    }
-
-    setNextButtonsDisabledState() {
-        const isDisabled = Object.is(this.items[this.items.length - 1], this.activeItem);
-        
-        this.nextButton.disabled = isDisabled;
-    }
-
     normalizeItemsList() {
         const activeItemIndex = this.items.indexOf(this.activeItem);
 
+        if (activeItemIndex > 0) {
+            this.prev.classList.add('pagination__item_shown');
+            const prevItemLink = this.items[activeItemIndex - 1].querySelector('.js-pagination__link');
+            this.prev.querySelector('.js-pagination__link_prev').setAttribute('href', prevItemLink.getAttribute('href'));
+        }
+
+        if (activeItemIndex < this.items.length) {
+            this.next.classList.add('pagination__item_shown');
+            const nextItemLink = this.items[activeItemIndex + 1].querySelector('.js-pagination__link');
+            this.next.querySelector('.js-pagination__link_next').setAttribute('href', nextItemLink.getAttribute('href'));
+        }
+
         if (activeItemIndex >= 4) {
             this.items[0].insertAdjacentHTML('afterend', this.ellipsis);
-            this.items[0].classList.add('pagination__item_is_showed');
+            this.items[0].classList.add('pagination__item_shown');
         }
         if (activeItemIndex < this.items.length - 4) {
             this.items[this.items.length - 1].insertAdjacentHTML('beforebegin', this.ellipsis);
-            this.items[this.items.length - 1].classList.add('pagination__item_is_showed');
+            this.items[this.items.length - 1].classList.add('pagination__item_shown');
         }
 
 
         this.items.forEach((item, index) => {
             if ((index >= activeItemIndex - 2) && (index <= activeItemIndex + 2) && (index !== activeItemIndex)) {
-                item.classList.add('pagination__item_is_showed');
+                item.classList.add('pagination__item_shown');
             }
         })
     }
 
     init() {
-        this.setPrevButtonsDisabledState();
-        this.setNextButtonsDisabledState();
         this.normalizeItemsList();
     }
 };

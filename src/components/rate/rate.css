@@ -1,5 +1,5 @@
-/* root styles 
-*/
+/* rate */
+
 .rate {
     height: 24px;
     -webkit-appearance: none;
@@ -7,8 +7,14 @@
     appearance: none;
 }
 
-/* ::before styles
-*/
+.rate:disabled {
+    pointer-events: none;
+}
+
+.rate:focus {
+    outline: none;
+}
+
 .rate::before {
     content: 'star';
     font: var(--icon-font);
@@ -19,16 +25,15 @@
     -webkit-text-fill-color: transparent; 
     cursor: pointer;
 }
-.rate:hover::before,
-.rate:focus::before {
-    text-shadow: 0 0 1px var(--dark-shade-50per);
+
+.rate:hover::before {
+    box-shadow: var(--shadow-hover);
 }
+
 .rate:checked ~ .rate::before {
     content: 'star_border';   
 }
-.rate:focus {
-    outline: none;
-}
+
 .rate:focus::before {
     outline: var(--outline);
     outline-offset: 1px;

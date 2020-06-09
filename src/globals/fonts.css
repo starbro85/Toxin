@@ -1,40 +1,40 @@
-/* quicksand-regular - latin-ext_latin 
+/* quicksand-regular - vietnamese_latin-ext_latin
 */
 @font-face {
     font-family: "Quicksand";
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/quicksand/quicksand-v20-latin-ext_latin-regular.eot");
+    src: url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-regular.eot");
     src: local(""),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-regular.eot?#iefix")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-regular.eot?#iefix")
             format("embedded-opentype"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-regular.woff2")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-regular.woff2")
             format("woff2"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-regular.woff")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-regular.woff")
             format("woff"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-regular.ttf")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-regular.ttf")
             format("truetype"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-regular.svg#Quicksand")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-regular.svg#Quicksand")
             format("svg");
 }
 
-/* quicksand-700 - latin-ext_latin 
+/* quicksand-600 - vietnamese_latin-ext_latin 
 */
 @font-face {
     font-family: "Quicksand";
     font-style: normal;
     font-weight: 700;
-    src: url("../fonts/quicksand/quicksand-v20-latin-ext_latin-700.eot");
+    src: url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-700.eot");
     src: local(""),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-700.eot?#iefix")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-700.eot?#iefix")
             format("embedded-opentype"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-700.woff2")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-700.woff2")
             format("woff2"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-700.woff")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-700.woff")
             format("woff"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-700.ttf")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-700.ttf")
             format("truetype"),
-        url("../fonts/quicksand/quicksand-v20-latin-ext_latin-700.svg#Quicksand")
+        url("../fonts/quicksand/quicksand-v20-vietnamese_latin-ext_latin-700.svg#Quicksand")
             format("svg");
 }
 

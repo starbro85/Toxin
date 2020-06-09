@@ -3,33 +3,37 @@ include ../radio-bar/radio-bar
 include ../toggle/toggle
 include ../button/button
 
-mixin form-registration({ title, loginText,inputName, inputSurname, inputBirthday, inputEmail, inputPassword, toggle, radio, buttonSubmit, buttonLogin })
-    form.form-registration(name='registration' method='get')
-        div.form-registration__header
-            h2.form-registration__title #{title}
-        div.form-registration__main
-            div.form-registration__fieldset
-                div.form-registration__name
-                    +text-field(inputName)
-                div.form-registration__surname
-                    +text-field(inputSurname)
-                div.form-registration__gender-select
+mixin form-registration({ title, loginText,nameInput, surnameInput, birthdayInput, emailInput, passwordInput, toggle, radio, submitButton, loginButton })
+    form(
+        class = 'form-registration'
+        name = 'registration' 
+        method = 'get'
+    )
+        div(class = 'form-registration__header')
+            h2(class = 'form-registration__title') #{title}
+        div(class = 'form-registration__main')
+            div(class = 'form-registration__fieldset')
+                div(class = 'form-registration__name')
+                    +text-field(nameInput)
+                div(class = 'form-registration__surname')
+                    +text-field(surnameInput)
+                div(class = 'form-registration__gender-select')
                     +radio-bar({radio})
 
-            div.form-registration__input
-                +text-field(inputBirthday)
+            div(class = 'form-registration__input')
+                +text-field(birthdayInput)
             
-            div.form-registration__fieldset
-                div.form-registration__input
-                    +text-field(inputEmail)
-                div.form-registration__input
-                    +text-field(inputPassword)
-                div.form-registration__special-request 
+            div(class = 'form-registration__fieldset')
+                div(class = 'form-registration__input')
+                    +text-field(emailInput)
+                div(class = 'form-registration__input')
+                    +text-field(passwordInput)
+                div(class = 'form-registration__special-request')
                     +toggle(toggle)
-        div.form-registration__footer
-            div.form-registration__submit-button
-                +button(buttonSubmit)
-            div.form-registration__login
-                span.form-registration__login-text #{loginText}
-                span.form-registration__login-button
-                    +button(buttonLogin)
+        div(class = 'form-registration__footer')
+            div(class = 'form-registration__submit-button')
+                +button(submitButton)
+            div(class = 'form-registration__login')
+                span(class = 'form-registration__login-text') #{loginText}
+                span(class = 'form-registration__login-button')
+                    +button(loginButton)

@@ -1,15 +1,23 @@
-mixin button({ label, type='submit', style, theme, disabled=false, icon })
+mixin button({ type='submit', disabled=false, label, activityClass, color, inline, icon })
 
-    -const classes = theme ? `button js-button button_theme_${theme}` : 'button js-button';
+    -let classes = 'button js-button';
+    
+    -classes = activityClass ? `${classes} ${activityClass}` : classes;
+    -classes = color ? `${classes} button_color_${color}` :classes
+    -classes = inline ? `${classes} button_inline` : classes;
+    -classes = icon ? `${classes} button_with_icon` : classes;
 
     button(
-        class = classes,
-        disabled=disabled
-        style=style
-        type=type
-        )
-        span.button__label #{label}
+        class = classes
+        disabled = disabled
+        style = style
+        type = type
+    )
+        p(class = 'button__label') #{label}
 
-        if icon
-            span.button__icon
+        if icon && !inline
+            span(
+                class = 'button__icon' 
+                aria-hidden='true'
+            )
                 |#{icon}

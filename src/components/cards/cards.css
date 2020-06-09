@@ -1,10 +1,11 @@
-/* root styles
-*/
+/* cards */
 .cards {
     display: grid;
     grid-template-columns: 380px 380px 320px;
     gap: 0 40px;
 }
+
+/* cards, column element */
 
 .cards__column {
     display: grid;

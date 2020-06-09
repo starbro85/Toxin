@@ -1,6 +1,6 @@
 include ../radio/radio
 
 mixin radio-bar({ radio })
-    div.radio-bar
+    div(class = 'radio-bar')
         each data in radio
             +radio(data)

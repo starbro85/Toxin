@@ -1,46 +1,45 @@
-/* root styles 
-*/
+/* list */
+
 .list {
     display: grid;
-    gap: 10px;
-    list-style: none;
+    row-gap: 10px;
     padding: 0;
     margin: 0;
+    list-style: none;
+    
 }
 
+/* heading */
 
-/* __heading styles
-*/
 .list__heading {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
 }
 
+.list_with_checkbox .list__heading {
+    margin-bottom: 6px;
+}
 
-/* __item styles
-*/
+
+/* item */
+
 .list__item {
     font: var(--body-font);
     color: var(--dark-shade-75per);
     line-height: 24px;
 }
 
-/* _theme_bullet styles 
-*/
-.list_theme_bullet .list__heading {
-    margin-bottom: 4px;
-}
-.list_theme_bullet .list__item {
+.list_with_bullet .list__item {
     position: relative;
-    margin-left: 20px;
+    padding-left: 20px;
 }
-.list_theme_bullet .list__item::before {
-    position: absolute;
+
+.list_with_bullet .list__item::before {
     content: '';
-    left: -20px;
-    top: 7px;
+    position: absolute;
+    left: 0; top: 7px;
     width: 10px; height: 10px;
     border-radius: 50%;
     background-color: var(--dark-shade-25per);

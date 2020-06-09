@@ -1,0 +1,280 @@
+{
+    "formSearch": {
+        "title": "Найдём номера под ваши пожелания",
+        "dateDropdown": {
+            "twin": "true",
+            "dropdown": {
+                "from": {
+                    "textField": {
+                        "label": "прибытие",
+                        "input": {
+                            "name": "arrival",
+                            "value": "ДД.ММ.ГГГГ",
+                            "required": "true"
+                        }
+                    }
+                },
+                "to": {
+                    "textField": {
+                        "label": "выезд",
+                        "input": {
+                            "name": "departure",
+                            "value": "ДД.ММ.ГГГГ",
+                            "required": "true"
+                        }
+                    }
+                }
+            }
+        },
+        "quantityDropdown": {
+            "dropdown": {
+                "textField": {
+                    "label": "гости",
+                    "input": {
+                        "name": "guests",
+                        "value": "Сколько гостей",
+                        "required": "true"
+                    }
+                }
+            },
+            "counterBar": {
+                "mode": "manualApply",
+                "counter": [
+                    {
+                        "label": "взрослые",
+                        "name": "adults",
+                        "minValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
+                        },
+                        "isBound": "true",
+                        "boundName": "guests"
+                    },
+                    {
+                        "label": "дети",
+                        "name": "kids",
+                        "minValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
+                        },
+                        "isBound": "true",
+                        "boundName": "guests"
+                    },
+                    {
+                        "label": "младенцы",
+                        "name": "babies",
+                        "minValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "младенец",
+                            "few": "младенцев",
+                            "many": "младенцев"
+                        }
+                    }
+                ]
+            }
+        },
+        "submitButton": {
+            "label": "подобрать номер",
+            "color": "purple-filled",
+            "icon": "arrow_forward"
+        }
+    },
+    "formRegistration": {
+        "title": "Регистрация аккаунта",
+        "nameInput": {
+            "input": {
+                "name": "name",
+                "placeholder": "Имя",
+                "required": "true"
+            }
+        },
+        "surnameInput": {
+            "input": {
+                "name": "surname",
+                "placeholder": "Фамилия",
+                "required": "true"
+            }
+        },
+        "radio": [
+            {
+                "label": "Мужчина",
+                "name": "gender",
+                "value": "male",
+                "checked": "true"
+            },
+            {
+                "label": "Женщина",
+                "name": "gender",
+                "value": "female"
+            }
+        ],
+        "birthdayInput": {
+            "label": "дата рождения",
+            "input": {
+                "name": "birthday",
+                "placeholder": "ДД.ММ.ГГГГ",
+                "mask": "date",
+                "required": "true"
+            }
+        },
+        "emailInput": {
+            "label": "данные для входа в сервис",
+            "input": {
+                "name": "email",
+                "type": "email",
+                "placeholder": "Email",
+                "required": "true"
+            }
+        },
+        "passwordInput": {
+            "name": "password",
+            "input": {
+                "name": "password",
+                "type": "password",
+                "placeholder": "Пароль",
+                "required": "true"
+            }
+        },
+        "toggle": {
+            "name": "special",
+            "label": "Получать спецпредложения"
+        },
+        "submitButton": {
+            "label": "перейти к оплате",
+            "color": "purple-filled",
+            "icon": "arrow_forward"
+        },
+        "loginText": "Уже есть аккаунт на Toxin",
+        "loginButton": {
+            "label": "войти",
+            "type": "button",
+            "color": "purple-shaped",
+            "icon": "arrow_forward"
+        }
+    },
+    "formBooking": {
+        "title": "Итого",
+        "dateDropdown": {
+            "twin": "true",
+            "dropdown": {
+                "from": {
+                    "textField": {
+                        "label": "прибытие",
+                        "input": {
+                            "name": "arrival",
+                            "value": "ДД.ММ.ГГГГ",
+                            "required": "true"
+                        }
+                    }
+                },
+                "to": {
+                    "textField": {
+                        "label": "выезд",
+                        "input": {
+                            "name": "departure",
+                            "value": "ДД.ММ.ГГГГ",
+                            "required": "true"
+                        }
+                    }
+                }
+            }
+        },
+        "quantityDropdown": {
+            "dropdown": {
+                "textField": {
+                    "label": "гости",
+                    "input": {
+                        "name": "guests",
+                        "value": "Сколько гостей",
+                        "required": "true"
+                    }
+                }
+            },
+            "counterBar": {
+                "mode": "manualApply",
+                "counter": [
+                    {
+                        "label": "взрослые",
+                        "name": "adults",
+                        "minValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
+                        },
+                        "isBound": "true",
+                        "boundName": "guests"
+                    },
+                    {
+                        "label": "дети",
+                        "name": "kids",
+                        "minValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
+                        },
+                        "isBound": "true",
+                        "boundName": "guests"
+                    },
+                    {
+                        "label": "младенцы",
+                        "name": "babies",
+                        "minValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "младенец",
+                            "few": "младенцев",
+                            "many": "младенцев"
+                        }
+                    }
+                ]
+            }
+        },
+        "submitButton": {
+            "label": "забронировать",
+            "color": "purple-filled",
+            "icon": "arrow_forward"
+        }
+    },
+    "formLogin": {
+        "title": "Войти",
+        "emailInput": {
+            "input": {
+                "name": "email",
+                "type": "email",
+                "placeholder": "Email",
+                "required": "true"
+            }
+        },
+        "passwordInput": {
+            "input": {
+                "name": "password",
+                "type": "password",
+                "placeholder": "Пароль",
+                "required": "true"
+            }
+        },
+        "submitButton": {
+            "label": "войти",
+            "color": "purple-filled",
+            "icon": "arrow_forward"
+        },
+        "registrationText": "Нет аккаунта на Toxin?",
+        "registrationButton": {
+            "label": "создать",
+            "type": "button",
+            "color": "purple-shaped",
+            "icon": "arrow_forward"
+        }
+    }
+}

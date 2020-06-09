@@ -44,3 +44,7 @@
 .start-page__link:active {
     color: var(--purple-100per);
 }
+.start-page__link:focus {
+    outline: var(--outline);
+    outline-offset: 1px;    
+}

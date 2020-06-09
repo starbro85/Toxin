@@ -1,11 +1,43 @@
-mixin text-field({ label, input, button, icon })
+mixin text-field({ label, activityClass, input, button, icon })
     
     -let classes = `text-field js-text-field`;
-    -classes =  icon ? `${classes} text-field_with_icon` : button ? `${classes} text-field_with_button` : `${classes}`;
+    -classes = label ? `${classes} text-field_with_label` : classes;
+    -classes = icon ? `${classes} text-field_with_icon` : button ? `${classes} text-field_with_button` : classes;
     
-    div(class = classes)
-        if label
-            h3(class = 'text-field__label') #{label}
+    div(class = activityClass ? `${classes} ${activityClass}` : classes)
+        if label 
+            label(class = 'text-field__label') #{label}
+                input(
+                    class = input.activityClass ? `text-field__input js-text-field__input ${input.activityClass}` : 'text-field__input js-text-field__input'
+                    type = input.type
+                    name = input.name
+                    value = input.value
+                    placeholder = input.placeholder
+                    readonly = input.readonly
+                    required = input.required
+                    spellcheck = input.spellcheck
+                    disabled = input.disabled
+                    autofocus = input.autofocus
+                    tabindex = input.tabindex
+                    title = input.title
+                    data-mask = input.mask
+                )
+        else 
+            input(
+                class = input.activityClass ? `text-field__input js-text-field__input ${input.activityClass}` : 'text-field__input js-text-field__input'
+                type = input.type
+                name = input.name
+                value = input.value
+                placeholder = input.placeholder
+                readonly = input.readonly
+                required = input.required
+                spellcheck = input.spellcheck
+                disabled = input.disabled
+                autofocus = input.autofocus
+                tabindex = input.tabindex
+                title = input.title ? input.title : input.value
+                data-mask = input.mask
+            )
         if input.type === 'button'
             input(
                 class = 'text-field__hidden-input js-text-field__hidden-input'
@@ -13,29 +45,13 @@ mixin text-field({ label, input, button, icon })
                 required = input.required
                 tabindex = '-1'
             )
-        input(
-            class = input.activityClass ? `text-field__input js-text-field__input ${input.activityClass}` : 'text-field__input js-text-field__input'
-            type = input.type
-            name = input.name
-            value = input.value
-            placeholder = input.placeholder
-            data-mask = input.mask
-            readonly = input.readonly
-            required = input.required
-            spellcheck = input.spellcheck
-            disabled = input.disabled
-            autofocus = input.autofocus
-            tabindex = input.tabindex
-            style = input.style
-            maxlength = input.maxlength
-        )
         if button
             button(
                 class = button.activityClass ? `text-field__button ${button.activityClass}` : 'text-field__button' 
                 type=button.type
+                aria-label=button.label
             )
-                span(class = button.icon.activityClass ? `text-field__icon ${button.icon.activityClass}` : 'text-field__icon')
-                    |#{button.icon.text}
+                |#{button.icon}
         if icon
             span(class = icon.activityClass ? `text-field__icon ${icon.activityClass}` : 'text-field__icon')
                 |#{icon.text}

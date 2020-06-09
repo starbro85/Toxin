@@ -1,43 +1,89 @@
 import './datepicker.css';
 
-import moment from 'moment';
-moment.locale('ru');
-
-import romeDatepicker from '@bevacqua/rome';
-romeDatepicker.use(moment);
-
+import Litepicker from 'litepicker/dist/js/main.nocss';
+import 'litepicker-module-navkeyboard';
 
 class Datepicker {
     constructor(node) {
         this.root = node;
+        this.main = this.root.querySelector('.js-datepicker__main');
+        this.isRange = JSON.parse(this.root.dataset.isRange);
+        this.mode = this.root.dataset.mode;
+        this.datepickerData = {};
+
+        if (this.mode === 'manual') {
+            this.clearButton = this.root.querySelector('.js-datepicker__clear-button');
+            this.applyButton = this.root.querySelector('.js-datepicker__apply-button');
+        }
 
         this.init();
     }
 
+    addDataUpdatedEvent() {
+        this.root.dispatchEvent(new CustomEvent('data-updated'));
+    }
+
+    handleUpdateDatepickerData = (date1, date2) => {
+        this.datepickerData.date = this.isRange ? [date1, date2] : date1;
+
+        this.addDataUpdatedEvent()
+    };
+
+    addDataSentEvent() {
+        this.root.dispatchEvent(new CustomEvent('data-sent', {
+            detail: {
+                datepickerData: this.datepickerData,
+            }
+        }));
+    }
+
+    setClearButtonDisabledState() {
+        const isDisabled = this.datepickerData.date ? false : true;
+
+        this.clearButton.disabled = isDisabled;
+    }
+
+    handleManualApplyEvent = event => {
+        if (Object.is(event.target, this.applyButton)) {
+            this.addDataSentEvent();
+        }
+
+        if (Object.is(event.target, this.clearButton)) {
+            this.datepickerData = {};
+            this.addDataSentEvent();     
+        }
+
+        this.setClearButtonDisabledState();
+    };
+
     init() {
-        new romeDatepicker(this.root, {
-            time: false,
-            dayFormat: 'D',
-            "styles": {
-                "next":             "datepicker__next-button",
-                "back":             "datepicker__prev-button",
-                "container":        "datepicker__rome-dp",
-                "date":             "datepicker__container",
-                "month":            "datepicker__calendar",
-                "monthLabel":       "datepicker__label",
-                "dayTable":         "datepicker__table",
-                "dayHead":          "datepicker__heading",
-                "dayHeadElem":      "datepicker__cell datepicker__cell_heading",
-                "dayBody":          "datepicker__body",
-                "dayRow":           "datepicker__row",
-                "dayBodyElem":      "datepicker__cell",
-                "dayPrevMonth":     "datepicker__cell_prev",
-                "dayNextMonth":     "datepicker__cell_next",
-                "selectedDay":      "datepicker__cell_selected",
-                "dayDisabled":      "datepicker__cell_disabled",
-                "dayConcealed":     "datepicker__cell_concealed",      
+        const lp = new Litepicker({
+            element: this.root,
+            parentEl: this.main,
+            lang: 'ru',
+            inlineMode: true,
+            singleMode: !this.isRange,
+            showTooltip: false,
+            buttonText: {
+                previousMonth: 'arrow_back',
+                nextMonth: 'arrow_forward'
             },
+            onSelect: this.handleUpdateDatepickerData
         })
+
+
+        if (this.mode === 'manual') {
+            this.setClearButtonDisabledState();
+
+            this.clearButton.addEventListener('click', event => {
+                lp.clearSelection();
+                this.handleManualApplyEvent(event);
+            });
+            this.applyButton.addEventListener('click', this.handleManualApplyEvent);
+        }
+        else {
+            this.root.addEventListener('data-updated', event => this.addDataSentEvent());
+        }
     }
 };
 

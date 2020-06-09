@@ -9,15 +9,17 @@ class Expander {
         this.init();
     }
 
-    show() {
-        this.root.classList.add('expander_is_expanded');
+    expand() {
+        this.root.classList.add('expander_expanded');
+        this.button.setAttribute('aria-expanded', true)
     };
 
-    hide() {
-        this.root.classList.remove('expander_is_expanded');
+    collapse() {
+        this.root.classList.remove('expander_expanded');
+        this.button.setAttribute('aria-expanded', false)
     };
 
-    toggle = () => (this.root.classList.contains('expander_is_expanded')) ? this.hide() : this.show();
+    toggle = () => (this.root.classList.contains('expander_expanded')) ? this.collapse() : this.expand();
 
     init() {
         this.button.addEventListener('click', event => this.toggle());

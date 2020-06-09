@@ -1,0 +1,53 @@
+[
+    {
+        "id": "1",
+        "number": "888",
+        "category": "люкс",
+        "period": "в сутки",
+        "discount": {
+            "count": "2 179₽",
+            "description": "скидка"
+        },
+        "rent": {
+            "price": "9 990₽",
+            "period": "в сутки"
+        },
+        "service": {
+            "price": "0₽",
+            "description": "Сбор за услуги"
+        },
+        "addition": {
+            "price": "300₽",
+            "description": "Сбор за дополнительные <br> услуги "
+        },
+        "rating": "5",
+        "reviews": {
+            "count": "145",
+            "plurals": {
+                "one": "Отзыв",
+                "few": "Отзыва",
+                "many": "Отзывов"
+            }
+        },
+        "image": {
+            "size_small": [
+                {
+                    "src": "./room_id_1/img-1.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./room_id_1/img-1.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./room_id_1/img-1.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./room_id_1/img-4.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    }
+]

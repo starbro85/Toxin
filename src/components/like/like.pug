@@ -1,6 +1,7 @@
 mixin like({ count, active=false })
-    button.like.js-like(
-        data-active=active
-        )
-        span.like__icon.js-like__icon
-        span.like__count.js-like__count #{count}
+    button(
+        class = 'like js-like'
+        data-active = active
+    )
+        span(class = 'like__icon js-like__icon')
+        span(class = 'like__count js-like__count') #{count}

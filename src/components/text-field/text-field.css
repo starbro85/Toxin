@@ -1,26 +1,28 @@
-/* root styles 
-*/
+/* text-field */
+
 .text-field {
-    display: grid;
-    grid-template-areas: 
-        'label'
-        'input';
+    width: min(100%, 320px);
 }
 
-/* __label styles
-*/
+.text-field_with_button {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: end;
+}
+
+/* label */
+
 .text-field__label {
-    grid-area: label;
-    margin-bottom: 4px;
+    display: grid;
+    row-gap: 4px;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
 }
 
-/* __input styles
-*/
+/* input */
+
 .text-field__input {
-    grid-area: input;
     width: 100%; height: 44px;
     padding: 0 20px 0 15px;
     border: var(--border);
@@ -32,42 +34,53 @@
     text-align: start;
     color: var(--dark-shade-75per);
 }
+
 .text-field__input::placeholder {
-    color: var(--placeholder, var(--dark-shade-25per));
+    color: var(--dark-shade-25per);
 }
-.text-field__input:hover:not(:disabled),
+
+.text-field__input:hover:not(:disabled) {
+    border-color: var(--dark-shade-50per);
+}
+
+.text-field__input:hover:not(:disabled)::placeholder {
+    color: var(--dark-shade-75per);
+}
+
 .text-field__input:focus {
     border-color: var(--dark-shade-50per);
-    --placeholder: var(--dark-shade-75per);
-}
-.text-field__input:focus {
     outline: var(--outline);
     outline-offset: 2px;
 }
-.text-field_with_icon .text-field__input {  
-    position: relative;
+
+.text-field__input:focus::placeholder {
+    color: var(--dark-shade-75per);
 }
-.text-field_with_button.text-field {
-    grid-template-areas: 
-        'label label'
-        'input button';
-    grid-template-columns: 1fr min-content;
+
+.text-field__input:invalid {
+    box-shadow: none; /* reset firefox box-shadow for invalid input */
 }
+
 .text-field_with_button .text-field__input {
     border-right: none;
     border-top-right-radius: 0; border-bottom-right-radius: 0;
 }
+
 .text-field_with_button .text-field__input:hover:not(:disabled),
 .text-field_with_button .text-field__input:focus {
     border: var(--border);
     border-color: var(--dark-shade-50per);
 }
 
+.text-field_with_icon .text-field__input {  
+    position: relative;
+}
 
-/* __hidden-input styles
-*/
+/* hidden-input */
+
 .text-field__hidden-input {
     position: absolute;
+    z-index: -5;
     bottom: 2px;
     width: 100%; height: 44px;
     -webkit-appearance: none;
@@ -75,14 +88,50 @@
     appearance: none;
     pointer-events: none;
 }
+
 .text-field__hidden-input:invalid {
     box-shadow: none; /* reset firefox box-shadow for invalid input */
 }
 
-/* __icon styles
-*/
-.text-field__icon {
+/* button */
+
+.text-field__button {
+    width: 100%;
+    border: var(--border);
+    border-left: none; 
+    border-top-right-radius: 4px; border-bottom-right-radius: 4px;
     width: 44px;
+    height: 44px;  
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);   
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font: var(--icon-font);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.text-field__button:hover:not(:disabled) {
+    border: var(--border);
+    border-color: var(--dark-shade-50per);
+}
+
+.text-field__button:focus {
+    border: var(--border);
+    border-color: var(--dark-shade-50per);
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
+/* icon */
+
+.text-field__icon {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: 0;
+    width: 44px;
+    height: 44px;
+    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,40 +139,16 @@
     color: var(--dark-shade-50per);
     font-size: 24px;
 }
+
 .text-field:hover:not(:disabled) .text-field__icon  {
     color: var(--dark-shade-75per);
 }
-.text-field_with_icon .text-field__icon {
-    position: absolute;
-    height: 44px;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    pointer-events: none;
-}
 
-/* __button styles
-*/
-.text-field__button {
-    width: 100%;
-    border: var(--border);
-    border-radius: 4px; border-radius: 4px;
-    cursor: pointer;
-}
-.text-field__button:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
-}
-.text-field_with_button .text-field__button {
-    grid-area: button;
-    border-left: none; 
-    border-top-left-radius: 0; border-bottom-left-radius: 0;
-}
-.text-field_with_button .text-field__button:hover:not(:disabled),
-.text-field_with_button .text-field__button:focus {
-    border: var(--border);
-    border-color: var(--dark-shade-50per);
-}
-.text-field_with_button .text-field__input:focus + .text-field__button:hover {
-    border-left: none; 
-}
+
+
+
+
+
+
+
+

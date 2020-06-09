@@ -1,6 +1,7 @@
 import './range.css';
 
 import noUiSlider from 'nouislider';
+import 'nouislider/distribute/nouislider.min.css';
 import wNumb from 'wnumb';
 
 class Range {
@@ -17,6 +18,10 @@ class Range {
     }
 
     createSlider() {
+        noUiSlider.cssClasses.base += ' range__base';
+        noUiSlider.cssClasses.connect += ' range__connect';
+        noUiSlider.cssClasses.handle += ' range__handle';
+
         noUiSlider.create(this.slider, {
             connect: true,
             start: [Number(this.defaultValueRange.minValue), Number(this.defaultValueRange.maxValue)],
@@ -26,7 +31,6 @@ class Range {
                 'min': Number(this.valueRange.minValue),
                 'max': Number(this.valueRange.maxValue)
             },
-            cssPrefix: 'range__',
             format: wNumb({
                 decimals: 0,
                 thousand: ' ',

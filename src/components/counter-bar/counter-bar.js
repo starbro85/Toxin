@@ -101,8 +101,8 @@ class CounterBar {
         this.setCounterChangedEventListenter();
 
         if (Object.is(this.mode, 'manualApply')) {
-            this.clearButton = this.root.querySelector('.js-counter-bar__clear-button-container').querySelector('button');
-            this.applyButton = this.root.querySelector('.js-counter-bar__apply-button-container').querySelector('button');
+            this.clearButton = this.root.querySelector('.js-counter-bar__clear-button');
+            this.applyButton = this.root.querySelector('.js-counter-bar__apply-button');
             this.setManualApplyEventListeners();
         }
         if (Object.is(this.mode, 'autoApply')) {

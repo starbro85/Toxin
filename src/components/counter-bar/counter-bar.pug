@@ -1,24 +1,29 @@
 include ../counter/counter
 include ../button/button
 
-mixin counter-bar({ mode='autoApply', counter })
-    div.counter-bar.js-counter-bar(
+mixin counter-bar({ mode='autoApply', counter, activityClass })
+    div(
+        class = activityClass ? `counter-bar js-counter-bar ${activityClass}` : 'counter-bar js-counter-bar'
         data-mode=mode
-        )
-        ul.counter-bar__list
+    )
+        ul(class = 'counter-bar__list')
             if counter
                 each data in counter
-                    li.counter-bar__list-item
+                    li(class = 'counter-bar__list-item')
                         +counter(data)
         if (mode==='manualApply')
-            div.counter-bar__clear-button-container.js-counter-bar__clear-button-container
+            div(class = 'counter-bar__footer')
                 +button({
+                    label: 'очистить',
                     type: 'button',
-                    style: 'color: var(--dark-shade-50per)',
-                    label: 'очистить'
+                    inline: 'true',
+                    color: 'dark-shade',
+                    activityClass: 'counter-bar__clear-button js-counter-bar__clear-button'
                 })
-            div.counter-bar__apply-button-container.js-counter-bar__apply-button-container
                 +button({
+                    label: 'применить',
                     type: 'button',
-                    label: 'применить'
+                    inline: 'true',
+                    color: 'purple',
+                    activityClass: 'js-counter-bar__apply-button'
                 })

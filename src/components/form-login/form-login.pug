@@ -1,22 +1,26 @@
 include ../text-field/text-field
 include ../button/button
 
-mixin form-login({ inputEmail, inputPassword, buttonSubmit, buttonRegistration, title, registrationText })
-    form.form-login(name='login' method='get')
-        div.form-login__header
-            h2.form-login__title #{title}
+mixin form-login({ emailInput, passwordInput, submitButton, registrationButton, title, registrationText })
+    form(
+        class = 'form-login'
+        name = 'login' 
+        method = 'get'
+    )
+        div(class = 'form-login__header')
+            h3(class = 'form-login__title') #{title}
 
-        div.form-login__main
-            div.form-login__fieldset
-                div.form-login__input
-                    +text-field(inputEmail)
-                div.form-login__input
-                    +text-field(inputPassword)
+        div(class = 'form-login__main')
+            div(class = 'form-login__fieldset')
+                div(class = 'form-login__input')
+                    +text-field(emailInput)
+                div(class = 'form-login__input')
+                    +text-field(passwordInput)
 
-        div.form-login__footer
-            div.form-login__submit-button
-                +button(buttonSubmit)
-            div.form-login__registration
-                span.form-login__registration-text #{registrationText}
-                span.form-login__registration-button
-                    +button(buttonRegistration)
+        div(class = 'form-login__footer')
+            div(class = 'form-login__submit-button')
+                +button(submitButton)
+            div(class = 'form-login__registration')
+                span(class = 'form-login__registration-text') #{registrationText}
+                span(class = 'form-login__registration-button')
+                    +button(registrationButton)

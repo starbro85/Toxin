@@ -1,4 +1,4 @@
-extends ../layout/layout
+extends ../template/template
 
 include ../logo/logo
 
@@ -10,14 +10,15 @@ block style
 block content
     body(class = 'ui-kit')
         header(class = 'ui-kit__header')
-            a( 
-                class = ui-kit__link
-                href = 'start-page.html' 
-                title = 'move to start page'
-            )
-                +logo({
-                    theme: 'ui-kit' 
-                })
+            nav(class = 'ui-kit__navigation')
+                a( 
+                    class = 'ui-kit__link'
+                    href = 'start-page.html' 
+                    title = 'Перейти на стартовую страницу'
+                )
+                    +logo({
+                        theme: 'ui-kit' 
+                    })
 
         main(class = 'ui-kit__main')
             block main

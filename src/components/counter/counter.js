@@ -5,8 +5,10 @@ import './../button/button.js';
 class Counter {
     constructor(node) {
         this.root = node;
-        this.increment = this.root.querySelector('.js-counter__increment-container').querySelector('button');
-        this.decrement = this.root.querySelector('.js-counter__decrement-container').querySelector('button');
+        this.increment = this.root.querySelector('.js-counter__increment');
+        this.decrement = this.root.querySelector('.js-counter__decrement');
+        this.incrementAriaLabel = this.increment.getAttribute('aria-label');
+        this.decrementAriaLabel = this.decrement.getAttribute('aria-label');
         this.input = this.root.querySelector('.js-counter__input');
         this.value = Number(this.root.dataset.defaultValue);
         this.minValue = Number(this.root.dataset.minValue);
@@ -32,6 +34,11 @@ class Counter {
         }));
     }
 
+    addAriaLabelToControls() {
+        this.increment.setAttribute('aria-label', `${this.input.value} ${this.incrementAriaLabel}`);
+        this.decrement.setAttribute('aria-label', `${this.input.value} ${this.decrementAriaLabel}`);
+    }
+
     handleCountChange = event => {
         if (Object.is(event.target, this.increment)) {
             this.value = this.value + 1;
@@ -42,6 +49,7 @@ class Counter {
         }
 
         this.input.value = this.value;
+        this.addAriaLabelToControls();
         this.addCounterChangeEvent();
         this.normalizeRange();
     }
@@ -56,7 +64,10 @@ class Counter {
     }
 
     setCounterChangeEventListeners() {
-        window.addEventListener('load', event => this.addCounterChangeEvent());
+        window.addEventListener('load', event => {   
+            this.addAriaLabelToControls();
+            this.addCounterChangeEvent()
+        });
         this.increment.addEventListener('click', this.handleCountChange);   
         this.decrement.addEventListener('click', this.handleCountChange);
     }

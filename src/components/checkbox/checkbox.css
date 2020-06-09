@@ -1,5 +1,5 @@
-/* root styles 
-*/
+/* checkbox */
+
 .checkbox {
     display: grid;
     grid-template-areas: 
@@ -10,8 +10,8 @@
     cursor: pointer;
 }
 
-/* __input styles
-*/
+/* input */
+
 .checkbox__input {
     position: absolute;
     -webkit-appearance: none;
@@ -19,29 +19,8 @@
     appearance: none;
 }
 
-/* __label styles
-*/
-.checkbox__label {
-    grid-area: label;
-    align-self: center;   
-    font: var(--body-font);   
-    line-height: 18px;
-    color: var(--dark-shade-50per); 
-}
+/* mark */
 
-/* __description styles
-*/
-.checkbox__description {
-    grid-area: describtion;
-    margin-top: 6px;
-    font: var(--body-font);
-    font-size: 12px;
-    line-height: 13px;
-    color: var(--dark-shade-50per);
-}
-
-/* __mark styles
-*/
 .checkbox__mark {
     grid-area: mark;
     width: 20px; height: 20px;
@@ -52,22 +31,24 @@
     border: var(--border);
     border-radius: 4px;
 }
+
 .checkbox:hover .checkbox__mark {
     box-shadow: var(--shadow-hover);
 }
+
 .checkbox__input:checked + .checkbox__mark {
     border-color: var(--purple-100per);
 }
+
 .checkbox__input:disabled + .checkbox__mark {
     border-color: var(--dark-shade-5per);
 }
+
 .checkbox__input:focus + .checkbox__mark {
     outline: var(--outline);
     outline-offset: 1px;
 }
 
-/* __mark::before styles
-*/
 .checkbox__mark::before {
     content: '';
     width: 6px; height: 8px;
@@ -77,18 +58,39 @@
     opacity: 0;
     transition: opacity .4s; 
 }
+
 .checkbox__input:checked + .checkbox__mark::before {
     opacity: 1;
     transition: opacity .4s;  
 }
+
 .checkbox__input:checked:disabled + .checkbox__mark::before {
     background: var(--dark-shade-25per);
 }
 
-/* _theme_rich styles 
-*/
-.checkbox_theme_rich .checkbox__label {
+/* label */
+
+.checkbox__label {
     grid-area: label;
-    color: var(--dark-shade-75per);
+    align-self: center;   
+    font: var(--body-font);   
+    line-height: 18px;
+    color: var(--dark-shade-50per); 
+}
+
+.checkbox__label_font-weight_bold {
     font-weight: bold;
+    color: var(--dark-shade-75per);
+}
+
+/* description */
+
+.checkbox__description {
+    grid-area: describtion;
+    margin-top: 6px;
+    font: var(--body-font);
+    font-size: 12px;
+    line-height: 13px;
+    white-space: pre;
+    color: var(--dark-shade-50per);
 }

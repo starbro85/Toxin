@@ -1,43 +1,65 @@
+/* review */
+
 .review {
+    width: min(100%, 711px);
     display: grid;
     grid-template-areas: 
         'avatar info'
         'like text';
+    grid-template-columns: max-content fit-content(653px);
     gap: 9.93px 10px;
 }
+
+/* avatar */
+
 .review__avatar {
     grid-area: avatar;
-    width: 48px; height: 48px;
+    width: 48px; 
+    height: 48px;
     justify-self: end;
     border: 2px solid white;
     border-radius: 50%;
     box-shadow: var(--shadow);
 } 
+
+/* info */
+
 .review__info {
     grid-area: info;
     width: max-content;
     display: flex;
     flex-direction: column;
 }
+
+/* name */
+
 .review__name {
     width: max-content;
     font: var(--body-font);
     font-weight: bold;
     color: var(--dark-shade-75per);
 }
+
+/* date */
+
 .review__date {
     width: max-content;
     font: var(--body-font);
     color: var(--dark-shade-75per);
 }
+
+/* like */
+
 .review__like {
     width: max-content;
     grid-area: like;
     justify-self: center;
 }
+
+/* text */
+
 .review__text {
     grid-area: text;
     font: var(--body-font);
-    white-space: normal;
     color: var(--dark-shade-75per);
 }

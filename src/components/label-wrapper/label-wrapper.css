@@ -1,12 +1,12 @@
-/* root styles
-*/
+/* label-wrapper */
+
 .label-wrapper {
     display: grid;
     gap: 16px;
 }
 
-/* __label styles
-*/
+/* label */
+
 .label-wrapper__label {
     font: var(--h3-font);
     color: var(--dark-shade-100per);

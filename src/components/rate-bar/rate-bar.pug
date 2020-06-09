@@ -1,6 +1,13 @@
 include ../rate/rate
 
-mixin rate-bar({ rate })
-    div.rate-bar
-        each data in rate
-            +rate(data)
+mixin rate-bar({ name, count, rating, disabled })
+
+    -const pluralize = require('../../globals/helpers/pluralize.js');
+        
+    div(class = 'rate-bar')
+        -for (let i = 1; i <= count; i++)
+            -let label = `рейтинг: ${pluralize({one: 'звезда', few: 'звезды', many: 'звёзд'}, i)}`;
+            if i === rating
+                +rate({ label, name, disabled, value: i, checked: 'true' })
+            else
+                +rate({ label, name, disabled, value: i })

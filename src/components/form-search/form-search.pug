@@ -2,15 +2,19 @@ include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
 
-mixin form-search({ title, dropdownDate, dropdownQuantity, buttonSubmit })
-    form.form-search(name='search' method='get')
-        div.form-search__header
-            h2.form-search__title #{title}
-        div.form-search__main
-            div.form-search__date-input
-                +date-dropdown(dropdownDate)
-            div.form-search__quantity-input
-                +quantity-dropdown(dropdownQuantity)
-        div.form-search__footer
-            div.form-search__submit-button
-                +button(buttonSubmit)
+mixin form-search({ title, dateDropdown, quantityDropdown, submitButton })
+    form(
+        class = 'form-search'
+        name='search' 
+        method='get'
+    )
+        div(class = 'form-search__header')
+            h2(class = 'form-search__title') #{title}
+        div(class = 'form-search__main')
+            div(class = 'form-search__date-input')
+                +date-dropdown(dateDropdown)
+            div(class = 'form-search__quantity-input')
+                +quantity-dropdown(quantityDropdown)
+        div(class = 'form-search__footer')
+            div(class = 'form-search__submit-button')
+                +button(submitButton)

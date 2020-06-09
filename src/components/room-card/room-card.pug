@@ -1,0 +1,27 @@
+include ../rate-bar/rate-bar
+include ../glide/glide
+
+mixin room-card({ room })
+    div(class = 'room-card')
+        div(class = 'room-card__carousel')
+            +glide({
+                img: [{src: 'slides', alt: '222'}]
+            })
+        div(class = 'room-card__info-section')
+            span(class = 'room-card__room-number')
+                span(class = 'room-card__numero-sign') № 
+                | #{room.number}
+                if room.category
+                    span(class = 'room-card__room-category') #{room.category}
+            span(class = 'room-card__rent-price') #{room.rent.price} 
+                span(class = 'room-card__rent-period') #{room.rent.period}
+        div(class = 'room-card__info-section')
+            div(class = 'room-card__rate')
+                +rate-bar({
+                    name: room.number,
+                    count: '5',
+                    rating: room.rating,
+                    disabled: 'true'
+                })
+            span(class = 'room-card__reviews-count') #{room.reviews.count} 
+                span(class = 'room-card__rewiew-explantion') Отзывов

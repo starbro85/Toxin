@@ -1,0 +1,79 @@
+/* root styles
+*/
+.room-card {
+    width: 270px;
+    padding-bottom: 17px;
+    display: grid;
+    gap: 20px 0;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px; 
+}
+
+.room-card__carousel {
+    width: 270px; height: 151px;
+}
+
+.room-card__info-section {
+    padding: 2px 20px 0 18px;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.room-card__info-section:last-child {
+    position: relative;
+}
+
+.room-card__info-section:last-child::after {
+    position: absolute;
+    left: 20px; top: -8px;
+    content: '';
+    width: calc(100% - 40px); height: 1px;
+    background: var(--dark-shade-10per);
+}
+
+.room-card__room-number {
+    font: var(--h2-font);
+    line-height: 17px;
+}
+.room-card__numero-sign {
+    width: max-content;
+    font-size: 14px;
+}
+.room-card__room-category {
+    margin-left: 6px;
+    font: var(--h3-font);
+    font-weight: bold;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: var(--purple-100per);
+}
+
+.room-card__rent-price {
+    font: var(--body-font);
+    font-weight: bold;
+    line-height: 14px;
+    color: var(--dark-shade-50per);
+}
+
+.room-card__rent-period {
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: normal;
+}
+
+.room-card__reviews-count {
+    align-self: start;
+    font: var(--body-font);
+    font-weight: bold;
+    color: var(--dark-shade-50per);
+}
+
+.room-card__rewiew-explantion {
+    font-weight: normal;
+    margin-right: 1px;
+}
+

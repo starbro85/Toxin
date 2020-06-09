@@ -1,27 +1,23 @@
-include ../button/button
-
 mixin pagination({ pages, active, description })
-    div.pagination.js-pagination
-        ul.pagination__list
-            li.pagination__prev-button-container.js-pagination__prev-button-container
-                +button({
-                    theme: 'filled-green',
-                    type: 'button',
-                    icon: 'arrow_back'
-                })
+    div(class = 'pagination js-pagination')
+        ul(class = 'pagination__list')
+            li(class = 'pagination__item pagination__item_prev js-pagination__item_prev') 
+                a(class = 'pagination__link pagination__link_prev js-pagination__link_prev') arrow_back
+
             each link, index in pages
                 -const number = index + 1
+
                 if number === Number(active)
-                    li.pagination__item.js-pagination__item.pagination__item_active.js-pagination__item_active
-                        a.pagination__link #{number}
+                    li(class = 'pagination__item js-pagination__item pagination__item_active js-pagination__item_active')
+                        a(class = 'pagination__link js-pagination__link') #{number}
                 else 
-                    li.pagination__item.js-pagination__item
-                        a.pagination__link(href=link) #{number}
-            li.pagination__next-button-container.js-pagination__next-button-container
-                +button({
-                    theme: 'filled-green',
-                    type: 'button',
-                    icon: 'arrow_forward'
-                })
+                    li(class = 'pagination__item js-pagination__item')
+                        a(
+                            href = link
+                            class = 'pagination__link js-pagination__link'
+                        ) #{number}
+
+            li(class = 'pagination__item pagination__item_next js-pagination__item_next') 
+                a(class = 'pagination__link pagination__link_next js-pagination__link_next') arrow_forward
         if description
-            span.pagination__description #{description}
+            span(class = 'pagination__description') #{description}

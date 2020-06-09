@@ -1,16 +1,18 @@
+import './quantity-dropdown.css';
+
 import './../counter-bar/counter-bar.js';
 import './../dropdown/dropdown.js';
-import {normalizeStr} from './../../helpers/normalizeStr.js';
-import {pluralize} from '../../helpers/pluralize.js';
 
-import './quantity-dropdown.css';
+const normalizeStr = require('./../../globals/helpers/normalizeStr.js');
+const pluralize = require('./../../globals/helpers/pluralize.js');
 
 class Quantity {
     constructor(node) {
         this.root = node;
-        this.input = this.root.querySelector('.js-text-field');
-        this.countersBar = this.root.querySelector('.js-counter-bar');
+        this.input = this.root.querySelector('.js-quantity-dropdown__input');
+        this.countersBar = this.root.querySelector('.js-quantity-dropdown__counter-bar');
         this.counterData = {};
+
 
         this.init();
     }

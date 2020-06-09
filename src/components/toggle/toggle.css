@@ -1,5 +1,4 @@
-/* root styles 
-*/
+/* toggle */
 
 .toggle {   
     display: grid;
@@ -9,8 +8,8 @@
     cursor: pointer;   
 }
 
-/* __input styles
-*/
+/* input */
+
 .toggle__input {
     position: absolute;
     -webkit-appearance: none;
@@ -18,16 +17,16 @@
     appearance: none;
 }    
 
-/* __label styles
-*/
+/* label */
+
 .toggle__label {
     font: var(--body-font);
     line-height: 18px;
-    color: var(--dark-shade-50per);
+    color: var(--dark-shade-75per);
 }
 
-/* __box styles
-*/
+/* box */
+
 .toggle__box {
     width: 41px;
     height: 21px;
@@ -37,20 +36,21 @@
     border: var(--border);
     border-radius: 10px;
 }  
+
 .toggle:hover:not(:disabled) .toggle__box,
 .toggle:focus:not(:disabled) .toggle__box {
     box-shadow: var(--shadow-hover);
 }
+
 .toggle__input:checked + .toggle__box {
     border-color: var(--purple-100per);
 }
+
 .toggle__input:focus + .toggle__box {
     outline: var(--outline);
     outline-offset: 1px;
 }
 
-/* __box::before styles
-*/
 .toggle__box::before {
     content: '';
     width: 13px;
@@ -59,6 +59,7 @@
     background: var(--dark-shade-25per);
     transition: transform .3s;
 }  
+
 .toggle__input:checked + .toggle__box::before {
     background: var(--purple-gradient);
     transform: translateX(135%);

@@ -14,6 +14,7 @@
     --purple-hue:               259;
     --purple-100per:            hsla(var(--purple-hue), 100%, 81%, 1);
     --purple-50per:             hsla(var(--purple-hue), 100%, 81%, .5);
+    --purple-25per:             hsla(var(--purple-hue), 100%, 81%, .25);
     --purple-gradient:          linear-gradient(180deg, var(--purple-100per) 0%, #8BA4F9 100%);
 
     /* green color set */
@@ -29,7 +30,7 @@
     /* box-shadow */
 
     --shadow:                   0 10px 20px var(--dark-shade-5per);
-    --shadow-hover:             0px 0 3px var(--dark-shade-50per);
+    --shadow-hover:             0 0 2px var(--dark-shade-75per);
 
     /* border */
 

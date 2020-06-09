@@ -1,7 +1,7 @@
 # Toxin
 FSD educational program. The 2nd task.
 ## Gh-pages
-https://starbro85.github.io/Toxin/start-page.html
+https://chernyyluchik.github.io/Toxin/start-page.html
 ## Commands
  - npm install: install
  - npm run dev: start dev server

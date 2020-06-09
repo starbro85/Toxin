@@ -1,36 +1,31 @@
-/* root styles 
-*/
+/* counter-bar */
+
 .counter-bar {    
     display: grid;
-    gap: 19px 0;
-    grid-template-areas: 'list list';
+    row-gap: 19px;
     padding: 5.5px 6px 7px 13.5px; 
 }
 
-/* __list style
-*/
+/* list */
+
 .counter-bar__list {
-    grid-area: list;
     display: grid; 
     gap: 7px;
     list-style: none;   
 }
 
-/* __apply-container/__clear-container styles
-*/
-.counter-bar__apply-button-container,
- .counter-bar__clear-button-container {
-     padding-top: 2px;
-     padding-bottom: 5px;
- }
-.counter-bar__apply-button-container {
-    justify-self: self-end;
+/* footer */
+
+.counter-bar__footer {
+    padding-top: 2px;
+    padding-bottom: 5px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
 }
-.counter-bar__clear-button-container button {
-    opacity: 1;
+
+ /* activiy class for button */
+
+.counter-bar__clear-button {
     transition: opacity .2s;
-}
-.counter-bar__clear-button-container button:disabled {
-    opacity: 0;
-    pointer-events: none;
 }

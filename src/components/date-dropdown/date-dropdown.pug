@@ -1,28 +1,53 @@
 include ../dropdown/dropdown
 include ../datepicker/datepicker
 
-mixin date-dropdown({ dropdown, twin})
+mixin date-dropdown({ dropdown, twin })
     if twin
-        div(class = 'date-dropdown date-dropdown_twin js-date-dropdown')
+        div(
+            class = 'date-dropdown date-dropdown_twin js-date-dropdown'
+            data-twin = 'true'
+        )
             +dropdown({
                 offset: 'true',
                 show: dropdown.from.show,
-                textField: dropdown.from.textField
+                textField: {
+                    label: dropdown.from.textField.label,
+                    activityClass: 'js-date-dropdown__input js-date-dropdown__input_from',
+                    input: dropdown.from.textField.input
+                }
             })
-                div(class = 'date-dropdown__datepicker')
-                    +datepicker()
+                +datepicker({
+                    range: 'true',
+                    mode: 'manual',
+                    activityClass: 'js-date-dropdown__datepicker js-date-dropdown__datepicker_from'
+                })
             +dropdown({
                 offset: 'true',
                 alignRight: 'true',
                 show: dropdown.to.show,
-                textField: dropdown.to.textField
-            })
-                div(class = 'date-dropdown__datepicker')           
-                    +datepicker()
+                textField: {
+                    label: dropdown.to.textField.label,
+                    activityClass: 'js-date-dropdown__input js-date-dropdown__input_to',
+                    input: dropdown.to.textField.input
+                }
+            })         
+                +datepicker({
+                    range: 'true',
+                    mode: 'manual',
+                    activityClass: 'js-date-dropdown__datepicker js-date-dropdown__datepicker_to'
+                })
     else
-        div(class = 'date-dropdown date-dropdown_single js-date-dropdown')
+        div(class = 'date-dropdown js-date-dropdown')
             +dropdown({ 
                 offset: 'true',
                 show: dropdown.show,
-                textField: dropdown.textField
+                textField: {
+                    label: dropdown.textField.label,
+                    activityClass: 'js-date-dropdown__input',
+                    input: dropdown.textField.input
+                }
             })
+                +datepicker({
+                    range: 'true',
+                    activityClass: 'js-date-dropdown__datepicker'
+                })
