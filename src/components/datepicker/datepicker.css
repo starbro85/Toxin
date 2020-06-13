@@ -1,8 +1,8 @@
 /* datepicker */
 
 .datepicker {
-    width: min(80vw, 320px);
-    padding: 20px;
+    width: min(85vw, 320px);
+    padding: min(4vw, 20px);
     display: grid;
     grid-auto-rows: max-content;
     row-gap: 20px;
@@ -87,7 +87,7 @@
     height: 40px;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: min(10vw, 39px);;
+    grid-auto-columns: min(11vw, 39px);;
     justify-items: center;
     align-content: center;
     font: var(--h3-font); 
@@ -104,8 +104,8 @@
 }
 
 .day-item {
-    width: min(10vw, 39px); 
-    height: min(10vw, 40px);
+    width: min(11vw, 39px); 
+    height: min(11vw, 40px);
     display: inline-flex;
     justify-content: center;
     align-items: center;

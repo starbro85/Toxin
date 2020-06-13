@@ -2,7 +2,7 @@
 
 .form-booking {
     width: min(100%, 380px);
-    padding: 45px 30px 30px 28px;
+    padding: 45px min(5vw, 28px) 30px min(5vw, 28px);
     background-color: white;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.12);

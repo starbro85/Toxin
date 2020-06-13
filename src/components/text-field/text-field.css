@@ -33,8 +33,6 @@
     border-radius: 4px;
     background-color: white;
     font: var(--body-font);
-    font-size: 14px;
-    line-height: 24px;
     text-align: start;
     color: var(--dark-shade-75per);
 }
