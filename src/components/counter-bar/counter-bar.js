@@ -8,6 +8,7 @@ class CounterBar {
         this.root = node;
         this.counters = this.root.querySelectorAll('.js-counter');
         this.autoApply = Boolean(this.root.dataset.autoApply);
+        
         if (!this.autoApply) {
             this.clearButton = this.root.querySelector('.js-counter-bar__clear-button');
             this.applyButton = this.root.querySelector('.js-counter-bar__apply-button');
@@ -103,7 +104,7 @@ class CounterBar {
     init() {
         this.setCounterChangedEventListenter();
 
-        this.autoApply === 'manualApply' ? this.setDataUpdatedEventListener() : this.setManualApplyEventListeners();
+        this.autoApply ? this.setDataUpdatedEventListener() : this.setManualApplyEventListeners();
     }
 };
 

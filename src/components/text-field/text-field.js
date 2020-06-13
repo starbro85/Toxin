@@ -21,8 +21,6 @@ class TextField {
             this.input.title = event.detail.title ? `${this.title}: ${event.detail.title}` : this.title;
             this.input.setAttribute('aria-label', this.input.title ? this.input.title : this.title);
             this.hiddenInput.value = event.detail.submitValue;
-            
-            console.log(this.hiddenInput, this.hiddenInput.value)
         })
     }
 
