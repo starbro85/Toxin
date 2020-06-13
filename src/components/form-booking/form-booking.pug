@@ -5,7 +5,8 @@ include ../button/button
 mixin form-booking({ formBooking, room })
     form(
         class = 'form-booking js-form-booking'
-        name='booking'
+        name = 'booking'
+        method = 'post'
     )
         div(class = 'form-booking__header')
             span(class = 'form-booking__header-room-number ')
@@ -26,21 +27,24 @@ mixin form-booking({ formBooking, room })
                     span(class = 'form-booking__calc-description')
                         span(class = 'form-booking__calc-rent-price js-form-booking__calc-rent-price') #{room.rent.price} 
                         | x
-                        span(class = 'form-booking__calc-rent-term js-form-booking__calc-rent-term') 4 суток
-                    span(class = 'form-booking__calc-value') 39 960₽
+                        span(
+                            class = 'form-booking__calc-rent-term js-form-booking__calc-rent-term'
+                            data-plural = '{"one": "сутки", "few": "суток", "many": "суток"}'
+                        )
+                    span(class = 'form-booking__calc-value js-form-booking__calc-value js-form-booking__calc-value_summary-price')
                 div(class = 'form-booking__calc-detail')
                     span(class = 'form-booking__calc-description') #{room.service.description}
                         if room.discount
-                            span(class = 'form-booking__calc-discount') : #{room.discount.description} #{room.discount.count}
-                    span(class = 'form-booking__calc-value') #{room.service.price}
+                            span(class = 'form-booking__calc-discount js-form-booking__calc-discount') : #{room.discount.description} #{room.discount.count}
+                    span(class = 'form-booking__calc-value js-form-booking__calc-value js-form-booking__calc-value_service-price') #{room.service.price}
                 div(class = 'form-booking__calc-detail')
                     span(class = 'form-booking__calc-description') !{room.addition.description}
-                    span(class = 'form-booking__calc-value') #{room.addition.price}
+                    span(class = 'form-booking__calc-value js-form-booking__calc-value js-form-booking__calc-value_addition-price') #{room.addition.price}
 
         div(class = 'form-booking__footer')
             div(class = 'form-booking__total')
                 span(class = 'form-booking__total-title') #{formBooking.title}
                 div(class = 'form-booking__total-dashed-line')
-                span(class = 'form-booking__total-price') 38 081₽
+                span(class = 'form-booking__total-price js-form-booking__total-price')
             div(class = 'form-booking__submit-button')
                 +button(formBooking.submitButton)

@@ -11,8 +11,6 @@ class Carousel {
     }
 
     init() {
-        console.log(window.getComputedStyle(this.root).width);
-
         new Glide(this.root, {
             type: 'carousel',
             startAt: '0',

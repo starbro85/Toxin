@@ -1,33 +1,57 @@
 include ../text-field/text-field
 
-mixin dropdown({ textField, offset, alignRight, expanded=false })
+mixin dropdown({ textField, isMultiple, offset, alignRight, expanded })
 
     -let classes = 'dropdown js-dropdown';
-    -classes = expanded ? `${classes} dropdown_expanded` : `${classes}`;
-    -classes = offset ? `${classes} dropdown_with_offset` : `${classes}`;
-    -classes = alignRight ? `${classes} dropdown_align_right` : `${classes}`;
+    -classes = expanded ? `${classes} dropdown_expanded` : classes;
+    -classes = offset ? `${classes} dropdown_with_offset` : classes;
+    -classes = alignRight ? `${classes} dropdown_align_right` : classes;
+    -classes = isMultiple ? `${classes} dropdown_twin` : classes;
 
     div(
         class = classes
-        data-expanded = `${expanded}`
+        data-expanded = expanded
+        data-is-multiple = isMultiple
     )
-        +text-field({ 
-            label: textField.label,
-            activityClass: textField.activityClass,
-            input: {
-                type: 'button',
-                name: textField.input.name,
-                value: textField.input.value,
-                disabled: textField.input.disabled,  
-                required: textField.input.required,
-                title: textField.input.title,
-                activityClass: textField.input.activityClass ? `dropdown__button js-dropdown__button ${textField.input.activityClass}` : 'dropdown__button js-dropdown__button'
-            },
-            icon: {
-                text: 'expand_more',
-                activityClass: 'dropdown__icon'
-            },
-        })
+        
+        if isMultiple
+            each data, index in textField
+                +text-field({ 
+                    label: data.label,
+                    activityClass: data.activityClass,
+                    input: {
+                        type: 'button',
+                        name: data.input.name,
+                        placeholder: data.input.placeholder,
+                        disabled: data.input.disabled,  
+                        required: data.input.required,
+                        title: data.input.title,
+                        activityClass: data.input.activityClass ? `dropdown__button js-dropdown__button ${data.input.activityClass}` : 'dropdown__button js-dropdown__button'
+                    },
+                    icon: {
+                        text: 'expand_more',
+                        activityClass: 'dropdown__icon'
+                    },
+                })
+
+        else 
+            +text-field({ 
+                label: textField.label,
+                activityClass: textField.activityClass,
+                input: {
+                    type: 'button',
+                    name: textField.input.name,
+                    placeholder: textField.input.placeholder,
+                    disabled: textField.input.disabled,  
+                    required: textField.input.required,
+                    title: textField.input.title,
+                    activityClass: textField.input.activityClass ? `dropdown__button js-dropdown__button ${textField.input.activityClass}` : 'dropdown__button js-dropdown__button'
+                },
+                icon: {
+                    text: 'expand_more',
+                    activityClass: 'dropdown__icon'
+                },
+            })
 
         div(class = 'dropdown__viewport')
             div(class = 'dropdown__container js-dropdown__container')

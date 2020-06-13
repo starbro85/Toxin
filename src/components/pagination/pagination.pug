@@ -2,22 +2,36 @@ mixin pagination({ pages, active, description })
     div(class = 'pagination js-pagination')
         ul(class = 'pagination__list')
             li(class = 'pagination__item pagination__item_prev js-pagination__item_prev') 
-                a(class = 'pagination__link pagination__link_prev js-pagination__link_prev') arrow_back
+                a(
+                    class = 'pagination__link pagination__link_prev js-pagination__link_prev'
+                    title = 'Перейти на предыдущую страницу'
+                    aria-label = 'Перейти на предыдущую страницу'
+                ) arrow_back
 
             each link, index in pages
                 -const number = index + 1
 
                 if number === Number(active)
                     li(class = 'pagination__item js-pagination__item pagination__item_active js-pagination__item_active')
-                        a(class = 'pagination__link js-pagination__link') #{number}
+                        a(
+                            class = 'pagination__link js-pagination__link'
+                            title = 'Вы находитесь на этой странице'
+                            aria-label = 'Вы находитесь на этой странице'
+                        ) #{number}
                 else 
                     li(class = 'pagination__item js-pagination__item')
                         a(
                             href = link
                             class = 'pagination__link js-pagination__link'
+                            title = `Перейти на страницу ${number}`
+                            aria-label = `Перейти на страницу ${number}`
                         ) #{number}
 
             li(class = 'pagination__item pagination__item_next js-pagination__item_next') 
-                a(class = 'pagination__link pagination__link_next js-pagination__link_next') arrow_forward
+                a(
+                    class = 'pagination__link pagination__link_next js-pagination__link_next'
+                    title = 'Перейти на следующую страницу'
+                    aria-label = 'Перейти на следующую страницу'
+                ) arrow_forward
         if description
             span(class = 'pagination__description') #{description}

@@ -7,7 +7,11 @@ class CounterBar {
     constructor(node) {
         this.root = node;
         this.counters = this.root.querySelectorAll('.js-counter');
-        this.mode = this.root.dataset.mode;
+        this.autoApply = Boolean(this.root.dataset.autoApply);
+        if (!this.autoApply) {
+            this.clearButton = this.root.querySelector('.js-counter-bar__clear-button');
+            this.applyButton = this.root.querySelector('.js-counter-bar__apply-button');
+        }
         this.counterData = {};
 
         this.init();
@@ -21,19 +25,16 @@ class CounterBar {
         }));
     }
 
-    addDataUpdatedEvent() {
-        this.root.dispatchEvent(new CustomEvent('data-updated'));
-    }
-
-    addDataClearEvent() {
+    addCountersClearEvent() {
         Array.from(this.counters).forEach(counter => counter.dispatchEvent(new CustomEvent('counter-clear')));
     }
 
     handleUpdateCounterData = event => {
         const counterName = event.detail.name;
-        const counterPlural = event.detail.plural;
         const counterValue = event.detail.value;
+        const counterPlural = event.detail.plural;
         const isBound = event.detail.isBound;
+        const boundCounterPlural = event.detail.boundPlural;
         const boundName = event.detail.boundName;
 
         if (isBound) {
@@ -41,11 +42,13 @@ class CounterBar {
                 this.counterData[boundName] = {
                     name: boundName,
                     isBound: isBound,
-                    plural: counterPlural,
-                    boundValues: {}
+                    plural: boundCounterPlural,
+                    values: {},
+                    plurals: {}
                 }
-            this.counterData[boundName].boundValues[counterName] = counterValue;
-            this.counterData[boundName].value = Object.values(this.counterData[boundName].boundValues)
+            this.counterData[boundName].plurals[counterName] = counterPlural;
+            this.counterData[boundName].values[counterName] = counterValue;
+            this.counterData[boundName].value = Object.values(this.counterData[boundName].values)
                                                       .reduce((sumValue, value) => sumValue + value, 0);
         }
 
@@ -58,7 +61,7 @@ class CounterBar {
             }
         }
 
-        this.addDataUpdatedEvent();
+        this.root.dispatchEvent(new CustomEvent('data-updated'));
     } 
 
     setCounterChangedEventListenter() {
@@ -77,7 +80,7 @@ class CounterBar {
         }
 
         if (Object.is(event.target, this.clearButton)) {
-            this.addDataClearEvent();
+            this.addCountersClearEvent();
             this.addDataSentEvent();     
         }
 
@@ -100,14 +103,7 @@ class CounterBar {
     init() {
         this.setCounterChangedEventListenter();
 
-        if (Object.is(this.mode, 'manualApply')) {
-            this.clearButton = this.root.querySelector('.js-counter-bar__clear-button');
-            this.applyButton = this.root.querySelector('.js-counter-bar__apply-button');
-            this.setManualApplyEventListeners();
-        }
-        if (Object.is(this.mode, 'autoApply')) {
-            this.setDataUpdatedEventListener();
-        }
+        this.autoApply === 'manualApply' ? this.setDataUpdatedEventListener() : this.setManualApplyEventListeners();
     }
 };
 

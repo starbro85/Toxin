@@ -13,7 +13,6 @@ class Quantity {
         this.countersBar = this.root.querySelector('.js-quantity-dropdown__counter-bar');
         this.counterData = {};
 
-
         this.init();
     }
 
@@ -26,38 +25,54 @@ class Quantity {
     }
     
     getInputValue() {
-        const counterValues = Object.values(this.counterData);
-        const inputValue = counterValues.reduce((acc, data) => (data.value !== 0) ? `${acc} ${pluralize(data.plural, data.value)},` : `${acc}`, '');
+        const counters = Object.values(this.counterData);
+        return counters.reduce((inputValue, counter) => (counter.value !== 0) ? `${inputValue}${pluralize(counter.plural, counter.value)}, ` : `${inputValue}`, '')
+                            .slice(0, -2);
+    }
 
-        return inputValue.slice(1, -1);
+    getInputTitle() {
+        const counters = Object.values(this.counterData);
+
+        return counters.reduce((inputTitle, counter) => {
+            if (counter.isBound) {
+                for (let name in counter.values) {
+                    inputTitle = (counter.values[name] !== 0) ? `${inputTitle}${pluralize(counter.plurals[name], counter.values[name])}, ` : `${inputTitle}`;
+                }       
+                return inputTitle; 
+            }
+            else {
+                return (counter.value !== 0) ? `${inputTitle}${pluralize(counter.plural, counter.value)}, ` : `${inputTitle}`;
+            }
+        }, '').slice(0, -2);
     }
 
     getSubmitValue() {
-        const counterValues = Object.values(this.counterData);
-        const submitValue = counterValues.reduce((acc, data) => data.value ? `${acc} ${data.name}: "${data.value}",` : `${acc}`, '');
+        const counters = Object.values(this.counterData);
+        const submitValue = counters.reduce((submitValue, counter) => counter.value ? `${submitValue}"${counter.name}": "${counter.value}", ` : `${submitValue}`, '').slice(0, -2);
 
-        return submitValue ? `{${submitValue.slice(1, -1)}}` : '';
+        return submitValue ? `{${submitValue}}` : '';
     }
 
     addUpdateInputValueEvent() {
-        const inputValue = this.getInputValue();
         const inputValueNormalized = normalizeStr({
                                         str: this.getInputValue(),
                                         size: this.getInputSizeInChar()
                                     });
+        const inputTitle = this.getInputTitle();
         const hiddenInputValue = this.getSubmitValue();
 
         this.input.dispatchEvent(new CustomEvent('update-input-value', {
             detail: {
-                inputValue: inputValueNormalized,
-                inputTitle: inputValue,
-                hiddenInputValue: hiddenInputValue
+                value: inputValueNormalized,
+                title: inputTitle,
+                submitValue: hiddenInputValue
             }
         }));
     }
 
     handleDataSentEvent = event => {
         this.counterData = event.detail.counterData;
+
         this.addUpdateInputValueEvent();
     }
 

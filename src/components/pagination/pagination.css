@@ -33,9 +33,7 @@
     display: flex;
 }
 
-/* ellipsis */
-
-.pagination__ellipsis {
+.pagination__item_ellipsis {
     width: 40px; height: 40px;
     display: flex;
     justify-content: center;
@@ -61,7 +59,6 @@
     background: var(--purple-gradient);
     border-radius: 50%;
     color: white;
-    pointer-events: none;
     cursor: default;
 }
 

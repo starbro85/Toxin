@@ -5,17 +5,20 @@ include ../form-login/form-login
 include ../datepicker/datepicker
 include ../room-card/room-card
 
-mixin cards({ cards, room })
+mixin cards({ cards, rooms })
     div(class = 'cards')
         div(class = 'cards__column')
             +form-search(cards.formSearch)
             +form-registration(cards.formRegistration)
         div(class = 'cards__column')
-            +form-booking({ formBooking: cards.formBooking, room})
+            +form-booking({ formBooking: cards.formBooking, room: rooms[0]})
             +form-login(cards.formLogin)
         div(class = 'cards__column')
-            +datepicker({
-                range: 'true',
-                mode: 'manual'
-            })
-            +room-card({ room })
+            div(class = 'cards__datepicker')
+                +datepicker({
+                    range: 'true',
+                    mode: 'manual'
+                })
+            each room in rooms
+                div(class = 'cards__room-card')
+                    +room-card({ room })

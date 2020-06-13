@@ -91,6 +91,5 @@
     font: var(--body-font);
     font-size: 12px;
     line-height: 13px;
-    white-space: pre;
     color: var(--dark-shade-50per);
 }

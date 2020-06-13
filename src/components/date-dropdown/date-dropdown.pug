@@ -1,7 +1,7 @@
 include ../dropdown/dropdown
 include ../datepicker/datepicker
 
-mixin date-dropdown({ dropdown, twin })
+mixin date-dropdown({ dropdown, defaultValue, twin })
     if twin
         div(
             class = 'date-dropdown date-dropdown_twin js-date-dropdown'
@@ -9,32 +9,24 @@ mixin date-dropdown({ dropdown, twin })
         )
             +dropdown({
                 offset: 'true',
-                show: dropdown.from.show,
-                textField: {
-                    label: dropdown.from.textField.label,
-                    activityClass: 'js-date-dropdown__input js-date-dropdown__input_from',
-                    input: dropdown.from.textField.input
-                }
+                isMultiple: 'true',
+                show: dropdown.show,
+                textField: [
+                    {
+                        label: dropdown.textField[0].label,
+                        activityClass: 'js-date-dropdown__input',
+                        input: dropdown.textField[0].input
+                    },
+                    {
+                        label: dropdown.textField[1].label,
+                        activityClass: 'js-date-dropdown__input',
+                        input: dropdown.textField[1].input
+                    }
+                ]
             })
                 +datepicker({
-                    range: 'true',
-                    mode: 'manual',
-                    activityClass: 'js-date-dropdown__datepicker js-date-dropdown__datepicker_from'
-                })
-            +dropdown({
-                offset: 'true',
-                alignRight: 'true',
-                show: dropdown.to.show,
-                textField: {
-                    label: dropdown.to.textField.label,
-                    activityClass: 'js-date-dropdown__input js-date-dropdown__input_to',
-                    input: dropdown.to.textField.input
-                }
-            })         
-                +datepicker({
-                    range: 'true',
-                    mode: 'manual',
-                    activityClass: 'js-date-dropdown__datepicker js-date-dropdown__datepicker_to'
+                    defaultValue,
+                    activityClass: 'js-date-dropdown__datepicker'
                 })
     else
         div(class = 'date-dropdown js-date-dropdown')
@@ -48,6 +40,6 @@ mixin date-dropdown({ dropdown, twin })
                 }
             })
                 +datepicker({
-                    range: 'true',
+                    defaultValueRange,
                     activityClass: 'js-date-dropdown__datepicker'
                 })

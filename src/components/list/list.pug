@@ -6,7 +6,8 @@ mixin list({ label, checkbox, bullet, text })
 
     ul(class = classes)
         if label
-            lh(class = 'list__heading js-list__heading') #{label}
+            li(class = 'list__item list__item_heading') 
+                h3(class = 'list__heading') #{label}
         if checkbox
             each data in checkbox
                 li(class = 'list__item')

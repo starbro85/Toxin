@@ -1,18 +1,18 @@
-mixin counter({ label, name, minValue, maxValue, defaultValue=minValue, plural={ one: label }, isBound='false', boundName })
-    div(
+mixin counter({ label, name, minValue, maxValue, defaultValue=minValue, plural={ one: label }, isBound='false', boundPlural=plural, boundName })
+    label(
         class = 'counter js-counter'
         data-default-value = defaultValue
         data-min-value = minValue 
         data-max-value = maxValue 
         data-plural = plural
         data-is-bound = isBound
+        data-bound-plural = boundPlural
         data-bound-name = boundName
-        )
+    )
         p(class = 'counter__label') #{label}
         button(
             class = 'counter__decrement js-counter__decrement'     
             type = 'button'
-            aria-label = `${label} уменьшить`
         ) -
         input(
             class = 'counter__input js-counter__input'
@@ -23,5 +23,4 @@ mixin counter({ label, name, minValue, maxValue, defaultValue=minValue, plural={
         button(
             class = 'counter__increment js-counter__increment'     
             type = 'button'
-            aria-label = `${label} увеличить`
         ) +

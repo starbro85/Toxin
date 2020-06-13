@@ -11,8 +11,9 @@ mixin quantity-dropdown({ dropdown, counterBar })
                 input: dropdown.textField.input
             }
         })
-            +counter-bar({
-                mode: counterBar.mode,
-                counter: counterBar.counter,
-                activityClass: 'js-quantity-dropdown__counter-bar'
-            })
+            if counterBar
+                +counter-bar({
+                    autoApply: counterBar.autoApply,
+                    counters: counterBar.counters,
+                    activityClass: 'js-quantity-dropdown__counter-bar'
+                })

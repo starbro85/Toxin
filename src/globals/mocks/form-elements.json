@@ -6,7 +6,7 @@
                 "name": "text-field",
                 "type": "email",
                 "placeholder": "Email",
-                "title": "Введите свой email"
+                "title": "Введите email"
             }
         }
     },
@@ -40,20 +40,24 @@
                         "label": "dropdown",
                         "input": {
                             "name": "dropdown",
-                            "value": "Сколько гостей",    
-                            "title": "Сколько гостей"     
+                            "placeholder": "Количество гостей",    
+                            "title": "Количество гостей"     
                         }
                     }
                 },
                 "counterBar": {
-                    "mode": "manualApply",
-                    "counter": [
+                    "counters": [
                         {
                             "label": "взрослые",
                             "name": "adults",
                             "minValue": "0",
                             "maxValue": "5",
                             "plural": {
+                                "one": "взрослый",
+                                "few": "взрослых",
+                                "many": "взрослых"
+                            },
+                            "boundPlural": {
                                 "one": "гость",
                                 "few": "гостя",
                                 "many": "гостей"
@@ -67,6 +71,11 @@
                             "minValue": "0",
                             "maxValue": "5",
                             "plural": {
+                                "one": "ребёнок",
+                                "few": "детей",
+                                "many": "детей"
+                            },
+                            "boundPlural": {
                                 "one": "гость",
                                 "few": "гостя",
                                 "many": "гостей"
@@ -95,20 +104,24 @@
                         "label": "dropdown",
                         "input": {
                             "name": "dropdown",
-                            "value": "Сколько гостей",
-                            "title": "Сколько гостей" 
+                            "placeholder": "Количество гостей",
+                            "title": "Количество гостей" 
                         }
                     }
                 },
                 "counterBar": {
-                    "mode": "manualApply",
-                    "counter": [
+                    "counters": [
                         {
                             "label": "взрослые",
                             "name": "adults",
                             "minValue": "0",
                             "maxValue": "5",
                             "plural": {
+                                "one": "взрослый",
+                                "few": "взрослых",
+                                "many": "взрослых"
+                            },
+                            "boundPlural": {
                                 "one": "гость",
                                 "few": "гостя",
                                 "many": "гостей"
@@ -122,6 +135,11 @@
                             "minValue": "0",
                             "maxValue": "5",
                             "plural": {
+                                "one": "ребёнок",
+                                "few": "детей",
+                                "many": "детей"
+                            },
+                            "boundPlural": {
                                 "one": "гость",
                                 "few": "гостя",
                                 "many": "гостей"
@@ -149,26 +167,24 @@
         "dateDropdown": {
             "twin": "true",
             "dropdown": {
-                "from": {
-                    "textField": {
+                "textField": [
+                    {
                         "label": "date dropdown",
                         "input": {
                             "name": "dateDropdownFrom",
-                            "value": "ДД.ММ.ГГГГ",
-                            "title": "Выберите дату приезда"
+                            "placeholder": "ДД.ММ.ГГГГ",
+                            "title": "Дата приезда"
                         }
-                    }
-                },
-                "to": {
-                    "textField": {
+                    },
+                    {
                         "label": "date dropdown",
                         "input": {
                             "name": "dateDropdownTo",
-                            "value": "ДД.ММ.ГГГГ",
-                            "title": "Выберите дату отъезда"
+                            "placeholder": "ДД.ММ.ГГГГ",
+                            "title": "Дата отъезда"
                         }
                     }
-                }
+                ]
             }
         }
     },
@@ -180,14 +196,14 @@
                         "label": "dropdown",
                         "input": {
                             "name": "dropdown",
-                            "value": "Конфигурация номера",
+                            "placeholder": "Конфигурация номера",
                             "title": "Конфигурация номера"
                         }
                     }
                 },
                 "counterBar": {
-                    "mode": "autoApply",
-                    "counter": [
+                    "autoApply": true,
+                    "counters": [
                         {
                             "label": "спальни",
                             "name": "bedrooms",
@@ -234,14 +250,14 @@
                         "label": "dropdown",
                         "input": {
                             "name": "dropdown",
-                            "value": "Конфигурация номера",
+                            "placeholder": "Конфигурация номера",
                             "title": "Конфигурация номера"
                         }
                     }
                 },
                 "counterBar": {
-                    "mode": "autoApply",
-                    "counter": [
+                    "autoApply": true,
+                    "counters": [
                         {
                             "label": "спальни",
                             "name": "bedrooms",
@@ -290,8 +306,8 @@
                     "label": "filter date dropdown",
                     "input": {
                         "name": "filterDateDropdown",
-                        "value": "ДД.ММ - ДД.ММ",
-                        "title": "Выберите время пребывания"
+                        "placeholder": "ДД.ММ - ДД.ММ",
+                        "title": "Время пребывания"
                     }
                 }
             }

@@ -4,7 +4,8 @@ mixin review({ userAvatar, userName, reviewDate, reviewText, like  })
     div(class = 'review js-review')
         img(
             class = 'review__avatar js-review__avatar'
-            url = userAvatar
+            url = userAvatar,
+            alt = 'Фотогафия пользователя'
         )
         div(class = 'review__info')
             p(class = 'review__name js-review__name') #{userName}

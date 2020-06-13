@@ -1,19 +1,113 @@
 /* glide */
+
 .glide {
+    position: relative;
     height: 100%;
 }
 
 /* track */
+
 .glide__track {
     height: 100%;
 }
 
 /* slides */
+
 .glide__slides {
     height: 100%;
 }
 
 /* slide */
+
 .glide__slide {
     height: 100%;
+}
+
+/* controls */
+
+.glide__controls {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 42px;
+    justify-content: space-between;
+}
+
+/* prev-button */
+
+.glide__prev-button {
+    font: var(--icon-font);
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* prev-button-icon */
+
+.glide__prev-button-icon {
+    transform: rotate(90deg);
+}
+
+.glide__prev-button:hover {
+    background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-25per) 100%);
+}
+
+.glide__prev-button:focus {
+    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
+/* next-button */
+
+.glide__next-button {
+    font: var(--icon-font);
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.glide__next-button:hover {
+    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
+}
+
+.glide__next-button:focus {
+    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
+/* next-button-icon */
+
+.glide__next-button-icon {
+    transform: rotate(-90deg);
+}
+
+/* bullets */
+
+.glide__bullets {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 3.75px;
+}
+
+/* bullet */
+
+.glide__bullet {
+    width: 7.5px;
+    height: 7.5px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.glide__bullet--active {
+    background-color: white;
 }

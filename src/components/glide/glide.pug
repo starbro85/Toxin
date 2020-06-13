@@ -11,5 +11,31 @@ mixin glide({ img })
                             class = 'glide__image' 
                             src = item.src
                             alt = item.alt
+                            width = item.width
+                            height = item.height
                         )
-                        
+        div(
+            class = 'glide__controls' 
+            data-glide-el = 'controls'
+            )
+            button(
+                class = 'glide__prev-button' 
+                data-glide-dir = '<'
+            ) 
+                div(class = 'glide__prev-button-icon') expand_more
+            button(
+                class = 'glide__next-button' 
+                data-glide-dir = '>'
+            ) 
+                div(class = 'glide__next-button-icon') expand_more
+
+        div(
+            class = 'glide__bullets' 
+            data-glide-el = 'controls[nav]'
+        ) 
+            each item, index in img
+                button(
+                    class = 'glide__bullet' 
+                    data-glide-dir = `=${index}`
+                    disabled
+                )

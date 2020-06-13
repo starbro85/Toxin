@@ -30,22 +30,88 @@
             }
         },
         "image": {
-            "size_small": [
+            "small": [
                 {
-                    "src": "#",
-                    "alt": "image-1"
+                    "src": "./888_image_size_small_1.jpg",
+                    "alt": "image-1",
+                    "width": "268",
+                    "height": "151"
                 },
                 {
-                    "src": "#",
-                    "alt": "image-2"
+                    "src": "./888_image_size_small_2.jpg",
+                    "alt": "image-2",
+                    "width": "268",
+                    "height": "151"
                 },
                 {
-                    "src": "#",
-                    "alt": "image-3"
+                    "src": "./888_image_size_small_3.jpg",
+                    "alt": "image-3",
+                    "width": "268",
+                    "height": "151"
                 },
                 {
-                    "src": "#",
-                    "alt": "image-4"
+                    "src": "./888_image_size_small_4.jpg",
+                    "alt": "image-4",
+                    "width": "268",
+                    "height": "151"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2",
+        "number": "840",
+        "period": "в сутки",
+        "discount": {
+            "count": "1 5550",
+            "description": "скидка"
+        },
+        "rent": {
+            "price": "9 900₽",
+            "period": "в сутки"
+        },
+        "service": {
+            "price": "0₽",
+            "description": "Сбор за услуги"
+        },
+        "addition": {
+            "price": "300₽",
+            "description": "Сбор за дополнительные <br> услуги "
+        },
+        "rating": "4",
+        "reviews": {
+            "count": "65",
+            "plurals": {
+                "one": "Отзыв",
+                "few": "Отзыва",
+                "many": "Отзывов"
+            }
+        },
+        "image": {
+            "small": [
+                {
+                    "src": "./840_image_size_small_1.jpg",
+                    "alt": "image-1",
+                    "width": "268",
+                    "height": "151"
+                },
+                {
+                    "src": "./840_image_size_small_2.jpg",
+                    "alt": "image-2",
+                    "width": "268",
+                    "height": "151"
+                },
+                {
+                    "src": "./840_image_size_small_3.jpg",
+                    "alt": "image-3",
+                    "width": "268",
+                    "height": "151"
+                },
+                {
+                    "src": "./840_image_size_small_4.jpg",
+                    "alt": "image-4",
+                    "width": "268",
+                    "height": "151"
                 }
             ]
         }

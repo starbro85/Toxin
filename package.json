@@ -1,7 +1,5 @@
 {
-  "name": "toxin",
-  "version": "1.0.0",
-  "description": "FSD educational program. The 2nd task.",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --config ./webpack/webpack.dev.config.js",

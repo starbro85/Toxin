@@ -1,5 +1,5 @@
-/* quicksand-regular - vietnamese_latin-ext_latin
-*/
+/* quicksand-regular - vietnamese_latin-ext_latin */
+
 @font-face {
     font-family: "Quicksand";
     font-style: normal;
@@ -18,8 +18,8 @@
             format("svg");
 }
 
-/* quicksand-600 - vietnamese_latin-ext_latin 
-*/
+/* quicksand-600 - vietnamese_latin-ext_latin */
+
 @font-face {
     font-family: "Quicksand";
     font-style: normal;
@@ -38,8 +38,8 @@
             format("svg");
 }
 
-/* open-sans-regular - cyrillic-ext_cyrillic 
-*/
+/* open-sans-regular - cyrillic-ext_cyrillic */
+
 @font-face {
     font-family: "Open Sans";
     font-style: normal;
@@ -58,8 +58,8 @@
             format("svg");
 }
 
-/* open-sans-700 - cyrillic-ext_cyrillic 
-*/
+/* open-sans-700 - cyrillic-ext_cyrillic */
+
 @font-face {
     font-family: "Open Sans";
     font-style: normal;
@@ -78,8 +78,8 @@
             format("svg");
 }
 
-/* montserrat-regular - latin-ext_latin_cyrillic-ext_cyrillic 
-*/
+/* montserrat-regular - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
     font-family: "Montserrat";
     font-style: normal;
@@ -98,8 +98,8 @@
             format("svg");
 }
 
-/* montserrat-700 - latin-ext_latin_cyrillic-ext_cyrillic 
-*/
+/* montserrat-700 - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
     font-family: "Montserrat";
     font-style: normal;
@@ -118,8 +118,8 @@
             format("svg");
 }
 
-/* material icon font 
-*/
+/* material icon font */
+
 @font-face {
     font-family: "Material Icons";
     font-style: normal;

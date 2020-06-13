@@ -2,10 +2,31 @@ include ../rate-bar/rate-bar
 include ../glide/glide
 
 mixin room-card({ room })
+
+    -
+        const img = [];
+        room.image.small.forEach((item, index) => {
+            let src;
+            try {
+                src = require.context('../../img', true)(`${item.src}`);
+            } 
+            catch(event) {
+                src = '';
+            }
+            img.push({
+                src: src.default,
+                alt: item.alt,
+                width: item.width,
+                height: item.height
+            });
+        })
+    
     div(class = 'room-card')
         div(class = 'room-card__carousel')
+            
+
             +glide({
-                img: [{src: 'slides', alt: '222'}]
+                img
             })
         div(class = 'room-card__info-section')
             span(class = 'room-card__room-number')

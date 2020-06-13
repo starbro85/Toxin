@@ -1,6 +1,7 @@
 /* form-registration */
 
 .form-registration {
+    width: min(100%, 380px);
     padding: 38px 30px 30px 28px;
     background-color: white;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
@@ -49,7 +50,7 @@
     display: grid;
     grid-template-areas: 
         'text . button';
-    grid-template-columns: max-content 1fr 99px;
+    grid-template-columns: auto 1fr 99px;
     align-items: center;
 }
 
@@ -58,6 +59,7 @@
 .form-registration__login-text {
     grid-area: text;
     font: var(--body-font);
+    text-align: center;
 }
 
 /* login-button */

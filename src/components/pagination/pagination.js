@@ -7,7 +7,7 @@ class Pagination {
         this.activeItem = this.root.querySelector('.js-pagination__item_active');
         this.prev = this.root.querySelector('.js-pagination__item_prev');
         this.next = this.root.querySelector('.js-pagination__item_next');
-        this.ellipsis = '<div class="pagination__ellipsis">...</div>';
+        this.ellipsis = '<li class="pagination__item pagination__item_ellipsis">...</li>';
 
         this.init();
     }

@@ -4,26 +4,26 @@
         "dateDropdown": {
             "twin": "true",
             "dropdown": {
-                "from": {
-                    "textField": {
+                "textField": [
+                    {
                         "label": "прибытие",
                         "input": {
                             "name": "arrival",
-                            "value": "ДД.ММ.ГГГГ",
-                            "required": "true"
+                            "placeholder": "ДД.ММ.ГГГГ",
+                            "required": "true",
+                            "title": "Дата приезда"
                         }
-                    }
-                },
-                "to": {
-                    "textField": {
+                    },
+                    {
                         "label": "выезд",
                         "input": {
                             "name": "departure",
-                            "value": "ДД.ММ.ГГГГ",
-                            "required": "true"
+                            "placeholder": "ДД.ММ.ГГГГ",
+                            "required": "true",
+                            "title": "Дата выезда"
                         }
                     }
-                }
+                ]
             }
         },
         "quantityDropdown": {
@@ -32,20 +32,25 @@
                     "label": "гости",
                     "input": {
                         "name": "guests",
-                        "value": "Сколько гостей",
-                        "required": "true"
+                        "placeholder": "Количество гостей",
+                        "required": "true",    
+                        "title": "Количество гостей" 
                     }
                 }
             },
             "counterBar": {
-                "mode": "manualApply",
-                "counter": [
+                "counters": [
                     {
                         "label": "взрослые",
                         "name": "adults",
                         "minValue": "0",
                         "maxValue": "5",
                         "plural": {
+                            "one": "взрослый",
+                            "few": "взрослых",
+                            "many": "взрослых"
+                        },
+                        "boundPlural": {
                             "one": "гость",
                             "few": "гостя",
                             "many": "гостей"
@@ -59,6 +64,11 @@
                         "minValue": "0",
                         "maxValue": "5",
                         "plural": {
+                            "one": "ребёнок",
+                            "few": "детей",
+                            "many": "детей"
+                        },
+                        "boundPlural": {
                             "one": "гость",
                             "few": "гостя",
                             "many": "гостей"
@@ -90,16 +100,20 @@
         "title": "Регистрация аккаунта",
         "nameInput": {
             "input": {
+                "labelHidden": "имя",
                 "name": "name",
                 "placeholder": "Имя",
-                "required": "true"
+                "required": "true",
+                "title": "Введите имя"
             }
         },
         "surnameInput": {
             "input": {
+                "labelHidden": "фамилия",
                 "name": "surname",
                 "placeholder": "Фамилия",
-                "required": "true"
+                "required": "true",
+                "title": "Введите фамилию"
             }
         },
         "radio": [
@@ -121,25 +135,29 @@
                 "name": "birthday",
                 "placeholder": "ДД.ММ.ГГГГ",
                 "mask": "date",
-                "required": "true"
+                "required": "true",
+                "title": "Введите дату рождения"
             }
         },
         "emailInput": {
             "label": "данные для входа в сервис",
+            "labelHidden": "email",
             "input": {
                 "name": "email",
                 "type": "email",
                 "placeholder": "Email",
-                "required": "true"
+                "required": "true",
+                "title": "Введите email"
             }
         },
         "passwordInput": {
-            "name": "password",
+            "labelHidden": "пароль",
             "input": {
                 "name": "password",
                 "type": "password",
                 "placeholder": "Пароль",
-                "required": "true"
+                "required": "true",
+                "title": "Введите пароль"
             }
         },
         "toggle": {
@@ -155,35 +173,38 @@
         "loginButton": {
             "label": "войти",
             "type": "button",
-            "color": "purple-shaped",
-            "icon": "arrow_forward"
+            "color": "purple-shaped"
         }
     },
     "formBooking": {
         "title": "Итого",
         "dateDropdown": {
             "twin": "true",
+            "defaultValue": [
+                "19.08.2020",
+                "23.08.2020"
+            ],
             "dropdown": {
-                "from": {
-                    "textField": {
+                "textField": [
+                    {
                         "label": "прибытие",
                         "input": {
                             "name": "arrival",
-                            "value": "ДД.ММ.ГГГГ",
-                            "required": "true"
+                            "placeholder": "ДД.ММ.ГГГГ",
+                            "required": "true",
+                            "title": "Дата приезда"
                         }
-                    }
-                },
-                "to": {
-                    "textField": {
+                    },
+                    {
                         "label": "выезд",
                         "input": {
                             "name": "departure",
-                            "value": "ДД.ММ.ГГГГ",
-                            "required": "true"
+                            "placeholder": "ДД.ММ.ГГГГ",
+                            "required": "true",
+                            "title": "Дата выезда"
                         }
-                    }
-                }
+                    }   
+                ]
             }
         },
         "quantityDropdown": {
@@ -192,20 +213,26 @@
                     "label": "гости",
                     "input": {
                         "name": "guests",
-                        "value": "Сколько гостей",
-                        "required": "true"
+                        "placeholder": "Количество гостей",
+                        "required": "true",    
+                        "title": "Количество гостей" 
                     }
                 }
             },
             "counterBar": {
-                "mode": "manualApply",
-                "counter": [
+                "counters": [
                     {
                         "label": "взрослые",
                         "name": "adults",
                         "minValue": "0",
                         "maxValue": "5",
+                        "defaultValue": "2",
                         "plural": {
+                            "one": "взрослый",
+                            "few": "взрослых",
+                            "many": "взрослых"
+                        },
+                        "boundPlural": {
                             "one": "гость",
                             "few": "гостя",
                             "many": "гостей"
@@ -218,7 +245,13 @@
                         "name": "kids",
                         "minValue": "0",
                         "maxValue": "5",
+                        "defaultValue": "1",
                         "plural": {
+                            "one": "ребёнок",
+                            "few": "детей",
+                            "many": "детей"
+                        },
+                        "boundPlural": {
                             "one": "гость",
                             "few": "гостя",
                             "many": "гостей"
@@ -253,7 +286,8 @@
                 "name": "email",
                 "type": "email",
                 "placeholder": "Email",
-                "required": "true"
+                "required": "true",
+                "title":"Введите email"
             }
         },
         "passwordInput": {
@@ -261,7 +295,8 @@
                 "name": "password",
                 "type": "password",
                 "placeholder": "Пароль",
-                "required": "true"
+                "required": "true",
+                "title":"Введите пароль"
             }
         },
         "submitButton": {
@@ -273,8 +308,7 @@
         "registrationButton": {
             "label": "создать",
             "type": "button",
-            "color": "purple-shaped",
-            "icon": "arrow_forward"
+            "color": "purple-shaped"
         }
     }
 }

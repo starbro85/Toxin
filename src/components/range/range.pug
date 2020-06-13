@@ -1,6 +1,6 @@
 mixin range({ label, valueRange, defaultValueRange, step, margin  })
-    div(class = 'range js-range')
-        h3(class = 'range__label') #{label}
+    label(class = 'range js-range')
+        p(class = 'range__label') #{label}
         input(
             class = 'range__input js-range__input'
             type = 'text' 

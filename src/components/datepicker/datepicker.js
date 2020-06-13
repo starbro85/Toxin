@@ -6,32 +6,26 @@ class Datepicker {
     constructor(node) {
         this.root = node;
         this.main = this.root.querySelector('.js-datepicker__main');
-        this.isRange = JSON.parse(this.root.dataset.isRange);
-        this.mode = this.root.dataset.mode;
-        this.datepickerData = {};
+        this.clearButton = this.root.querySelector('.js-datepicker__clear-button');
+        this.applyButton = this.root.querySelector('.js-datepicker__apply-button');
 
-        if (this.mode === 'manual') {
-            this.clearButton = this.root.querySelector('.js-datepicker__clear-button');
-            this.applyButton = this.root.querySelector('.js-datepicker__apply-button');
-        }
+        this.defaultValue = this.root.dataset.defaultValue? JSON.parse(this.root.dataset.defaultValue) : '';
+
+        this.datepickerData = {};
 
         this.init();
     }
 
-    addDataUpdatedEvent() {
-        this.root.dispatchEvent(new CustomEvent('data-updated'));
-    }
-
     handleUpdateDatepickerData = (date1, date2) => {
-        this.datepickerData.date = this.isRange ? [date1, date2] : date1;
-
-        this.addDataUpdatedEvent()
+        this.datepickerData = {
+            date: [date1, date2]
+        };
     };
 
     addDataSentEvent() {
         this.root.dispatchEvent(new CustomEvent('data-sent', {
             detail: {
-                datepickerData: this.datepickerData,
+                datepickerData: this.datepickerData
             }
         }));
     }
@@ -48,7 +42,7 @@ class Datepicker {
         }
 
         if (Object.is(event.target, this.clearButton)) {
-            this.datepickerData.date = this.isRange ? ['', ''] : '';
+            this.datepickerData = {};
             this.addDataSentEvent();    
         }
 
@@ -62,29 +56,32 @@ class Datepicker {
             lang: 'ru',
             inlineMode: true,
             numberOfMonths: 1,
-            singleMode: !this.isRange,
+            singleMode: false,
+            format: 'DD.MM.YYYY',
+            startDate: this.defaultValue ? this.defaultValue[0] : null,     
+            endDate: this.defaultValue ? this.defaultValue[1]: null,
             showTooltip: false,
-            mobileFriendly: true,
+            mobileFriendly: false,
+            onSelect: this.handleUpdateDatepickerData,
             buttonText: {
                 previousMonth: 'arrow_back',
                 nextMonth: 'arrow_forward'
-            },
-            onSelect: this.handleUpdateDatepickerData
+            }
         })
 
+        if (this.defaultValue) {
+            lp.setDateRange(this.defaultValue[0], this.defaultValue[1]);
 
-        if (this.mode === 'manual') {
-            this.setClearButtonDisabledState();
+            window.addEventListener('load', event => this.addDataSentEvent());
+        }
+ 
+        this.setClearButtonDisabledState();
 
-            this.clearButton.addEventListener('click', event => {
-                lp.clearSelection();
-                this.handleManualApplyEvent(event);
-            });
-            this.applyButton.addEventListener('click', this.handleManualApplyEvent);
-        }
-        else {
-            this.root.addEventListener('data-updated', event => this.addDataSentEvent());
-        }
+        this.clearButton.addEventListener('click', event => {
+            lp.clearSelection();
+            this.handleManualApplyEvent(event);
+        });
+        this.applyButton.addEventListener('click', this.handleManualApplyEvent);
     }
 };
 

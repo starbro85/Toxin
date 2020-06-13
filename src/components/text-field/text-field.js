@@ -9,7 +9,7 @@ class TextField {
         this.input = node.querySelector('.js-text-field__input');
         this.hiddenInput = node.querySelector('.js-text-field__hidden-input');
         this.defaultValue = this.input.value;
-        this.title = this.input.getAttribute('title');
+        this.title = this.input.getAttribute('title') ? this.input.getAttribute('title') : false;
         this.mask = this.input.dataset.mask;
 
         this.init();
@@ -17,9 +17,12 @@ class TextField {
 
     setValueUpdateEventListener() {
         this.root.addEventListener('update-input-value', event => {
-            this.input.value = event.detail.inputValue ? event.detail.inputValue : this.defaultValue;
-            this.input.title = event.detail.inputTitle ? event.detail.inputTitle : this.title;
-            this.hiddenInput.value = event.detail.hiddenInputValue;
+            this.input.value = event.detail.value ? event.detail.value : this.defaultValue;
+            this.input.title = event.detail.title ? `${this.title}: ${event.detail.title}` : this.title;
+            this.input.setAttribute('aria-label', this.input.title ? this.input.title : this.title);
+            this.hiddenInput.value = event.detail.submitValue;
+            
+            console.log(this.hiddenInput, this.hiddenInput.value)
         })
     }
 

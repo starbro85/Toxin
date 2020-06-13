@@ -2,17 +2,18 @@ import './counter.css';
 
 import './../button/button.js';
 
+const pluralize = require('./../../globals/helpers/pluralize.js');
+
 class Counter {
     constructor(node) {
         this.root = node;
         this.increment = this.root.querySelector('.js-counter__increment');
         this.decrement = this.root.querySelector('.js-counter__decrement');
-        this.incrementAriaLabel = this.increment.getAttribute('aria-label');
-        this.decrementAriaLabel = this.decrement.getAttribute('aria-label');
         this.input = this.root.querySelector('.js-counter__input');
         this.value = Number(this.root.dataset.defaultValue);
         this.minValue = Number(this.root.dataset.minValue);
         this.maxValue = Number(this.root.dataset.maxValue);
+        this.plural = JSON.parse(this.root.dataset.plural);
 
         this.init();
     }
@@ -27,16 +28,19 @@ class Counter {
             detail: {
                 name: this.input.name,
                 value: Number(this.input.value),
-                plural: JSON.parse(this.root.dataset.plural),
+                plural: this.plural,
                 isBound: JSON.parse(this.root.dataset.isBound),
+                boundPlural: JSON.parse(this.root.dataset.boundPlural),
                 boundName: this.root.dataset.boundName
             }
         }));
+
+        this.addAriaLabelToControls();
     }
 
     addAriaLabelToControls() {
-        this.increment.setAttribute('aria-label', `${this.input.value} ${this.incrementAriaLabel}`);
-        this.decrement.setAttribute('aria-label', `${this.input.value} ${this.decrementAriaLabel}`);
+        this.increment.setAttribute('aria-label', `${pluralize(this.plural, this.value)} - увеличить`);
+        this.decrement.setAttribute('aria-label', `${pluralize(this.plural, this.value)} - уменьшить`);
     }
 
     handleCountChange = event => {
@@ -49,7 +53,6 @@ class Counter {
         }
 
         this.input.value = this.value;
-        this.addAriaLabelToControls();
         this.addCounterChangeEvent();
         this.normalizeRange();
     }

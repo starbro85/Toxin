@@ -59,7 +59,9 @@
 /* handle */
 
 .range .range__slider .range__handle {
-    width: 16px; height: 16px;
+    width: 16px; 
+    height: 16px;
+    right: -15px;
     border: 2px solid white;
     border-radius: 50%;
     background: var(--green-gradient);

@@ -1,17 +1,17 @@
 include ../counter/counter
 include ../button/button
 
-mixin counter-bar({ mode='autoApply', counter, activityClass })
+mixin counter-bar({ autoApply, counters, activityClass })
     div(
         class = activityClass ? `counter-bar js-counter-bar ${activityClass}` : 'counter-bar js-counter-bar'
-        data-mode=mode
+        data-auto-apply = autoApply
     )
         ul(class = 'counter-bar__list')
-            if counter
-                each data in counter
+            if counters
+                each counter in counters
                     li(class = 'counter-bar__list-item')
-                        +counter(data)
-        if (mode==='manualApply')
+                        +counter(counter)
+        if (!autoApply)
             div(class = 'counter-bar__footer')
                 +button({
                     label: 'очистить',

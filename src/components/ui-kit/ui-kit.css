@@ -9,8 +9,20 @@
         '. . .';
     grid-template-columns: 
         1fr min(90vw, 1159px) 1fr;
-    grid-template-rows: 
-        145px auto 145px;
+}
+
+@media(max-height: 452px) {
+    .ui-kit {
+        grid-template-rows: 
+            79px auto 79px;
+    }
+}
+
+@media(min-height: 452px) {
+    .ui-kit {
+        grid-template-rows: 
+            145px auto 145px;
+    }
 }
 
 /* header */
@@ -40,7 +52,18 @@
 
 .ui-kit__navigation {
     grid-area: navigation;
-    padding-top: 31px;
+}
+
+@media(max-height: 452px) {
+    .ui-kit__navigation {
+        align-self: center;
+    }
+}
+
+@media(min-height: 452px) {
+    .ui-kit__navigation {
+        padding-top: 31px;
+    }
 }
 
 /* link */

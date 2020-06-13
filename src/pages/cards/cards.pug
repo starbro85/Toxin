@@ -11,9 +11,12 @@ block style
 block main
 
     -const cards = require('./../../globals/mocks/cards.json');
-    -const room = require('./../../globals/mocks/rooms.json')[0];
+    -const rooms = require('./../../globals/mocks/rooms.json');
 
     +cards({
         cards,
-        room
+        rooms: [
+            rooms[0],
+            rooms[1]
+        ]
     })

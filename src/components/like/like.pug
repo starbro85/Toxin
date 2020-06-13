@@ -2,6 +2,13 @@ mixin like({ count, active=false })
     button(
         class = 'like js-like'
         data-active = active
+        aria-label = `Понравилось: ${count}`
     )
-        span(class = 'like__icon js-like__icon')
-        span(class = 'like__count js-like__count') #{count}
+        p(
+            class = 'like__icon js-like__icon'
+            aria-hidden = 'true'
+        )
+        p(
+            class = 'like__count js-like__count'
+            aria-hidden = 'true'
+        ) #{count}
