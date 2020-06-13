@@ -3,9 +3,6 @@
 .start-page {
     height: 100%;
     display: grid;
-    gap: 100px;
-    grid-auto-rows: max-content;
-    grid-auto-flow: column;
     align-content: center;
 }
 

@@ -81,6 +81,16 @@ const config = {
                 exclude: [/node_modules/]
             },
             {
+                test: /\.(ico|png|jpg|svg|gif)$/,
+                loader: 'file-loader',
+                exclude: [
+                    /fonts/,
+                ],
+                options: {
+                    name: 'img/[name].[ext]'
+                }
+            },
+            {
                 test: /\.(svg|ttf|eot|woff|woff2)$/,
                 loader: 'file-loader',
                 exclude: [
