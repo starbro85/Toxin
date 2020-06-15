@@ -39,6 +39,11 @@ const config = {
             filename: 'form-elements.html',
             template: '../src/pages/form-elements/form-elements.pug',
         }),
+        new HtmlWebpackPlugin({
+            title: 'headers-and-footers',
+            filename: 'headers-and-footers.html',
+            template: '../src/pages/headers-and-footers/headers-and-footers.pug',
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',
         })
