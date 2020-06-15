@@ -1,0 +1,14 @@
+include ../menu/menu
+include ../link/link
+
+mixin nav({ items })
+    nav(class = 'nav')
+        ul(class = 'nav__list')
+            each data in items
+                if data.isMenu
+                    li(class = 'nav__item')
+                        +menu(data.menu)
+                
+                else 
+                    li(class = 'nav__item')
+                        +link(data)

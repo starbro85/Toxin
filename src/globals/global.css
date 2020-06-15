@@ -37,19 +37,19 @@
 
     --border: 1px solid var(--dark-shade-25per);
 
-    /* font styles */
+    /* fonts */
 
-    --body-font:                normal 1rem/24px "Montserrat", sans-serif;
-    --h1-font:                  normal bold 1.7142rem/2.14285rem "Quicksand", "Open Sans", sans-serif;
-    --h2-font:                  normal bold 1.3571rem/1.7142rem "Quicksand", "Open Sans", sans-serif;
-    --h3-font:                  normal bold 0.8571rem "Montserrat", sans-serif;
+    --body-font:                normal 1rem/1.7142857142857142rem "Montserrat", sans-serif;
+    --h1-font:                  normal bold 1.7142857142857142rem/2.142857142857143rem "Quicksand", "Open Sans", sans-serif;
+    --h2-font:                  normal bold 1.3571428571428572rem/1.7142857142857142rem "Quicksand", "Open Sans", sans-serif;
+    --h3-font:                  normal bold 0.8571428571428571rem "Montserrat", sans-serif;
     --icon-font:                normal 100%/100% "Material Icons";
 }
 
 /* global font size */
 
 html {
-    font-size: min(3.7vw, 14px);
+    font-size: min(3.7vmin, 14px);
 }
 
 /* zero padding and margin, remove border and background, add border-box for headings, button, input tags */

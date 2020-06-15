@@ -44,3 +44,14 @@
     border-radius: 50%;
     background-color: var(--dark-shade-25per);
 }
+
+/* link */
+
+.list__link {
+    color: var(--dark-shade-50per);
+}
+
+.list__link:hover {
+    text-decoration: underline;
+    color: var(--dark-shade-75per);
+}

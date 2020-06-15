@@ -1,0 +1,6 @@
+include ../link/link
+
+mixin sign-in({ link })
+    div(class = 'sign-in js-sign-in')
+        each data in link 
+            +link(data)

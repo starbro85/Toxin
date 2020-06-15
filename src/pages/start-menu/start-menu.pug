@@ -1,0 +1,35 @@
+extends ../../globals/template
+
+include ../../components/start-menu/start-menu
+
+block title
+    | Start page
+
+block content
+    +start-menu({
+        items: [
+            {
+                href: 'colors-and-type.html',
+                title: 'Перейти на страницу "colors & type"',
+                text: 'colors & type'
+            },
+            {
+                href: 'form-elements.html',
+                title: 'Перейти на страницу "form elements"',
+                text: 'form elements'
+            },
+            {
+                href: 'cards.html',
+                title: 'Перейти на страницу "cards"',
+                text: 'cards'
+            },
+            {
+                href: 'headers-and-footers.html',
+                title: 'Перейти на "headers & footers"',
+                text: 'headers & footers'
+            },
+        ]
+    })
+                
+        
+            

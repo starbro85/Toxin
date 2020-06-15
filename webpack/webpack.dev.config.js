@@ -49,8 +49,8 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             title: 'start-page',
-            filename: 'start-page.html',
-            template: '../src/pages/start-page/start-page.pug',
+            filename: 'start-menu.html',
+            template: '../src/pages/start-menu/start-menu.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackPlugin({
@@ -63,6 +63,12 @@ const config = {
             title: 'cards',
             filename: 'cards.html',
             template: '../src/pages/cards/cards.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'headers-and-footers',
+            filename: 'headers-and-footers.html',
+            template: '../src/pages/headers-and-footers/headers-and-footers.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

@@ -1,0 +1,13 @@
+extends ../../globals/template
+
+include ../../components/ui-kit-layout/ui-kit-layout
+include ../../components/headers-and-footers/headers-and-footers
+
+block title
+    | Form elements
+
+block content
+    +ui-kit-layout({
+        backgroundColor: 'grey'
+    })
+        +headers-and-footers()

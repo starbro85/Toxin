@@ -26,7 +26,6 @@
 /* controls */
 
 .glide__controls {
-    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -41,6 +40,7 @@
 /* prev-button */
 
 .glide__prev-button {
+    z-index: 1;
     font: var(--icon-font);
     font-size: 24px;
     color: white;
@@ -66,6 +66,7 @@
 /* next-button */
 
 .glide__next-button {
+    z-index: 1;
     font: var(--icon-font);
     font-size: 24px;
     color: white;

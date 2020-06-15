@@ -1,6 +1,7 @@
 /* form-elements */
 
 .form-elements {
+    width: min(90vw, 1159px);
     display: grid;
     justify-content: center;
 }

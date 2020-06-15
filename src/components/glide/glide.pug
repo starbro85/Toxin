@@ -21,11 +21,13 @@ mixin glide({ img })
             button(
                 class = 'glide__prev-button' 
                 data-glide-dir = '<'
+                aria-label = 'Предыдущий слайд'
             ) 
                 div(class = 'glide__prev-button-icon') expand_more
             button(
                 class = 'glide__next-button' 
                 data-glide-dir = '>'
+                aria-label = 'Следующий слайд'
             ) 
                 div(class = 'glide__next-button-icon') expand_more
 

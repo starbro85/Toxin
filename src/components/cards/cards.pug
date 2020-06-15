@@ -15,10 +15,7 @@ mixin cards({ cards, rooms })
             +form-login(cards.formLogin)
         div(class = 'cards__column')
             div(class = 'cards__datepicker')
-                +datepicker({
-                    range: 'true',
-                    mode: 'manual'
-                })
+                +datepicker(cards.datepicker)
             each room in rooms
                 div(class = 'cards__room-card')
                     +room-card({ room })

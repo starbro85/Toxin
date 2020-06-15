@@ -3,6 +3,10 @@
         "title": "Найдём номера под ваши пожелания",
         "dateDropdown": {
             "twin": "true",
+            "defaultValue": [
+                "19.08.2020",
+                "23.08.2020"
+            ],
             "dropdown": {
                 "textField": [
                     {
@@ -310,5 +314,13 @@
             "type": "button",
             "color": "purple-shaped"
         }
+    },
+    "datepicker": {
+        "range": "true",
+        "mode": "manual",
+        "defaultValue": [
+            "19.08.2020",
+            "23.08.2020"
+        ]
     }
 }

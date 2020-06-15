@@ -20,8 +20,14 @@
 
 .form-registration__main {
     display: grid;
-    gap: 23.5px 0;
-    padding: 20px 0 22px 0; 
+    row-gap: 20px;
+    padding: 20px 0 24px 0; 
+}
+
+/* gender select */
+
+.form-registration__gender-select {
+    height: 24px;
 }
 
 /* special-request */
@@ -34,7 +40,7 @@
 
 .form-registration__fieldset {
     display: grid;
-    gap: 10px 0;
+    row-gap: 10px;
 }
 
 /* footer */

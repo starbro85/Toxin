@@ -1,0 +1,11 @@
+/* title */
+
+.logo__title {
+    fill: var(--dark-shade-100per);
+    transition: fill 0.3s;
+}
+
+.logo:hover .logo__title {
+    fill: var(--purple-100per);
+    transition: fill 0.3s;
+}

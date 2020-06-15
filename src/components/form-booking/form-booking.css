@@ -23,14 +23,14 @@
 
 .form-booking__header-room-number {
     font: var(--h1-font);
-    line-height: 17px;
+    line-height: 1.2142857142857142rem;
 }
 
 /* header-numero-sign */
 
 .form-booking__header-numero-sign {
     width: max-content;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 /* header-room-category */
@@ -38,7 +38,7 @@
 .form-booking__header-room-category {
     font: var(--h3-font);
     font-weight: bold;
-    line-height: 15px;
+    line-height: 1.0714285714285714rem;
     text-transform: uppercase;
     color: var(--purple-100per);
 }
@@ -49,15 +49,15 @@
     display: inline-flex;
     align-items: flex-end;
     font-weight: bold;
-    line-height: 14px;
+    line-height: 1rem;
     color: var(--dark-shade-50per);
 }
 
 /* header-rent-period */
 
 .form-booking__header-rent-period {
-    font-size: 12px;
-    line-height: 12px;
+    font-size: 0.8571428571428571rem;
+    line-height: 0.8571428571428571rem;
     font-weight: normal;
     margin-left: 3.7px;
 }
@@ -66,7 +66,7 @@
 
 .form-booking__main {
     display: grid;
-    gap: 21px 0;
+    gap: 20px 0;
     padding: 23px 0 30px 0; 
 }
 

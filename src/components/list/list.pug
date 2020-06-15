@@ -1,6 +1,7 @@
 include ../checkbox/checkbox
+include ../link/link
 
-mixin list({ label, checkbox, bullet, text })
+mixin list({ label, checkbox, link, bullet, text })
 
     -let classes = checkbox ? `list js-list list_with_checkbox` :  bullet ? `list js-list list_with_bullet` : 'list js-list';
 
@@ -17,3 +18,7 @@ mixin list({ label, checkbox, bullet, text })
                 li(class = 'list__item')
                     | #{data}
         
+        if link
+            each data in link
+                li(class = 'list__item')
+                    +link(data)

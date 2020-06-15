@@ -75,8 +75,7 @@ class DateDropdown {
             detail: {
                 dateDropdownData: this.dateDropdownData
             }
-        }))
-        console.log(this.dateDropdownData)
+        }));
     }
 
     setDataSentEventListener() {

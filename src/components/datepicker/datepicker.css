@@ -1,14 +1,14 @@
 /* datepicker */
 
 .datepicker {
-    width: min(85vw, 320px);
-    padding: min(4vw, 20px);
+    width: min(80vw, 320px);
+    padding: min(4vw, 20px) min(4vw, 20px) min(4vw, 19px) min(4vw, 20px);
     display: grid;
     grid-auto-rows: max-content;
-    row-gap: 20px;
+    row-gap: min(5vw, 20px);
     background-color: white;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow);
+    border: var(--border);
     border-radius: 4px; 
 }
 
@@ -40,7 +40,7 @@
     grid-auto-flow: column;
     grid-auto-columns: max-content;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: min(7vw, 28px);
 }
 
 .month-item-header > div {
@@ -84,12 +84,16 @@
 }
 
 .month-item-weekdays-row {
-    height: 40px;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: min(11vw, 39px);;
+    grid-auto-columns: 1fr;
     justify-items: center;
-    align-content: center;
+    align-items: center;
+}
+
+.month-item-weekdays-row  > div {
+    padding-top: calc(50% - 1.05rem/2);
+    padding-bottom: calc(50% - 1.05rem/2);
     font: var(--h3-font); 
     color: var(--purple-100per);
 }
@@ -100,12 +104,12 @@
 
 .container__days {
     display: grid;
-    grid-template-columns: repeat(7, min-content);
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .day-item {
-    width: min(11vw, 39px); 
-    height: min(11vw, 40px);
+    padding-top: calc(50% - 1.05rem/2);
+    padding-bottom: calc(50% - 1.05rem/2);
     display: inline-flex;
     justify-content: center;
     align-items: center;

@@ -1,22 +1,23 @@
-extends ../../components/ui-kit/ui-kit
+extends ../../globals/template
 
+include ../../components/ui-kit-layout/ui-kit-layout
 include ../../components/cards/cards
 
 block title
-    | Start page
-block style
-    | .ui-kit { background-color: var(--dark-shade-5per); }
+    | Cards
 
-
-block main
-
-    -const cards = require('./../../globals/mocks/cards.json');
-    -const rooms = require('./../../globals/mocks/rooms.json');
-
-    +cards({
-        cards,
-        rooms: [
-            rooms[0],
-            rooms[1]
-        ]
+block content
+    +ui-kit-layout({
+        backgroundColor: 'grey'
     })
+
+        -const cards = require('./../../globals/mocks/cards.json');
+        -const rooms = require('./../../globals/mocks/rooms.json');
+
+        +cards({
+            cards,
+            rooms: [
+                rooms[0],
+                rooms[1]
+            ]
+        })

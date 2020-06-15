@@ -1,0 +1,12 @@
+.headers-and-footers {
+    display: grid;
+    row-gap: 40px;
+}
+
+.headers-and-footers__item {
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    background-color: white;
+    box-shadow: var(--shadow);
+}

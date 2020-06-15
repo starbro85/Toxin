@@ -55,7 +55,7 @@
     text-decoration: none;
 }
 
-.pagination__item_active .pagination__link {
+.pagination__link_active {
     background: var(--purple-gradient);
     border-radius: 50%;
     color: white;
@@ -81,6 +81,6 @@
     outline-offset: -5px;
 }
 
-.pagination__link:not(.pagination__link_next):not(.pagination__link_prev):hover {
+.pagination__link:not(.pagination__link_next):not(.pagination__link_prev):not(.pagination__link_active):hover {
     text-decoration: underline;
 }

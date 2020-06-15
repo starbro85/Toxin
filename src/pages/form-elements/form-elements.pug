@@ -1,12 +1,16 @@
-extends ../../components/ui-kit/ui-kit
+extends ../../globals/template
 
+include ../../components/ui-kit-layout/ui-kit-layout
 include ../../components/form-elements/form-elements
 
 block title
     | Form elements
 
-block main
+block content
+    +ui-kit-layout({
+        backgroundColor: 'white'
+    })
 
-    -const formElements = require('./../../globals/mocks/form-elements.json');
+        -const formElements = require('./../../globals/mocks/form-elements.json');
 
-    +form-elements({ formElements })  
+        +form-elements({ formElements })  

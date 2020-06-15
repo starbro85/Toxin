@@ -1,6 +1,7 @@
 /* cards */
 
 .cards {
+    width: min(90vw, 1159px);
     display: grid;
     gap: 40px;
     justify-content: center;
@@ -15,7 +16,6 @@
 @media (max-width: 1292px) and (min-width: 890px) {
     .cards {
         grid-template-columns: min(100%, 380px) min(100%, 380px);
-        align-items: center;
     }
 }
 
@@ -35,18 +35,9 @@
 
 @media (max-width: 1292px) and (min-width: 890px) {
     .cards__column:last-child {
-        justify-self: center;
         grid-column: span 2;
         grid-template-rows: max-content max-content;
         grid-auto-flow: column;
-        grid-auto-columns: max-content;
-        align-items: center;
-    }
-}
-
-@media (max-width: 890px) {
-    .cards__column:last-child {
-        justify-content: center;
     }
 }
 

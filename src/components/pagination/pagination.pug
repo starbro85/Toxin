@@ -14,7 +14,7 @@ mixin pagination({ pages, active, description })
                 if number === Number(active)
                     li(class = 'pagination__item js-pagination__item pagination__item_active js-pagination__item_active')
                         a(
-                            class = 'pagination__link js-pagination__link'
+                            class = 'pagination__link pagination__link_active js-pagination__link'
                             title = 'Вы находитесь на этой странице'
                             aria-label = 'Вы находитесь на этой странице'
                         ) #{number}

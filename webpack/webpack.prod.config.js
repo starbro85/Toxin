@@ -25,9 +25,9 @@ const config = {
             localesToKeep: ['ru'],
         }),
         new HtmlWebpackPlugin({
-            title: 'start-page',
-            filename: 'start-page.html',
-            template: '../src/pages/start-page/start-page.pug',
+            title: 'start-menu',
+            filename: 'start-menu.html',
+            template: '../src/pages/start-menu/start-menu.pug',
         }),
         new HtmlWebpackPlugin({
             title: 'cards',

@@ -1,0 +1,1 @@
+import './../../components/start-menu/start-menu.js';

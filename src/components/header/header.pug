@@ -1,0 +1,15 @@
+include ../logo/logo
+include ../nav/nav
+include ../link/link
+include ../sign-in/sign-in
+
+mixin header({ nav, signIn})
+    header(class = 'header js-header')
+        div(class = 'header__logo')
+            +logo()
+        button(class = 'header__button js-header__button')
+            span(class = 'header__button-icon') 
+        div(class = 'header__nav')
+            +nav(nav)
+        div(class = 'header__sign-in')
+            +sign-in(signIn)
