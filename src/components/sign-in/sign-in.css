@@ -13,16 +13,6 @@
 
 @media (max-width: 607px) {
     .sign-in {
-        position: relative;
         row-gap: 10px;
-    }
-
-    .sign-in::before {
-        position: absolute;
-        top: -13px;
-        content: '';
-        width: calc(100% + 20px);
-        height: 1px;
-        background-color: var(--dark-shade-25per);
     }
 }
