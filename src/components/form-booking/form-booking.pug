@@ -7,6 +7,7 @@ mixin form-booking({ formBooking, room })
         class = 'form-booking js-form-booking'
         name = 'booking'
         method = 'post'
+        autocomplete = 'off'
     )
         div(class = 'form-booking__header')  
             p(class = 'form-booking__header-room-number ') № #{room.number} 
