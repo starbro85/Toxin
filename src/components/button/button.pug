@@ -1,10 +1,11 @@
-mixin button({ type='submit', disabled=false, label, activityClass, color, inline, icon })
+mixin button({ type='submit', disabled=false, label, controlClass, fill, border, link, color, icon })
 
-    -let classes = 'button js-button';
+    -let classes = `button button_color_${color}`;
     
-    -classes = activityClass ? `${classes} ${activityClass}` : classes;
-    -classes = color ? `${classes} button_color_${color}` :classes
-    -classes = inline ? `${classes} button_inline` : classes;
+    -classes = controlClass ? `${classes} ${controlClass}` : classes;
+    -classes = fill ? `${classes} button_filled` : classes;
+    -classes = border ? `${classes} button_with_border` : classes;
+    -classes = link ? ` ${classes} button_link` : classes;
     -classes = icon ? `${classes} button_with_icon` : classes;
 
     button(
@@ -15,9 +16,8 @@ mixin button({ type='submit', disabled=false, label, activityClass, color, inlin
     )
         p(class = 'button__label') #{label}
 
-        if icon && !inline
+        if icon
             span(
                 class = 'button__icon' 
                 aria-hidden='true'
-            )
-                |#{icon}
+            ) #{icon}
