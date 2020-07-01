@@ -1,0 +1,19 @@
+include ../list/list
+
+mixin expandable-list({ label, expanded=false, disabled=false, list })
+    div(class = expanded ? `expandable-list js-expandable-list expandable-list_expanded` : 'expandable-list js-expandable-list')
+        button(
+            class = 'expandable-list__button js-expandable-list__button'
+            type = 'button' 
+            disabled = disabled
+            aria-expanded = `${expanded}`
+        )
+            h3(class = 'expandable-list__label') #{label}
+            div(
+                class = 'expandable-list__icon'
+                aria-hidden = 'true'
+            ) expand_more
+        div(class = 'expandable-list__viewport')
+            div(class = 'expandable-list__container')
+                if list
+                    +list(list)
