@@ -1,13 +1,49 @@
-include ../rate/rate
+include ./rate-button/rate-button
 
-mixin rate-bar({ name, count, rating, disabled })
+mixin rate-bar({ name, count, rating, disabled, lang='ru' })
+    -
+        const pluralize = require('../../globals/helpers/pluralize.js');
+        const labels = {};
 
-    -const pluralize = require('../../globals/helpers/pluralize.js');
-        
-    div(class = 'rate-bar')
+        if (lang === 'ru') {
+            labels.rateBar = `Рейтинг: ${rating} из ${pluralize({one: 'звезда', few: 'звезды', many: 'звёзд'}, count)}`;
+        }
+
+        if (lang === 'en') {
+            labels.rateBar = `Rating: ${rating} out of ${pluralize({one: 'star', few: 'stars', many: 'stars'}, count)}`;
+        }
+
+
+    form(
+        class = 'rate-bar js-rate-bar'
+        aria-label = labels.rateBar
+        tabindex = '0'
+    )
+
         -for (let i = 1; i <= count; i++)
-            -let label = `рейтинг: ${pluralize({one: 'звезда', few: 'звезды', many: 'звёзд'}, i)}`;
-            if i === rating
-                +rate({ label, name, disabled, value: i, checked: 'true' })
+            -
+                if (lang === 'ru') {
+                    labels.rateButton = pluralize({one: 'звезда', few: 'звезды', many: 'звёзд'}, i);
+                }
+
+                if (lang === 'en') {
+                    labels.rateButton = pluralize({one: 'star', few: 'stars', many: 'stars'}, i);
+                }
+
+            if (i === rating)
+                +rate-button({
+                    label: labels.rateButton,
+                    name, 
+                    title: labels.rateButton,
+                    disabled, 
+                    value: i, 
+                    checked: 'true' 
+                })
             else
-                +rate({ label, name, disabled, value: i })
+                +rate-button({ 
+                    label: labels.rateButton, 
+                    name, 
+                    title: labels.rateButton,
+                    disabled, 
+                    value: i 
+                })

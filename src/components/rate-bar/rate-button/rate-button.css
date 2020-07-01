@@ -1,40 +1,41 @@
 /* rate */
 
-.rate {
+.rate-button {
     height: 24px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-.rate:disabled {
+.rate-button:disabled {
     pointer-events: none;
 }
 
-.rate:focus {
+.rate-button:focus {
     outline: none;
 }
 
-.rate::before {
+.rate-button::before {
     content: 'star';
     font: var(--icon-font);
     font-size: 24px;
     line-height: 20px;
-    background: var(--purple-gradient);   
+    background: var(--purple-gradient);  
+    background-clip: text; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     cursor: pointer;
 }
 
-.rate:hover::before {
+.rate-button:hover::before {
     box-shadow: var(--shadow-hover);
 }
 
-.rate:checked ~ .rate::before {
+.rate-button:checked ~ .rate-button::before {
     content: 'star_border';   
 }
 
-.rate:focus::before {
+.rate-button:focus::before {
     outline: var(--outline);
     outline-offset: 1px;
 }

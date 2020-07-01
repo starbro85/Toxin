@@ -1,0 +1,11 @@
+mixin rate-button({ label, name, title, value, checked=false, disabled=false })
+    input(
+        class = 'rate-button js-rate-button'
+        type = 'radio'
+        name = name
+        value = value
+        checked = checked
+        disabled = disabled
+        title = title
+        aria-label = label
+    )
