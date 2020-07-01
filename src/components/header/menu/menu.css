@@ -86,7 +86,6 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-color: transparent transparent var(--dark-shade-25per) transparent;
 }
 
 .menu__containter::before {
@@ -96,7 +95,6 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-color: transparent transparent white transparent;
 }
 
 @media (min-width: 879px) {
@@ -109,33 +107,36 @@
         right: 16px;
         top: -11px;
         border-width: 0 10px 10px 10px;
+        border-color: transparent transparent var(--dark-shade-25per) transparent;
     }
 
     .menu__containter::before {
         right: 16px;
         top: -9px;
         border-width: 0 10px 10px 10px;
+        border-color: transparent transparent white transparent;
     }
 }
 
 
 @media (max-width: 880px) {
     .menu__containter {
-        left: 100%;
+        left: 110%;
         top: -15px;
-        border-width: 0 10px 10px 10px;
     }
 
     .menu__containter::after {
         left: -11px;
         top: 16px;
         border-width: 10px 10px 10px 0;
+        border-color: transparent var(--dark-shade-25per) transparent  transparent;
     }
 
     .menu__containter::before {
         left: -9px;
         top: 16px;
         border-width: 10px 10px 10px 0;
+        border-color: transparent white  transparent  transparent;
     }
 }
     

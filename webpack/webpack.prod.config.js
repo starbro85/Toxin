@@ -22,7 +22,7 @@ const config = {
     plugins: [
         new CleanWebpackPlugin(),
         new MomentLocalesPlugin({
-            localesToKeep: ['ru'],
+            localesToKeep: ['ru', 'en']
         }),
         new HtmlWebpackPlugin({
             title: 'start-menu',
