@@ -1,10 +1,10 @@
-mixin checkbox({ name, label, description, checked=false, disabled=false })
-
+mixin checkbox({ name, label, title, description, checked=false, disabled=false })
     label(class = 'checkbox')     
         input(
             class = 'checkbox__input'
             type = 'checkbox' 
-            name = name 
+            name = name
+            title = title
             checked = checked 
             disabled = disabled
         )
@@ -14,4 +14,4 @@ mixin checkbox({ name, label, description, checked=false, disabled=false })
             p(class = description ? 'checkbox__label checkbox__label_font-weight_bold' : 'checkbox__label') #{label}
 
         if description
-            p(class = 'checkbox__description') !{description}
+            p(class = 'checkbox__description') #{description}

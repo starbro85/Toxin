@@ -6,7 +6,7 @@
         'mark label'
         '. describtion';
     grid-template-columns: 20px auto;
-    gap: 0 10px;
+    column-gap: 10px;
     cursor: pointer;
 }
 
