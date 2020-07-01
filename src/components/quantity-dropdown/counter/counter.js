@@ -50,14 +50,21 @@ class Counter {
         }
 
         if (event.key === 'ArrowUp') {
-            this.increment.click();
+            this.value < this.maxValue ? this.increment.click() : false;
         }
 
         if (event.key === 'ArrowDown') {
-            this.decrement.click();
+            this.value > this.minValue ? this.decrement.click() : false;
         }
 
-        this.input.value = this.value;
+        if (event.type === 'input') {
+            this.value = this.input.value;
+        }
+
+        else {
+            this.input.value = this.value;
+        }
+        
         this.input.setAttribute('aria-valuenow', this.value);
 
         this.sendCounterData();
@@ -72,6 +79,12 @@ class Counter {
         this.normalizeRange();
     }
 
+    preventScroll() {
+        if ((event.key === 'ArrowDown') || (event.key === 'ArrowUp')) {
+            event.preventDefault();
+        }
+    }
+
     init() {
         this.normalizeRange();
 
@@ -80,6 +93,8 @@ class Counter {
         this.increment.addEventListener('click', this.handleCounterChange);   
         this.decrement.addEventListener('click', this.handleCounterChange);
         this.input.addEventListener('keyup', this.handleCounterChange);
+        this.input.addEventListener('keydown', this.preventScroll);
+        this.input.addEventListener('input', this.handleCounterChange);
     }
 };
 

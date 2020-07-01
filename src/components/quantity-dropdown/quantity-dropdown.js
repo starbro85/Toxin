@@ -13,10 +13,8 @@ class Dropdown {
     constructor(node) {
         this.root = node;
         this.button = this.root.querySelector('.js-quantity-dropdown__button');
-        this.container = this.root.querySelector('.js-quantity-dropdown__container');
-        this.focusableElements = this.container.querySelectorAll('button:not(:disabled):not([tabindex="-1"]), input:not(:disabled):not([tabindex="-1"])');
+        this.focusableElements = this.root.querySelectorAll('button:not(:disabled):not([tabindex="-1"]), input:not(:disabled):not([tabindex="-1"])');
         this.firstFocusableElement = this.focusableElements[0];
-        this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
 
         this.expanded = JSON.parse(this.button.getAttribute('aria-expanded'));
 
@@ -34,13 +32,19 @@ class Dropdown {
         }
     }
 
+    setOutsideFocusEventListener = (event) => {
+        if (!this.root.contains(event.target)) {
+            this.button.focus();
+        }
+    }
+
     toggleExpand = () => {
         this.expanded = !(this.expanded);
         this.button.setAttribute('aria-expanded', this.expanded);
         this.root.classList.toggle('quantity-dropdown_expanded');
+        this.expanded ? document.addEventListener('focusin', this.setOutsideFocusEventListener) : document.removeEventListener('focusin', this.setOutsideFocusEventListener);
         this.expanded ? document.addEventListener('click', this.handleCollapse) : document.removeEventListener('click', this.handleCollapse);
         this.focusableElements.forEach(element => this.expanded ? element.addEventListener('keyup', this.handleCollapse) : element.removeEventListener('keyup', this.handleCollapse));
-        this.lastFocusableElement.addEventListener('blur', () => this.expanded ? this.firstFocusableElement.focus() : this.firstFocusableElement.focus());
     };
 
     init() {
@@ -171,12 +175,13 @@ class Quantity {
         this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.sendInputValue));
     }
 
-    setCountersDataSentEventListener() {
+    setCountersDataUpdate() {
         this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.getCountersData));
     } 
 
     init() {
-        this.setCountersDataSentEventListener();
+        this.sendInputValue();
+        this.setCountersDataUpdate();
 
         if (this.autoApply) {
             this.setAutoApplyMode();

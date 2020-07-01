@@ -42,6 +42,8 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
                     disabled = input.disabled
                     tabindex = '-1'
                     aria-hidden = 'true'
+                    autocomplete = 'off'
+                    readonly 
                 )
             if !button
                 if icon

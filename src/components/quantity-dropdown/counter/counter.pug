@@ -13,6 +13,7 @@ mixin counter({ label, name, initValue, maxValue, plural, isBound, boundPlural, 
             tabindex = '-1'
         ) -
         input(
+            type = 'button'
             class = 'counter__input js-counter__input'
             name = name 
             value = initValue
@@ -26,7 +27,6 @@ mixin counter({ label, name, initValue, maxValue, plural, isBound, boundPlural, 
             data-is-bound = isBound
             data-bound-plural = boundPlural
             data-bound-name = boundName
-            autocomplete = 'off' 
         )
         button(
             class = 'counter__increment js-counter__increment'     
