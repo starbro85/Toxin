@@ -1,0 +1,36 @@
+mixin counter({ label, name, initValue, maxValue, plural, isBound, boundPlural, boundName })
+    div(
+        class = 'counter js-counter'
+    )
+
+        p(
+            class = 'counter__label'
+        ) #{label}
+        button(
+            class = 'counter__decrement js-counter__decrement'     
+            type = 'button'
+            aria-hidden = 'true'
+            tabindex = '-1'
+        ) -
+        input(
+            class = 'counter__input js-counter__input'
+            name = name 
+            value = initValue
+            title = label
+            role = 'spinbutton'
+            aria-valuemin = '0'
+            aria-valuemax = maxValue 
+            aria-valuenow = initValue
+            aria-label = label
+            data-plural = plural
+            data-is-bound = isBound
+            data-bound-plural = boundPlural
+            data-bound-name = boundName
+            autocomplete = 'off' 
+        )
+        button(
+            class = 'counter__increment js-counter__increment'     
+            type = 'button'
+            aria-hidden = 'true'
+            tabindex = '-1'
+        ) +

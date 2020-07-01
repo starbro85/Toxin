@@ -1,5 +1,99 @@
 /* quantity-dropdown */
 
-.quabntity-dropdown {
+.quantity-dropdown {
+    position: relative;
     width: min(100%, 320px);
+}
+
+/* viewport */
+
+.quantity-dropdown__viewport {
+    position: absolute;
+    z-index: -1;
+    --padding: 20px;
+    min-width: calc(100% + var(--padding) * 2); 
+    padding: 0 var(--padding) var(--padding) var(--padding);
+    overflow: hidden;
+    left: calc(var(--padding) * -1);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility step-end .6s, opacity .6s, z-index step-end .6s;
+}
+
+.quantity-dropdown_expanded .quantity-dropdown__viewport {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .6s;
+}
+
+/* container */
+
+.quantity-dropdown__container {
+    padding: 5.5px 6px 7px 13.5px; 
+    border: var(--border);
+    border-top: none;
+    border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;
+    border-color: var(--dark-shade-50per);
+    box-shadow: var(--shadow);
+    background-color: white;
+    transform: translateY(-100%);
+    transition: transform .6s;
+}
+
+.quantity-dropdown_expanded .quantity-dropdown__container {
+    transform: translateY(0);   
+    transition: transform .6s;
+}
+
+/* active class for text-field__input */
+
+.quantity-dropdown__button {
+    cursor: pointer;
+}
+
+.quantity-dropdown_expanded .quantity-dropdown__button {
+    border-color: var(--dark-shade-50per);
+}
+
+.quantity-dropdown_expanded .quantity-dropdown__button {
+    border-bottom-right-radius: 0; border-bottom-left-radius: 0;
+}
+
+/* active class for text-field__icon */
+
+.quantity-dropdown__icon {
+    transform: rotate(0);
+    transition: transform .6s;
+}
+
+.quantity-dropdown_expanded .quantity-dropdown__icon {
+    transform: rotate(180deg);
+    transition: transform .6s;
+}
+
+/* counters bar */
+
+.quantity-dropdown__counters-bar {
+    display: grid;
+    row-gap: 19px;
+}
+
+/* counters list */
+
+.quantity-dropdown__counters-list {
+    display: grid;
+    display: grid; 
+    gap: 7px;
+    list-style: none;   
+}
+
+/* control panel */
+
+.quantity-dropdown__control-panel {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
 }
