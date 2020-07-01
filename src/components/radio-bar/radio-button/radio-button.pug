@@ -1,0 +1,14 @@
+mixin radio-button({ name, value, label, checked=false, disabled=false })
+    label(class = 'radio-button')
+        input(
+            class = 'radio-button__input'
+            type = 'radio' 
+            name = name 
+            value = value 
+            checked = checked 
+            disabled = disabled
+        )
+        div(class = 'radio-button__mark')
+
+        if label
+            p(class = 'radio-button__label') #{label}

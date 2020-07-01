@@ -1,6 +1,6 @@
-include ../radio/radio
+include ./radio-button/radio-button
 
-mixin radio-bar({ radio })
+mixin radio-bar({ radioButtons })
     div(class = 'radio-bar')
-        each data in radio
-            +radio(data)
+        each data in radioButtons
+            +radio-button(data)
