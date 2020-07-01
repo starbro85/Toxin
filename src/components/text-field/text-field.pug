@@ -43,6 +43,9 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
                     tabindex = '-1'
                     aria-hidden = 'true'
                 )
+            if !button
+                if icon
+                    span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon') #{icon.text}
 
         if button
             button(
@@ -51,12 +54,9 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
                 aria-label = button.label
             )
                 if icon
-                    span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon')
-                        |#{icon.text}
+                    span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon') #{icon.text}
                 else if block
                     block
 
-        else if icon
-            span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon')
-                |#{icon.text}
+        
     

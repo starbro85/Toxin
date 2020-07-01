@@ -43,6 +43,13 @@
     color: var(--dark-shade-75per);
 }
 
+.menu__button:active .menu__icon {
+    background-clip: text; 
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);   
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 879px) {
     .menu__icon {
         transform: rotate(-90deg);
@@ -54,8 +61,8 @@
 .menu__containter {
     position: absolute;
     z-index: -5;
-    width: min(40vw, 150px);
-    padding: min(2vw, 15px) min(2vw, 15px) min(2vw, 15px) min(2vw, 15px);
+    min-width: min(40vw, 150px);
+    padding: min(3vw, 15px) min(3vw, 15px) min(3vw, 15px) min(3vw, 15px);
     display: grid;
     grid-template-columns: 100%;
     justify-content: center;

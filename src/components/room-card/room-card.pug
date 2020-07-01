@@ -1,7 +1,7 @@
 include ../rate-bar/rate-bar
 include ../glide/glide
 
-mixin room-card({ room })
+mixin room-card({ rateBar, room })
 
     -
         const img = [];
@@ -42,6 +42,8 @@ mixin room-card({ room })
                     name: room.number,
                     count: '5',
                     rating: room.rating,
+                    ariaLabel: rateBar ? rateBar.ariaLabel : false,
+                    title: rateBar ? rateBar.title : false,
                     disabled: 'true'
                 })
             span(class = 'room-card__reviews-count') #{room.reviews.count} 

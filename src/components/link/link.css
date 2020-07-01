@@ -23,13 +23,18 @@
     color: var(--dark-shade-75per);
 }
 
-.link:not(.link_button).link_bold {
+.link_bold:not(.link_button) {
     font-weight: bold;
     color: var(--dark-shade-75per);
 }
 
-.link:not(.link_button).link_bold:hover {
+.link_bold:not(.link_button):hover {
     color: var(--dark-shade-100per);
+}
+
+.link:not(.link_button):active,
+.link_bold:not(.link_button):active {
+    color: var(--purple-100per);
 }
 
 .link_button {

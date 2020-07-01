@@ -1,49 +1,30 @@
 include ./rate-button/rate-button
 
-mixin rate-bar({ name, count, rating, disabled, lang='ru' })
-    -
-        const pluralize = require('../../globals/helpers/pluralize.js');
-        const labels = {};
-
-        if (lang === 'ru') {
-            labels.rateBar = `Рейтинг: ${rating} из ${pluralize({one: 'звезда', few: 'звезды', many: 'звёзд'}, count)}`;
-        }
-
-        if (lang === 'en') {
-            labels.rateBar = `Rating: ${rating} out of ${pluralize({one: 'star', few: 'stars', many: 'stars'}, count)}`;
-        }
-
+mixin rate-bar({ name, count, rating, ariaLabel, disabled })
+    -const pluralize = require('../../globals/helpers/pluralize.js');
 
     form(
         class = 'rate-bar js-rate-bar'
-        aria-label = labels.rateBar
+        aria-label = ariaLabel ? `${ariaLabel.prefix}${rating}${ariaLabel.preposition}${pluralize(ariaLabel.plural, count)}` : false
         tabindex = '0'
     )
 
-        -for (let i = 1; i <= count; i++)
-            -
-                if (lang === 'ru') {
-                    labels.rateButton = pluralize({one: 'звезда', few: 'звезды', many: 'звёзд'}, i);
-                }
-
-                if (lang === 'en') {
-                    labels.rateButton = pluralize({one: 'star', few: 'stars', many: 'stars'}, i);
-                }
-
-            if (i === rating)
+        -for (let index = 1; index <= count; index++)
+            if index === rating
                 +rate-button({
-                    label: labels.rateButton,
                     name, 
-                    title: labels.rateButton,
+                    title: title ? pluralize(ariaLabel.title, index) : false,
+                    ariaLabel: aria-label ? pluralize(ariaLabel.plural, index) : false,
                     disabled, 
-                    value: i, 
+                    value: index, 
                     checked: 'true' 
                 })
+
             else
-                +rate-button({ 
-                    label: labels.rateButton, 
+                +rate-button({  
                     name, 
-                    title: labels.rateButton,
+                    title: title ? pluralize(ariaLabel.title, index) : false,
+                    ariaLabel: ariaLabel ? pluralize(ariaLabel.plural, index) : false,
                     disabled, 
-                    value: i 
+                    value: index
                 })

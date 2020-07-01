@@ -375,11 +375,37 @@
         "label": "like button",
         "like": [
             {
-                "count": "2"
+                "count": "2",
+                "ariaLabel": {
+                    "plural": {
+                        "one": "человек оценил",
+                        "few": "человека оценило",
+                        "many": "человек оценили"
+                    },
+                    "active": "Убрать оценку",
+                    "inactive": "Оценить"
+                },
+                "title": {
+                    "active": "Убрать оценку",
+                    "inactive": "Оценить"
+                }
             },
             {
                 "count": "12",
-                "active": "true"
+                "active": "true",
+                "ariaLabel": {
+                    "plural": {
+                        "one": "человек оценил",
+                        "few": "человека оценило",
+                        "many": "человек оценили"
+                    },
+                    "active": "Убрать оценку",
+                    "inactive": "Оценить"
+                },
+                "title": {
+                    "active": "Убрать оценку",
+                    "inactive": "Оценить"
+                }
             }
         ]
     },
@@ -389,12 +415,45 @@
             {
                 "name": "test-1",
                 "count": 5,
-                "rating": 5
+                "rating": 5,
+                "title": {
+                    "plural": {
+                        "one": "звезда", 
+                        "few": "звезды", 
+                        "many": "звёзд"
+                    }
+                },
+                "ariaLabel": {
+                    "plural": {
+                        "one": "звезда", 
+                        "few": "звезды", 
+                        "many": "звёзд"
+                    },
+                    "prefix": "Рейтинг: ",
+                    "preposition": " из "
+                }
+
             },
             {
                 "name": "test-2",
                 "count": 5,
-                "rating": 3
+                "rating": 3,
+                "title": {
+                    "plural": {
+                        "one": "звезда", 
+                        "few": "звезды", 
+                        "many": "звёзд"
+                    }
+                },
+                "ariaLabel": {
+                    "plural": {
+                        "one": "звезда", 
+                        "few": "звезды", 
+                        "many": "звёзд"
+                    },
+                    "prefix": "Рейтинг: ",
+                    "preposition": " из "
+                }
             }
         ]
     },
@@ -414,12 +473,12 @@
                 {
                     "label": "click me",
                     "color": "purple",
-                    "fill": true
+                    "fill": "true"
                 },
                 {
                     "label": "click me",
                     "color": "purple",
-                    "fill": true,
+                    "fill": "true",
                     "disabled": "true"
                 }
             ],
@@ -427,12 +486,12 @@
                 {
                     "label": "click me",
                     "color": "purple",
-                    "border": true
+                    "border": "true"
                 },
                 {
                     "label": "click me",
                     "color": "purple",
-                    "border": true,
+                    "border": "true",
                     "disabled": "true"
                 }
             ],
@@ -440,19 +499,19 @@
                 {
                     "label": "click me",
                     "color": "purple",
-                    "link": true   
+                    "link": "true"   
                 },
                 {
                     "label": "click me",
                     "color": "dark-shade",
-                    "link": true
+                    "link": "true"
                 }
             ]
         ],
         "submitButton": {
             "label": "перейти к оплате",
             "color": "purple",
-            "fill": true,
+            "fill": "true",
             "icon": "arrow_forward"
         }
     },
@@ -463,13 +522,13 @@
                 {
                     "label": "Перейти на предыдущую страницу",
                     "title": "Перейти на предыдущую страницу",
-                    "prev": true,
+                    "prev": "true",
                     "href": "#"
                 },
                 {
                     "label": "Перейти на страницу ",
                     "title": "Перейти на страницу ",
-                    "active": true,
+                    "active": "true",
                     "href": "#"
                 },
                 {
@@ -546,7 +605,7 @@
                 {
                     "label": "Перейти на следующую страницу",
                     "title": "Перейти на следующую страницу",
-                    "next": true,
+                    "next": "true",
                     "href": "#"
                 }
             ],
@@ -677,7 +736,20 @@
             "reviewText": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
             "like": {
                 "count": "12",
-                "active": "true"
+                "active": "true",
+                "ariaLabelPlural": {
+                    "plural": {
+                        "one": "человек оценил",
+                        "few": "человека оценило",
+                        "many": "человек оценили"
+                    },
+                    "active": "Убрать оценку",
+                    "inactive": "Оценить"
+                },
+                "title": {
+                    "active": "Убрать оценку",
+                    "inactive": "Оценить"
+                }
             }
         }
     }

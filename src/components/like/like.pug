@@ -1,8 +1,20 @@
-mixin like({ count, label, active=false })
+mixin like({ count, ariaLabel, title, active=false })
+    -
+        if (ariaLabel) {
+            const pluralize = require('../../globals/helpers/pluralize.js');
+            ariaLabel = active ? `${pluralize(ariaLabel.plural, count)}. ${ariaLabel.active}` : `${pluralize(ariaLabel.plural, count)}. ${ariaLabel.inactive}`;
+        }
+
+        if (title) {
+            const pluralize = require('../../globals/helpers/pluralize.js');
+            title = active ? title.active : title.inactive;
+        }
+
     button(
         class = 'like js-like'
         data-active = active
-        aria-label = label
+        aria-label = ariaLabel
+        title = title
     )
         p(
             class = 'like__icon js-like__icon'
