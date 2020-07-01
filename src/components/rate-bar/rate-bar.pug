@@ -14,7 +14,7 @@ mixin rate-bar({ name, count, rating, ariaLabel, disabled })
                 +rate-button({
                     name, 
                     title: title ? pluralize(ariaLabel.title, index) : false,
-                    ariaLabel: aria-label ? pluralize(ariaLabel.plural, index) : false,
+                    ariaLabel: ariaLabel ? pluralize(ariaLabel.plural, index) : false,
                     disabled, 
                     value: index, 
                     checked: 'true' 
