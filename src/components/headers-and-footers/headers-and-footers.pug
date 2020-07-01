@@ -1,80 +1,14 @@
 include ../header/header
 
-mixin headers-and-footers()
+mixin headers-and-footers({ headersAndFooters, user })
     div(class = 'headers-and-footers')
         div(class = 'headers-and-footers__item')
             +header({
-                nav: {
-                    items: [
-                        {
-                            label: 'Home',
-                            href: '#',
-                            title: 'Go to "Home" page',
-                            color: 'dark-shade-bold'
-                        },
-                        {
-                            label: 'About Us',
-                            href: '#',
-                            title: 'Go to "About Us" page'
-                        },
-                        {
-                            isMenu: 'true',
-                            menu: {
-                                label: 'Services',
-                                list: {
-                                    link: [
-                                        {
-                                            label: 'texttexttexttexttexttext',
-                                            href: '#',
-                                            title: 'text'
-                                        },
-                                        {
-                                            label: 'texttexttexttexttexttext',
-                                            href: '#',
-                                            title: 'text'
-                                        },
-                                        {
-                                            label: 'texttexttexttexttexttext',
-                                            href: '#',
-                                            title: 'text'
-                                        }
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            label: 'Careers',
-                            href: '#',
-                            title: 'Go to "Careers" page'
-                        },
-                        {
-                            label: 'News',
-                            href: '#',
-                            title: 'Go to "News" page'
-                        },
-                        {
-                            label: 'Documentation',
-                            href: '#',
-                            title: 'Go to "Documentation" page'
-                        },
-                    ]
-                },
-                signIn: {
-                    link: [
-                        {
-                            label: 'login',
-                            href: '#',
-                            title: 'Go to "Login" page',
-                            isShaped: 'true',
-                            color: 'purple-shaped'
-                        },
-                        {
-                            label: 'register',
-                            href: '#',
-                            title: 'Go to "Register" page',
-                            isShaped: 'true',
-                            color: 'purple-filled'
-                        }           
-                    ]
-                }
+                header: headersAndFooters.headerNoAuth
+            })
+        
+        div(class = 'headers-and-footers__item')
+            +header({
+                header: headersAndFooters.headerAuth,
+                user
             })

@@ -1,17 +1,20 @@
 include ../text-field/text-field
 
-mixin subscribtion-field({ label })
+mixin subscribtion-field({ textField })
     form(class = 'subscribtion-field')
         +text-field({ 
-            label, 
+            label: textField.label, 
             input: {
                 type: 'email', 
                 placeholder: 'Email',
-                required: 'true'
+                required: 'true',
+                title: textField.title
             },
             button: {
-                label: 'subscribe',
-                type: 'submit',
-                icon: 'arrow_forward'
+                label: textField.button.label
+            },
+            icon: {
+                text: 'arrow_forward',
+                activeClass: 'subscribtion-field__icon'
             }
         })

@@ -1,16 +1,15 @@
 include ../label-wrapper/label-wrapper
 include ../text-field/text-field
-include ../dropdown/dropdown
 include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../subscribtion-field/subscribtion-field
-include ../expander/expander
+include ../expandable-list/expandable-list
 include ../list/list
 include ../radio-bar/radio-bar
 include ../toggle/toggle
 include ../like/like
 include ../rate-bar/rate-bar
-include ../range/range
+include ../slider/slider
 include ../button/button
 include ../pagination/pagination
 include ../feature/feature
@@ -40,11 +39,9 @@ mixin form-elements({ formElements })
                 div(class = 'form-elements__filter-dropdown-section form-elements__filter-dropdown-section_expanded')
                     +quantity-dropdown(formElements.filterDropdownSection.quantityDropdown.expanded)
                 div(class = 'form-elements__expandable-checkbox-list-section')
-                    +expander(formElements.expandableCheckboxListSection.expander.collapsed)
-                        +list(formElements.expandableCheckboxListSection.list)
+                    +expandable-list(formElements.expandableCheckboxListSection.expandableList.collapsed)
                 div(class = 'form-elements__expandable-checkbox-list-section')
-                    +expander(formElements.expandableCheckboxListSection.expander.expanded)
-                        +list(formElements.expandableCheckboxListSection.list)
+                    +expandable-list(formElements.expandableCheckboxListSection.expandableList.expanded)
 
         div(class = 'form-elements__group-3')
             div(class = 'form-elements__checkbox-buttons-section')
@@ -76,7 +73,7 @@ mixin form-elements({ formElements })
         
         div(class = 'form-elements__group-5')
             div(class = 'form-elements__range-section')
-                +range(formElements.rangeSection.range)
+                +slider(formElements.rangeSection.slider)
             div(class = 'form-elements__buttons-section')
                 +label-wrapper({ label: formElements.buttonsSection.label })
                     div(class = 'form-elements__buttons-column')
@@ -84,7 +81,8 @@ mixin form-elements({ formElements })
                             div(class = 'form-elements__buttons-bar')
                                 each data in item
                                     +button(data)
-                +button(formElements.buttonsSection.submitButton)
+                        div(class = 'form-elements__submit-button')
+                            +button(formElements.buttonsSection.submitButton)
             div(class = 'form-elements__pagination-section')
                 +label-wrapper({ label: formElements.paginationSection.label })
                     +pagination(formElements.paginationSection.pagination)
@@ -97,7 +95,7 @@ mixin form-elements({ formElements })
 
         div(class = 'form-elements__group-7')
             div(class = 'form-elements__features-section')
-                each data in formElements.featuresSection.feature
+                each data in formElements.featuresSection.features
                     +feature(data)
             div(class = 'form-elements__review-section')
                 +review(formElements.reviewSection.review)

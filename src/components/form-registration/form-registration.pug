@@ -2,15 +2,16 @@ include ../text-field/text-field
 include ../radio-bar/radio-bar
 include ../toggle/toggle
 include ../button/button
+include ../link/link
 
-mixin form-registration({ title, loginText,nameInput, surnameInput, birthdayInput, emailInput, passwordInput, toggle, radio, submitButton, loginButton })
+mixin form-registration({ heading, nameInput, surnameInput, birthdayInput, emailInput, passwordInput, toggle, radioButtons, submitButton, loginText, loginLink })
     form(
         class = 'form-registration'
         name = 'registration' 
         method = 'get'
     )
         div(class = 'form-registration__header')
-            h2(class = 'form-registration__title') #{title}
+            h2(class = 'form-registration__title') #{heading}
         div(class = 'form-registration__main')
             div(class = 'form-registration__fieldset')
                 div(class = 'form-registration__name')
@@ -18,7 +19,7 @@ mixin form-registration({ title, loginText,nameInput, surnameInput, birthdayInpu
                 div(class = 'form-registration__surname')
                     +text-field(surnameInput)
                 div(class = 'form-registration__gender-select')
-                    +radio-bar({radio})
+                    +radio-bar({radioButtons})
 
             div(class = 'form-registration__input')
                 +text-field(birthdayInput)
@@ -35,5 +36,5 @@ mixin form-registration({ title, loginText,nameInput, surnameInput, birthdayInpu
                 +button(submitButton)
             div(class = 'form-registration__login')
                 span(class = 'form-registration__login-text') #{loginText}
-                span(class = 'form-registration__login-button')
-                    +button(loginButton)
+                span(class = 'form-registration__login-link')
+                    +link(loginLink)

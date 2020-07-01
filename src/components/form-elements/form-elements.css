@@ -266,11 +266,17 @@
     width: 218px;
     display: grid;
     grid-auto-flow: column;
+    grid-auto-rows: 44px;
     gap: 20px;
 }
-.form-elements__buttons-bar:last-child {
+.form-elements__buttons-bar:nth-last-child(2) {
     margin-left: 1px;margin-top: 1px;
-    grid-auto-columns: max-content;
+    grid-auto-columns: max-content;   
+    grid-auto-rows: max-content;
+}
+
+.form-elements__submit-button {
+    height: 44px;
 }
 
 /* features-section */

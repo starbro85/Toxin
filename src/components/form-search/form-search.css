@@ -1,4 +1,4 @@
-/* form-search */
+/* form search */
 
 .form-search {
     width: min(100%, 380px);
@@ -22,4 +22,10 @@
     display: grid;
     gap: 21px 0;
     padding: 20px 0 31px 0; 
+}
+
+/* submit button */
+
+.form-search__submit-button {
+    height: 44px;
 }

@@ -1,4 +1,4 @@
-/* form-registration */
+/* form registration */
 
 .form-registration {
     width: min(100%, 380px);
@@ -30,7 +30,7 @@
     height: 24px;
 }
 
-/* special-request */
+/* special request */
 
 .form-registration__special-request  {
     margin-top: -1px;
@@ -47,7 +47,13 @@
 
 .form-registration__footer {
     display: grid;
-    gap: 30px 0;
+    row-gap: 30px;
+}
+
+/* submit button */
+
+.form-registration__submit-button {
+    height: 44px;
 }
 
 /* login */
@@ -55,12 +61,12 @@
 .form-registration__login {
     display: grid;
     grid-template-areas: 
-        'text . button';
+        'text . link';
     grid-template-columns: auto 1fr 99px;
     align-items: center;
 }
 
-/* login-text */
+/* login text */
 
 .form-registration__login-text {
     grid-area: text;
@@ -68,8 +74,9 @@
     text-align: center;
 }
 
-/* login-button */
+/* login link */
 
-.form-registration__login-button {
-    grid-area: button;
+.form-registration__login-link {
+    grid-area: link;
+    height: 44px;
 }

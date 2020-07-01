@@ -6,7 +6,7 @@
                 "name": "text-field",
                 "type": "email",
                 "placeholder": "Email",
-                "title": "Введите email"
+                "title": "Email"
             }
         }
     },
@@ -28,138 +28,146 @@
                 "name": "text-field",
                 "placeholder": "ДД.ММ.ГГГГ",
                 "mask": "date",
-                "title": "Введите дату рождения"
+                "title": "Дата рождения"
             }
         }
     },
     "dropdownSection": {
         "quantityDropdown": {
             "collapsed": {
-                "dropdown": {
-                    "textField": {
-                        "label": "dropdown",
-                        "input": {
-                            "name": "dropdown",
-                            "placeholder": "Количество гостей",    
-                            "title": "Количество гостей"     
-                        }
+                "textField": {
+                    "label": "dropdown",
+                    "input": {
+                        "name": "dropdown",
+                        "placeholder": "Сколько гостей",    
+                        "title": "Сколько гостей"     
                     }
                 },
-                "counterBar": {
-                    "counters": [
-                        {
-                            "label": "взрослые",
-                            "name": "adults",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "plural": {
-                                "one": "взрослый",
-                                "few": "взрослых",
-                                "many": "взрослых"
-                            },
-                            "boundPlural": {
-                                "one": "гость",
-                                "few": "гостя",
-                                "many": "гостей"
-                            },
-                            "isBound": "true",
-                            "boundName": "guests"
+                "controlPanel": {
+                    "clearButton": {
+                        "label": "Очистить"
+                    },
+                    "applyButton": {
+                        "label": "Применить"
+                    }
+                },
+                "counters": [
+                    {
+                        "label": "Взрослые",
+                        "name": "adults",
+                        "initValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "взрослый",
+                            "few": "взрослых",
+                            "many": "взрослых"
                         },
-                        {
-                            "label": "дети",
-                            "name": "kids",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "plural": {
-                                "one": "ребёнок",
-                                "few": "детей",
-                                "many": "детей"
-                            },
-                            "boundPlural": {
-                                "one": "гость",
-                                "few": "гостя",
-                                "many": "гостей"
-                            },
-                            "isBound": "true",
-                            "boundName": "guests"
-                        },
-                        {
-                            "label": "младенцы",
-                            "name": "babies",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "plural": {
-                                "one": "младенец",
-                                "few": "младенцев",
-                                "many": "младенцев"
-                            }
+                        "isBound": "true",
+                        "boundName": "guests",
+                        "boundPlural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
                         }
-                    ]
-                }
+                    },
+                    {
+                        "label": "Дети",
+                        "name": "kids",
+                        "initValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "ребёнок",
+                            "few": "детей",
+                            "many": "детей"
+                        },
+                        "isBound": "true",
+                        "boundName": "guests",
+                        "boundPlural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
+                        }
+                    },
+                    {
+                        "label": "Младенцы",
+                        "name": "babies",
+                        "initValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "младенец",
+                            "few": "младенцев",
+                            "many": "младенцев"
+                        }
+                    }
+                ]
             },
             "expanded": {
-                "dropdown": {
-                    "expanded": "true",
-                    "textField": {
-                        "label": "dropdown",
-                        "input": {
-                            "name": "dropdown",
-                            "placeholder": "Количество гостей",
-                            "title": "Количество гостей" 
-                        }
+                "expanded": "true",
+                "textField": {
+                    "label": "dropdown",
+                    "input": {
+                        "name": "dropdown",
+                        "placeholder": "Сколько гостей",
+                        "title": "Сколько гостей" 
                     }
                 },
-                "counterBar": {
-                    "counters": [
-                        {
-                            "label": "взрослые",
-                            "name": "adults",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "plural": {
-                                "one": "взрослый",
-                                "few": "взрослых",
-                                "many": "взрослых"
-                            },
-                            "boundPlural": {
-                                "one": "гость",
-                                "few": "гостя",
-                                "many": "гостей"
-                            },
-                            "isBound": "true",
-                            "boundName": "guests"
+                "controlPanel": {
+                    "clearButton": {
+                        "label": "Очистить"
+                    },
+                    "applyButton": {
+                        "label": "Применить"
+                    }
+                },
+                "counters": [
+                    {
+                        "label": "Взрослые",
+                        "name": "adults",
+                        "initValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "взрослый",
+                            "few": "взрослых",
+                            "many": "взрослых"
                         },
-                        {
-                            "label": "дети",
-                            "name": "kids",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "plural": {
-                                "one": "ребёнок",
-                                "few": "детей",
-                                "many": "детей"
-                            },
-                            "boundPlural": {
-                                "one": "гость",
-                                "few": "гостя",
-                                "many": "гостей"
-                            },
-                            "isBound": "true",
-                            "boundName": "guests"
-                        },
-                        {
-                            "label": "младенцы",
-                            "name": "babies",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "plural": {
-                                "one": "младенец",
-                                "few": "младенцев",
-                                "many": "младенцев"
-                            }
+                        "isBound": "true",
+                        "boundName": "guests",
+                        "boundPlural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
                         }
-                    ]
-                }
+                    },
+                    {
+                        "label": "Дети",
+                        "name": "kids",
+                        "initValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "ребёнок",
+                            "few": "детей",
+                            "many": "детей"
+                        },
+                        "isBound": "true",
+                        "boundName": "guests",
+                        "boundPlural": {
+                            "one": "гость",
+                            "few": "гостя",
+                            "many": "гостей"
+                        }
+                    },
+                    {
+                        "label": "Младенцы",
+                        "name": "babies",
+                        "initValue": "0",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "младенец",
+                            "few": "младенцев",
+                            "many": "младенцев"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -191,111 +199,97 @@
     "filterDropdownSection": {
         "quantityDropdown": {
             "collapsed": {
-                "dropdown": {
-                    "textField": {
-                        "label": "dropdown",
-                        "input": {
-                            "name": "dropdown",
-                            "placeholder": "Конфигурация номера",
-                            "title": "Конфигурация номера"
-                        }
+                "textField": {
+                    "label": "dropdown",
+                    "input": {
+                        "name": "dropdown",
+                        "placeholder": "Конфигурация номера",
+                        "title": "Конфигурация номера"
                     }
                 },
-                "counterBar": {
-                    "autoApply": "true",
-                    "counters": [
-                        {
-                            "label": "спальни",
-                            "name": "bedrooms",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "defaultValue": "2",
-                            "plural": {
-                                "one": "спальня",
-                                "few": "спальни",
-                                "many": "спален"
-                            }
-                        },
-                        {
-                            "label": "кровати",
-                            "name": "beds",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "defaultValue": "2",
-                            "plural": {
-                                "one": "кровать",
-                                "few": "кровати",
-                                "many": "кроватей"
-                            }
-                        },
-                        {
-                            "label": "ванные комнаты",
-                            "name": "bathroom",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "defaultValue": "1",
-                            "plural": {
-                                "one": "ванная комната",
-                                "few": "ванные комнаты",
-                                "many": "ванных комнат"
-                            }
+                "autoApply": "true",
+                "counters": [
+                    {
+                        "label": "Спальни",
+                        "name": "bedrooms",
+                        "initValue": "2",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "спальня",
+                            "few": "спальни",
+                            "many": "спален"
                         }
-                    ]
-                }
+                    },
+                    {
+                        "label": "Кровати",
+                        "name": "beds",
+                        "initValue": "2",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "кровать",
+                            "few": "кровати",
+                            "many": "кроватей"
+                        }
+                    },
+                    {
+                        "label": "Ванные комнаты",
+                        "name": "bathroom",
+                        "initValue": "1",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "ванная комната",
+                            "few": "ванные комнаты",
+                            "many": "ванных комнат"
+                        }
+                    }
+                ]
             },
             "expanded": {
-                "dropdown": {
-                    "expanded": "true",
-                    "textField": {
-                        "label": "dropdown",
-                        "input": {
-                            "name": "dropdown",
-                            "placeholder": "Конфигурация номера",
-                            "title": "Конфигурация номера"
-                        }
+                "expanded": "true",
+                "textField": {
+                    "label": "dropdown",
+                    "input": {
+                        "name": "dropdown",
+                        "placeholder": "Конфигурация номера",
+                        "title": "Конфигурация номера"
                     }
                 },
-                "counterBar": {
-                    "autoApply": "true",
-                    "counters": [
-                        {
-                            "label": "спальни",
-                            "name": "bedrooms",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "defaultValue": "2",
-                            "plural": {
-                                "one": "спальня",
-                                "few": "спальни",
-                                "many": "спален"
-                            }
-                        },
-                        {
-                            "label": "кровати",
-                            "name": "beds",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "defaultValue": "2",
-                            "plural": {
-                                "one": "кровать",
-                                "few": "кровати",
-                                "many": "кроватей"
-                            }
-                        },
-                        {
-                            "label": "ванные комнаты",
-                            "name": "bathroom",
-                            "minValue": "0",
-                            "maxValue": "5",
-                            "defaultValue": "1",
-                            "plural": {
-                                "one": "ванная комната",
-                                "few": "ванные комнаты",
-                                "many": "ванных комнат"
-                            }
+                "autoApply": "true",
+                "counters": [
+                    {
+                        "label": "Спальни",
+                        "name": "bedrooms",
+                        "initValue": "2",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "спальня",
+                            "few": "спальни",
+                            "many": "спален"
                         }
-                    ]
-                }
+                    },
+                    {
+                        "label": "Кровати",
+                        "name": "beds",
+                        "initValue": "2",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "кровать",
+                            "few": "кровати",
+                            "many": "кроватей"
+                        }
+                    },
+                    {
+                        "label": "Ванные комнаты",
+                        "name": "bathroom",
+                        "initValue": "1",
+                        "maxValue": "5",
+                        "plural": {
+                            "one": "ванная комната",
+                            "few": "ванные комнаты",
+                            "many": "ванных комнат"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -315,14 +309,19 @@
     },
     "subscribtionTextFieldSection": {
         "subscribtionField": {
-            "label": "subscribtion text field",
-            "title": "Введите свой email"
+            "textField": {
+                "label": "subscribtion text field",
+                "title": "Email",
+                "button": {
+                    "label": "Подписаться"
+                }
+            }   
         }
     },
     "checkboxButtonsSection": {
         "list": {
             "label": "checkbox buttons",
-            "checkbox": [
+            "checkboxes": [
                 {
                     "name": "smoke",
                     "label": "Можно курить"
@@ -343,7 +342,7 @@
     "radioButtonsSection": {
         "label": "radio buttons",
         "radioBar": {
-            "radio": [
+            "radioButtons": [
                 {
                     "name": "gender",
                     "value": "male",
@@ -400,18 +399,12 @@
         ]
     },
     "rangeSection": {
-        "range": {
+        "slider": {
             "label": "range slider",
-            "valueRange": {
-                "minValue": "500",
-                "maxValue": "16300"
-            },
-            "defaultValueRange": {
-                "minValue": "5000",
-                "maxValue": "10000"
-            },
-            "step": "100",
-            "margin": "1000"
+            "range": [500, 16300],
+            "initValue": [5000, 10000],
+            "step": 100,
+            "margin": 1000
         }
     },
     "buttonsSection": {
@@ -420,22 +413,13 @@
             [
                 {
                     "label": "click me",
-                    "color": "purple-filled"
+                    "color": "purple",
+                    "fill": true
                 },
                 {
                     "label": "click me",
-                    "color": "purple-filled",
-                    "disabled": "true"
-                }
-            ],
-            [
-                {
-                    "label": "click me",
-                    "color": "purple-shaped"
-                },
-                {
-                    "label": "click me",
-                    "color": "purple-shaped",
+                    "color": "purple",
+                    "fill": true,
                     "disabled": "true"
                 }
             ],
@@ -443,18 +427,32 @@
                 {
                     "label": "click me",
                     "color": "purple",
-                    "inline": "true"       
+                    "border": true
+                },
+                {
+                    "label": "click me",
+                    "color": "purple",
+                    "border": true,
+                    "disabled": "true"
+                }
+            ],
+            [
+                {
+                    "label": "click me",
+                    "color": "purple",
+                    "link": true   
                 },
                 {
                     "label": "click me",
                     "color": "dark-shade",
-                    "inline": "true"
+                    "link": true
                 }
             ]
         ],
         "submitButton": {
             "label": "перейти к оплате",
-            "color": "purple-filled",
+            "color": "purple",
+            "fill": true,
             "icon": "arrow_forward"
         }
     },
@@ -462,72 +460,176 @@
         "label": "pagination",
         "pagination": {
             "pages": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
-                "11",
-                "12",
-                "13",
-                "14",
-                "15"
+                {
+                    "label": "Перейти на предыдущую страницу",
+                    "title": "Перейти на предыдущую страницу",
+                    "prev": true,
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "active": true,
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на страницу ",
+                    "title": "Перейти на страницу ",
+                    "href": "#"
+                },
+                {
+                    "label": "Перейти на следующую страницу",
+                    "title": "Перейти на следующую страницу",
+                    "next": true,
+                    "href": "#"
+                }
             ],
-            "active": "1",
             "description": "1 – 12 из 100+ вариантов аренды "
         }
     },
     "expandableCheckboxListSection": {
-        "expander": {
+        "expandableList": {
             "collapsed": {
-                "label": "expandable checkbox list"
+                "label": "expandable checkbox list",
+                "list": {
+                    "checkboxes": [
+                        {
+                            "name": "breakfast",
+                            "label": "Завтрак"
+                        },
+                        {
+                            "name": "desk",
+                            "label": "Письменный стол",
+                            "checked": "true"
+                        },
+                        {
+                            "name": "feedingChair",
+                            "label": "Стул для кормления",
+                            "checked": "true"
+                        },
+                        {
+                            "name": "crib",
+                            "label": "Кроватка",
+                            "checked": "true"
+                        },
+                        {
+                            "name": "tv",
+                            "label": "Телевизор"
+                        },
+                        {
+                            "name": "schampoo",
+                            "label": "Шампунь"
+                        }
+                    ]
+                }
             },
             "expanded": {
                 "label": "expandable checkbox list",
-                "expanded": "true"
-            }
-        },
-        "list": {
-            "checkbox": [
-                {
-                    "name": "breakfast",
-                    "label": "Завтрак"
-                },
-                {
-                    "name": "desk",
-                    "label": "Письменный стол",
-                    "checked": "true"
-                },
-                {
-                    "name": "feedingChair",
-                    "label": "Стул для кормления",
-                    "checked": "true"
-                },
-                {
-                    "name": "crib",
-                    "label": "Кроватка",
-                    "checked": "true"
-                },
-                {
-                    "name": "tv",
-                    "label": "Телевизор"
-                },
-                {
-                    "name": "schampoo",
-                    "label": "Шампунь"
+                "expanded": "true",
+                "list": {
+                    "checkboxes": [
+                        {
+                            "name": "breakfast",
+                            "label": "Завтрак"
+                        },
+                        {
+                            "name": "desk",
+                            "label": "Письменный стол",
+                            "checked": "true"
+                        },
+                        {
+                            "name": "feedingChair",
+                            "label": "Стул для кормления",
+                            "checked": "true"
+                        },
+                        {
+                            "name": "crib",
+                            "label": "Кроватка",
+                            "checked": "true"
+                        },
+                        {
+                            "name": "tv",
+                            "label": "Телевизор"
+                        },
+                        {
+                            "name": "schampoo",
+                            "label": "Шампунь"
+                        }
+                    ]
                 }
-            ]
-        }
+            }
+        }  
     },
     "richCheckboxButtonsSection": {
         "list": {
             "label": "rich checkbox buttons",
-            "checkbox": [
+            "checkboxes": [
                 {
                     "name": "smoke",
                     "label": "Широкий коридор",
@@ -547,7 +649,7 @@
         "list": {
             "label": "bullet list",
             "bullet": "true",
-            "text": [
+            "textNodes": [
                 "Нельзя с питомцами",
                 "Без вечеринок и мероприятий",
                 "Время прибытия — после 13:00, а выезд до 12:00"
@@ -555,7 +657,7 @@
         }
     },
     "featuresSection": {
-        "feature": [
+        "features": [
             {
                 "icon": "insert_emoticon",
                 "label": "Комфорт",

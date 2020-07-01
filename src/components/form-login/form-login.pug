@@ -1,14 +1,15 @@
 include ../text-field/text-field
 include ../button/button
+include ../link/link
 
-mixin form-login({ emailInput, passwordInput, submitButton, registrationButton, title, registrationText })
+mixin form-login({ heading, emailInput, passwordInput, submitButton, registrationLink, registrationText })
     form(
         class = 'form-login'
         name = 'login' 
         method = 'get'
     )
         div(class = 'form-login__header')
-            h3(class = 'form-login__title') #{title}
+            h3(class = 'form-login__title') #{heading}
 
         div(class = 'form-login__main')
             div(class = 'form-login__fieldset')
@@ -22,5 +23,5 @@ mixin form-login({ emailInput, passwordInput, submitButton, registrationButton, 
                 +button(submitButton)
             div(class = 'form-login__registration')
                 span(class = 'form-login__registration-text') #{registrationText}
-                span(class = 'form-login__registration-button')
-                    +button(registrationButton)
+                span(class = 'form-login__registration-link')
+                    +link(registrationLink)

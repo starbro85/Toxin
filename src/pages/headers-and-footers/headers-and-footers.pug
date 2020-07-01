@@ -10,4 +10,8 @@ block content
     +ui-kit-layout({
         backgroundColor: 'grey'
     })
-        +headers-and-footers()
+
+        -const headersAndFooters = require('./../../globals/mocks/headers-and-footers.json');
+        -const user = require('./../../globals/mocks/user.json');
+
+        +headers-and-footers({ headersAndFooters, user })

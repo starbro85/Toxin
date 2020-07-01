@@ -31,12 +31,12 @@
     line-height: 24px;
 }
 
-.list_with_bullet .list__item {
+.list_with_bullet:not(.list__item_heading) .list__item {
     position: relative;
     padding-left: 20px;
 }
 
-.list_with_bullet .list__item::before {
+.list_with_bullet .list__item:not(.list__item_heading)::before {
     content: '';
     position: absolute;
     left: 0; top: 7px;

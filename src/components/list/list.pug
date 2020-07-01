@@ -1,24 +1,24 @@
 include ../checkbox/checkbox
 include ../link/link
 
-mixin list({ label, checkbox, link, bullet, text })
+mixin list({ label, checkboxes, links, textNodes, bullet })
 
-    -let classes = checkbox ? `list js-list list_with_checkbox` :  bullet ? `list js-list list_with_bullet` : 'list js-list';
+    -let classes = checkboxes ? `list js-list list_with_checkboxes` :  bullet ? `list js-list list_with_bullet` : 'list js-list';
 
     ul(class = classes)
         if label
             li(class = 'list__item list__item_heading') 
                 h3(class = 'list__heading') #{label}
-        if checkbox
-            each data in checkbox
+        if checkboxes
+            each data in checkboxes
                 li(class = 'list__item')
                     +checkbox(data)
-        if text
-            each data in text
+        if textNodes
+            each data in textNodes
                 li(class = 'list__item')
                     | #{data}
         
-        if link
-            each data in link
+        if links
+            each data in links
                 li(class = 'list__item')
                     +link(data)

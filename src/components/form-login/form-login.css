@@ -1,4 +1,4 @@
-/* form-login */
+/* form login */
 
 .form-login {
     width: min(100%, 380px);
@@ -35,7 +35,13 @@
 
 .form-login__footer {
     display: grid;
-    gap: 29px 0;
+    row-gap: 30px;
+}
+
+/* submit button */
+
+.form-login__submit-button {
+    height: 44px;
 }
 
 /* registration */
@@ -43,20 +49,21 @@
 .form-login__registration {
     display: grid;
     grid-template-areas: 
-        'text . button';
+        'text . link';
     grid-template-columns: max-content 1fr 99px;
     align-items: center;
 }
 
-/* registration-text */
+/* registration text */
 
 .form-login__registration-text {
     grid-area: text;
     font: var(--body-font);
 }
 
-/* registration-button */
+/* registration button */
 
-.form-login__registration-button {
-    grid-area: button;
+.form-login__registration-link {
+    grid-area: link;
+    height: 44px;
 }

@@ -45,7 +45,7 @@ const config = {
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new MomentLocalesPlugin({
-            localesToKeep: ['ru'],
+            localesToKeep: ['ru', 'en']
         }),
         new HtmlWebpackPlugin({
             title: 'start-page',

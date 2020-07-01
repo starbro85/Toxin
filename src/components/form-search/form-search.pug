@@ -2,14 +2,14 @@ include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
 
-mixin form-search({ title, dateDropdown, quantityDropdown, submitButton })
+mixin form-search({ heading, dateDropdown, quantityDropdown, submitButton })
     form(
         class = 'form-search'
         name='search' 
         method='get'
     )
         div(class = 'form-search__header')
-            h2(class = 'form-search__title') #{title}
+            h2(class = 'form-search__title') #{heading}
         div(class = 'form-search__main')
             div(class = 'form-search__date-input')
                 +date-dropdown(dateDropdown)

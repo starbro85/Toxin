@@ -1,6 +1,6 @@
 {
     "formSearch": {
-        "title": "Найдём номера под ваши пожелания",
+        "heading": "Найдём номера под ваши пожелания",
         "dateDropdown": {
             "twin": "true",
             "defaultValue": [
@@ -10,117 +10,125 @@
             "dropdown": {
                 "textField": [
                     {
-                        "label": "прибытие",
+                        "label": "Прибытие",
                         "input": {
                             "name": "arrival",
                             "placeholder": "ДД.ММ.ГГГГ",
                             "required": "true",
-                            "title": "Дата приезда"
+                            "title": "Выберите дату приезда",
+                            "ariaLabel": "Выберите дату приезда"
                         }
                     },
                     {
-                        "label": "выезд",
+                        "label": "Выезд",
                         "input": {
                             "name": "departure",
                             "placeholder": "ДД.ММ.ГГГГ",
                             "required": "true",
-                            "title": "Дата выезда"
+                            "title": "Выберите дату выезда",
+                            "ariaLabel": "Выберите дату выезда"
                         }
                     }
                 ]
             }
         },
         "quantityDropdown": {
-            "dropdown": {
-                "textField": {
-                    "label": "гости",
-                    "input": {
-                        "name": "guests",
-                        "placeholder": "Количество гостей",
-                        "required": "true",    
-                        "title": "Количество гостей" 
-                    }
+            "textField": {
+                "label": "Гости",
+                "input": {
+                    "name": "guests",
+                    "placeholder": "Сколько гостей",
+                    "required": "true",    
+                    "title": "Выберите количество гостей",
+                    "ariaLabel": "Выберите количество гостей"
                 }
             },
-            "counterBar": {
-                "counters": [
-                    {
-                        "label": "взрослые",
-                        "name": "adults",
-                        "minValue": "0",
-                        "maxValue": "5",
-                        "plural": {
-                            "one": "взрослый",
-                            "few": "взрослых",
-                            "many": "взрослых"
-                        },
-                        "boundPlural": {
-                            "one": "гость",
-                            "few": "гостя",
-                            "many": "гостей"
-                        },
-                        "isBound": "true",
-                        "boundName": "guests"
+            "controlPanel": {
+                "clearButton": {
+                    "label": "Очистить"
+                },
+                "applyButton": {
+                    "label": "Применить"
+                }
+            },
+            "counters": [
+                {
+                    "label": "Взрослые",
+                    "name": "adults",
+                    "initValue": "0",
+                    "maxValue": "5",
+                    "plural": {
+                        "one": "взрослый",
+                        "few": "взрослых",
+                        "many": "взрослых"
                     },
-                    {
-                        "label": "дети",
-                        "name": "kids",
-                        "minValue": "0",
-                        "maxValue": "5",
-                        "plural": {
-                            "one": "ребёнок",
-                            "few": "детей",
-                            "many": "детей"
-                        },
-                        "boundPlural": {
-                            "one": "гость",
-                            "few": "гостя",
-                            "many": "гостей"
-                        },
-                        "isBound": "true",
-                        "boundName": "guests"
+                    "boundPlural": {
+                        "one": "гость",
+                        "few": "гостя",
+                        "many": "гостей"
                     },
-                    {
-                        "label": "младенцы",
-                        "name": "babies",
-                        "minValue": "0",
-                        "maxValue": "5",
-                        "plural": {
-                            "one": "младенец",
-                            "few": "младенцев",
-                            "many": "младенцев"
-                        }
+                    "isBound": "true",
+                    "boundName": "guests"
+                },
+                {
+                    "label": "Дети",
+                    "name": "kids",
+                    "initValue": "0",
+                    "maxValue": "5",
+                    "plural": {
+                        "one": "ребёнок",
+                        "few": "детей",
+                        "many": "детей"
+                    },
+                    "boundPlural": {
+                        "one": "гость",
+                        "few": "гостя",
+                        "many": "гостей"
+                    },
+                    "isBound": "true",
+                    "boundName": "guests"
+                },
+                {
+                    "label": "Младенцы",
+                    "name": "babies",
+                    "initValue": "0",
+                    "maxValue": "5",
+                    "plural": {
+                        "one": "младенец",
+                        "few": "младенцев",
+                        "many": "младенцев"
                     }
-                ]
-            }
+                }
+            ]
         },
         "submitButton": {
-            "label": "подобрать номер",
-            "color": "purple-filled",
+            "label": "Подобрать номер",
+            "color": "purple",
+            "fill": "true",
             "icon": "arrow_forward"
         }
     },
     "formRegistration": {
-        "title": "Регистрация аккаунта",
+        "heading": "Регистрация аккаунта",
         "nameInput": {
             "input": {
-                "labelHidden": "имя",
                 "name": "name",
                 "placeholder": "Имя",
                 "required": "true",
-                "title": "Введите имя"
+                "title": "Введите имя",
+                "ariaLabel": "Введите имя"
             }
         },
         "surnameInput": {
             "input": {
-                "labelHidden": "фамилия",
                 "name": "surname",
                 "placeholder": "Фамилия",
                 "required": "true",
-                "title": "Введите фамилию"
+                "title": "Введите фамилию",
+                "ariaLabel": "Введите фамилию"
             }
         },
-        "radio": [
+        "radioButtons": [
             {
                 "label": "Мужчина",
                 "name": "gender",
@@ -134,34 +142,35 @@
             }
         ],
         "birthdayInput": {
-            "label": "дата рождения",
+            "label": "Дата рождения",
             "input": {
                 "name": "birthday",
                 "placeholder": "ДД.ММ.ГГГГ",
                 "mask": "date",
                 "required": "true",
-                "title": "Введите дату рождения"
+                "title": "Введите дату рождения",
+                "ariaLabel": "Введите дату рождения"
             }
         },
         "emailInput": {
             "label": "данные для входа в сервис",
-            "labelHidden": "email",
             "input": {
                 "name": "email",
                 "type": "email",
                 "placeholder": "Email",
                 "required": "true",
-                "title": "Введите email"
+                "title": "Введите email",
+                "ariaLabel": "Введите email"
             }
         },
         "passwordInput": {
-            "labelHidden": "пароль",
             "input": {
                 "name": "password",
                 "type": "password",
                 "placeholder": "Пароль",
                 "required": "true",
-                "title": "Введите пароль"
+                "title": "Введите пароль",
+                "ariaLabel": "Введите пароль"
             }
         },
         "toggle": {
@@ -169,15 +178,18 @@
             "label": "Получать спецпредложения"
         },
         "submitButton": {
-            "label": "перейти к оплате",
-            "color": "purple-filled",
+            "label": "Перейти к оплате",
+            "color": "purple",
+            "fill": "true",
             "icon": "arrow_forward"
         },
         "loginText": "Уже есть аккаунт на Toxin",
-        "loginButton": {
-            "label": "войти",
-            "type": "button",
-            "color": "purple-shaped"
+        "loginLink": {
+            "label": "Войти",
+            "href": "#",
+            "title": "Перейти на страницу авторизации",
+            "button": true,
+            "border": true
         }
     },
     "formBooking": {
@@ -191,107 +203,116 @@
             "dropdown": {
                 "textField": [
                     {
-                        "label": "прибытие",
+                        "label": "Прибытие",
                         "input": {
                             "name": "arrival",
                             "placeholder": "ДД.ММ.ГГГГ",
                             "required": "true",
-                            "title": "Дата приезда"
+                            "title": "Выберите дату приезда",
+                            "ariaLabel": "Выберите дату приезда"
                         }
                     },
                     {
-                        "label": "выезд",
+                        "label": "Выезд",
                         "input": {
                             "name": "departure",
                             "placeholder": "ДД.ММ.ГГГГ",
                             "required": "true",
-                            "title": "Дата выезда"
+                            "title": "Выберите дату выезда",
+                            "ariaLabel": "Выберите дату выезда"
                         }
                     }   
                 ]
             }
         },
         "quantityDropdown": {
-            "dropdown": {
-                "textField": {
-                    "label": "гости",
-                    "input": {
-                        "name": "guests",
-                        "placeholder": "Количество гостей",
-                        "required": "true",    
-                        "title": "Количество гостей" 
-                    }
+            "textField": {
+                "label": "Гости",
+                "input": {
+                    "name": "guests",
+                    "placeholder": "Сколько гостей",
+                    "required": "true",    
+                    "title": "Выберите количество гостей",
+                    "ariaLabel": "Выберите количество гостей"
                 }
             },
-            "counterBar": {
-                "counters": [
-                    {
-                        "label": "взрослые",
-                        "name": "adults",
-                        "minValue": "0",
-                        "maxValue": "5",
-                        "defaultValue": "2",
-                        "plural": {
-                            "one": "взрослый",
-                            "few": "взрослых",
-                            "many": "взрослых"
-                        },
-                        "boundPlural": {
-                            "one": "гость",
-                            "few": "гостя",
-                            "many": "гостей"
-                        },
-                        "isBound": "true",
-                        "boundName": "guests"
+            "controlPanel": {
+                "clearButton": {
+                    "label": "Очистить"
+                },
+                "applyButton": {
+                    "label": "Применить"
+                }
+            },
+            "counters": [
+                {
+                    "label": "Взрослые",
+                    "name": "adults",
+                    "initValue": "0",
+                    "maxValue": "5",
+                    "defaultValue": "2",
+                    "plural": {
+                        "one": "взрослый",
+                        "few": "взрослых",
+                        "many": "взрослых"
                     },
-                    {
-                        "label": "дети",
-                        "name": "kids",
-                        "minValue": "0",
-                        "maxValue": "5",
-                        "defaultValue": "1",
-                        "plural": {
-                            "one": "ребёнок",
-                            "few": "детей",
-                            "many": "детей"
-                        },
-                        "boundPlural": {
-                            "one": "гость",
-                            "few": "гостя",
-                            "many": "гостей"
-                        },
-                        "isBound": "true",
-                        "boundName": "guests"
+                    "boundPlural": {
+                        "one": "гость",
+                        "few": "гостя",
+                        "many": "гостей"
                     },
-                    {
-                        "label": "младенцы",
-                        "name": "babies",
-                        "minValue": "0",
-                        "maxValue": "5",
-                        "plural": {
-                            "one": "младенец",
-                            "few": "младенцев",
-                            "many": "младенцев"
-                        }
+                    "isBound": "true",
+                    "boundName": "guests"
+                },
+                {
+                    "label": "Дети",
+                    "name": "kids",
+                    "initValue": "0",
+                    "maxValue": "5",
+                    "defaultValue": "1",
+                    "plural": {
+                        "one": "ребёнок",
+                        "few": "детей",
+                        "many": "детей"
+                    },
+                    "boundPlural": {
+                        "one": "гость",
+                        "few": "гостя",
+                        "many": "гостей"
+                    },
+                    "isBound": "true",
+                    "boundName": "guests"
+                },
+                {
+                    "label": "Младенцы",
+                    "name": "babies",
+                    "initValue": "0",
+                    "maxValue": "5",
+                    "plural": {
+                        "one": "младенец",
+                        "few": "младенцев",
+                        "many": "младенцев"
                     }
-                ]
-            }
+                }
+            ]
         },
         "submitButton": {
-            "label": "забронировать",
-            "color": "purple-filled",
+            "label": "Забронировать",
+            "color": "purple",
+            "fill": "true",
             "icon": "arrow_forward"
         }
     },
     "formLogin": {
-        "title": "Войти",
+        "heading": "Войти",
         "emailInput": {
             "input": {
                 "name": "email",
                 "type": "email",
                 "placeholder": "Email",
                 "required": "true",
-                "title":"Введите email"
+                "title": "Введите email",
+                "ariaLabel": "Введите email"
             }
         },
         "passwordInput": {
@@ -300,25 +321,29 @@
                 "type": "password",
                 "placeholder": "Пароль",
                 "required": "true",
-                "title":"Введите пароль"
+                "title": "Введите пароль",
+                "ariaLabel": "Введите пароль"
             }
         },
         "submitButton": {
-            "label": "войти",
-            "color": "purple-filled",
+            "label": "Войти",
+            "color": "purple",
+            "fill": "true",
             "icon": "arrow_forward"
         },
-        "registrationText": "Нет аккаунта на Toxin?",
-        "registrationButton": {
-            "label": "создать",
-            "type": "button",
-            "color": "purple-shaped"
+        "registrationText": "Нет аккаунта на Toxin",
+        "registrationLink": {
+            "label": "Создать",
+            "href": "#",
+            "title": "Перейти на страницу реистрации",
+            "button": true,
+            "border": true
         }
     },
     "datepicker": {
         "range": "true",
         "mode": "manual",
-        "defaultValue": [
+        "initValue": [
             "19.08.2020",
             "23.08.2020"
         ]
