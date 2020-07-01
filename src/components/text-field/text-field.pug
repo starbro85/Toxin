@@ -1,16 +1,23 @@
-mixin text-field({ label, activityClass, input, button, icon })
+mixin text-field({ label, input, button, icon, controlClass, activeClass })
     
-    -let classes = `text-field js-text-field`;
-    -classes = label ? `${classes} text-field_with_label` : classes;
-    -classes = icon ? `${classes} text-field_with_icon` : button ? `${classes} text-field_with_button` : classes;
-    -classes = input.type === 'button' ? `${classes} text-field_type_button` : classes;
+    -let rootClasses = 'text-field js-text-field';
+    -rootClasses = label ? `${rootClasses} text-field_with_label` : rootClasses;
+    -rootClasses = button ? `${rootClasses} text-field_with_button` : icon ? `${rootClasses} text-field_with_icon` : rootClasses;
+    -rootClasses = input.type === 'button' ? `${rootClasses} text-field_type_button` : rootClasses;
+    -rootClasses = controlClass ? `${rootClasses} ${controlClass}` : rootClasses;
+    -rootClasses = activeClass ? `${rootClasses} ${activeClass}` : rootClasses;
     
-    div(class = activityClass ? `${classes} ${activityClass}` : classes)
+    div(class = rootClasses)
         label
             if label 
                 p(class = 'text-field__label') #{label}
+
+            -let inputClasses = 'text-field__input js-text-field__input';
+            -inputClasses = input.controlClass ? `${inputClasses} ${input.controlClass}` : 'text-field__input js-text-field__input';
+            -inputClasses = input.activeClass ? `${inputClasses} ${input.activeClass}` : 'text-field__input js-text-field__input';
+
             input(
-                class = input.activityClass ? `text-field__input js-text-field__input ${input.activityClass}` : 'text-field__input js-text-field__input'
+                class = inputClasses
                 type = input.type
                 name = (input.type !== 'button') ? input.name : false
                 value = (input.type !== 'button') ? input.value : input.placeholder
@@ -21,7 +28,8 @@ mixin text-field({ label, activityClass, input, button, icon })
                 disabled = input.disabled
                 autofocus = input.autofocus
                 title = input.title
-                aria-label = input.title
+                aria-label = input.ariaLabel
+                aria-expanded = input.ariaExpanded
                 tabindex = input.tabindex
                 data-mask = input.mask
             )
@@ -36,15 +44,19 @@ mixin text-field({ label, activityClass, input, button, icon })
                     aria-hidden = 'true'
                 )
 
-        if icon
-            span(class = icon.activityClass ? `text-field__icon ${icon.activityClass}` : 'text-field__icon')
-                |#{icon.text}
-
         if button
             button(
-                class = button.activityClass ? `text-field__button ${button.activityClass}` : 'text-field__button' 
-                type=button.type
-                aria-label=button.label
+                class = 'text-field__button' 
+                type = 'submit'
+                aria-label = button.label
             )
-                |#{button.icon}
+                if icon
+                    span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon')
+                        |#{icon.text}
+                else if block
+                    block
+
+        else if icon
+            span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon')
+                |#{icon.text}
     

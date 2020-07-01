@@ -1,27 +1,18 @@
 import './text-field.css';
 
 import Cleave from 'cleave.js';
-import 'cleave.js/dist/addons/cleave-phone.ru';
+
+const render = require('./../../globals/helpers/render.js');
 
 class TextField {
     constructor(node) {
         this.root = node;
-        this.input = node.querySelector('.js-text-field__input');
-        this.hiddenInput = node.querySelector('.js-text-field__hidden-input');
-        this.defaultValue = this.input.value;
-        this.title = this.input.getAttribute('title') ? this.input.getAttribute('title') : false;
-        this.mask = this.input.dataset.mask;
+        this.input = this.root.querySelector('.js-text-field__input');
+        this.value = this.input.value;  
+        this.title = this.input.title;
+
 
         this.init();
-    }
-
-    setValueUpdateEventListener() {
-        this.root.addEventListener('update-input-value', event => {
-            this.input.value = event.detail.value ? event.detail.value : this.defaultValue;
-            this.input.title = event.detail.title ? `${this.title}: ${event.detail.title}` : this.title;
-            this.input.setAttribute('aria-label', this.input.title ? this.input.title : this.title);
-            this.hiddenInput.value = event.detail.submitValue;
-        })
     }
 
     setMask() {
@@ -35,34 +26,21 @@ class TextField {
                     delimiter: '.',
                 });
                 break;
-                
-            case 'phone':
-                new Cleave(this.input, {
-                    prefix: '+',
-                    blocks: [1, 1, 0, 3, 3, 4],
-                    delimiters: [' ', ' ', '(', ') ', '-'],
-                    noImmediatePrefix: true,
-                    numericOnly: true
-                });
-                break;
         }
     }
 
     init() {
-        if (this.input.type === 'button') {
-            this.hiddenInput.addEventListener('focusin', event => this.input.focus());
+        if (this.input.type === 'button') { 
+            this.hiddenInput = this.root.querySelector('.js-text-field__hidden-input');
         }
-        
-        this.setValueUpdateEventListener();
+
+        this.root.addEventListener('text-field-value-sent', event => {
+            this.input.value = event.detail.value ? event.detail.value : this.value;
+            this.input.title = event.detail.title ? event.detail.title : this.title;
+            this.hiddenInput.value = event.detail.submitValue;
+        })
         this.setMask();
     }
 };
 
-function render() {
-    const components = document.querySelectorAll('.js-text-field');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new TextField(node));
-    };
-};
-
-render();
+render('.js-text-field', TextField);
