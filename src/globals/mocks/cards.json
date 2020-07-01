@@ -193,7 +193,9 @@
         }
     },
     "formBooking": {
-        "title": "Итого",
+        "total": {
+            "label": "Итого"
+        },
         "dateDropdown": {
             "twin": "true",
             "defaultValue": [
@@ -366,6 +368,11 @@
                 "prefix": "Рейтинг: ",
                 "preposition": " из "
             }
+        },
+        "reviewPlural": {
+            "one": "Отзыв", 
+            "few": "Отзыва", 
+            "many": "Отзывов"
         }
     }
 }

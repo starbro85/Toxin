@@ -13,8 +13,8 @@
 
 .form-booking__header {
     display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
+    grid-template-columns: auto auto 1fr auto auto;
+    grid-template-areas: 'header-room-number header-room-category . header-rent-price header-rent-period';
     align-items: baseline;
     font: var(--body-font);
 }
@@ -22,20 +22,20 @@
 /* header room number */
 
 .form-booking__header-room-number {
+    grid-area: header-room-number;
     font: var(--h1-font);
     line-height: 1.2142857142857142rem;
 }
 
-/* header numero sign */
-
-.form-booking__header-numero-sign {
-    width: max-content;
+.form-booking__header-room-number::first-letter {
     font-size: 1rem;
 }
 
 /* header room category */
 
 .form-booking__header-room-category {
+    grid-area: header-room-category;
+    margin-left: 5px;
     font: var(--h3-font);
     font-weight: bold;
     line-height: 1.0714285714285714rem;
@@ -46,6 +46,7 @@
 /* header rent price */
 
 .form-booking__header-rent-price {
+    grid-area: header-rent-price;
     display: inline-flex;
     align-items: flex-end;
     font-weight: bold;
@@ -56,10 +57,11 @@
 /* header rent period */
 
 .form-booking__header-rent-period {
+    grid-area: header-rent-period;
+    margin-left: 3.7px;
     font-size: 0.8571428571428571rem;
     line-height: 0.8571428571428571rem;
-    font-weight: normal;
-    margin-left: 3.7px;
+    color: var(--dark-shade-50per);
 }
 
 /* main */

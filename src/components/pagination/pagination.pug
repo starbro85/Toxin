@@ -8,7 +8,7 @@ mixin pagination({ pages, description })
                             href = data.href
                             class = 'pagination__link pagination__link_prev js-pagination__link_prev'
                             title = data.title
-                            aria-label = data.label
+                            aria-label = data.ariaLabel
                         ) arrow_back
 
                 else if data.next
@@ -17,7 +17,7 @@ mixin pagination({ pages, description })
                             href = data.href
                             class = 'pagination__link pagination__link_next js-pagination__link_next'
                             title = data.title
-                            aria-label = data.label
+                            aria-label = data.ariaLabel
                         ) arrow_forward
                 
                 else if data.active
@@ -26,7 +26,7 @@ mixin pagination({ pages, description })
                             href = data.href
                             class = 'pagination__link pagination__link_active js-pagination__link'
                             title = data.title
-                            aria-label = data.label
+                            aria-label = data.ariaLabel
                         ) #{index}
                 else 
                     li(class = 'pagination__item js-pagination__item')
@@ -34,7 +34,7 @@ mixin pagination({ pages, description })
                             href = data.href
                             class = 'pagination__link js-pagination__link'
                             title = data.title
-                            aria-label = data.label
+                            aria-label = data.ariaLabel
                         ) #{index}
 
         if description

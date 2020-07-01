@@ -14,35 +14,27 @@
     width: 270px; height: 151px;
 }
 
-.room-card__info-section {
+.room-card__info-header {
     padding: 2px 20px 0 18px;
-    display: grid;
-    grid-auto-flow: column;
+    display: grid; 
+    grid-template-columns: auto auto 1fr auto auto;
+    grid-template-areas: 'header-room-number header-room-category . header-rent-price header-rent-period';
     justify-content: space-between;
     align-items: baseline;
 }
 
-.room-card__info-section:last-child {
-    position: relative;
-}
-
-.room-card__info-section:last-child::after {
-    position: absolute;
-    left: 20px; top: -8px;
-    content: '';
-    width: calc(100% - 40px); height: 1px;
-    background: var(--dark-shade-10per);
-}
-
 .room-card__room-number {
+    grid-area: header-room-number;
     font: var(--h2-font);
     line-height: 17px;
 }
-.room-card__numero-sign {
-    width: max-content;
-    font-size: 14px;
+
+.room-card__room-number::first-letter {
+    font-size: 1rem;
 }
+
 .room-card__room-category {
+    grid-area: header-room-category;
     margin-left: 6px;
     font: var(--h3-font);
     font-weight: bold;
@@ -52,22 +44,43 @@
 }
 
 .room-card__rent-price {
+    grid-area: header-rent-price;
+    display: inline-flex;
+    align-items: flex-end;
     font: var(--body-font);
     font-weight: bold;
-    line-height: 14px;
+    line-height: 1rem;
     color: var(--dark-shade-50per);
 }
 
 .room-card__rent-period {
-    font-size: 12px;
-    line-height: 12px;
-    font-weight: normal;
+    grid-area: header-rent-period;
+    margin-left: 3.7px;
+    font: var(--body-font);
+    font-size: 0.8571428571428571rem;
+    line-height: 0.8571428571428571rem;
+    color: var(--dark-shade-50per);
+}
+
+.room-card__info-rating {
+    position: relative;
+    padding: 2px 20px 0 18px;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+.room-card__info-rating:after {
+    position: absolute;
+    left: 20px; top: -8px;
+    content: '';
+    width: calc(100% - 40px); height: 1px;
+    background: var(--dark-shade-10per);
 }
 
 .room-card__reviews-count {
     align-self: start;
     font: var(--body-font);
-    font-weight: bold;
     color: var(--dark-shade-50per);
 }
 

@@ -19,6 +19,6 @@ mixin cards({ cards, rooms })
             each room in rooms
                 div(class = 'cards__room-card')
                     +room-card({ 
-                        rateBar: cards.roomCard.rateBar,
+                        roomCard: cards.roomCard,
                         room
                      })

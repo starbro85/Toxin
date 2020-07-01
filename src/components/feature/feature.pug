@@ -1,6 +1,6 @@
 mixin feature({icon, label, description})
-    div.feature 
-        div.feature__icon #{icon}
-        span.feature__label #{label}
-        span.feature__description !{description}
+    div(class = "feature")
+        div(class = "feature__icon") #{icon}
+        h4(class = "feature__label") #{label}
+        p(class = "feature__description") #{description}
         
