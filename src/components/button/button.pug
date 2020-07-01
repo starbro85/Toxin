@@ -1,8 +1,9 @@
 mixin button({ type='submit', disabled=false, label, controlClass, fill, border, link, color, icon })
 
-    -let classes = `button button_color_${color}`;
+    -let classes = 'button';
     
     -classes = controlClass ? `${classes} ${controlClass}` : classes;
+    -classes = color ? ` ${classes} button_color_${color}` : classes;
     -classes = fill ? `${classes} button_filled` : classes;
     -classes = border ? `${classes} button_with_border` : classes;
     -classes = link ? ` ${classes} button_link` : classes;
