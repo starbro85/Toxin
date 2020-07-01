@@ -1,45 +1,4 @@
-include ../dropdown/dropdown
 include ../datepicker/datepicker
 
-mixin date-dropdown({ dropdown, defaultValue, twin })
-    if twin
-        div(
-            class = 'date-dropdown date-dropdown_twin js-date-dropdown'
-            data-twin = 'true'
-        )
-            +dropdown({
-                offset: 'true',
-                isMultiple: 'true',
-                show: dropdown.show,
-                textField: [
-                    {
-                        label: dropdown.textField[0].label,
-                        activityClass: 'js-date-dropdown__input',
-                        input: dropdown.textField[0].input
-                    },
-                    {
-                        label: dropdown.textField[1].label,
-                        activityClass: 'js-date-dropdown__input',
-                        input: dropdown.textField[1].input
-                    }
-                ]
-            })
-                +datepicker({
-                    defaultValue,
-                    activityClass: 'js-date-dropdown__datepicker'
-                })
-    else
-        div(class = 'date-dropdown js-date-dropdown')
-            +dropdown({ 
-                offset: 'true',
-                show: dropdown.show,
-                textField: {
-                    label: dropdown.textField.label,
-                    activityClass: 'js-date-dropdown__input',
-                    input: dropdown.textField.input
-                }
-            })
-                +datepicker({
-                    defaultValueRange,
-                    activityClass: 'js-date-dropdown__datepicker'
-                })
+mixin date-dropdown()
+    div(class = 'date-dropdown js-date-dropdown')

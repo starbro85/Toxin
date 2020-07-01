@@ -1,24 +1,8 @@
 include ../button/button
 
-mixin datepicker({ defaultValue, activityClass })
+mixin datepicker({ initValue, lang='ru' })
     div(
-        class = activityClass ? `datepicker js-datepicker ${activityClass}` : 'datepicker js-datepicker'
-        data-default-value = defaultValue
+        class = controlClass ? `datepicker js-datepicker ${controlClass}` : 'datepicker js-datepicker'
+        data-init-value = initValue
+        data-lang = lang
     )
-        div.datepicker__main.js-datepicker__main
-        
-        div(class = 'datepicker__footer')
-            +button({
-                type: 'button',
-                label: 'очистить',
-                inline: 'true',
-                color: 'dark-shade',
-                activityClass: 'datepicker__clear-button js-datepicker__clear-button'
-            })
-            +button({
-                type: 'button',
-                label: 'применить',
-                inline: 'true',
-                color: 'purple',
-                activityClass: 'js-datepicker__apply-button'
-            })
