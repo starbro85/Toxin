@@ -1,8 +1,11 @@
-mixin link({ isShaped, color, href, label, title })
+mixin link({ href, label, title, color, bold, button, border, fill })
 
     -let classes = 'link';
-    -classes = isShaped ? `${classes} link_shaped` :  classes;
-    -classes = color ? `${classes} link_color_${color}` : classes;
+
+    -classes = bold ? `${classes} link_bold` :  classes;
+    -classes = button ? `${classes} link_button` :  classes;
+    -classes = fill ? `${classes} link_filled` : classes;
+    -classes = border ? `${classes} link_with_border` : classes;
 
     a(
         class = classes
