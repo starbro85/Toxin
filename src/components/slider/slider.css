@@ -1,6 +1,6 @@
-/* range */
+/* slider */
 
-.range {
+.slider {
     height: 44px;
     display: grid;
     grid-template-areas:
@@ -12,7 +12,7 @@
 
 /* label */
 
-.range__label {
+.slider__label {
     grid-area: label;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
@@ -21,7 +21,7 @@
 
 /* input */
 
-.range__input {
+.slider__input {
     margin-right: -3px;
     grid-area: input;
     font: var(--body-font);
@@ -34,7 +34,7 @@
 
 /* slider */
 
-.range .range__slider {
+.slider .slider__range {
     grid-area: slider;
     height: 6px;
     align-self: end;
@@ -44,21 +44,21 @@
 
 /* base */
 
-.range .range__slider .range__base {
+.slider .slider__range .slider__base {
     background: white;
     cursor: pointer;
 }
 
 /* connect */
 
-.range .range__slider .range__connect {
+.slider .slider__range .slider__connect {
     background: var(--green-gradient);
 }
 
 
 /* handle */
 
-.range .range__slider .range__handle {
+.slider .slider__range .slider__handle {
     width: 16px; 
     height: 16px;
     right: -15px;
@@ -69,16 +69,16 @@
     cursor: pointer;
 }
 
-.range .range__slider .range__handle::after,
-.range .range__slider .range__handle::before {
+.slider .slider__range .slider__handle::after,
+.slider .slider__range .slider__handle::before {
     content: none;
 }
 
-.range .range__slider  .range__handle:hover {
+.slider .slider__range  .slider__handle:hover {
     box-shadow: var(--shadow-hover);
 }
 
-.range .range__slider  .range__handle:focus {
+.slider .slider__range  .slider__handle:focus {
     outline: var(--outline);
     outline-offset: 2px;
 }

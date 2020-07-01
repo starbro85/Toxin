@@ -1,0 +1,16 @@
+mixin slider({ label, range, initValue, step, margin  })
+    label(class = 'slider js-slider')
+        p(class = 'slider__label') #{label}
+        input(
+            class = 'slider__input js-slider__input'
+            type = 'text' 
+            tabindex = '-1' 
+            readonly
+        )
+        div(
+            class = 'slider__range js-slider__range'
+            data-range = range 
+            data-init-value = initValue 
+            data-step = step
+            data-margin = margin
+        )
