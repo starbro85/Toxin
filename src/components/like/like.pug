@@ -1,8 +1,8 @@
-mixin like({ count, active=false })
+mixin like({ count, label, active=false })
     button(
         class = 'like js-like'
         data-active = active
-        aria-label = `Понравилось: ${count}`
+        aria-label = label
     )
         p(
             class = 'like__icon js-like__icon'

@@ -1,5 +1,7 @@
 import './like.css';
 
+const render = require('./../../globals/helpers/render.js');
+
 class Like {
     constructor(node) {
         this.root = node;
@@ -20,11 +22,4 @@ class Like {
     }
 };
 
-function render() {
-    const components = document.body.querySelectorAll('.js-like');
-    if (components.length > 0) {
-      Array.from(components).map((node) => new Like(node));
-    };
-};
-
-render();
+render('.js-like', Like);
