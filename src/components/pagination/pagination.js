@@ -1,5 +1,7 @@
 import './pagination.css';
 
+const render = require('./../../globals/helpers/render.js');
+
 class Pagination {
     constructor(node) {
         this.root = node;
@@ -49,11 +51,4 @@ class Pagination {
     }
 };
 
-function render() {
-    const components = document.body.querySelectorAll('.js-pagination');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new Pagination(node));
-    };
-};
-
-render();
+render('.js-pagination', Pagination);
