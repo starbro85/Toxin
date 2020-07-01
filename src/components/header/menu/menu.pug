@@ -1,0 +1,17 @@
+include ../../list/list
+
+mixin menu({ label, title, list })
+    div(class = 'menu js-menu') 
+        button(
+            class = 'menu__button js-menu__button'
+            title = title
+            aria-expanded = 'false'
+        )
+            p(class = 'menu__label') #{label}
+            span(
+                class = 'menu__icon'
+                aria-hidden = 'true'
+            ) expand_more
+        div(class = 'menu__containter js-menu__containter')
+            +list(list)
+            

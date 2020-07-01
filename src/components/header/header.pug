@@ -1,15 +1,58 @@
+include ./menu/menu
 include ../logo/logo
-include ../nav/nav
 include ../link/link
-include ../sign-in/sign-in
 
-mixin header({ nav, signIn})
+mixin header({ header, user })
     header(class = 'header js-header')
         div(class = 'header__logo')
-            +logo()
-        button(class = 'header__button js-header__button')
+            a(
+                class = 'header__logo-link' 
+                href = header.logoLink.href
+                title = header.logoLink.title
+                aria-label = header.logoLink.label
+            )
+                    +logo()
+
+        button(
+            class = 'header__button js-header__button'
+            aria-expanded = 'false'
+            aria-controls = 'header__nav header__sign-in'
+            aria-label = header.button.label
+        )
             span(class = 'header__button-icon') 
-        div(class = 'header__nav')
-            +nav(nav)
-        div(class = 'header__sign-in')
-            +sign-in(signIn)
+        
+        nav(
+            class = 'header__nav js-header__nav'
+            id = 'id-header__nav'
+        )
+            ul(class = 'header__nav-list')
+                each data in header.nav
+                    if data.isMenu
+                        li(class = 'header__nav-item')
+                            +menu(data.menu)
+
+                    else 
+                        li(class = 'header__nav-item')
+                            +link(data)
+                
+                if !header.auth
+                    div(
+                        class = 'header__nav-separator header__nav-separator_mobile-only'
+                        aria-hidden = 'true'
+                    )
+                    li(class = 'header__nav-item')
+                        +link(header.signIn.loginLink)
+                    li(class = 'header__nav-item')
+                        +link(header.signIn.registrationLink)
+
+                else 
+                    div(
+                        class = 'header__nav-separator'
+                        aria-hidden = 'true'
+                    )
+                    li(class = 'header__nav-item')
+                        +link({
+                            label: `${user.name} ${user.surname}`,
+                            href: header.userLink.href,
+                            title: header.userLink.title
+                        })

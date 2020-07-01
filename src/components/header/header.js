@@ -1,54 +1,40 @@
 import './header.css';
+import './menu/menu.css';
 
 import './../logo/logo.js';
-import './../nav/nav.js';
 import './../link/link.js';
-import './../sign-in/sign-in.js';
+
+import {Menu} from './menu/menu.js'
+
+const render = require('./../../globals/helpers/render.js');
 
 class Header {
     constructor(node) {
         this.root = node;
         this.button = this.root.querySelector('.js-header__button')
-        this.list = this.root.querySelector('.js-header__list');
+
+        this.expanded = JSON.parse(this.button.getAttribute('aria-expanded'));
    
         this.init();
     }
 
-    expand() {
-        this.root.classList.add('header_expanded');
-        this.button.setAttribute('aria-expanded', true)
-    };
-
-    collapse() {
-        this.root.classList.remove('header_expanded');
-        this.button.setAttribute('aria-expanded', false)
-    };
-
-    toggle = () => (this.root.classList.contains('header_expanded')) ? this.collapse() : this.expand();
-
-    handleClickEvent = event => {
-        this.button.contains(event.target) ? this.toggle() :
-        !this.root.contains(event.target)  ? this.collapse() :
-        false;
+    handleCollapse = (event) => { 
+        if (!this.root.contains(event.target)) {
+            this.toggleExpand();
+        }
     }
 
-    handleFocusEvent = event => !this.root.contains(event.target) ? this.collapse() : false;
-
-    setEventListeners() {
-        document.addEventListener('focusin', this.handleFocusEvent);
-        document.addEventListener('click', this.handleClickEvent);
-    }
+    toggleExpand = () => {
+        this.expanded = !(this.expanded);
+        this.button.setAttribute('aria-expanded', this.expanded);
+        this.root.classList.toggle('header_expanded');
+        this.expanded ? document.addEventListener('click', this.handleCollapse) : document.removeEventListener('click', this.handleCollapse);
+    };
 
     init() {
-        this.button.addEventListener('click', event => this.setEventListeners());
+        this.button.addEventListener('click', this.toggleExpand);
     }
 };
 
-function render() {
-    const components = document.body.querySelectorAll('.js-header');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new Header(node));
-    };
-};
-
-render();
+render('.js-menu', Menu);
+render('.js-header', Header);
