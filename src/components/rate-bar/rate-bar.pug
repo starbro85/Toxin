@@ -3,12 +3,11 @@ include ./rate-button/rate-button
 mixin rate-bar({ name, count, rating, ariaLabel, title, disabled })
     -const pluralize = require('../../globals/helpers/pluralize.js');
 
-    form(
+    div(
         class = 'rate-bar js-rate-bar'
         aria-label = ariaLabel ? `${ariaLabel.prefix}${rating}${ariaLabel.preposition}${pluralize(ariaLabel.plural, count)}` : false
         tabindex = '0'
     )
-
         -for (let index = 1; index <= count; index++)
             if index === rating
                 +rate-button({
