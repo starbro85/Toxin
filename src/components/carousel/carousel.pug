@@ -1,0 +1,48 @@
+mixin carousel({ img, showControls=true, showBullets=true, autoPlay=false })
+    div(class = 'carousel js-carousel glide')
+        div(
+            class = 'glide__track' 
+            data-glide-el = 'track'
+            data-auto-play = autoPlay
+        )
+            ul(class = 'glide__slides')
+                each item in img
+                    li(class = 'glide__slide') 
+                        img(
+                            class = 'glide__image' 
+                            src = item.src
+                            alt = item.alt
+                            width = item.width
+                            height = item.height
+                        )
+        
+        if showControls
+            div(
+                class = 'glide__controls' 
+                data-glide-el = 'controls'
+                )
+                button(
+                    class = 'glide__prev-button' 
+                    data-glide-dir = '<'
+                    aria-label = 'Предыдущий слайд'
+                ) 
+                    div(class = 'glide__prev-button-icon') expand_more
+                button(
+                    class = 'glide__next-button' 
+                    data-glide-dir = '>'
+                    aria-label = 'Следующий слайд'
+                ) 
+                    div(class = 'glide__next-button-icon') expand_more
+
+        if showBullets
+            div(
+                class = 'glide__bullets' 
+                data-glide-el = 'controls[nav]'
+            ) 
+                each item, index in img
+                    button(
+                        class = 'glide__bullet' 
+                        data-glide-dir = `=${index}`
+                        aria-hidden = 'true'
+                        disabled
+                    )

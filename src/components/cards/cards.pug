@@ -13,9 +13,9 @@ mixin cards({ cards, rooms })
             +form-booking({ formBooking: cards.formBooking, room: rooms[0]})
             +form-login(cards.formLogin)
         div(class = 'cards__column')
-            each room in rooms
+            each item in rooms
                 div(class = 'cards__room-card')
                     +room-card({ 
                         roomCard: cards.roomCard,
-                        room
+                        room: item
                      })

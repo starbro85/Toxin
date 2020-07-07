@@ -1,3 +1,3 @@
 import './room-card.css';
 
-import './../glide/glide.js';
+import './../carousel/carousel.js';

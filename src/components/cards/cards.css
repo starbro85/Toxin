@@ -9,7 +9,7 @@
 
 @media (min-width: 1292px) {
     .cards {
-        grid-template-columns: min(100%, 380px) min(100%, 380px) 320px;
+        grid-template-columns: min(100%, 380px) min(100%, 380px) min-content;
     }
 }
 
@@ -43,8 +43,8 @@
 
 /* datepicker */ 
 
-@media (max-width: 1292px) and (min-width: 890px) {
-    .cards__datepicker {
-        grid-row: span 2;
-    }
+.cards__room-card {
+    width: min-content
 }
+
+

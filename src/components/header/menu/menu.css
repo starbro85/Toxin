@@ -43,19 +43,12 @@
 .menu__button:focus .menu__icon {
     color: var(--dark-shade-75per);
 }
-
-@media (max-width: 879px) {
-    .menu__icon {
-        transform: rotate(-90deg);
-    }
+ 
+.menu__button:active .menu__icon {      
+    transform:  translateY(5px);
+    transition: transform .2s;
 }
 
-@media (min-width: 880px) {  
-    .menu__button:active .menu__icon {      
-        transform:  translateY(5px);
-        transition: transform .2s;
-    }
-}
 
 /* container */ 
 

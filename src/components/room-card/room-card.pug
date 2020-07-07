@@ -1,5 +1,5 @@
 include ../rate-bar/rate-bar
-include ../glide/glide
+include ../carousel/carousel
 
 mixin room-card({ roomCard, room })
     -
@@ -31,7 +31,7 @@ mixin room-card({ roomCard, room })
         div(
             class = 'room-card__carousel'
         )
-            +glide({
+            +carousel({
                 img
             })
 
