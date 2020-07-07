@@ -2,25 +2,21 @@ import './expandable-list.css';
 
 const render = require('./../../globals/helpers/render.js');
 
+import { Expander } from '../../globals/helpers/expander.js';
+
 class ExpandableList {
-    constructor(node) {
+    constructor(node, Expand) {
         this.root = node;
         this.button = this.root.querySelector('.js-expandable-list__button');
 
-        this.expanded = JSON.parse(this.button.getAttribute('aria-expanded'));
-   
+        this.Expander = Expander;
+
         this.init();
     }
 
-    toggleExpand = () => {
-        this.expanded = !(this.expanded);
-        this.button.setAttribute('aria-expanded', this.expanded);
-        this.root.classList.toggle('expandable-list_expanded');
-    };
-
     init() {
-        this.button.addEventListener('click', this.toggleExpand);
+        new this.Expander(this.root, this.button, 'expandable-list_expanded');
     }
-};
+}
 
-render('.js-expandable-list', ExpandableList);
+render('.js-expandable-list', ExpandableList, Expander);

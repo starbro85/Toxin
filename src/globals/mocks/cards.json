@@ -2,34 +2,40 @@
     "formSearch": {
         "heading": "Найдём номера под ваши пожелания",
         "dateDropdown": {
-            "twin": "true",
-            "defaultValue": [
-                "19.08.2020",
-                "23.08.2020"
-            ],
-            "dropdown": {
-                "textField": [
-                    {
-                        "label": "Прибытие",
-                        "input": {
-                            "name": "arrival",
-                            "placeholder": "ДД.ММ.ГГГГ",
-                            "required": "true",
-                            "title": "Выберите дату приезда",
-                            "ariaLabel": "Выберите дату приезда"
-                        }
-                    },
-                    {
-                        "label": "Выезд",
-                        "input": {
-                            "name": "departure",
-                            "placeholder": "ДД.ММ.ГГГГ",
-                            "required": "true",
-                            "title": "Выберите дату выезда",
-                            "ariaLabel": "Выберите дату выезда"
-                        }
+            "isTwin": true,
+            "textField": {
+                "from": {
+                    "label": "Прибытие",
+                    "input": {
+                        "name": "arrival",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "required": true,
+                        "title": "Выберите даты пребывния в отеле",
+                        "ariaLabel": "Выберите даты пребывния в отеле"
                     }
+                },
+                "to": {
+                    "label": "Выезд",
+                    "input": {
+                        "name": "departure",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "required": true,
+                        "title": "Выберите даты пребывния в отеле",
+                        "ariaLabel": "Выберите даты пребывния в отеле"
+                    }
+                }
+            },
+            "datepicker": {
+                "initValue": [
+                    "19.08.2020",
+                    "23.08.2020"
                 ]
+            },
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
             }
         },
         "quantityDropdown": {
@@ -38,25 +44,25 @@
                 "input": {
                     "name": "guests",
                     "placeholder": "Сколько гостей",
-                    "required": "true",    
+                    "required": true,    
                     "title": "Выберите количество гостей",
                     "ariaLabel": "Выберите количество гостей"
                 }
             },
-            "controlPanel": {
-                "clearButton": {
-                    "label": "Очистить"
-                },
-                "applyButton": {
-                    "label": "Применить"
-                }
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
             },
             "counters": [
                 {
                     "label": "Взрослые",
+                    "ariaLabel": "Взрослые",
+                    "title": "Взрослые",
                     "name": "adults",
-                    "initValue": "0",
-                    "maxValue": "5",
+                    "initValue": 0,
+                    "maxValue": 5,
                     "plural": {
                         "one": "взрослый",
                         "few": "взрослых",
@@ -67,14 +73,16 @@
                         "few": "гостя",
                         "many": "гостей"
                     },
-                    "isBound": "true",
+                    "isBound": true,
                     "boundName": "guests"
                 },
                 {
                     "label": "Дети",
+                    "ariaLabel": "Дети",
+                    "title": "Дети",
                     "name": "kids",
-                    "initValue": "0",
-                    "maxValue": "5",
+                    "initValue": 0,
+                    "maxValue": 5,
                     "plural": {
                         "one": "ребёнок",
                         "few": "детей",
@@ -85,14 +93,15 @@
                         "few": "гостя",
                         "many": "гостей"
                     },
-                    "isBound": "true",
+                    "isBound": true,
                     "boundName": "guests"
                 },
                 {
                     "label": "Младенцы",
+                    "ariaLabel": "Младенцы",
                     "name": "babies",
-                    "initValue": "0",
-                    "maxValue": "5",
+                    "initValue": 0,
+                    "maxValue": 5,
                     "plural": {
                         "one": "младенец",
                         "few": "младенцев",
@@ -104,7 +113,7 @@
         "submitButton": {
             "label": "Подобрать номер",
             "color": "purple",
-            "fill": "true",
+            "fill": true,
             "icon": "arrow_forward"
         }
     },
@@ -114,7 +123,7 @@
             "input": {
                 "name": "name",
                 "placeholder": "Имя",
-                "required": "true",
+                "required": true,
                 "title": "Введите имя",
                 "ariaLabel": "Введите имя"
             }
@@ -123,7 +132,7 @@
             "input": {
                 "name": "surname",
                 "placeholder": "Фамилия",
-                "required": "true",
+                "required": true,
                 "title": "Введите фамилию",
                 "ariaLabel": "Введите фамилию"
             }
@@ -133,7 +142,7 @@
                 "label": "Мужчина",
                 "name": "gender",
                 "value": "male",
-                "checked": "true"
+                "checked": true
             },
             {
                 "label": "Женщина",
@@ -147,7 +156,7 @@
                 "name": "birthday",
                 "placeholder": "ДД.ММ.ГГГГ",
                 "mask": "date",
-                "required": "true",
+                "required": true,
                 "title": "Введите дату рождения",
                 "ariaLabel": "Введите дату рождения"
             }
@@ -158,7 +167,7 @@
                 "name": "email",
                 "type": "email",
                 "placeholder": "Email",
-                "required": "true",
+                "required": true,
                 "title": "Введите email",
                 "ariaLabel": "Введите email"
             }
@@ -168,7 +177,7 @@
                 "name": "password",
                 "type": "password",
                 "placeholder": "Пароль",
-                "required": "true",
+                "required": true,
                 "title": "Введите пароль",
                 "ariaLabel": "Введите пароль"
             }
@@ -180,7 +189,7 @@
         "submitButton": {
             "label": "Перейти к оплате",
             "color": "purple",
-            "fill": "true",
+            "fill": true,
             "icon": "arrow_forward"
         },
         "loginText": "Уже есть аккаунт на Toxin",
@@ -197,34 +206,40 @@
             "label": "Итого"
         },
         "dateDropdown": {
-            "twin": "true",
-            "defaultValue": [
-                "19.08.2020",
-                "23.08.2020"
-            ],
-            "dropdown": {
-                "textField": [
-                    {
-                        "label": "Прибытие",
-                        "input": {
-                            "name": "arrival",
-                            "placeholder": "ДД.ММ.ГГГГ",
-                            "required": "true",
-                            "title": "Выберите дату приезда",
-                            "ariaLabel": "Выберите дату приезда"
-                        }
-                    },
-                    {
-                        "label": "Выезд",
-                        "input": {
-                            "name": "departure",
-                            "placeholder": "ДД.ММ.ГГГГ",
-                            "required": "true",
-                            "title": "Выберите дату выезда",
-                            "ariaLabel": "Выберите дату выезда"
-                        }
-                    }   
+            "isTwin": true,
+            "textField": {
+                "from": {
+                    "label": "Прибытие",
+                    "input": {
+                        "name": "arrival",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "required": true,
+                        "title": "Выберите даты пребывния в отеле",
+                        "ariaLabel": "Выберите даты пребывния в отеле"
+                    }
+                },
+                "to": {
+                    "label": "Выезд",
+                    "input": {
+                        "name": "departure",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "required": true,
+                        "title": "Выберите даты пребывния в отеле",
+                        "ariaLabel": "Выберите даты пребывния в отеле"
+                    }
+                }
+            },
+            "datepicker": {
+                "initValue": [
+                    "19.08.2020",
+                    "23.08.2020"
                 ]
+            },
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
             }
         },
         "quantityDropdown": {
@@ -233,26 +248,26 @@
                 "input": {
                     "name": "guests",
                     "placeholder": "Сколько гостей",
-                    "required": "true",    
+                    "required": true,    
                     "title": "Выберите количество гостей",
                     "ariaLabel": "Выберите количество гостей"
                 }
             },
-            "controlPanel": {
-                "clearButton": {
-                    "label": "Очистить"
-                },
-                "applyButton": {
-                    "label": "Применить"
-                }
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
             },
             "counters": [
                 {
                     "label": "Взрослые",
+                    "ariaLabel": "Взрослые",
+                    "title": "Взрослые",
                     "name": "adults",
-                    "initValue": "0",
-                    "maxValue": "5",
-                    "defaultValue": "2",
+                    "initValue": 0,
+                    "maxValue": 5,
+                    "defaultValue": 2,
                     "plural": {
                         "one": "взрослый",
                         "few": "взрослых",
@@ -263,15 +278,17 @@
                         "few": "гостя",
                         "many": "гостей"
                     },
-                    "isBound": "true",
+                    "isBound": true,
                     "boundName": "guests"
                 },
                 {
                     "label": "Дети",
+                    "ariaLabel": "Дети",
+                    "title": "Дети",
                     "name": "kids",
-                    "initValue": "0",
-                    "maxValue": "5",
-                    "defaultValue": "1",
+                    "initValue": 0,
+                    "maxValue": 5,
+                    "defaultValue": 1,
                     "plural": {
                         "one": "ребёнок",
                         "few": "детей",
@@ -282,14 +299,15 @@
                         "few": "гостя",
                         "many": "гостей"
                     },
-                    "isBound": "true",
+                    "isBound": true,
                     "boundName": "guests"
                 },
                 {
                     "label": "Младенцы",
+                    "ariaLabel": "Младенцы",
                     "name": "babies",
-                    "initValue": "0",
-                    "maxValue": "5",
+                    "initValue": 0,
+                    "maxValue": 5,
                     "plural": {
                         "one": "младенец",
                         "few": "младенцев",
@@ -301,7 +319,7 @@
         "submitButton": {
             "label": "Забронировать",
             "color": "purple",
-            "fill": "true",
+            "fill": true,
             "icon": "arrow_forward"
         }
     },
@@ -312,7 +330,7 @@
                 "name": "email",
                 "type": "email",
                 "placeholder": "Email",
-                "required": "true",
+                "required": true,
                 "title": "Введите email",
                 "ariaLabel": "Введите email"
             }
@@ -322,7 +340,7 @@
                 "name": "password",
                 "type": "password",
                 "placeholder": "Пароль",
-                "required": "true",
+                "required": true,
                 "title": "Введите пароль",
                 "ariaLabel": "Введите пароль"
             }
@@ -330,7 +348,7 @@
         "submitButton": {
             "label": "Войти",
             "color": "purple",
-            "fill": "true",
+            "fill": true,
             "icon": "arrow_forward"
         },
         "registrationText": "Нет аккаунта на Toxin",
@@ -341,14 +359,6 @@
             "button": true,
             "border": true
         }
-    },
-    "datepicker": {
-        "range": "true",
-        "mode": "manual",
-        "initValue": [
-            "19.08.2020",
-            "23.08.2020"
-        ]
     },
     "roomCard": {
         "rateBar": {

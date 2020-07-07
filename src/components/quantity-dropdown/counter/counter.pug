@@ -1,4 +1,4 @@
-mixin counter({ label, name, initValue, maxValue, plural, isBound, boundPlural, boundName })
+mixin counter({ label, ariaLabel, title, name, initValue, maxValue, plural, isBound, boundPlural, boundName })
     div(
         class = 'counter js-counter'
     )
@@ -13,20 +13,21 @@ mixin counter({ label, name, initValue, maxValue, plural, isBound, boundPlural, 
             tabindex = '-1'
         ) -
         input(
-            type = 'button'
+            type = 'text'
             class = 'counter__input js-counter__input'
             name = name 
             value = initValue
-            title = label
+            title = title
             role = 'spinbutton'
             aria-valuemin = '0'
             aria-valuemax = maxValue 
             aria-valuenow = initValue
-            aria-label = label
+            aria-label = ariaLabel
             data-plural = plural
             data-is-bound = isBound
             data-bound-plural = boundPlural
             data-bound-name = boundName
+            readonly
         )
         button(
             class = 'counter__increment js-counter__increment'     

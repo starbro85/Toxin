@@ -16,11 +16,11 @@ mixin like({ count, ariaLabel, title, active=false })
         aria-label = ariaLabel
         title = title
     )
-        p(
+        span(
             class = 'like__icon js-like__icon'
             aria-hidden = 'true'
         )
-        p(
+        span(
             class = 'like__count js-like__count'
             aria-hidden = 'true'
         ) #{count}

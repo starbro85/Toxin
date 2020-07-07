@@ -10,7 +10,7 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
     div(class = rootClasses)
         label
             if label 
-                p(class = 'text-field__label') #{label}
+                span(class = 'text-field__label') #{label}
 
             -let inputClasses = 'text-field__input js-text-field__input';
             -inputClasses = input.controlClass ? `${inputClasses} ${input.controlClass}` : 'text-field__input js-text-field__input';
@@ -22,39 +22,47 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
                 name = (input.type !== 'button') ? input.name : false
                 value = (input.type !== 'button') ? input.value : input.placeholder
                 placeholder = (input.type !== 'button') ? input.placeholder : false
-                readonly = input.readonly
-                required = (input.type !== 'button') ? input.required : false
-                spellcheck = input.spellcheck
-                disabled = input.disabled
-                autofocus = input.autofocus
+                readonly = input.readonly ? true : false
+                required = (input.type !== 'button') ? input.required ? true : false : false
+                spellcheck = input.spellcheck ? true : false
+                disabled = input.disabled ? true : false
+                autofocus = input.autofocus ? true : false
                 title = input.title
                 aria-label = input.ariaLabel
                 aria-expanded = input.ariaExpanded
                 tabindex = input.tabindex
                 data-mask = input.mask
             )
-
-            if input.type === 'button'
-                input(
-                    class = 'text-field__hidden-input js-text-field__hidden-input'
-                    name = input.name
-                    required = input.required
-                    disabled = input.disabled
-                    tabindex = '-1'
-                    aria-hidden = 'true'
-                )
+            
             if !button
                 if icon
-                    span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon') #{icon.text}
+                    span(
+                        class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon'
+                        aria-hidden = 'true'
+                    ) #{icon.text}
+
+        if input.type === 'button'
+            input(
+                class = 'text-field__hidden-input js-text-field__hidden-input'
+                name = input.name
+                required = input.required ? true : false
+                disabled = input.disabled ? true : false
+                tabindex = '-1'
+                aria-hidden = 'true'
+            )
 
         if button
             button(
                 class = 'text-field__button' 
                 type = 'submit'
-                aria-label = button.label
+                aria-label = button.ariaLabel
+                title = button.title
             )
                 if icon
-                    span(class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon') #{icon.text}
+                    span(
+                        class = icon.activeClass ? `text-field__icon ${icon.activeClass}` : 'text-field__icon'
+                        aria-hidden = 'true'
+                    ) #{icon.text}
                 else if block
                     block
 

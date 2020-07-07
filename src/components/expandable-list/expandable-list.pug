@@ -5,11 +5,11 @@ mixin expandable-list({ label, expanded=false, disabled=false, list })
         button(
             class = 'expandable-list__button js-expandable-list__button'
             type = 'button' 
-            disabled = disabled
+            disabled = disabled ? true : false
             aria-expanded = `${expanded}`
         )
-            h3(class = 'expandable-list__label') #{label}
-            div(
+            span(class = 'expandable-list__label') #{label}
+            span(
                 class = 'expandable-list__icon'
                 aria-hidden = 'true'
             ) expand_more

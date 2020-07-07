@@ -1,6 +1,6 @@
 include ./rate-button/rate-button
 
-mixin rate-bar({ name, count, rating, ariaLabel, disabled })
+mixin rate-bar({ name, count, rating, ariaLabel, title, disabled })
     -const pluralize = require('../../globals/helpers/pluralize.js');
 
     form(
@@ -13,7 +13,7 @@ mixin rate-bar({ name, count, rating, ariaLabel, disabled })
             if index === rating
                 +rate-button({
                     name, 
-                    title: title ? pluralize(ariaLabel.title, index) : false,
+                    title: title ? pluralize(title.plural, index) : false,
                     ariaLabel: ariaLabel ? pluralize(ariaLabel.plural, index) : false,
                     disabled, 
                     value: index, 
@@ -23,7 +23,7 @@ mixin rate-bar({ name, count, rating, ariaLabel, disabled })
             else
                 +rate-button({  
                     name, 
-                    title: title ? pluralize(ariaLabel.title, index) : false,
+                    title: title ? pluralize(title.plural, index) : false,
                     ariaLabel: ariaLabel ? pluralize(ariaLabel.plural, index) : false,
                     disabled, 
                     value: index

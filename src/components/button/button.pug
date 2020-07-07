@@ -11,12 +11,12 @@ mixin button({ type='submit', disabled=false, label, title, controlClass, fill, 
 
     button(
         class = classes
-        disabled = disabled
+        disabled = disabled ? true : false
         style = style
         type = type
         title = title
     )
-        p(class = 'button__label') #{label}
+        span(class = 'button__label') #{label}
 
         if icon
             span(

@@ -5,13 +5,13 @@ mixin checkbox({ name, label, title, description, checked=false, disabled=false 
             type = 'checkbox' 
             name = name
             title = title
-            checked = checked 
-            disabled = disabled
+            checked = checked ? true : false
+            disabled = disabled ? true : false
         )
-        div(class = 'checkbox__mark')
+        span(class = 'checkbox__mark')
 
         if label
-            p(class = description ? 'checkbox__label checkbox__label_font-weight_bold' : 'checkbox__label') #{label}
+            span(class = description ? 'checkbox__label checkbox__label_font-weight_bold' : 'checkbox__label') #{label}
 
         if description
-            p(class = 'checkbox__description') #{description}
+            span(class = 'checkbox__description') #{description}

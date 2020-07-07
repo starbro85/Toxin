@@ -2,56 +2,41 @@
 
 .list {
     display: grid;
-    row-gap: 10px;
     padding: 0;
     margin: 0;
     list-style: none;
-    
 }
 
-/* heading */
-
-.list__heading {
-    margin-bottom: 4px;
-    font: var(--h3-font);
-    color: var(--dark-shade-100per);
-    text-transform: uppercase;
+.list_with_text {
+    row-gap: 10px;
 }
 
-.list_with_checkbox .list__heading {
-    margin-bottom: 6px;
+.list_with_checkboxes { 
+    row-gap: 10px;
 }
 
+.list_with_links {
+    row-gap: 20px;
+}
 
 /* item */
 
-.list__item {
+.list_with_text .list__item {
     font: var(--body-font);
     color: var(--dark-shade-75per);
     line-height: 24px;
 }
 
-.list_with_bullet:not(.list__item_heading) .list__item {
+.list_with_text .list__item:not(.list__item_heading) {
     position: relative;
     padding-left: 20px;
 }
 
-.list_with_bullet .list__item:not(.list__item_heading)::before {
+.list_with_text .list__item:not(.list__item_heading)::before {
     content: '';
     position: absolute;
     left: 0; top: 7px;
     width: 10px; height: 10px;
     border-radius: 50%;
     background-color: var(--dark-shade-25per);
-}
-
-/* link */
-
-.list__link {
-    color: var(--dark-shade-50per);
-}
-
-.list__link:hover {
-    text-decoration: underline;
-    color: var(--dark-shade-75per);
 }

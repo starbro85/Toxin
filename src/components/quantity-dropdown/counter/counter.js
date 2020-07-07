@@ -49,23 +49,19 @@ class Counter {
             this.input.focus();
         }
 
-        if (event.key === 'ArrowUp') {
+        if (event.code === 'ArrowUp') {
+            event.preventDefault();
             this.value < this.maxValue ? this.increment.click() : false;
         }
 
-        if (event.key === 'ArrowDown') {
+        if (event.code === 'ArrowDown') {                    
+            event.preventDefault();
             this.value > this.minValue ? this.decrement.click() : false;
         }
-
-        if (event.type === 'input') {
-            this.value = this.input.value;
-        }
-
-        else {
-            this.input.value = this.value;
-        }
+            
+        this.input.value = this.value;
         
-        this.input.setAttribute('aria-valuenow', this.value);
+        this.input.setAttribute('aria-valuenow', this.input.value);
 
         this.sendCounterData();
         this.normalizeRange();
@@ -79,12 +75,6 @@ class Counter {
         this.normalizeRange();
     }
 
-    preventScroll() {
-        if ((event.key === 'ArrowDown') || (event.key === 'ArrowUp')) {
-            event.preventDefault();
-        }
-    }
-
     init() {
         this.normalizeRange();
 
@@ -93,9 +83,8 @@ class Counter {
         this.increment.addEventListener('click', this.handleCounterChange);   
         this.decrement.addEventListener('click', this.handleCounterChange);
         this.input.addEventListener('keyup', this.handleCounterChange);
-        this.input.addEventListener('keydown', this.preventScroll);
         this.input.addEventListener('input', this.handleCounterChange);
     }
 };
 
-export {Counter};
+export { Counter };

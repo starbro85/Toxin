@@ -59,10 +59,6 @@
     color: var(--dark-shade-75per);
 }
 
-.text-field__input:invalid {
-    box-shadow: none; /* reset firefox box-shadow for invalid input */
-}
-
 .text-field_with_button .text-field__input {
     border-right: none;
     border-top-right-radius: 0; border-bottom-right-radius: 0;
@@ -139,7 +135,7 @@
     align-items: center;
     font: var(--icon-font);
     color: var(--dark-shade-50per);
-    font-size: 24px;
+    font-size: 1.71428571429rem;
 }
 
 .text-field:hover:not(:disabled) .text-field__icon  {

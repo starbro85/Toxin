@@ -27,11 +27,18 @@
     font: var(--h3-font);
     line-height: 24px;
     color: var(--dark-shade-100per);
+    -moz-appearance: textfield;
 }
 
 .counter__input:focus {
     outline: var(--outline);
     outline-offset: 1px;
+}
+
+.counter__input::-webkit-outer-spin-button,
+.counter__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* decrement */

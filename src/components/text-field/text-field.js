@@ -32,6 +32,7 @@ class TextField {
     init() {
         if (this.input.type === 'button') { 
             this.hiddenInput = this.root.querySelector('.js-text-field__hidden-input');
+            this.hiddenInput.addEventListener('focus', (event) => this.input.focus())
         }
 
         this.root.addEventListener('text-field-value-sent', event => {

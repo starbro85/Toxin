@@ -22,7 +22,7 @@
         },
         "rating": 5,
         "reviews": {
-            "count": "145",
+            "count": 145,
             "plurals": {
                 "one": "Отзыв",
                 "few": "Отзыва",
@@ -80,7 +80,7 @@
         },
         "rating": 4,
         "reviews": {
-            "count": "65",
+            "count": 65,
             "plurals": {
                 "one": "Отзыв",
                 "few": "Отзыва",

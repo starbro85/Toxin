@@ -2,7 +2,6 @@
 
 .link {
     cursor: pointer;
-    font: var(--body-font);
 }
 
 .link:focus {
@@ -15,7 +14,10 @@
 }
 
 .link:not(.link_button) {
+    font: var(--body-font);
     color: var(--dark-shade-50per);
+    line-height: 1.2857142857143rem;
+    white-space: nowrap;
 }
 
 .link:not(.link_button):hover {

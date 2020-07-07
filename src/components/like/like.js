@@ -6,7 +6,7 @@ class Like {
     constructor(node) {
         this.root = node;
         this.icon = this.root.querySelector('.js-like__icon');
-        this.isActive = this.root.dataset.active;
+        this.isActive = this.root.hasAttribute('data-active');
    
         this.init();
     }

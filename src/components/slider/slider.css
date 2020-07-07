@@ -3,17 +3,14 @@
 .slider {
     height: 44px;
     display: grid;
-    grid-template-areas:
-        "label input"
-        "slider slider";
-    grid-template-rows: auto auto;
-    gap: 23px 0;
+    row-gap: 23px;
 }
 
 /* label */
 
 .slider__label {
-    grid-area: label;
+    display: flex;
+    justify-content: space-between;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
@@ -23,19 +20,18 @@
 
 .slider__input {
     margin-right: -3px;
-    grid-area: input;
     font: var(--body-font);
     font-size: 12px;
     color: var(--dark-shade-50per);
     height: 15px;
     text-align: end;
     pointer-events: none;
+    outline: none;
 }
 
 /* slider */
 
 .slider .slider__range {
-    grid-area: slider;
     height: 6px;
     align-self: end;
     border-radius: 3px;

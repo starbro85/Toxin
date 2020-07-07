@@ -1,6 +1,6 @@
 import './form-elements.css';
+import './label-wrapper/label-wrapper.css';
 
-import '../label-wrapper/label-wrapper.js';
 import '../text-field/text-field.js';
 import '../quantity-dropdown/quantity-dropdown.js';
 import '../date-dropdown/date-dropdown.js';

@@ -24,9 +24,15 @@
     --green-100per:             hsla(var(--green-hue), 50%, 62%, 1);
     --green-gradient:           linear-gradient(180deg, var(--green-100per) 0%, #66D2EA 100%);
 
+    /* red color set */
+    --red-hue:                  1;
+    --red-100per:               hsla(var(--red-hue), 48%, 42%, 1);
+    --red-50per:               hsla(var(--red-hue), 48%, 72%, .5);
+    --red-25per:               hsla(var(--red-hue), 48%, 72%, .25);
+
     /* custom outline style */
 
-    --outline:                  1px dashed var(--dark-shade-50per); 
+    --outline:                  1px dashed var(--dark-shade-75per); 
 
     /* box-shadow */
 

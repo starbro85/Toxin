@@ -13,7 +13,7 @@
                 "bold": true
             },
             {
-                "isMenu": "true",
+                "isMenu": true,
                 "menu": {
                     "label": "Services",
                     "title": "Expand services-menu",
@@ -49,7 +49,7 @@
                 "title": "Learn about the latest company news"
             },
             {
-                "isMenu": "true",
+                "isMenu": true,
                 "menu": {
                     "label": "Documentation",
                     "title": "Expand documentation-menu",
@@ -117,7 +117,7 @@
                 "bold": true
             },
             {
-                "isMenu": "true",
+                "isMenu": true,
                 "menu": {
                     "label": "Services",
                     "title": "Expand services-menu",
@@ -153,7 +153,7 @@
                 "title": "Learn about the latest company news"
             },
             {
-                "isMenu": "true",
+                "isMenu": true,
                 "menu": {
                     "label": "Documentation",
                     "title": "Expand documentation-menu",
@@ -203,5 +203,125 @@
             "label": "Open main menu"
         },
         "auth": true
+    },
+    "footer": { 
+        "awards": {
+            "label": "Наши награды",
+            "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        },
+        "nav": {
+            "label": "Навигация",
+            "list": {
+                "links": [
+                    {
+                        "label": "О нас",
+                        "href": "#",
+                        "title": "Узнать больше о нашей компании"
+                    },
+                    {
+                        "label": "Новости",
+                        "href": "#",
+                        "title": "Узнать о последних новостях компании"
+                    },
+                    {
+                        "label": "Служба поддержки",
+                        "href": "#",
+                        "title": "Связаться с нашей службой поддержки"
+                    },
+                    {
+                        "label": "Услуги",
+                        "href": "#",
+                        "title": "Узнать о предоставляемых нами услугах"
+                    }
+                ]
+            }
+        },
+        "about": {
+            "label": "О нас",
+            "list": {
+                "links": [
+                    {
+                        "label": "О сервисе",
+                        "href": "#",
+                        "title": "Узнать больше о нашем сервисе"
+                    },
+                    {
+                        "label": "Наша команда",
+                        "href": "#",
+                        "title": "Узнать больше о нашей команде"
+                    },
+                    {
+                        "label": "Вакансии",
+                        "href": "#",
+                        "title": "Ознакомится с вакансиями компании"
+                    },
+                    {
+                        "label": "Инвесторы",
+                        "href": "#",
+                        "title": "Наши инвесторы"
+                    }
+                ]
+            }
+        },
+        "support": {
+            "label": "Служба поддержки",
+            "list": {
+                "links": [
+                    {
+                        "label": "Соглашения",
+                        "href": "#"
+                    },
+                    {
+                        "label": "Сообщества",
+                        "href": "#"
+                    },
+                    {
+                        "label": "Связь с нами",
+                        "href": "#"
+                    }
+                ]
+            }
+        },
+        "subscribtion": {
+            "label": "Подписка",
+            "text": "Получайте специальные предложения и новости сервиса",
+            "subscribtionField": {
+                "textField": {
+                    "title": "Введите свой email",
+                    "button": {
+                        "ariaLabel": "Подписаться",
+                        "title": "Подписаться на нашу рассылку"
+                    }
+                }   
+            }
+        },
+        "copyright": {
+            "text": "Copyright © 2018 Toxin отель. Все права зачищены."
+        },
+        "social": {
+            "label": "Мы в социальных сетях",
+            "socialList": {
+                "links": [
+                    {
+                        "type": "tw",
+                        "href": "#",
+                        "title": "Мы в Twitter",
+                        "ariaLabel": "Перейти на страницу в Twitter"
+                    },
+                    {
+                        "type": "fb",
+                        "href": "#",
+                        "title": "Мы в Facebook",
+                        "ariaLabel": "Перейти на страницу в Facebook"
+                    },
+                    {
+                        "type": "inst",
+                        "href": "#",
+                        "title": "Мы в Instagram",
+                        "ariaLabel": "Перейти на страницу в Instagram"
+                    }
+                ]
+            }      
+        }
     }
 }

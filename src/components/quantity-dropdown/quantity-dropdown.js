@@ -4,62 +4,25 @@ import './counter/counter.css';
 import './../text-field/text-field.js';
 
 import { Counter } from './counter/counter.js';
+import { Expander } from '../../globals/helpers/expander';
 
 const normalizeStr = require('./../../globals/helpers/normalizeStr.js');
 const pluralize = require('./../../globals/helpers/pluralize.js');
 const render = require('./../../globals/helpers/render.js');
 
-class Dropdown {
-    constructor(node) {
-        this.root = node;
-        this.button = this.root.querySelector('.js-quantity-dropdown__button');
-        this.focusableElements = this.root.querySelectorAll('button:not(:disabled):not([tabindex="-1"]), input:not(:disabled):not([tabindex="-1"])');
-        this.firstFocusableElement = this.focusableElements[0];
-
-        this.expanded = JSON.parse(this.button.getAttribute('aria-expanded'));
-
-        this.init();
-    }
-
-    handleCollapse = (event) => { 
-        if (event.key === 'Escape') {
-            this.toggleExpand();
-            this.button.focus();
-        }
-
-        if (!this.root.contains(event.target)) {
-            this.toggleExpand();
-        }
-    }
-
-    setOutsideFocusEventListener = (event) => {
-        if (!this.root.contains(event.target)) {
-            this.button.focus();
-        }
-    }
-
-    toggleExpand = () => {
-        this.expanded = !(this.expanded);
-        this.button.setAttribute('aria-expanded', this.expanded);
-        this.root.classList.toggle('quantity-dropdown_expanded');
-        this.expanded ? document.addEventListener('focusin', this.setOutsideFocusEventListener) : document.removeEventListener('focusin', this.setOutsideFocusEventListener);
-        this.expanded ? document.addEventListener('click', this.handleCollapse) : document.removeEventListener('click', this.handleCollapse);
-        this.focusableElements.forEach(element => this.expanded ? element.addEventListener('keyup', this.handleCollapse) : element.removeEventListener('keyup', this.handleCollapse));
-    };
-
-    init() {
-        this.button.addEventListener('click', this.toggleExpand);
-    }
-};
-
-class Quantity {
-    constructor(node) {
+class QuantityDropdown {
+    constructor(node, Counter, Expander) {
         this.root = node;
         this.textField = this.root.querySelector('.js-quantity-dropdown__text-field');
+        this.button = this.root.querySelector('.js-quantity-dropdown__button')
         this.counters = this.root.querySelectorAll('.js-counter');
+        this.inputs = this.root.querySelectorAll('.js-counter__input');
 
-        this.autoApply = Boolean(this.root.dataset.autoApply);
+        this.autoApply = this.root.hasAttribute('data-auto-apply');
         this.countersData = {};
+
+        this.Counter = Counter;
+        this.Expander = Expander;
 
         this.init();
     }
@@ -123,7 +86,7 @@ class Quantity {
         return submitValue ? `{${submitValue}}` : '';
     }
 
-    sendInputValue = () => {
+    sendTextFieldValue = () => {
         const inputValue = normalizeStr({
                                         str: this.getInputValue(),
                                         size: this.getInputSizeInChar()
@@ -151,11 +114,11 @@ class Quantity {
         if (event.target === this.clearButton) {
             this.counters.forEach(counter => counter.dispatchEvent(new CustomEvent('counter-value-clear')));
 
-            this.sendInputValue(); 
+            this.sendTextFieldValue(); 
         }
 
         if (event.target === this.applyButton) {
-            this.sendInputValue();    
+            this.sendTextFieldValue();    
         }
 
         this.setClearButtonDisabledState();
@@ -172,16 +135,16 @@ class Quantity {
     }
 
     setAutoApplyMode() {
-        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.sendInputValue));
+        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.sendTextFieldValue));
     }
-
-    setCountersDataUpdate() {
-        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.getCountersData));
-    } 
-
+    
     init() {
-        this.sendInputValue();
-        this.setCountersDataUpdate();
+        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.getCountersData));
+
+        new this.Expander(this.root, this.button, 'quantity-dropdown_expanded');
+        this.counters.forEach((counter) => new this.Counter(counter));
+
+        this.sendTextFieldValue();
 
         if (this.autoApply) {
             this.setAutoApplyMode();
@@ -193,6 +156,4 @@ class Quantity {
     }
 };
 
-render('.js-counter', Counter);
-render('.js-quantity-dropdown', Dropdown);
-render('.js-quantity-dropdown', Quantity);
+render('.js-quantity-dropdown', QuantityDropdown, Counter, Expander);

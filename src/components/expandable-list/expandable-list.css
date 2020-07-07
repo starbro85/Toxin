@@ -28,19 +28,22 @@
     align-items: center;
     justify-content: center;   
     font: var(--icon-font);
-    font-size: 24px; 
+    font-size: 1.71428571429rem;
     color: var(--dark-shade-50per);
-    transform: rotate(0);
-    transition: transform .6s;
-}   
+    transition: transform .2s;
+}
+
+.expandable-list_expanded .expandable-list__icon {
+    color: var(--dark-shade-75per);
+}
 
 .expandable-list__button:hover .expandable-list__icon {
     color: var(--dark-shade-75per);
 }
 
-.expandable-list_is_expanded .expandable-list__icon {
-    transform: rotate(180deg);
-    transition: transform .6s;
+.expandable-list__button:active .expandable-list__icon {
+    transform:  translateY(5px);
+    transition: transform .2s;
 }
 
 /* viewport */

@@ -4,55 +4,56 @@ include ../link/link
 
 mixin header({ header, user })
     header(class = 'header js-header')
-        div(class = 'header__logo')
-            a(
-                class = 'header__logo-link' 
-                href = header.logoLink.href
-                title = header.logoLink.title
-                aria-label = header.logoLink.label
-            )
-                    +logo()
+        div(class = 'header__content')
+            div(class = 'header__logo')
+                a(
+                    class = 'header__logo-link' 
+                    href = header.logoLink.href
+                    title = header.logoLink.title
+                    aria-label = header.logoLink.label
+                )
+                        +logo()
 
-        button(
-            class = 'header__button js-header__button'
-            aria-expanded = 'false'
-            aria-controls = 'header__nav header__sign-in'
-            aria-label = header.button.label
-        )
-            span(class = 'header__button-icon') 
-        
-        nav(
-            class = 'header__nav js-header__nav'
-            id = 'id-header__nav'
-        )
-            ul(class = 'header__nav-list')
-                each data in header.nav
-                    if data.isMenu
+            button(
+                class = 'header__button js-header__button'
+                aria-expanded = 'false'
+                aria-controls = 'header__nav header__sign-in'
+                aria-label = header.button.label
+            )
+                span(class = 'header__button-icon') 
+            
+            nav(
+                class = 'header__nav js-header__nav'
+                id = 'id-header__nav'
+            )
+                ul(class = 'header__nav-list')
+                    each data in header.nav
+                        if data.isMenu
+                            li(class = 'header__nav-item')
+                                +menu(data.menu)
+
+                        else 
+                            li(class = 'header__nav-item')
+                                +link(data)
+                    
+                    if !header.auth
+                        li(
+                            class = 'header__nav-separator header__nav-separator_mobile-only'
+                            aria-hidden = 'true'
+                        )
                         li(class = 'header__nav-item')
-                            +menu(data.menu)
+                            +link(header.signIn.loginLink)
+                        li(class = 'header__nav-item')
+                            +link(header.signIn.registrationLink)
 
                     else 
+                        li(
+                            class = 'header__nav-separator'
+                            aria-hidden = 'true'
+                        )
                         li(class = 'header__nav-item')
-                            +link(data)
-                
-                if !header.auth
-                    div(
-                        class = 'header__nav-separator header__nav-separator_mobile-only'
-                        aria-hidden = 'true'
-                    )
-                    li(class = 'header__nav-item')
-                        +link(header.signIn.loginLink)
-                    li(class = 'header__nav-item')
-                        +link(header.signIn.registrationLink)
-
-                else 
-                    div(
-                        class = 'header__nav-separator'
-                        aria-hidden = 'true'
-                    )
-                    li(class = 'header__nav-item')
-                        +link({
-                            label: `${user.name} ${user.surname}`,
-                            href: header.userLink.href,
-                            title: header.userLink.title
-                        })
+                            +link({
+                                label: `${user.name} ${user.surname}`,
+                                href: header.userLink.href,
+                                title: header.userLink.title
+                            })

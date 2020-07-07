@@ -63,20 +63,18 @@
 /* active class for text-field__icon */
 
 .quantity-dropdown__icon {
-    transform: rotate(0);
-    transition: transform .6s;
+    transition: transform .2s;
 }
 
 .quantity-dropdown_expanded .quantity-dropdown__icon {
-    transform: rotate(180deg);
-    transition: transform .6s;
+    color: var(--dark-shade-75per);
 }
 
-.quantity-dropdown__button:active ~ .quantity-dropdown__icon {
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);  
-    background-clip: text; 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* active class for text-field__icon/text-field__input */
+
+.quantity-dropdown__button:active + .quantity-dropdown__icon {
+    transform:  translateY(5px);
+    transition: transform .2s;
 }
 
 /* counters bar */

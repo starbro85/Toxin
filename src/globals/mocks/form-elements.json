@@ -6,29 +6,29 @@
                 "name": "text-field",
                 "type": "email",
                 "placeholder": "Email",
-                "title": "Email"
+                "title": "Text field"
             }
         }
     },
     "textFieldFocusedSection": {
         "textField": {
-            "label": "text field",
+            "label": "Text field",
             "input": {
                 "name": "text-field",
                 "placeholder": "This is pretty awesome",
-                "autofocus": "true",
-                "title": "This is pretty awesome"
+                "autofocus": true,
+                "title": "Focused text field"
             }
         }
     },
     "textFieldMaskedSection": {
         "textField": {
-            "label": "masked text field",
+            "label": "Masked text field",
             "input": {
                 "name": "text-field",
                 "placeholder": "ДД.ММ.ГГГГ",
                 "mask": "date",
-                "title": "Дата рождения"
+                "title": "Masked text field"
             }
         }
     },
@@ -36,33 +36,33 @@
         "quantityDropdown": {
             "collapsed": {
                 "textField": {
-                    "label": "dropdown",
+                    "label": "Dropdown",
                     "input": {
                         "name": "dropdown",
                         "placeholder": "Сколько гостей",    
-                        "title": "Сколько гостей"     
+                        "title": "Dropdown"     
                     }
                 },
-                "controlPanel": {
-                    "clearButton": {
-                        "label": "Очистить"
-                    },
-                    "applyButton": {
-                        "label": "Применить"
-                    }
+                "clearButton": {
+                    "label": "Очистить"
+                },
+                "applyButton": {
+                    "label": "Применить"
                 },
                 "counters": [
                     {
                         "label": "Взрослые",
+                        "ariaLabel": "Взрослые",
+                        "title": "Взрослые",
                         "name": "adults",
-                        "initValue": "0",
-                        "maxValue": "5",
+                        "initValue": 0,
+                        "maxValue": 5,
                         "plural": {
                             "one": "взрослый",
                             "few": "взрослых",
                             "many": "взрослых"
                         },
-                        "isBound": "true",
+                        "isBound": true,
                         "boundName": "guests",
                         "boundPlural": {
                             "one": "гость",
@@ -72,15 +72,17 @@
                     },
                     {
                         "label": "Дети",
+                        "ariaLabel": "Дети",
+                        "title": "Дети",
                         "name": "kids",
-                        "initValue": "0",
-                        "maxValue": "5",
+                        "initValue": 0,
+                        "maxValue": 5,
                         "plural": {
                             "one": "ребёнок",
                             "few": "детей",
                             "many": "детей"
                         },
-                        "isBound": "true",
+                        "isBound": true,
                         "boundName": "guests",
                         "boundPlural": {
                             "one": "гость",
@@ -90,9 +92,11 @@
                     },
                     {
                         "label": "Младенцы",
+                        "ariaLabel": "Младенцы",
+                        "title": "Младенцы",
                         "name": "babies",
-                        "initValue": "0",
-                        "maxValue": "5",
+                        "initValue": 0,
+                        "maxValue": 5,
                         "plural": {
                             "one": "младенец",
                             "few": "младенцев",
@@ -102,35 +106,35 @@
                 ]
             },
             "expanded": {
-                "expanded": "true",
+                "expanded": true,
                 "textField": {
-                    "label": "dropdown",
+                    "label": "Dropdown",
                     "input": {
                         "name": "dropdown",
                         "placeholder": "Сколько гостей",
-                        "title": "Сколько гостей" 
+                        "title": "Dropdown" 
                     }
                 },
-                "controlPanel": {
-                    "clearButton": {
-                        "label": "Очистить"
-                    },
-                    "applyButton": {
-                        "label": "Применить"
-                    }
+                "clearButton": {
+                    "label": "Очистить"
+                },
+                "applyButton": {
+                    "label": "Применить"
                 },
                 "counters": [
                     {
                         "label": "Взрослые",
+                        "ariaLabel": "Взрослые",
+                        "title": "Взрослые",
                         "name": "adults",
-                        "initValue": "0",
-                        "maxValue": "5",
+                        "initValue": 0,
+                        "maxValue": 5,
                         "plural": {
                             "one": "взрослый",
                             "few": "взрослых",
                             "many": "взрослых"
                         },
-                        "isBound": "true",
+                        "isBound": true,
                         "boundName": "guests",
                         "boundPlural": {
                             "one": "гость",
@@ -140,15 +144,17 @@
                     },
                     {
                         "label": "Дети",
+                        "ariaLabel": "Дети",
+                        "title": "Дети",
                         "name": "kids",
-                        "initValue": "0",
-                        "maxValue": "5",
+                        "initValue": 0,
+                        "maxValue": 5,
                         "plural": {
                             "one": "ребёнок",
                             "few": "детей",
                             "many": "детей"
                         },
-                        "isBound": "true",
+                        "isBound": true,
                         "boundName": "guests",
                         "boundPlural": {
                             "one": "гость",
@@ -158,9 +164,11 @@
                     },
                     {
                         "label": "Младенцы",
+                        "ariaLabel": "Младенцы",
+                        "title": "Младенцы",
                         "name": "babies",
-                        "initValue": "0",
-                        "maxValue": "5",
+                        "initValue": 0,
+                        "maxValue": 5,
                         "plural": {
                             "one": "младенец",
                             "few": "младенцев",
@@ -173,26 +181,30 @@
     },
     "dateDropdownSection": {
         "dateDropdown": {
-            "twin": "true",
-            "dropdown": {
-                "textField": [
-                    {
-                        "label": "date dropdown",
-                        "input": {
-                            "name": "dateDropdownFrom",
-                            "placeholder": "ДД.ММ.ГГГГ",
-                            "title": "Дата приезда"
-                        }
-                    },
-                    {
-                        "label": "date dropdown",
-                        "input": {
-                            "name": "dateDropdownTo",
-                            "placeholder": "ДД.ММ.ГГГГ",
-                            "title": "Дата отъезда"
-                        }
+            "isTwin": true,
+            "textField": {
+                "from": {
+                    "label": "Date dropdown",
+                    "input": {
+                        "name": "dateDropdownFrom",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "title": "Date dropdown from"
                     }
-                ]
+                },
+                "to": {
+                    "label": "Date dropdown",
+                    "input": {
+                        "name": "dateDropdownTo",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "title": "Date dropdown to"
+                    }
+                }
+            },
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
             }
         }
     },
@@ -200,20 +212,22 @@
         "quantityDropdown": {
             "collapsed": {
                 "textField": {
-                    "label": "dropdown",
+                    "label": "Dropdown",
                     "input": {
                         "name": "dropdown",
                         "placeholder": "Конфигурация номера",
-                        "title": "Конфигурация номера"
+                        "title": "Filter dropdown"
                     }
                 },
-                "autoApply": "true",
+                "autoApply": true,
                 "counters": [
                     {
                         "label": "Спальни",
+                        "ariaLabel": "Спальни",
+                        "title": "Спальни",
                         "name": "bedrooms",
-                        "initValue": "2",
-                        "maxValue": "5",
+                        "initValue": 2,
+                        "maxValue": 5,
                         "plural": {
                             "one": "спальня",
                             "few": "спальни",
@@ -222,9 +236,11 @@
                     },
                     {
                         "label": "Кровати",
+                        "ariaLabel": "Кровати",
+                        "title": "Кровати",
                         "name": "beds",
-                        "initValue": "2",
-                        "maxValue": "5",
+                        "initValue": 2,
+                        "maxValue": 5,
                         "plural": {
                             "one": "кровать",
                             "few": "кровати",
@@ -233,9 +249,11 @@
                     },
                     {
                         "label": "Ванные комнаты",
+                        "ariaLabel": "Ванные комнаты",
+                        "title": "Ванные комнаты",
                         "name": "bathroom",
-                        "initValue": "1",
-                        "maxValue": "5",
+                        "initValue": 1,
+                        "maxValue": 5,
                         "plural": {
                             "one": "ванная комната",
                             "few": "ванные комнаты",
@@ -245,22 +263,24 @@
                 ]
             },
             "expanded": {
-                "expanded": "true",
+                "expanded": true,
                 "textField": {
                     "label": "dropdown",
                     "input": {
                         "name": "dropdown",
                         "placeholder": "Конфигурация номера",
-                        "title": "Конфигурация номера"
+                        "title": "Expanded filter dropdown"
                     }
                 },
-                "autoApply": "true",
+                "autoApply": true,
                 "counters": [
                     {
                         "label": "Спальни",
+                        "ariaLabel": "Спальни",
+                        "title": "Спальни",
                         "name": "bedrooms",
-                        "initValue": "2",
-                        "maxValue": "5",
+                        "initValue": 2,
+                        "maxValue": 5,
                         "plural": {
                             "one": "спальня",
                             "few": "спальни",
@@ -269,9 +289,11 @@
                     },
                     {
                         "label": "Кровати",
+                        "ariaLabel": "Кровати",
+                        "title": "Кровати",
                         "name": "beds",
-                        "initValue": "2",
-                        "maxValue": "5",
+                        "initValue": 2,
+                        "maxValue": 5,
                         "plural": {
                             "one": "кровать",
                             "few": "кровати",
@@ -280,9 +302,11 @@
                     },
                     {
                         "label": "Ванные комнаты",
+                        "ariaLabel": "Ванные комнаты",
+                        "title": "Ванные комнаты",
                         "name": "bathroom",
-                        "initValue": "1",
-                        "maxValue": "5",
+                        "initValue": 1,
+                        "maxValue": 5,
                         "plural": {
                             "one": "ванная комната",
                             "few": "ванные комнаты",
@@ -295,32 +319,44 @@
     },
     "filterDateDropdownSection": {
         "dateDropdown": {
-            "dropdown": {
-                "textField": {
-                    "label": "filter date dropdown",
-                    "input": {
-                        "name": "filterDateDropdown",
-                        "placeholder": "ДД.ММ - ДД.ММ",
-                        "title": "Время пребывания"
-                    }
+            "autoApply": true,
+            "textField": {
+                "label": "Filter date dropdown",
+                "input": {
+                    "name": "filterDateDropdown",
+                    "placeholder": "ДД.ММ - ДД.ММ",
+                    "title": "Date dropdown"
                 }
+            },
+            "datepicker": {
+                "initValue": [
+                    "19.08.2020",
+                    "23.08.2020"
+                ]
+            },
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
             }
         }
     },
     "subscribtionTextFieldSection": {
         "subscribtionField": {
             "textField": {
-                "label": "subscribtion text field",
-                "title": "Email",
+                "label": "Subscribtion text field",
+                "title": "Subscribtion text field",
                 "button": {
-                    "label": "Подписаться"
+                    "ariaLabel": "Подписаться",
+                    "title": "Submit button"
                 }
             }   
         }
     },
     "checkboxButtonsSection": {
+        "label": "Checkbox buttons",
         "list": {
-            "label": "checkbox buttons",
             "checkboxes": [
                 {
                     "name": "smoke",
@@ -329,25 +365,25 @@
                 {
                     "name": "pet",
                     "label": "Можно с питомцами",
-                    "checked": "true"
+                    "checked": true
                 },
                 {
                     "name": "guests",
                     "label": "Можно пригласить гостей (до 10 человек)",
-                    "checked": "true"
+                    "checked": true
                 }
             ]
         }
     },
     "radioButtonsSection": {
-        "label": "radio buttons",
+        "label": "Radio buttons",
         "radioBar": {
             "radioButtons": [
                 {
                     "name": "gender",
                     "value": "male",
                     "label": "Мужчина",
-                    "checked": "true"
+                    "checked": true
                 },
                 {
                     "name": "gender",
@@ -358,12 +394,12 @@
         }
     },
     "toggleSection": {
-        "label": "toggle",
+        "label": "Toggle",
         "toggle": [
             {
                 "name": "special",
                 "label": "Получать спецпредложения",
-                "checked": "true"
+                "checked": true
             },
             {
                 "name": "special",
@@ -372,10 +408,10 @@
         ]
     },
     "likeButtonSection": {
-        "label": "like button",
+        "label": "Like button",
         "like": [
             {
-                "count": "2",
+                "count": 2,
                 "ariaLabel": {
                     "plural": {
                         "one": "человек оценил",
@@ -391,8 +427,8 @@
                 }
             },
             {
-                "count": "12",
-                "active": "true",
+                "count": 12,
+                "active": true,
                 "ariaLabel": {
                     "plural": {
                         "one": "человек оценил",
@@ -410,7 +446,7 @@
         ]
     },
     "rateButtonSection": {
-        "label": "rate button",
+        "label": "Rate button",
         "rateBar": [
             {
                 "name": "test-1",
@@ -459,7 +495,7 @@
     },
     "rangeSection": {
         "slider": {
-            "label": "range slider",
+            "label": "Range slider",
             "range": [500, 16300],
             "initValue": [5000, 10000],
             "step": 100,
@@ -467,69 +503,68 @@
         }
     },
     "buttonsSection": {
-        "label": "buttons",
+        "label": "Buttons",
         "buttonsBar": [
             [
                 {
-                    "label": "click me",
+                    "label": "Click me",
                     "color": "purple",
-                    "fill": "true"
+                    "fill": true
                 },
                 {
-                    "label": "click me",
+                    "label": "Click me",
                     "color": "purple",
-                    "fill": "true",
-                    "disabled": "true"
+                    "fill": true,
+                    "disabled": true
                 }
             ],
             [
                 {
-                    "label": "click me",
+                    "label": "Click me",
                     "color": "purple",
-                    "border": "true"
+                    "border": true
                 },
                 {
-                    "label": "click me",
+                    "label": "Click me",
                     "color": "purple",
-                    "border": "true",
-                    "disabled": "true"
+                    "border": true,
+                    "disabled": true
                 }
             ],
             [
                 {
-                    "label": "click me",
+                    "label": "Click me",
                     "color": "purple",
-                    "link": "true"   
+                    "link": true   
                 },
                 {
-                    "label": "click me",
+                    "label": "Click me",
                     "color": "dark-shade",
-                    "link": "true"
+                    "link": true
                 }
             ]
         ],
         "submitButton": {
-            "label": "перейти к оплате",
+            "label": "Перейти к оплате",
             "color": "purple",
-            "fill": "true",
+            "fill": true,
             "icon": "arrow_forward"
         }
     },
     "paginationSection": {
-        "label": "pagination",
+        "label": "Pagination",
         "pagination": {
             "pages": [
                 {
                     "ariaLabel": "Перейти на предыдущую страницу",
                     "title": "Перейти на предыдущую страницу",
-                    "prev": "true",
+                    "prev": true,
                     "href": "#"
                 },
                 {
-                    "ariaLabel": "Перейти на страницу ",
-                    "title": "Перейти на страницу ",
-                    "active": "true",
-                    "href": "#"
+                    "ariaLabel": "Вы на этой странице",
+                    "title": "Вы на этой странице",
+                    "active": true
                 },
                 {
                     "ariaLabel": "Перейти на страницу ",
@@ -605,7 +640,7 @@
                 {
                     "ariaLabel": "Перейти на следующую страницу",
                     "title": "Перейти на следующую страницу",
-                    "next": "true",
+                    "next": true,
                     "href": "#"
                 }
             ],
@@ -615,7 +650,7 @@
     "expandableCheckboxListSection": {
         "expandableList": {
             "collapsed": {
-                "label": "expandable checkbox list",
+                "label": "Expandable checkbox list",
                 "list": {
                     "checkboxes": [
                         {
@@ -625,17 +660,17 @@
                         {
                             "name": "desk",
                             "label": "Письменный стол",
-                            "checked": "true"
+                            "checked": true
                         },
                         {
                             "name": "feedingChair",
                             "label": "Стул для кормления",
-                            "checked": "true"
+                            "checked": true
                         },
                         {
                             "name": "crib",
                             "label": "Кроватка",
-                            "checked": "true"
+                            "checked": true
                         },
                         {
                             "name": "tv",
@@ -649,8 +684,8 @@
                 }
             },
             "expanded": {
-                "label": "expandable checkbox list",
-                "expanded": "true",
+                "label": "Expandable checkbox list",
+                "expanded": true,
                 "list": {
                     "checkboxes": [
                         {
@@ -660,17 +695,17 @@
                         {
                             "name": "desk",
                             "label": "Письменный стол",
-                            "checked": "true"
+                            "checked": true
                         },
                         {
                             "name": "feedingChair",
                             "label": "Стул для кормления",
-                            "checked": "true"
+                            "checked": true
                         },
                         {
                             "name": "crib",
                             "label": "Кроватка",
-                            "checked": "true"
+                            "checked": true
                         },
                         {
                             "name": "tv",
@@ -686,29 +721,28 @@
         }  
     },
     "richCheckboxButtonsSection": {
+        "label": "Rich checkbox buttons",
         "list": {
-            "label": "rich checkbox buttons",
             "checkboxes": [
                 {
                     "name": "smoke",
                     "label": "Широкий коридор",
                     "description": "Ширина коридоров в номере\nне менее 91 см.",
-                    "title": "true"
+                    "title": true
                 },
                 {
                     "name": "pet",
                     "label": "Помощник для инвалидов",
                     "description": "На 1 этаже вас встретит специалист\nи проводит до номера.",
-                    "title": "true"
+                    "title": true
                 }
             ]
         }
     },
     "bulletListSection": {
+        "label": "Bullet list",
         "list": {
-            "label": "bullet list",
-            "bullet": "true",
-            "textNodes": [
+            "text": [
                 "Нельзя с питомцами",
                 "Без вечеринок и мероприятий",
                 "Время прибытия — после 13:00, а выезд до 12:00"
@@ -735,8 +769,8 @@
             "reviewDate": "5 дней назад",
             "reviewText": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
             "like": {
-                "count": "12",
-                "active": "true",
+                "count": 12,
+                "active": true,
                 "ariaLabelPlural": {
                     "plural": {
                         "one": "человек оценил",

@@ -33,8 +33,9 @@
 
 .menu__icon {
     font: var(--icon-font);
-    font-size: 24px;
+    font-size: 1.71428571429rem;
     color: var(--dark-shade-50per);
+    transition: transform .2s;
 }
 
 .menu_expanded .menu__icon,
@@ -43,16 +44,16 @@
     color: var(--dark-shade-75per);
 }
 
-.menu__button:active .menu__icon {
-    background-clip: text; 
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);   
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 @media (max-width: 879px) {
     .menu__icon {
         transform: rotate(-90deg);
+    }
+}
+
+@media (min-width: 880px) {  
+    .menu__button:active .menu__icon {      
+        transform:  translateY(5px);
+        transition: transform .2s;
     }
 }
 

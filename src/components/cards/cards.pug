@@ -2,7 +2,6 @@ include ../form-search/form-search
 include ../form-booking/form-booking
 include ../form-registration/form-registration
 include ../form-login/form-login
-include ../datepicker/datepicker
 include ../room-card/room-card
 
 mixin cards({ cards, rooms })
@@ -14,8 +13,6 @@ mixin cards({ cards, rooms })
             +form-booking({ formBooking: cards.formBooking, room: rooms[0]})
             +form-login(cards.formLogin)
         div(class = 'cards__column')
-            div(class = 'cards__datepicker')
-                +datepicker(cards.datepicker)
             each room in rooms
                 div(class = 'cards__room-card')
                     +room-card({ 

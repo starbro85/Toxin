@@ -1,7 +1,7 @@
 include ../button/button
 include ./counter/counter
 
-mixin quantity-dropdown({ textField,  expanded=false, autoApply, counters, controlPanel })
+mixin quantity-dropdown({ textField,  expanded=false, autoApply=false, counters={}, clearButton={}, applyButton={} })
     div(
         class = expanded ? 'quantity-dropdown quantity-dropdown_expanded js-quantity-dropdown' : 'quantity-dropdown js-quantity-dropdown'
         data-auto-apply = autoApply
@@ -41,14 +41,14 @@ mixin quantity-dropdown({ textField,  expanded=false, autoApply, counters, contr
                     div(class = 'quantity-dropdown__control-panel')
                         +button({
                             type: 'button',
-                            label: controlPanel.clearButton.label,
+                            label: clearButton.label,
                             link: true,
                             color: 'dark-shade',
                             controlClass: 'js-quantity-dropdown__clear-button'
                         })
                         +button({
                             type: 'button',
-                            label: controlPanel.applyButton.label,
+                            label: applyButton.label,
                             link: true,
                             color: 'purple',
                             controlClass: 'js-quantity-dropdown__apply-button'

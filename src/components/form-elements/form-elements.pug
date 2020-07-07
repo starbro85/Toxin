@@ -1,4 +1,4 @@
-include ../label-wrapper/label-wrapper
+include ./label-wrapper/label-wrapper
 include ../text-field/text-field
 include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
@@ -45,7 +45,8 @@ mixin form-elements({ formElements })
 
         div(class = 'form-elements__group-3')
             div(class = 'form-elements__checkbox-buttons-section')
-                +list(formElements.checkboxButtonsSection.list)
+                +label-wrapper({ label: formElements.checkboxButtonsSection.label })
+                    +list(formElements.checkboxButtonsSection.list)
             div(class = 'form-elements__radio-buttons-section')
                 +label-wrapper({ label: formElements.radioButtonsSection.label })
                     +radio-bar(formElements.radioButtonsSection.radioBar)
@@ -69,7 +70,8 @@ mixin form-elements({ formElements })
             div(class = 'form-elements__dropdown-section form-elements__dropdown-section_expanded')
                 +quantity-dropdown(formElements.dropdownSection.quantityDropdown.expanded)
             div(class = 'form-elements__rich-checkbox-buttons-section')
-                +list(formElements.richCheckboxButtonsSection.list)  
+                +label-wrapper({ label: formElements.richCheckboxButtonsSection.label })
+                    +list(formElements.richCheckboxButtonsSection.list)  
         
         div(class = 'form-elements__group-5')
             div(class = 'form-elements__range-section')
@@ -91,7 +93,8 @@ mixin form-elements({ formElements })
             div(class = 'form-elements__dropdown-section form-elements__dropdown-section_expanded')
                 +quantity-dropdown(formElements.dropdownSection.quantityDropdown.expanded)
             div(class = 'form-elements__bullet-list-section')
-                +list(formElements.bulletListSection.list) 
+                +label-wrapper({ label: formElements.bulletListSection.label })
+                    +list(formElements.bulletListSection.list) 
 
         div(class = 'form-elements__group-7')
             div(class = 'form-elements__features-section')
