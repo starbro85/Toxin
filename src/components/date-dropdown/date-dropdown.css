@@ -34,9 +34,10 @@
 /* container */
 
 .date-dropdown__container {
-    padding: min(4vw, 20px) min(4vw, 20px) min(4vw, 19px) min(4vw, 20px);
-    display: grid;
-    row-gap: min(3vw, 20px);
+    --padding: min(4%, 20px);
+    padding: var(--padding) var(--padding) var(--padding) var(--padding);
+    display: flex;
+    flex-direction: column;
     border: var(--border);
     border-radius: 3px;
     border-color: var(--dark-shade-50per);
@@ -81,6 +82,7 @@
 /* control panel */
 
 .date-dropdown__control-panel {
+    margin-top: min(4%, 20px);
     display: grid;
     grid-template-columns: max-content max-content;
     justify-content: space-between;

@@ -81,7 +81,7 @@ class DateDropdown {
 
         this.setClearButtonDisabledState();
     }
-
+ 
     setManualApplyMode() {
         this.datepicker.addEventListener('datepicker-data-sent', this.getDatepickerData);
 
