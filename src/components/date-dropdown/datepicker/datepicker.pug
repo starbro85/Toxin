@@ -1,0 +1,6 @@
+mixin datepicker({ initValue, lang })
+    div(
+        class = controlClass ? `datepicker js-datepicker ${controlClass}` : 'datepicker js-datepicker'
+        data-init-value = initValue
+        data-lang = lang
+    )

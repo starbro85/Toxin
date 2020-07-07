@@ -1,5 +1,87 @@
 /* date dropdown */
 
 .date-dropdown {
+    position: relative;
     width: min(100%, 320px);
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 10px;
+}
+
+/* viewport */
+
+.date-dropdown__viewport {
+    position: absolute;
+    z-index: -1;
+    --padding: 20px;
+    min-width: calc(100% + var(--padding) * 2); 
+    padding: 10px var(--padding) var(--padding) var(--padding);
+    overflow: hidden;
+    left: calc(var(--padding) * -1);
+    top: 60px;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility step-end .6s, opacity .6s, z-index step-end .6s;
+}
+
+.date-dropdown_expanded .date-dropdown__viewport {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .6s;
+}
+
+/* container */
+
+.date-dropdown__container {
+    padding: min(4vw, 20px) min(4vw, 20px) min(4vw, 19px) min(4vw, 20px);
+    display: grid;
+    row-gap: min(3vw, 20px);
+    border: var(--border);
+    border-radius: 3px;
+    border-color: var(--dark-shade-50per);
+    box-shadow: var(--shadow);
+    background-color: white;
+    transform: translateY(-100%);
+    transition: transform .6s;
+}
+
+.date-dropdown_expanded .date-dropdown__container {
+    transform: translateY(0);   
+    transition: transform .6s;
+}
+
+/* active class for text-field__input */
+
+.date-dropdown__button {
+    cursor: pointer;
+}
+
+.date-dropdown_expanded .date-dropdown__button {
+    border-color: var(--dark-shade-50per);
+}
+
+/* active class for text-field__icon */
+
+.date-dropdown__icon {
+    transition: transform .2s;
+}
+
+.date-dropdown_expanded .date-dropdown__icon {
+    color: var(--dark-shade-75per);
+}
+
+/* active class for text-field__icon/text-field__input */
+
+.date-dropdown__button:active + .date-dropdown__icon {
+    transform:  translateY(5px);
+    transition: transform .2s;
+}
+
+/* control panel */
+
+.date-dropdown__control-panel {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
 }
