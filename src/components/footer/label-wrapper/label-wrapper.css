@@ -1,0 +1,24 @@
+/* label-wrapper */
+
+.label-wrapper:not(.label-wrapper_visually-hidden) {
+    padding-top: 5px;
+    display: grid;
+    row-gap: 20px;
+}
+
+/* label */
+
+.label-wrapper__label:not(.label-wrapper__label_visually-hidden) {
+    font: var(--h3-font);
+    color: var(--dark-shade-100per);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.label-wrapper__label_visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
