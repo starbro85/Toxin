@@ -3,7 +3,7 @@ mixin ui-kit-layout({ backgroundColor })
     -let classes = 'ui-kit';
     -classes = backgroundColor ? `${classes} ui-kit_background-color_${backgroundColor}` : classes;
 
-    body(class = classes)
+    div(class = classes)
         header(class = 'ui-kit__header')
             a( 
                 class = 'ui-kit__link'

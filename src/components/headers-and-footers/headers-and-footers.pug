@@ -4,11 +4,13 @@ include ../footer/footer
 mixin headers-and-footers({ headersAndFooters, user })
     div(class = 'headers-and-footers')
         +header({
-            header: headersAndFooters.headerNoAuth
+            header: headersAndFooters.header
         })
     
+        -headersAndFooters.header.auth = true
+
         +header({
-            header: headersAndFooters.headerAuth,
+            header: headersAndFooters.header,
             user
         })
         +footer(headersAndFooters.footer)

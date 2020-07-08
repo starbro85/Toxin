@@ -23,12 +23,13 @@
 
 .checkbox__mark {
     grid-area: mark;
-    width: 20px; height: 20px;
+    width: 20px; 
+    height: 20px;
     padding-bottom: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: var(--border);
+    border: var(--border-1);
     border-radius: 4px;
 }
 
@@ -51,7 +52,8 @@
 
 .checkbox__mark::before {
     content: '';
-    width: 6px; height: 8px;
+    width: 6px; 
+    height: 8px;
     clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 66.666666666% 0%, 66.666666666% 75%, 0% 75%);
     transform: rotate(45deg);
     background: var(--purple-gradient);

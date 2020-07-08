@@ -51,8 +51,17 @@
     text-transform: uppercase;
 }
 
+@supports not (width: min(100%, 320px)) {
+    .link_button {
+        width: 100%;
+        max-width: 320px;
+        height: 100%;
+        max-height: 44px;
+    }
+}
+
 .link_button.link_filled {
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     background: var(--purple-gradient);
     color: white;
 }
@@ -72,8 +81,8 @@
 }
 
 .link_button.link_with_border {
-    padding: 0 18px 0 18px;
-    border: 2px solid var(--purple-100per);
+    padding: 0 18px;
+    border: var(--border-3);
     color: var(--purple-100per);
 }
 

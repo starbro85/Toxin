@@ -7,7 +7,7 @@
     --dark-shade-75per:         hsla(var(--dark-shade-hue), 35%, 19%, .75);
     --dark-shade-50per:         hsla(var(--dark-shade-hue), 35%, 19%, .50);
     --dark-shade-25per:         hsla(var(--dark-shade-hue), 35%, 19%, .25);
-    --dark-shade-10per:          hsla(var(--dark-shade-hue), 35%, 19%, .1);
+    --dark-shade-10per:         hsla(var(--dark-shade-hue), 35%, 19%, .1);
     --dark-shade-5per:          hsla(var(--dark-shade-hue), 35%, 19%, .05);
 
     /* purple color set */
@@ -27,8 +27,8 @@
     /* red color set */
     --red-hue:                  1;
     --red-100per:               hsla(var(--red-hue), 48%, 42%, 1);
-    --red-50per:               hsla(var(--red-hue), 48%, 72%, .5);
-    --red-25per:               hsla(var(--red-hue), 48%, 72%, .25);
+    --red-50per:                hsla(var(--red-hue), 48%, 72%, .5);
+    --red-25per:                hsla(var(--red-hue), 48%, 72%, .25);
 
     /* custom outline style */
 
@@ -36,13 +36,17 @@
 
     /* box-shadow */
 
-    --shadow:                   0 10px 20px var(--dark-shade-5per);
+    --shadow-1:                 0 10px 20px var(--dark-shade-5per);
+    --shadow-2:                 0 1px 10px var(--dark-shade-10per);
+    --shadow-3:                 0px 0px 25px rgba(0, 0, 0, 0.2);
     --shadow-hover:             0 0 2px var(--dark-shade-75per);
 
     /* border */
 
-    --border: 1px solid var(--dark-shade-25per);
-
+    --border-1:                 1px solid var(--dark-shade-25per);
+    --border-2:                 1px solid rgba(0, 0, 0, 0.12);
+    --border-3:                 2px solid var(--purple-100per);
+    
     /* fonts */
 
     --body-font:                normal 1rem/1.7142857142857142rem "Montserrat", sans-serif;

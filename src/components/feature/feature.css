@@ -10,7 +10,7 @@
         'icon description';
     grid-template-columns: max-content;
     column-gap: 10px;
-    border-bottom: var(--border);
+    border-bottom: var(--border-1);
     border-color: var(--dark-shade-10per);
 }
 
@@ -20,7 +20,8 @@
     grid-area: icon;
     font: var(--icon-font);
     font-size: 48px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);   
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background-clip: text;  
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

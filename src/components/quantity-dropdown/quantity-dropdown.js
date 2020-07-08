@@ -62,7 +62,7 @@ class QuantityDropdown {
 
     getInputSizeInChar() {
         const style = getComputedStyle(this.textField);
-        const inputWidth = parseInt(style.width);
+        const inputWidth = parseInt(style.width) - 35;
         const inputSizeInChar = Math.floor(inputWidth * 0.125);
 
         return inputSizeInChar;

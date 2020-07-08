@@ -1,7 +1,7 @@
 {
-    "headerNoAuth": {
+    "header": {
         "logoLink": {
-            "label": "Home",
+            "ariaLabel": "Home",
             "href": "landing-page.html",
             "title": "Go to home-page"
         },
@@ -96,115 +96,19 @@
             }
         },
         "button": {
-            "label": "Open main menu"
+            "ariaLabel": "Open main menu"
         },
         "userLink": {
             "href": "#",
             "title": "Go to your personal account"
         }
     },
-    "headerAuth": {
-        "logoLink": {
-            "label": "Home",
-            "href": "landing-page.html",
-            "title": "Go to home-page"
-        },
-        "nav": [
-            {
-                "label": "About Us",
-                "href": "#",
-                "title": "Learn more about us",
-                "bold": true
-            },
-            {
-                "isMenu": true,
-                "menu": {
-                    "label": "Services",
-                    "title": "Expand services-menu",
-                    "list": {
-                        "links": [
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "label": "Careers",
-                "href": "#",
-                "title": "Build a career with us"
-            },
-            {
-                "label": "News",
-                "href": "#",
-                "title": "Learn about the latest company news"
-            },
-            {
-                "isMenu": true,
-                "menu": {
-                    "label": "Documentation",
-                    "title": "Expand documentation-menu",
-                    "list": {
-                        "links": [
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            }
-                        ]
-                    }
-                }
-            }
-        ],
-        "signIn": {
-            "loginLink": {
-                "label": "Login",
-                "href": "#",
-                "title": "Go to login-page",
-                "button": true,
-                "border": true
-            },
-            "registrationLink": {
-                "label": "Register",
-                "href": "#",
-                "title": "Go to registration-page",
-                "button": true,
-                "fill": true
-            }
-        },
-        "userLink": {
-            "href": "#",
-            "title": "Go to your personal account"
-        },
-        "button": {
-            "label": "Open main menu"
-        },
-        "auth": true
-    },
     "footer": { 
+        "logoLink": {
+            "ariaLabel": "Домашняя страница",
+            "href": "landing-page.html",
+            "title": "Перейти на домашнюю страницу сайта"
+        },
         "awards": {
             "label": "Наши награды",
             "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"

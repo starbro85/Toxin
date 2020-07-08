@@ -1,5 +1,5 @@
 mixin label-wrapper({ label, hidden=false })
-    section(class = hidden ? 'label-wrapper label-wrapper_visually-hidden' : 'label-wrapper')
-        h3(class =  hidden ? 'label-wrapper__label label-wrapper__label_visually-hidden' : 'label-wrapper__label') #{label}
+    section(class = hidden ? 'footer-label-wrapper footer-label-wrapper_visually-hidden' : 'footer-label-wrapper')
+        h3(class =  hidden ? 'footer-label-wrapper__label footer-label-wrapper__label_visually-hidden' : 'footer-label-wrapper__label') #{label}
         if block
             block

@@ -4,38 +4,35 @@ include ../toggle/toggle
 include ../button/button
 include ../link/link
 
-mixin form-registration({ heading, nameInput, surnameInput, birthdayInput, emailInput, passwordInput, toggle, radioButtons, submitButton, loginText, loginLink })
+mixin form-registration({ heading, nameInput, surnameInput, birthdayInput, emailInput, passwordInput, toggle, radioBar, submitButton, loginText, loginLink })
     form(
         class = 'form-registration'
         name = 'registration' 
         method = 'get'
         autocomplete = 'off'
     )
-        div(class = 'form-registration__header')
-            h2(class = 'form-registration__title') #{heading}
-        div(class = 'form-registration__main')
-            div(class = 'form-registration__fieldset')
-                div(class = 'form-registration__name')
-                    +text-field(nameInput)
-                div(class = 'form-registration__surname')
-                    +text-field(surnameInput)
-                div(class = 'form-registration__gender-select')
-                    +radio-bar({radioButtons})
+        h2(class = 'form-registration__heading') #{heading}
+        div(
+            class = 'form-registration__fieldset'
+            role = 'group'
+        )
+            +text-field(nameInput)
+            +text-field(surnameInput)
+            +radio-bar(radioBar)
 
-            div(class = 'form-registration__input')
-                +text-field(birthdayInput)
-            
-            div(class = 'form-registration__fieldset')
-                div(class = 'form-registration__input')
-                    +text-field(emailInput)
-                div(class = 'form-registration__input')
-                    +text-field(passwordInput)
-                div(class = 'form-registration__special-request')
-                    +toggle(toggle)
-        div(class = 'form-registration__footer')
-            div(class = 'form-registration__submit-button')
-                +button(submitButton)
-            div(class = 'form-registration__login')
-                span(class = 'form-registration__login-text') #{loginText}
-                span(class = 'form-registration__login-link')
-                    +link(loginLink)
+        +text-field(birthdayInput)
+        
+        div(
+            class = 'form-registration__fieldset'
+            role = 'group'
+        )
+            +text-field(emailInput)
+            +text-field(passwordInput)
+            +toggle(toggle)
+
+        div(class = 'form-registration__submit-button')
+            +button(submitButton)
+        div(class = 'form-registration__login')
+            p(class = 'form-registration__login-text') #{loginText}
+            span(class = 'form-registration__login-link')
+                +link(loginLink)

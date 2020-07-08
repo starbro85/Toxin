@@ -36,7 +36,7 @@ const config = {
                 ],
             },
             {
-                test: /\.(ico|png|jpg|svg|gif|ttf|eot|woff|woff2|xml|webmanifest)$/,
+                test: /\.(ico|svg|jpg|png|gif|ttf|eot|woff|woff2|xml|webmanifest)$/,
                 loader: 'file-loader?name=[path][name].[ext]'
             }
         ]
@@ -69,6 +69,12 @@ const config = {
             title: 'headers-and-footers',
             filename: 'headers-and-footers.html',
             template: '../src/pages/headers-and-footers/headers-and-footers.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'landing-page',
+            filename: 'landing-page.html',
+            template: '../src/pages/landing-page/landing-page.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

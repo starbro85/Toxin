@@ -7,7 +7,7 @@ mixin counter({ label, ariaLabel, title, name, initValue, maxValue, plural, isBo
             class = 'counter__label'
         ) #{label}
         button(
-            class = 'counter__decrement js-counter__decrement'     
+            class = 'counter__control counter__control_decrement js-counter__control_decrement'     
             type = 'button'
             aria-hidden = 'true'
             tabindex = '-1'
@@ -30,7 +30,7 @@ mixin counter({ label, ariaLabel, title, name, initValue, maxValue, plural, isBo
             readonly
         )
         button(
-            class = 'counter__increment js-counter__increment'     
+            class = 'counter__control counter__control_increment js-counter__control_increment'     
             type = 'button'
             aria-hidden = 'true'
             tabindex = '-1'

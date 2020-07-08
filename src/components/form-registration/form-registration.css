@@ -3,31 +3,27 @@
 .form-registration {
     width: min(100%, 380px);
     padding: 38px min(5vw, 28px) 30px min(5vw, 28px);
+    display: grid;
+    row-gap: 20px;
     background-color: white;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-3);
+    border: var(--border-2);
     border-radius: 4px; 
 } 
 
-/*  title */
+@supports not (width: min(100%, 380px)) {
+    .form-registration {
+        width: 100%;
+        max-width: 380px;
+        padding: 38px 7.36% 30px 7.36%;
+    }
+}
 
-.form-registration__title {
+/*  heading */
+
+.form-registration__heading {
     font: var(--h1-font);
     color: var(--dark-shade-100per);
-}
-
-/* main */
-
-.form-registration__main {
-    display: grid;
-    row-gap: 20px;
-    padding: 20px 0 24px 0; 
-}
-
-/* gender select */
-
-.form-registration__gender-select {
-    height: 24px;
 }
 
 /* special request */
@@ -43,13 +39,6 @@
     row-gap: 10px;
 }
 
-/* footer */
-
-.form-registration__footer {
-    display: grid;
-    row-gap: 30px;
-}
-
 /* submit button */
 
 .form-registration__submit-button {
@@ -59,10 +48,9 @@
 /* login */
 
 .form-registration__login {
-    display: grid;
-    grid-template-areas: 
-        'text . link';
-    grid-template-columns: auto 1fr 99px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -77,6 +65,6 @@
 /* login link */
 
 .form-registration__login-link {
-    grid-area: link;
+    width: 99px;
     height: 44px;
 }

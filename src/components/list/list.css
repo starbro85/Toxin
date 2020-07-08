@@ -35,8 +35,10 @@
 .list_with_text .list__item:not(.list__item_heading)::before {
     content: '';
     position: absolute;
-    left: 0; top: 7px;
-    width: 10px; height: 10px;
+    left: 0; 
+    top: 7px;
+    width: 10px; 
+    height: 10px;
     border-radius: 50%;
     background-color: var(--dark-shade-25per);
 }

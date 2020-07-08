@@ -2,16 +2,18 @@
 */
 .room-card {
     width: 270px;
+    height: 257px;
     padding-bottom: 17px;
     display: grid;
-    gap: 20px 0;
+    row-gap: 20px;
     background-color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-1);
     border-radius: 4px; 
 }
 
 .room-card__carousel {
-    width: 270px; height: 151px;
+    width: 270px; 
+    height: 151px;
 }
 
 .room-card__info-header {
@@ -72,7 +74,8 @@
 
 .room-card__info-rating:after {
     position: absolute;
-    left: 20px; top: -8px;
+    left: 20px; 
+    top: -8px;
     content: '';
     width: calc(100% - 40px); height: 1px;
     background: var(--dark-shade-10per);

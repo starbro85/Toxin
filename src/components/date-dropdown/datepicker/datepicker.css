@@ -1,9 +1,5 @@
 /* datepicker */
 
-.datepicker {
-    display: grid;
-}
-
 /* flatpickr */
 
 .flatpickr-calendar {
@@ -19,14 +15,13 @@
 }
 
 .flatpickr-current-month {
-    display: grid;
-    grid-auto-flow: column;
-    column-gap: 5px;
+    display: flex;
     font: var(--h2-font);
 }
 
 .numInput {
     width: 50px;
+    margin-left: 5px;
     font-weight: bold;
     -moz-appearance: textfield;
 }
@@ -89,20 +84,24 @@
 .flatpickr-weekdaycontainer {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    justify-items: center;
-    align-items: center;
 }
 
 .flatpickr-weekday {
     padding-top: calc(50% - 1.05rem/2);
     padding-bottom: calc(50% - 1.05rem/2);
+    text-align: center;
     font: var(--h3-font); 
     color: var(--purple-100per);
 }
 
 .flatpickr-rContainer {
     margin-top: min(4%, 30px);
+}
+
+@supports not (margin-top: min(4%, 30px)) {
+    .flatpickr-rContainer {
+        margin-top: 30px;
+    }
 }
 
 .dayContainer {

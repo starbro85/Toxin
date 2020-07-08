@@ -3,8 +3,8 @@ import './counter.css';
 class Counter {
     constructor(node) {
         this.root = node;
-        this.decrement = this.root.querySelector('.js-counter__decrement');
-        this.increment = this.root.querySelector('.js-counter__increment');
+        this.decrement = this.root.querySelector('.js-counter__control_decrement');
+        this.increment = this.root.querySelector('.js-counter__control_increment');
         this.input = this.root.querySelector('.js-counter__input');
         this.value = Number(this.input.value);
         this.minValue = Number(this.input.getAttribute('aria-valuemin'));
@@ -82,7 +82,7 @@ class Counter {
         this.root.addEventListener('counter-value-clear', this.handleCounterClear)
         this.increment.addEventListener('click', this.handleCounterChange);   
         this.decrement.addEventListener('click', this.handleCounterChange);
-        this.input.addEventListener('keyup', this.handleCounterChange);
+        this.input.addEventListener('keydown', this.handleCounterChange);
         this.input.addEventListener('input', this.handleCounterChange);
     }
 };

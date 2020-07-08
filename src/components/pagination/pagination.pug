@@ -33,8 +33,8 @@ mixin pagination({ pages, description })
                         a(
                             href = data.href
                             class = 'pagination__link js-pagination__link'
-                            title = data.title
-                            aria-label = data.ariaLabel
+                            title = `${data.title} ${index}`
+                            aria-label = `${data.ariaLabel} ${index}`
                         ) #{index}
 
         if description

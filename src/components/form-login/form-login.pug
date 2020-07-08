@@ -8,20 +8,19 @@ mixin form-login({ heading, emailInput, passwordInput, submitButton, registratio
         name = 'login' 
         method = 'get'
     )
-        div(class = 'form-login__header')
-            h3(class = 'form-login__title') #{heading}
-
-        div(class = 'form-login__main')
-            div(class = 'form-login__fieldset')
-                div(class = 'form-login__input')
-                    +text-field(emailInput)
-                div(class = 'form-login__input')
-                    +text-field(passwordInput)
-
-        div(class = 'form-login__footer')
-            div(class = 'form-login__submit-button')
-                +button(submitButton)
-            div(class = 'form-login__registration')
-                span(class = 'form-login__registration-text') #{registrationText}
-                span(class = 'form-login__registration-link')
-                    +link(registrationLink)
+        h2(class = 'form-login__heading') #{heading}
+        div(
+            class = 'form-login__fieldset'
+            role = 'group'
+        )
+            div(class = 'form-login__input')
+                +text-field(emailInput)
+            div(class = 'form-login__input')
+                +text-field(passwordInput)
+                
+        div(class = 'form-login__submit-button')
+            +button(submitButton)
+        div(class = 'form-login__registration')
+            span(class = 'form-login__registration-text') #{registrationText}
+            span(class = 'form-login__registration-link')
+                +link(registrationLink)

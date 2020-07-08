@@ -4,10 +4,18 @@
     width: min(100%, 380px);
     padding: 45px min(5vw, 28px) 30px min(5vw, 28px);
     background-color: white;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-3);
+    border: var(--border-2);
     border-radius: 4px; 
 } 
+
+@supports not (width: min(100%, 380px)) {
+    .form-booking {
+        width: 100%;
+        max-width: 380px;
+        padding: 45px 7.36% 30px 7.36%;
+    }
+}
 
 /* header */
 
@@ -17,6 +25,16 @@
     grid-template-areas: 'header-room-number header-room-category . header-rent-price header-rent-period';
     align-items: baseline;
     font: var(--body-font);
+}
+
+/* heading */
+
+.form-booking__heading {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
 }
 
 /* header room number */
@@ -68,7 +86,7 @@
 
 .form-booking__main {
     display: grid;
-    gap: 20px 0;
+    row-gap: 20px;
     padding: 23px 0 30px 0; 
 }
 
@@ -76,17 +94,15 @@
 
 .form-booking__calc {
     display: grid;
-    gap: 10px 0;
+    row-gap: 10px;
 }
 
 /* calc detail */
 
 .form-booking__calc-detail {
-    display: grid;
+    display: flex;
     min-height: 24px;
-    grid-template-columns: max-content max-content;
     justify-content: space-between;
-    align-items: start;
 }
 
 /* calc description */
@@ -113,18 +129,14 @@
 
 /* footer */
 
-.form-booking__footer {
-    display: grid;
-    gap: 20px 0;
-}
-
 /* total */
 
 .form-booking__total {
+    margin-bottom: 20px;
     display: grid;
     grid-template-columns: max-content 1fr max-content;
     align-items: bottom;
-    gap: 0 5px;
+    column-gap: 5px;
 }
 
 /* total title */

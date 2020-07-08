@@ -29,34 +29,24 @@
                 "many": "Отзывов"
             }
         },
-        "image": {
-            "small": [
-                {
-                    "src": "./888_image_size_small_1.jpg",
-                    "alt": "image-1",
-                    "width": "268",
-                    "height": "151"
-                },
-                {
-                    "src": "./888_image_size_small_2.jpg",
-                    "alt": "image-2",
-                    "width": "268",
-                    "height": "151"
-                },
-                {
-                    "src": "./888_image_size_small_3.jpg",
-                    "alt": "image-3",
-                    "width": "268",
-                    "height": "151"
-                },
-                {
-                    "src": "./888_image_size_small_4.jpg",
-                    "alt": "image-4",
-                    "width": "268",
-                    "height": "151"
-                }
-            ]
-        }
+        "images": [
+            {
+                "src": "./888_image_1_271px.jpg",
+                "alt": "image-1"
+            },
+            {
+                "src": "./888_image_2_271px.jpg",
+                "alt": "image-2"
+            },
+            {
+                "src": "./888_image_3_271px.jpg",
+                "alt": "image-3"
+            },
+            {
+                "src": "./888_image_4_271px.jpg",
+                "alt": "image-4"
+            }
+        ]
     },
     {
         "id": "2",
@@ -87,33 +77,23 @@
                 "many": "Отзывов"
             }
         },
-        "image": {
-            "small": [
-                {
-                    "src": "./840_image_size_small_1.jpg",
-                    "alt": "image-1",
-                    "width": "268",
-                    "height": "151"
-                },
-                {
-                    "src": "./840_image_size_small_2.jpg",
-                    "alt": "image-2",
-                    "width": "268",
-                    "height": "151"
-                },
-                {
-                    "src": "./840_image_size_small_3.jpg",
-                    "alt": "image-3",
-                    "width": "268",
-                    "height": "151"
-                },
-                {
-                    "src": "./840_image_size_small_4.jpg",
-                    "alt": "image-4",
-                    "width": "268",
-                    "height": "151"
-                }
-            ]
-        }
+        "images": [
+            {
+                "src": "./840_image_1_271px.jpg",
+                "alt": "image-1"
+            },
+            {
+                "src": "./840_image_2_271px.jpg",
+                "alt": "image-2"
+            },
+            {
+                "src": "./840_image_3_271px.jpg",
+                "alt": "image-3"
+            },
+            {
+                "src": "./840_image_4_271px.jpg",
+                "alt": "image-4"
+            }
+        ]
     }
 ]

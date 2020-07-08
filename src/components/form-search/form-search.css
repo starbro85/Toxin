@@ -3,29 +3,32 @@
 .form-search {
     width: min(100%, 380px);
     padding: 38px min(5vw, 28px) 30px min(5vw, 28px);
+    display: grid;
+    row-gap: 21px;
     background-color: white;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-3);
+    border: var(--border-2);
     border-radius: 4px; 
 } 
 
-/*  title */
-
-.form-search__title {
-    font: var(--h1-font);
-    color: var(--dark-shade-100per);
+@supports not (width: min(100%, 380px)) {
+    .form-search {
+        width: 100%;
+        max-width: 380px;
+        padding: 38px 7.36% 30px 7.36%;
+    }
 }
 
-/* main */
+/*  heading */
 
-.form-search__main {
-    display: grid;
-    gap: 21px 0;
-    padding: 20px 0 31px 0; 
+.form-search__heading {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
 }
 
 /* submit button */
 
 .form-search__submit-button {
+    margin-top: 10px;
     height: 44px;
 }

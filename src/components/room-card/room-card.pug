@@ -5,26 +5,6 @@ mixin room-card({ roomCard, room })
     -
         const pluralize = require('../../globals/helpers/pluralize.js');
         const wrapWordIntoTag = require('../../globals/helpers/wrapWordIntoTag.js');
-
-        const img = [];
-        room.image.small.forEach((item, index) => {
-            let src;
-            try {
-                src = require.context('../../img', true)(`${item.src}`);
-            } 
-            catch(event) {
-                src = '';
-            }
-            img.push({
-                src: src.default,
-                alt: item.alt,
-                width: item.width,
-                height: item.height
-            });
-        })
-
-        
-
         const reviewCount = pluralize(roomCard.reviewPlural, room.reviews.count)
     
     div(class = 'room-card js-room-card')
@@ -32,7 +12,7 @@ mixin room-card({ roomCard, room })
             class = 'room-card__carousel'
         )
             +carousel({
-                img
+                images: room.images
             })
 
         div(class = 'room-card__info-header')

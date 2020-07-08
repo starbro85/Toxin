@@ -4,16 +4,27 @@
     width: min(100%, 320px);
 }
 
+@supports not (width: min(100%, 320px)) {
+    .text-field {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
 .text-field_with_button {
     display: grid;
     grid-template-columns: 1fr max-content;
     align-items: end;
 }
 
+.text-field__input-container {
+    display: grid;
+    row-gap: 5px;
+}
+
 /* label */
 
 .text-field__label {
-    margin-bottom: 5px;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
@@ -27,9 +38,10 @@
 /* input */
 
 .text-field__input {
-    width: 100%; height: 44px;
+    width: 100%; 
+    height: 44px;
     padding: 0 20px 0 15px;
-    border: var(--border);
+    border: var(--border-1);
     border-radius: 4px;
     background-color: white;
     font: var(--body-font);
@@ -59,6 +71,10 @@
     color: var(--dark-shade-75per);
 }
 
+.text-field__input:invalid {
+    box-shadow: none; /* reset firefox box-shadow for invalid input */
+}
+
 .text-field_with_button .text-field__input {
     border-right: none;
     border-top-right-radius: 0; border-bottom-right-radius: 0;
@@ -66,7 +82,7 @@
 
 .text-field_with_button .text-field__input:hover:not(:disabled),
 .text-field_with_button .text-field__input:focus {
-    border: var(--border);
+    border: var(--border-1);
     border-color: var(--dark-shade-50per);
 }
 
@@ -85,7 +101,8 @@
     z-index: -5;
     bottom: 0;
     left: 0;
-    width: 100%; height: 44px;
+    width: 100%; 
+    height: 44px;
     opacity: 0;
     pointer-events: none;
 }
@@ -99,7 +116,7 @@
 .text-field__button {
     position: relative;
     width: 100%;
-    border: var(--border);
+    border: var(--border-1);
     border-left: none; 
     border-top-right-radius: 4px; border-bottom-right-radius: 4px;
     width: 44px;
@@ -108,12 +125,12 @@
 }
 
 .text-field__button:hover:not(:disabled) {
-    border: var(--border);
+    border: var(--border-1);
     border-color: var(--dark-shade-50per);
 }
 
 .text-field__button:focus {
-    border: var(--border);
+    border: var(--border-1);
     border-color: var(--dark-shade-50per);
     outline: var(--outline);
     outline-offset: 2px;
@@ -129,7 +146,7 @@
     width: 44px;
     height: 44px;
     pointer-events: none;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     font: var(--icon-font);

@@ -10,7 +10,7 @@ mixin header({ header, user })
                     class = 'header__logo-link' 
                     href = header.logoLink.href
                     title = header.logoLink.title
-                    aria-label = header.logoLink.label
+                    aria-label = header.logoLink.ariaLabel
                 )
                         +logo()
 
@@ -18,7 +18,7 @@ mixin header({ header, user })
                 class = 'header__button js-header__button'
                 aria-expanded = 'false'
                 aria-controls = 'header__nav header__sign-in'
-                aria-label = header.button.label
+                aria-label = header.button.ariaLabel
             )
                 span(class = 'header__button-icon') 
             
@@ -36,17 +36,7 @@ mixin header({ header, user })
                             li(class = 'header__nav-item')
                                 +link(data)
                     
-                    if !header.auth
-                        li(
-                            class = 'header__nav-separator header__nav-separator_mobile-only'
-                            aria-hidden = 'true'
-                        )
-                        li(class = 'header__nav-item')
-                            +link(header.signIn.loginLink)
-                        li(class = 'header__nav-item')
-                            +link(header.signIn.registrationLink)
-
-                    else 
+                    if header.auth
                         li(
                             class = 'header__nav-separator'
                             aria-hidden = 'true'
@@ -57,3 +47,13 @@ mixin header({ header, user })
                                 href: header.userLink.href,
                                 title: header.userLink.title
                             })
+                        
+                    else 
+                        li(
+                            class = 'header__nav-separator header__nav-separator_mobile-only'
+                            aria-hidden = 'true'
+                        )
+                        li(class = 'header__nav-item')
+                            +link(header.signIn.loginLink)
+                        li(class = 'header__nav-item')
+                            +link(header.signIn.registrationLink)

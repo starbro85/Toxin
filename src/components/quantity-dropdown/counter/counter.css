@@ -41,13 +41,10 @@
     margin: 0;
 }
 
-/* decrement */
-
-.counter__decrement {
-    grid-area: decrement;
+.counter__control {
     width: 30px; height: 30px;
     background: white;
-    border: var(--border);
+    border: var(--border-1);
     border-color: var(--dark-shade-25per);
     border-radius: 50%;
     font: var(--body-font);
@@ -57,61 +54,31 @@
     cursor: pointer;
 }
 
-.counter__decrement:active {
+.counter__control:active {
     border-color: var(--dark-shade-5per);
     transition: border .2s;  
 }
 
-.counter__decrement:hover:not(:disabled) {
+.counter__control:hover:not(:disabled) {
     box-shadow: var(--shadow-hover);
 }
 
-.counter__decrement:disabled {
+.counter__control:disabled {
     border-color: var(--dark-shade-5per);
     transition: border .2s; 
     color: var(--dark-shade-25per);
     cursor: default;
 }
 
-.counter__decrement:focus {
-    outline: none
-}
-
-
-/* increment */
-
-.counter__increment {
-    grid-area: increment;
-    width: 30px; height: 30px;
-    background: white;
-    border: var(--border);
-    border-color: var(--dark-shade-25per);
-    border-radius: 50%;
-    font: var(--body-font);
-    font-size: 14px;
-    line-height: 24px;
-    color: var(--dark-shade-50per);
-    cursor: pointer;
-}
-
-.counter__increment:active {
-    border-color: var(--dark-shade-5per);
-    transition: border .2s;  
-}
-
-.counter__increment:hover:not(:disabled) {
-    box-shadow: var(--shadow-hover);
-}
-
-.counter__increment:disabled {
-    border-color: var(--dark-shade-5per);
-    transition: border .2s; 
-    color: var(--dark-shade-25per);
-    cursor: default;
-}
-
-.counter__increment:focus {
+.counter__control:focus {
     outline: none;
 }
 
+.counter__control_decrement {
+    grid-area: decrement;
+}
+
+.counter__control_increment {
+    grid-area: increment;
+}
 

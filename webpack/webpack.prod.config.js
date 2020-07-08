@@ -44,6 +44,11 @@ const config = {
             filename: 'headers-and-footers.html',
             template: '../src/pages/headers-and-footers/headers-and-footers.pug',
         }),
+        new HtmlWebpackPlugin({
+            title: 'landing-page',
+            filename: 'landing-page.html',
+            template: '../src/pages/landing-page/landing-page.pug',
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',
         })

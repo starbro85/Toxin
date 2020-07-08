@@ -8,7 +8,7 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
     -rootClasses = activeClass ? `${rootClasses} ${activeClass}` : rootClasses;
     
     div(class = rootClasses)
-        label
+        label(class = 'text-field__input-container')
             if label 
                 span(class = 'text-field__label') #{label}
 

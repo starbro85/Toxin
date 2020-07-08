@@ -137,19 +137,22 @@
                 "ariaLabel": "Введите фамилию"
             }
         },
-        "radioButtons": [
-            {
-                "label": "Мужчина",
-                "name": "gender",
-                "value": "male",
-                "checked": true
-            },
-            {
-                "label": "Женщина",
-                "name": "gender",
-                "value": "female"
-            }
-        ],
+        "radioBar": {
+            "ariaLabel": "Выберите свой пол",
+            "radioButtons": [
+                {
+                    "label": "Мужчина",
+                    "name": "gender",
+                    "value": "male",
+                    "checked": true
+                },
+                {
+                    "label": "Женщина",
+                    "name": "gender",
+                    "value": "female"
+                }
+            ]
+        },
         "birthdayInput": {
             "label": "Дата рождения",
             "input": {
@@ -202,6 +205,7 @@
         }
     },
     "formBooking": {
+        "heading": "Форма бронирования номера",
         "total": {
             "label": "Итого"
         },

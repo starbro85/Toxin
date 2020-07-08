@@ -22,9 +22,18 @@
     border-radius: 22px;
 }
 
+@supports not (width: min(100%, 320px)) {
+    .button:not(.button_link) {
+        width: 100%;
+        max-width: 320px;
+        height: 100%;
+        max-height: 44px;
+    }
+}
+
 .button:not(.button_link).button:not(.button_link).button_with_border {
     padding: 0 18px 0 18px;
-    border: 2px solid var(--purple-100per);
+    border: var(--border-3);
     color: var(--purple-100per);
 }
 
@@ -34,7 +43,7 @@
 }
 
 .button:not(.button_link).button_with_border:disabled {
-    border: 2px solid var(--purple-50per);
+    border-color: var(--purple-50);
 }
 
 .button:not(.button_link).button_with_border:not(:disabled):hover {
@@ -61,8 +70,6 @@
 }
 
 .button_link {
-   width: max-content;
-   height: max-content; 
    transition: opacity .2s;
 }
 
@@ -107,8 +114,6 @@
     position: absolute;
     right: 0;
     width: 44px;
-    display: flex;
-    justify-content: center; align-items: center;  
     font: var(--icon-font);
     font-size: 24px;
     pointer-events: none;

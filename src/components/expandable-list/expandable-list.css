@@ -1,12 +1,20 @@
 /* button */
 
 .expandable-list__button {
-    width: 100%; height: 44px;
+    width: min(100%, 320px);
+    height: 44px;
     padding-right: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+}
+
+@supports not (width: min(100%, 320px)) {
+    .expandable-list__button {
+        width: 100%;
+        max-width: 320px;
+    }
 }
 
 .expandable-list__button:focus {
@@ -24,9 +32,6 @@
 /* icon */
 
 .expandable-list__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;   
     font: var(--icon-font);
     font-size: 1.71428571429rem;
     color: var(--dark-shade-50per);

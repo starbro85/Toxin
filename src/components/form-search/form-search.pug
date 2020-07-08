@@ -9,13 +9,8 @@ mixin form-search({ heading, dateDropdown, quantityDropdown, submitButton })
         method = 'get'
         autocomplete = 'off'
     )
-        div(class = 'form-search__header')
-            h2(class = 'form-search__title') #{heading}
-        div(class = 'form-search__main')
-            div(class = 'form-search__date-input')
-                +date-dropdown(dateDropdown)
-            div(class = 'form-search__quantity-input')
-                +quantity-dropdown(quantityDropdown)
-        div(class = 'form-search__footer')
-            div(class = 'form-search__submit-button')
-                +button(submitButton)
+        h2(class = 'form-search__heading') #{heading}
+        +date-dropdown(dateDropdown)
+        +quantity-dropdown(quantityDropdown)
+        div(class = 'form-search__submit-button')
+            +button(submitButton)

@@ -4,11 +4,17 @@ include ../logo/logo
 include ../list/list
 include ../subscribtion-field/subscribtion-field
 
-mixin footer({ awards, nav, about, support, subscribtion, copyright, social })
+mixin footer({ logoLink, awards, nav, about, support, subscribtion, copyright, social })
     footer(class = 'footer')
         div(class = 'footer__content')
             div(class = 'footer__logo')
-                +logo()
+                a(
+                    class = 'footer__logo-link' 
+                    href = logoLink.href
+                    title = logoLink.title
+                    aria-label = logoLink.ariaLabel
+                )
+                    +logo()
                 
             div(class = 'footer__awards') 
                 +label-wrapper({

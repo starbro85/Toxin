@@ -1,13 +1,9 @@
 /* label-wrapper */
 
-.label-wrapper {
-    display: grid;
-    row-gap: 16px;
-}
-
 /* label */
 
-.label-wrapper__label {
+.form-elements-label-wrapper__form-label {
+    margin-bottom: 16px;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;

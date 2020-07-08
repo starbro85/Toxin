@@ -3,39 +3,34 @@
 .form-login {
     width: min(100%, 380px);
     padding: 38px min(5vw, 30px) 33px min(5vw, 28px);
+    display: grid;
+    row-gap: 20px;
     background-color: white;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-3);
+    border: var(--border-2);
     border-radius: 4px; 
 } 
 
-/*  title */
-
-.form-login__title {
-    font: var(--h1-font);
-    color: var(--dark-shade-100per);
+@supports not (width: min(100%, 380px)) {
+    .form-login {
+        width: 100%;
+        max-width: 380px;
+        padding: 38px 7.36% 33px 7.36%;
+    }
 }
 
-/* main */
+/*  heading */
 
-.form-login__main {
-    display: grid;
-    gap: 20px 0;
-    padding: 20px 0 20px 0; 
+.form-login__heading {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
 }
 
 /* fieldset */
 
 .form-login__fieldset {
     display: grid;
-    gap: 10px 0;
-}
-
-/* footer  */
-
-.form-login__footer {
-    display: grid;
-    row-gap: 30px;
+    row-gap: 10px;
 }
 
 /* submit button */
@@ -47,10 +42,9 @@
 /* registration */
 
 .form-login__registration {
-    display: grid;
-    grid-template-areas: 
-        'text . link';
-    grid-template-columns: max-content 1fr 99px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -64,6 +58,6 @@
 /* registration button */
 
 .form-login__registration-link {
-    grid-area: link;
+    width: 99px;
     height: 44px;
 }

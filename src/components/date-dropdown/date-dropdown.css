@@ -8,6 +8,12 @@
     column-gap: 10px;
 }
 
+@supports not (width: min(100%, 320px)) {
+    .date-dropdown {
+        width: 100%;
+    }
+}
+
 /* viewport */
 
 .date-dropdown__viewport {
@@ -34,18 +40,17 @@
 /* container */
 
 .date-dropdown__container {
-    --padding: min(4%, 20px);
+    --padding: 6.25%;
     padding: var(--padding) var(--padding) var(--padding) var(--padding);
-    display: flex;
-    flex-direction: column;
-    border: var(--border);
+    border: var(--border-1);
     border-radius: 3px;
     border-color: var(--dark-shade-50per);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-1);
     background-color: white;
     transform: translateY(-100%);
     transition: transform .6s;
 }
+
 
 .date-dropdown_expanded .date-dropdown__container {
     transform: translateY(0);   
@@ -82,8 +87,7 @@
 /* control panel */
 
 .date-dropdown__control-panel {
-    margin-top: min(4%, 20px);
-    display: grid;
-    grid-template-columns: max-content max-content;
+    margin-top: 6.25%;
+    display: flex;
     justify-content: space-between;
 }

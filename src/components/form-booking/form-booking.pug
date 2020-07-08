@@ -10,6 +10,7 @@ mixin form-booking({ formBooking, room })
         autocomplete = 'off'
     )
         div(class = 'form-booking__header')  
+            h2(class = 'form-booking__heading') #{formBooking.heading}
             p(class = 'form-booking__header-room-number ') № #{room.number} 
 
             if room.category

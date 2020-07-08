@@ -35,7 +35,7 @@
     height: 6px;
     align-self: end;
     border-radius: 3px;
-    border: var(--border);
+    border: var(--border-1);
 }
 
 /* base */
