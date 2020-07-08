@@ -5,7 +5,7 @@ include ../../components/form-search/form-search
 include ../../components/carousel/carousel
 
 block title
-    | Главная страница
+    | Найдём номера под ваши пожелания.
 
 block content
     -const landingPage = require('./../../globals/mocks/landing-page.json');
@@ -18,7 +18,7 @@ block content
         })
         main(class = 'landing-page')
             h1(class = 'landing-page__heading') #{landingPage.heading}
-            section(class = 'landing-page__content')
+            div(class = 'landing-page__content')
                 +form-search(landingPage.formSearch)
             div(
                 class = 'landing-page__presentation'
