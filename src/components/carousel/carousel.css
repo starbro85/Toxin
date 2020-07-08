@@ -2,44 +2,50 @@
 
 .carousel {
     position: relative;
-    height: 100%;
+    height: auto;
 }
 
 /* track */
 
-.glide__track {
-    height: 100%;
+.carousel__track {
+    max-width: 100vw;
 }
 
 /* slides */
 
-.glide__slides {
-    height: 100%;
+.carousel__slides {
+    align-items: flex-end;
 }
 
 /* slide */
 
-.glide__slide {
+.carousel__slide {
     height: 100%;
+    max-width: max-content;
+}
+
+/* picture */
+
+.carousel__picture {
+    display: grid; 
 }
 
 /* controls */
 
-.glide__controls {
+.carousel__controls {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 42px;
+    display: flex;
     justify-content: space-between;
 }
 
 /* prev-button */
 
-.glide__prev-button {
+.carousel__control-button {
+    width: 42px;
     z-index: 1;
     font: var(--icon-font);
     font-size: 24px;
@@ -47,66 +53,46 @@
     cursor: pointer;
 }
 
-/* prev-button-icon */
-
-.glide__prev-button-icon {
-    transform: rotate(90deg);
-}
-
-.glide__prev-button:hover {
+.carousel__control-button:hover {
     background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-25per) 100%);
 }
 
-.glide__prev-button:focus {
+.carousel__control-button:focus {
     background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
     outline: var(--outline);
     outline-offset: 2px;
 }
 
-/* next-button */
+/* control-button-icon */
 
-.glide__next-button {
-    z-index: 1;
-    font: var(--icon-font);
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
+.carousel__control-button-icon_prev {
+    transform: rotate(90deg);
 }
 
-.glide__next-button:hover {
-    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
-}
-
-.glide__next-button:focus {
-    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
-    outline: var(--outline);
-    outline-offset: 2px;
-}
-
-/* next-button-icon */
-
-.glide__next-button-icon {
+.carousel__control-button-icon_next {
     transform: rotate(-90deg);
 }
 
+
 /* bullets */
 
-.glide__bullets {
+.carousel__bullets {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    display: grid;
-    grid-auto-flow: column;
-    column-gap: 3.75px;
 }
 
 /* bullet */
 
-.glide__bullet {
+.carousel__bullet {
     width: 7.5px;
     height: 7.5px;
     border: 1px solid white;
     border-radius: 50%;
+}
+
+.carousel__bullet:not(:last-child) {
+    margin-right: 1.75px;
 }
 
 .glide__bullet--active {

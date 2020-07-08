@@ -1,0 +1,14 @@
+include ../header/header
+include ../footer/footer
+
+mixin layout({ header, footer, user })
+    div(class = 'layout')
+        div(class = 'layout__header')
+            +header({ header, user })
+
+        div(class = 'layout__main')
+            if block
+                block
+
+        div(class = 'layout__footer')
+            +footer(footer)

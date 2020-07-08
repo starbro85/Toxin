@@ -1,47 +1,83 @@
-mixin carousel({ img, showControls=true, showBullets=true, autoPlay=false })
-    div(class = 'carousel js-carousel glide')
+mixin carousel({ images, perView=1, showControls=true, showBullets=true, autoPlay=false })
+    div(
+        class = 'carousel js-carousel glide'
+        data-auto-play = autoPlay
+        data-per-view = perView
+    )
         div(
-            class = 'glide__track' 
+            class = 'carousel__track glide__track' 
             data-glide-el = 'track'
-            data-auto-play = autoPlay
         )
-            ul(class = 'glide__slides')
-                each item in img
-                    li(class = 'glide__slide') 
-                        img(
-                            class = 'glide__image' 
-                            src = item.src
-                            alt = item.alt
-                            width = item.width
-                            height = item.height
-                        )
+            ul(class = 'carousel__slides glide__slides')    
+                each img in images
+                    -let src;
+                    -let source;
+                    -
+                        try {
+                            src = require.context('../../img', true)(`${img.src}`);
+                        } 
+                        catch(event) {
+                            src = '';
+                        }
+
+                        source = img.source ? img.source.map((item) => {
+                            let res = {};
+
+                            try {
+                                res.srcset = require.context('../../img', true)(`${item.srcset}`);
+                            }
+                            catch(event) {
+                                res.srcset = '';
+                            }
+
+                            if (item.srcset) {
+                                res.media = item.media;
+                            }
+
+                            return res;
+                        }) : '';
+
+                    li(class = 'carousel__slide glide__slide') 
+                        picture(class = 'carousel__picture')
+                            if img.source
+                                each res in source
+                                    source(
+                                        media = res.media 
+                                        srcset = res.srcset.default
+                                    )
+
+                            img(
+                                class = 'carousel__image'
+                                src = src.default
+                                alt = img.alt
+                            )
         
         if showControls
             div(
-                class = 'glide__controls' 
+                class = 'carousel__controls glide__controls' 
                 data-glide-el = 'controls'
                 )
                 button(
-                    class = 'glide__prev-button' 
+                    class = 'carousel__control-button glide__next-button' 
                     data-glide-dir = '<'
                     aria-label = 'Предыдущий слайд'
                 ) 
-                    div(class = 'glide__prev-button-icon') expand_more
+                    div(class = 'carousel__control-button-icon  carousel__control-button-icon_prev') expand_more
                 button(
-                    class = 'glide__next-button' 
+                    class = 'carousel__control-button glide__next-button' 
                     data-glide-dir = '>'
                     aria-label = 'Следующий слайд'
                 ) 
-                    div(class = 'glide__next-button-icon') expand_more
+                    div(class = 'carousel__control-button-icon carousel__control-button-icon_next') expand_more
 
         if showBullets
             div(
-                class = 'glide__bullets' 
+                class = 'carousel__bullets glide__bullets' 
                 data-glide-el = 'controls[nav]'
             ) 
-                each item, index in img
+                each item, index in images
                     button(
-                        class = 'glide__bullet' 
+                        class = 'carousel__bullet glide__bullet' 
                         data-glide-dir = `=${index}`
                         aria-hidden = 'true'
                         disabled

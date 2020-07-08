@@ -1,0 +1,34 @@
+extends ../../globals/template
+
+include ../../components/layout/layout
+include ../../components/form-search/form-search
+include ../../components/carousel/carousel
+
+block title
+    | Главная страница
+
+block content
+    -const landingPage = require('./../../globals/mocks/landing-page.json');
+    -const user = require('./../../globals/mocks/user.json');
+
+    +layout({
+            header: landingPage.header,
+            footer: landingPage.footer,
+            user
+        })
+        main(class = 'landing-page')
+            h1(class = 'landing-page__heading') #{landingPage.heading}
+            section(class = 'landing-page__content')
+                +form-search(landingPage.formSearch)
+            div(
+                class = 'landing-page__presentation'
+                role = 'presentation'
+            )
+                div(class = 'landing-page__carousel')
+                    +carousel({
+                        images: landingPage.presentation.images,
+                        autoPlay: '10000',
+                        showBullets: false,
+                        showControls: false,
+                        perView: 3
+                    })
