@@ -77,6 +77,30 @@ const config = {
             template: '../src/pages/landing-page/landing-page.pug',
             alwaysWriteToDisk: true,
         }),
+        new HtmlWebpackPlugin({
+            title: 'search-room',
+            filename: 'search-room.html',
+            template: '../src/pages/search-room/search-room.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'room-detail',
+            filename: 'room-detail.html',
+            template: '../src/pages/room-detail/room-detail.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'registration-page',
+            filename: 'registration-page.html',
+            template: '../src/pages/registration-page/registration-page.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'login-page',
+            filename: 'login-page.html',
+            template: '../src/pages/login-page/login-page.pug',
+            alwaysWriteToDisk: true,
+        }),
         new HtmlWebpackHardDiskPlugin(),
     ],
     devServer: { 

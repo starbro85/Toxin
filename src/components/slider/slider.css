@@ -79,4 +79,21 @@
     outline-offset: 2px;
 }
 
+/* tooltip */
 
+.slider .slider__range .slider__tooltip {
+    visibility: hidden;
+    opacity: 0;
+    padding: 5px;
+    font: lighter 12px Arial;
+    background-color: ivory;
+    border: 1px solid black;
+    color: black;
+    border-radius: 0;
+}
+
+.slider__handle:hover .slider__tooltip {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity step-end 0.5s;
+}

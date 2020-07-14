@@ -7,7 +7,6 @@ const autoprefixer = require('autoprefixer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
-
 const config = {
     context: path.resolve(__dirname, '..', 'src'),
     optimization: {
@@ -48,6 +47,26 @@ const config = {
             title: 'landing-page',
             filename: 'landing-page.html',
             template: '../src/pages/landing-page/landing-page.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'search-room',
+            filename: 'search-room.html',
+            template: '../src/pages/search-room/search-room.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'room-detail',
+            filename: 'room-detail.html',
+            template: '../src/pages/room-detail/room-detail.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'registration-page',
+            filename: 'registration-page.html',
+            template: '../src/pages/registration-page/registration-page.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'login-page',
+            filename: 'login-page.html',
+            template: '../src/pages/login-page/login-page.pug',
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',

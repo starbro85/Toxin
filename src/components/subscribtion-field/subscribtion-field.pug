@@ -8,7 +8,8 @@ mixin subscribtion-field({ textField })
                 type: 'email', 
                 placeholder: 'Email',
                 required: 'true',
-                title: textField.title
+                title: textField.input.ariaLabel,
+                ariaLabel: textField.input.ariaLabel
             },
             button: {
                 ariaLabel: textField.button.ariaLabel,

@@ -1,3 +1,5 @@
+/* landing page */
+
 .landing-page {
     position: relative;
     display: grid;
@@ -18,19 +20,10 @@
     }
 }
 
-/* heading */
-
-.landing-page__heading {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-}
-
 /* content */
 
 .landing-page__content {
+    position: relative;
     width: min(90vw, 1159px);
     grid-column: 2;
 }
@@ -50,9 +43,26 @@
     }
 }
 
-/* presentation */
+/* tagline */ 
 
-.landing-page__presentation {
+.landing-page__tagline {
+    position: absolute;
+    bottom: 18px;
+    right: 0;
+    max-width: 297px;
+    font: var(--body-font);
+    color: var(--dark-shade-75per);
+}
+
+@media (max-width: 879px) {
+    .landing-page__tagline {
+        display: none;
+    }
+}
+
+/* slideshow */
+
+.landing-page__slideshow {
     position: absolute;
     min-width: 100vw;
     bottom: 0;

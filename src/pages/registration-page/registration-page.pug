@@ -1,0 +1,29 @@
+extends ../../globals/template
+
+include ../../components/layout/layout
+include ../../components/form-registration/form-registration
+include ../../components/carousel/carousel
+
+block variables
+    -const registrationPage = require('./../../globals/mocks/registration-page.json');
+    -const lang = registrationPage.lang;
+    -const title = registrationPage.title;
+    -const description = registrationPage.description;
+    
+block content
+    +layout({
+            heading: registrationPage.heading,
+            header: registrationPage.header,
+            footer: registrationPage.footer
+        })
+        main(class = 'registration-page')
+            div(class = 'registration-page__content')
+                +form-registration(registrationPage.formRegistration)
+            div(class = 'registration-page__slideshow')
+                div(class = 'registration-page__carousel')
+                    +carousel({
+                        images: registrationPage.slideshow.images,
+                        autoPlay: '7000',
+                        showBullets: false,
+                        showControls: false
+                    })

@@ -1,0 +1,73 @@
+/* doughnut chart */
+
+.doughnut-chart {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* container */
+
+.doughnut-chart__container {
+    position: relative;
+    width: 121px;
+    height: 121px;
+}
+
+/* label */
+
+.doughnut-chart__title {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    bottom: 0; 
+    width: 100%;
+    height: 100%;
+    font: var(--body-font);
+    color: var(--purple-100per);
+    font-weight: bold;
+}
+
+.doughnut-chart__first-word {
+    font: var(--h1-font);
+}
+
+/* tooltip */
+
+.doughnut-chart__tooltip {
+    padding: 5px;
+    font: lighter 12px Arial;
+    background-color: ivory;
+    border: 1px solid black;
+    color: black;
+    white-space: nowrap;
+}
+
+/* legend */
+
+.doughnut-chart__legend {
+    margin-left: 30px;
+    display: grid;
+    grid-auto-rows: max-content;
+    font: var(--body-font);
+    color: var(--dark-shade-75per);
+    list-style: none;
+}
+
+.doughnut-chart__legend-item {
+    position: relative;
+    padding-left: 20px;
+}
+
+.doughnut-chart__legend-item::before {
+    content: '';
+    position: absolute;
+    left: 0; 
+    top: 7px;
+    width: 10px; 
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--chart-color);
+}

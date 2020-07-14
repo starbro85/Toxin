@@ -4,31 +4,29 @@ include ../../components/layout/layout
 include ../../components/form-search/form-search
 include ../../components/carousel/carousel
 
-block title
-    | Найдём номера под ваши пожелания.
-
-block content
+block variables
     -const landingPage = require('./../../globals/mocks/landing-page.json');
-    -const user = require('./../../globals/mocks/user.json');
-
+    -const user = require('./../../globals/mocks/users.json')['#1'];
+    -const lang = landingPage.lang;
+    -const title = landingPage.title;
+    -const description = landingPage.description;
+    
+block content
     +layout({
+            heading: landingPage.heading,
             header: landingPage.header,
             footer: landingPage.footer,
-            user
+            user: user
         })
         main(class = 'landing-page')
-            h1(class = 'landing-page__heading') #{landingPage.heading}
             div(class = 'landing-page__content')
+                p(class = 'landing-page__tagline') #{landingPage.tagline}
                 +form-search(landingPage.formSearch)
-            div(
-                class = 'landing-page__presentation'
-                role = 'presentation'
-            )
+            div(class = 'landing-page__slideshow')
                 div(class = 'landing-page__carousel')
                     +carousel({
-                        images: landingPage.presentation.images,
-                        autoPlay: '10000',
+                        images: landingPage.slideshow.images,
+                        autoPlay: '7000',
                         showBullets: false,
-                        showControls: false,
-                        perView: 3
+                        showControls: false
                     })

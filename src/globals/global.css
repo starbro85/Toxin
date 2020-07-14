@@ -37,8 +37,9 @@
     /* box-shadow */
 
     --shadow-1:                 0 10px 20px var(--dark-shade-5per);
-    --shadow-2:                 0 1px 10px var(--dark-shade-10per);
+    --shadow-2:                 0 -10px 20px var(--dark-shade-5per);
     --shadow-3:                 0px 0px 25px rgba(0, 0, 0, 0.2);
+    --shadow-4:                 0 1px 0 var(--dark-shade-5per);
     --shadow-hover:             0 0 2px var(--dark-shade-75per);
 
     /* border */

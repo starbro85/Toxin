@@ -205,9 +205,18 @@
         }
     },
     "formBooking": {
-        "heading": "Форма бронирования номера",
-        "total": {
-            "label": "Итого"
+        "category": "Люкс",
+        "service": "Сбор за услуги",
+        "discount": "Скидка",
+        "addition": "Дополнительные услуги",
+        "total": "Итого",
+        "term": {
+            "label": "в сутки",
+            "plural": {
+                "one": "сутки", 
+                "few": "суток", 
+                "many": "суток"
+            }
         },
         "dateDropdown": {
             "isTwin": true,
@@ -365,6 +374,10 @@
         }
     },
     "roomCard": {
+        "link": {
+            "href": "./room-details.html",
+            "label": "Перейти на страницу номера"
+        },
         "rateBar": {
             "title": {
                 "plural": {
@@ -383,10 +396,14 @@
                 "preposition": " из "
             }
         },
-        "reviewPlural": {
-            "one": "Отзыв", 
-            "few": "Отзыва", 
-            "many": "Отзывов"
+        "term": "в сутки",
+        "category": "Люкс",
+        "review": {
+            "plural": {
+                "one": "Отзыв",
+                "few": "Отзыва",
+                "many": "Отзывов"
+            }
         }
     }
 }

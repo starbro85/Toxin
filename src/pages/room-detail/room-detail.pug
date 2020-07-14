@@ -1,0 +1,100 @@
+extends ../../globals/template
+
+include ../../components/layout/layout
+include ../../components/features/features
+include ../../components/link/link
+include ../../components/list/list
+include ../../components/review/review
+include ../../components/doughnut-chart/doughnut-chart
+include ../../components/form-booking/form-booking
+
+block variables
+    -const roomDetail = require('./../../globals/mocks/room-detail.json');
+    -const room = require('./../../globals/mocks/rooms.json')[0];
+    -const users = require('./../../globals/mocks/users.json');
+    -const lang = roomDetail.lang;
+    -const title = roomDetail.title;
+    -const description = roomDetail.description;
+    -const getImagePath = require('./../../globals/helpers/getImagePath.js');
+    -const pluralize = require('./../../globals/helpers/pluralize.js');
+    
+block content
+    +layout({
+            heading: roomDetail.heading,
+            header: roomDetail.header,
+            footer: roomDetail.footer,
+            user: users['#1']
+        })
+        main(class = 'room-detail')
+            div(class = 'room-detail__presentation')
+                -
+                    let path;
+                    path = getImagePath({ src: room.images.presentation.main.src });
+
+                img(
+                    class = 'room-detail__image room-detail__image_main'
+                    src = path.src
+                    alt = room.images.presentation.main.alt
+                )
+
+                each img in room.images.presentation.aside
+                    -path = getImagePath({ src: img.src });
+
+                    img(
+                        class = 'room-detail__image room-detail__image_aside'
+                        src = path.src
+                        alt = img.alt
+                    )
+            div(class = 'room-detail__layout-wrapper')
+                div(class = 'room-detail__content')
+                    section(class = 'room-detail__feature-section')
+                        h2(class = 'room-detail__label') #{roomDetail.featureSection.label}
+                        +features({ list: room.features })
+
+                    section(class = 'room-detail__doughnut-section')
+                        h2(class = 'room-detail__label') #{roomDetail.doughnutChartSection.label}
+                        div(class = 'room-detail__doughnut')
+                            +doughnut-chart(roomDetail.doughnutChartSection.doughnutChart)
+                    
+                    section(class = 'room-detail__review-section')
+                        h2(class = 'room-detail__label') #{roomDetail.reviewSection.label}
+                        p(class = 'room-detail__review-count') #{pluralize(roomDetail.reviewSection.plural, room.review.count)}
+                        ul(class = 'room-detail__review-list')
+                            each item, index in room.review.list
+                                -
+                                    const likeActive = users['#1'].like.review.find((id) => id === item.id) ? true : false;
+
+                                li(class = 'room-detail__review-item')
+                                    +review({
+                                        user: users[item.id],
+                                        date: {
+                                            timestamp: item.timestamp,
+                                            plural: roomDetail.reviewSection.review.date.plural
+                                        },
+                                        text: item.text,
+                                        like: {
+                                            count: item.likeCount,
+                                            active: likeActive,
+                                            ariaLabel: roomDetail.reviewSection.review.like.ariaLabel,
+                                            title: roomDetail.reviewSection.review.like.title
+                                        }
+                                    })
+                                
+                                if index >= 1
+                                    li(class = 'room-detail__review-item')
+                                        +link(roomDetail.reviewSection.link)
+                                    -break
+                    section(class = 'room-detail__rules-section')
+                        h2(class = 'room-detail__label') #{roomDetail.rulesSection.label}
+                        +list(roomDetail.rulesSection.list)
+                    
+                    section(class = 'room-detail__cancel-section')
+                        h2(class = 'room-detail__label') #{roomDetail.cancelSection.label}
+                        p(class = 'room-detail__paragraph') #{roomDetail.cancelSection.paragraph}
+                    
+                    div(class = 'room-detail__form-booking')
+                        +form-booking({
+                            root: roomDetail.formBooking, 
+                            room
+                        })
+                    

@@ -1,0 +1,37 @@
+extends ../../globals/template
+
+include ../../components/layout/layout
+include ../../components/filter/filter
+include ../../components/room-card/room-card
+include ../../components/pagination/pagination
+
+block variables
+    -const searchRoom = require('./../../globals/mocks/search-room.json');
+    -const rooms = require('./../../globals/mocks/rooms.json');
+    -const users = require('./../../globals/mocks/users.json');
+    -const lang = searchRoom.lang;
+    -const title = searchRoom.title;
+    -const description = searchRoom.description;
+
+block content
+    +layout({       
+            heading: searchRoom.heading,
+            header: searchRoom.header,
+            footer: searchRoom.footer,
+            user: users['#1']
+        })
+        main(class = 'search-room')
+            div(class = 'search-room__content')
+                div(class = 'search-room__filter')
+                    +filter(searchRoom.filterSection.filter)
+                section(class = 'search-room__result-section')
+                    h2(class = 'search-room__result-section-heading') #{searchRoom.resultSection.heading}
+                    each item in rooms
+                        +room-card({ 
+                            roomCard: searchRoom.resultSection.roomCard,
+                            room: item
+                        })
+                    div(class = 'search-room__result-section-pagination')
+                        +pagination(searchRoom.resultSection.pagination)
+                
+                

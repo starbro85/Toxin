@@ -346,7 +346,10 @@
         "subscribtionField": {
             "textField": {
                 "label": "Subscribtion text field",
-                "title": "Subscribtion text field",
+                "input": {
+                    "title": "Введите свой email",
+                    "ariaLabel": "Подпишитесь на нашу рассылку"
+                },
                 "button": {
                     "ariaLabel": "Подписаться",
                     "title": "Submit button"
@@ -750,24 +753,41 @@
         }
     },
     "featuresSection": {
-        "features": [
-            {
-                "icon": "insert_emoticon",
-                "label": "Комфорт",
-                "description": "Шумопоглощающие стены"
-            },
-            {
-                "icon": "location_city",
-                "label": "Удобство",
-                "description": "Окно в каждой из спален"
-            }
-        ]
+        "features": {
+            "list": [
+                {
+                    "icon": "insert_emoticon",
+                    "label": "Комфорт",
+                    "description": "Шумопоглощающие стены"
+                },
+                {
+                    "icon": "location_city",
+                    "label": "Удобство",
+                    "description": "Окно в каждой из спален"
+                }
+            ]
+        }
     },
     "reviewSection": {
         "review": {
-            "userName": "Мурад Сарафанов",
-            "reviewDate": "5 дней назад",
-            "reviewText": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+            "user": {
+                "name": "Мурад",
+                "surname": "Сарафанов",
+                "avatar": {
+                    "src": "./user_2_44px.jpg",
+                    "alt": "murad_saraphanov"
+                }
+            },
+            "date": {
+                "timestamp": 1592092800000,
+                "plural": {
+                    "zero": "Сегодня",
+                    "one": "день назад",
+                    "few": "дня назад",
+                    "many": "дней назад"
+                }
+            },
+            "text": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
             "like": {
                 "count": 12,
                 "active": true,

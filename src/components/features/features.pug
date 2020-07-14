@@ -1,0 +1,11 @@
+mixin features({list})
+    dl(class = 'features-list')
+        each item in list
+            div(class = 'features-list__item')
+                div(
+                    class = 'features-list__icon'
+                    aria-hidden = 'true'
+                ) #{item.icon}
+                dt(class = 'features-list__label') #{item.label}
+                dd(class = 'features-list__description') #{item.description}
+        

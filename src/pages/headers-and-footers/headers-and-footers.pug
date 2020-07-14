@@ -3,8 +3,8 @@ extends ../../globals/template
 include ../../components/ui-kit-layout/ui-kit-layout
 include ../../components/headers-and-footers/headers-and-footers
 
-block title
-    | Form elements
+block variables
+    -title = 'Form elements';
 
 block content
     +ui-kit-layout({
@@ -12,6 +12,6 @@ block content
     })
 
         -const headersAndFooters = require('./../../globals/mocks/headers-and-footers.json');
-        -const user = require('./../../globals/mocks/user.json');
+        -const users = require('./../../globals/mocks/users.json');
 
-        +headers-and-footers({ headersAndFooters, user })
+        +headers-and-footers({ headersAndFooters, users })

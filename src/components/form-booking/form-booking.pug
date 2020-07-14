@@ -2,7 +2,7 @@ include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
 
-mixin form-booking({ formBooking, room })
+mixin form-booking({ root, room })
     form(
         class = 'form-booking js-form-booking'
         name = 'booking'
@@ -10,43 +10,46 @@ mixin form-booking({ formBooking, room })
         autocomplete = 'off'
     )
         div(class = 'form-booking__header')  
-            h2(class = 'form-booking__heading') #{formBooking.heading}
             p(class = 'form-booking__header-room-number ') № #{room.number} 
 
-            if room.category
-                strong(class = 'form-booking__header-room-category') #{room.category}
+            if room.isLuxury
+                strong(class = 'form-booking__header-room-category') #{root.category}
 
-            p(class = 'form-booking__header-rent-price') #{room.rent.price} 
-            p(class = 'form-booking__header-rent-period') #{room.rent.period}
-            
-        div(class = 'form-booking__main')
-            div(class = 'form-search__date-dropdown')
-                +date-dropdown(formBooking.dateDropdown)
-            div(class = 'form-search__quantity-dropdown')
-                +quantity-dropdown(formBooking.quantityDropdown)
-            div(class = 'form-booking__calc')
-                div(class = 'form-booking__calc-detail')
-                    span(class = 'form-booking__calc-description')
-                        p(class = 'form-booking__calc-rent-price js-form-booking__calc-rent-price') #{room.rent.price} 
-                        | x
-                        p(
-                            class = 'form-booking__calc-rent-term js-form-booking__calc-rent-term'
-                            data-plural = '{"one": "сутки", "few": "суток", "many": "суток"}'
-                        )
-                    span(class = 'form-booking__calc-value js-form-booking__calc-value js-form-booking__calc-value_summary-price')
-                div(class = 'form-booking__calc-detail')
-                    p(class = 'form-booking__calc-description') #{room.service.description}
-                        if room.discount
-                            span(class = 'form-booking__calc-discount js-form-booking__calc-discount') : #{room.discount.description} #{room.discount.count}
-                    p(class = 'form-booking__calc-value js-form-booking__calc-value js-form-booking__calc-value_service-price') #{room.service.price}
-                div(class = 'form-booking__calc-detail')
-                    p(class = 'form-booking__calc-description') !{room.addition.description}
-                    p(class = 'form-booking__calc-value js-form-booking__calc-value js-form-booking__calc-value_addition-price') #{room.addition.price}
+            p(class = 'form-booking__header-rent-price') #{room.rent} 
+            p(class = 'form-booking__header-rent-term') #{root.term.label}
 
-        div(class = 'form-booking__footer')
-            div(class = 'form-booking__total')
-                p(class = 'form-booking__total-title') #{formBooking.total.label}
-                div(class = 'form-booking__total-dashed-line')
-                p(class = 'form-booking__total-price js-form-booking__total-price')
-            div(class = 'form-booking__submit-button')
-                +button(formBooking.submitButton)
+        +date-dropdown({
+            controlClass: 'js-form-booking__date-dropdown',
+            isTwin: root.dateDropdown.isTwin,
+            textField: root.dateDropdown.textField,
+            datepicker: root.dateDropdown.datepicker,
+            clearButton: root.dateDropdown.clearButton,
+            applyButton: root.dateDropdown.applyButton
+        })
+        +quantity-dropdown(root.quantityDropdown)
+
+        div(class = 'form-booking__calc')
+            div(class = 'form-booking__calc-detail')
+                p(class = 'form-booking__calc-description')
+                    span(class = 'form-booking__calc-rent-price js-form-booking__calc-rent-price') #{room.rent} 
+                    | x
+                    span(
+                        class = 'form-booking__calc-rent-term js-form-booking__calc-rent-term'
+                        data-plural = root.term.plural
+                    )
+                p(class = 'form-booking__calc-value js-form-booking__calc-summary-price')
+            div(class = 'form-booking__calc-detail')
+                p(class = 'form-booking__calc-description') #{root.service}
+                    if room.discount
+                        span(class = 'form-booking__calc-discount js-form-booking__calc-discount') : #{root.discount} #{room.discount}
+                p(class = 'form-booking__calc-value js-form-booking__calc-service-price') #{room.service}
+            div(class = 'form-booking__calc-detail')
+                p(class = 'form-booking__calc-description') #{root.addition}
+                p(class = 'form-booking__calc-value js-form-booking__calc-addition-price') #{room.addition}
+
+        div(class = 'form-booking__total')
+            p(class = 'form-booking__total-label') #{root.total}
+            div(class = 'form-booking__total-dashed-line')
+            p(class = 'form-booking__total-price js-form-booking__total-price')
+        div(class = 'form-booking__submit-button')
+            +button(root.submitButton)

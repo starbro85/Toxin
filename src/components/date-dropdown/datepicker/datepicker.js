@@ -30,13 +30,13 @@ class Datepicker {
         let nextButtonAriaLabel;
 
         if (this.lang === 'ru') {
-            this.prevButtonAriaLabel = 'Предыдущий месяц';
-            this.nextButtonAriaLabel = 'Следующий месяц';
+            prevButtonAriaLabel = 'Предыдущий месяц';
+            nextButtonAriaLabel = 'Следующий месяц';
         }
 
         if (this.lang === 'en') {
-            this.prevButtonAriaLabel = 'Previous month';
-            this.nextButtonAriaLabel = 'Next month';
+            prevButtonAriaLabel = 'Previous month';
+            nextButtonAriaLabel = 'Next month';
         }
 
         this.calendar.setAttribute('tabindex', false);

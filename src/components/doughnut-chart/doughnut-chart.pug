@@ -1,0 +1,28 @@
+mixin doughnut-chart({ label, chart })
+
+    -
+        const pluralize = require('./../../globals/helpers/pluralize.js');
+        const wrapWordIntoTag = require('../../globals/helpers/wrapWordIntoTag.js');
+        const title = pluralize(label.plural, label.count);
+        const ariaLabel = chart.counts
+
+    div(
+        class = 'doughnut-chart js-doughnut-chart'
+        data-counts = chart.counts
+        data-labels = chart.labels
+        data-colors = chart.colors
+    )
+        div(class = 'doughnut-chart__container js-doughnut-chart__container')
+            canvas(
+                class = 'doughnut-chart js-doughnut-chart__canvas'
+                role = 'img'
+                aria-label = title
+            )
+            p(class = 'doughnut-chart__title') !{wrapWordIntoTag({ str: title, number: 1, tag: 'span', classList: 'doughnut-chart__first-word'})}
+        ul(class = 'doughnut-chart__legend')
+            each item, index in chart.labels
+                li(
+                    class = 'doughnut-chart__legend-item'
+                    aria-label = `${item}: ${chart.counts[index]}`
+                    style = `--chart-color: ${chart.colors[index]}`
+                ) #{item}

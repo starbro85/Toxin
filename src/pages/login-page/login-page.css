@@ -1,0 +1,45 @@
+/* login page */
+
+.login-page {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    background-color: var(--dark-shade-5per);
+}
+
+/* content */
+
+.login-page__content {
+    position: relative;
+    padding: 172px 0;
+    width: min(90vw, 1159px);
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+}
+
+@supports not (width: min(90vw, 1159px)){
+    .login-page__content {
+        width: 90vw;
+        max-width: 1159px;
+    }
+}
+
+/* slideshow */
+
+.login-page__slideshow {
+    position: absolute;
+    min-width: 100vw;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* carousel */
+
+.login-page__carousel {
+    position: relative;
+    max-width: 1440px;
+}

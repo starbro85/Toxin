@@ -5,14 +5,13 @@ include ../link/link
 mixin header({ header, user })
     header(class = 'header js-header')
         div(class = 'header__content')
-            div(class = 'header__logo')
-                a(
-                    class = 'header__logo-link' 
-                    href = header.logoLink.href
-                    title = header.logoLink.title
-                    aria-label = header.logoLink.ariaLabel
-                )
-                        +logo()
+            a(
+                class = 'header__logo-link' 
+                href = header.logoLink.href
+                title = header.logoLink.title
+                aria-label = header.logoLink.ariaLabel
+            )
+                    +logo()
 
             button(
                 class = 'header__button js-header__button'

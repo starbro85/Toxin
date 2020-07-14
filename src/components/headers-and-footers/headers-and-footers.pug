@@ -1,7 +1,7 @@
 include ../header/header
 include ../footer/footer
 
-mixin headers-and-footers({ headersAndFooters, user })
+mixin headers-and-footers({ headersAndFooters, users })
     div(class = 'headers-and-footers')
         +header({
             header: headersAndFooters.header
@@ -11,6 +11,6 @@ mixin headers-and-footers({ headersAndFooters, user })
 
         +header({
             header: headersAndFooters.header,
-            user
+            user: users['#1']
         })
         +footer(headersAndFooters.footer)

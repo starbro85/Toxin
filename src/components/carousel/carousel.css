@@ -2,7 +2,11 @@
 
 .carousel {
     position: relative;
-    height: auto;
+}
+
+.carousel:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
 }
 
 /* track */
@@ -20,6 +24,7 @@
 /* slide */
 
 .carousel__slide {
+    display: grid;
     height: 100%;
     max-width: max-content;
 }
@@ -42,7 +47,7 @@
     justify-content: space-between;
 }
 
-/* prev-button */
+/* control button */
 
 .carousel__control-button {
     width: 42px;
@@ -53,17 +58,25 @@
     cursor: pointer;
 }
 
-.carousel__control-button:hover {
+.carousel__control-button_prev:hover {
     background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-25per) 100%);
 }
 
-.carousel__control-button:focus {
-    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
+.carousel__control-button_prev:focus {
+    background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-25per) 100%);
     outline: var(--outline);
     outline-offset: 2px;
 }
 
-/* control-button-icon */
+.carousel__control-button_next:hover {
+    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
+}
+
+.carousel__control-button_next:focus {
+    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
+    outline: var(--outline);
+    outline-offset: 2px;
+}
 
 .carousel__control-button-icon_prev {
     transform: rotate(90deg);

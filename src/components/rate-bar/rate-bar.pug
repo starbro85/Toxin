@@ -5,8 +5,8 @@ mixin rate-bar({ name, count, rating, ariaLabel, title, disabled })
 
     div(
         class = 'rate-bar js-rate-bar'
+        role = 'group'
         aria-label = ariaLabel ? `${ariaLabel.prefix}${rating}${ariaLabel.preposition}${pluralize(ariaLabel.plural, count)}` : false
-        tabindex = '0'
     )
         -for (let index = 1; index <= count; index++)
             if index === rating

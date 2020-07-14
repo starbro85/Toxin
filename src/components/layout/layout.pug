@@ -1,12 +1,13 @@
 include ../header/header
 include ../footer/footer
 
-mixin layout({ header, footer, user })
+mixin layout({ heading, header, footer, user, slideshow })
     div(class = 'layout')
         div(class = 'layout__header')
             +header({ header, user })
 
-        div(class = 'layout__main')
+        div(class = 'layout__main')   
+            h1(class = 'layout__heading') #{heading}
             if block
                 block
 

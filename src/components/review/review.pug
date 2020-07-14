@@ -1,15 +1,22 @@
 include ../like/like
 
-mixin review({ userAvatar, userName, reviewDate, reviewText, like  })
+mixin review({ user, date, text, like  })
+    
+    -
+        const getImagePath = require('./../../globals/helpers/getImagePath.js');
+        const pluralize = require('./../../globals/helpers/pluralize.js');
+        const path = getImagePath({src: user.avatar.src});
+        const days = Math.floor((Date.now() - date.timestamp)/(60*60*24*1000));
+
     div(class = 'review js-review')
         img(
             class = 'review__avatar js-review__avatar'
-            url = userAvatar,
-            alt = 'Фотогафия пользователя'
+            src = path.src,
+            alt = user.avatar.alt
         )
         div(class = 'review__info')
-            p(class = 'review__name js-review__name') #{userName}
-            p(class = 'review__date js-review__date') #{reviewDate}
+            p(class = 'review__name js-review__name') #{user.name} #{user.surname}
+            p(class = 'review__date js-review__date') #{pluralize(date.plural, days)}
         div(class = 'review__like js-review__like')
             +like(like)
-        p(class = 'review__text js-review__text') #{reviewText}
+        p(class = 'review__text js-review__text') #{text}

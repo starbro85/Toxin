@@ -1,0 +1,40 @@
+/* filter */
+
+.filter {
+    width: 266px;
+    height: max-content;
+    display: grid;
+    row-gap: 20px;
+    background-color: inherit;
+}
+
+/* heading */
+
+.filter__heading_visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+/* slider */
+
+.filter__slider {
+    margin: 10px 0;
+}
+
+/* checkbox list */
+
+.filter__checkbox-list {
+    margin-bottom: 10px;
+}
+
+/* label */
+
+.filter__label {
+    margin-bottom: 16px;
+    font: var(--h3-font);
+    color: var(--dark-shade-100per);
+    text-transform: uppercase;
+}

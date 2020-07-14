@@ -9,19 +9,29 @@ class Carousel {
     constructor(node) {
         this.root = node;
         this.autoPlay = Number(this.root.dataset.autoPlay);
-        this.perView = Number(this.root.dataset.perView);
 
         this.init();
     }
 
     init() {
-        const carousel = new Glide(this.root, {
-            type: 'slider',
-            autoplay: this.autoPlay,
-            gap: 10
-        }).mount();
+        let  glide;
 
-        console.log(carousel.remove);
+        window.addEventListener('load', event => glide = new Glide(this.root, {
+            type: 'slider', 
+            keyboard: false,
+            autoplay: this.autoPlay,
+            gap: 0
+        }).mount())
+
+        this.root.addEventListener('keyup', event => {
+            if (event.key === 'ArrowRight') {
+                glide.go('>');
+            }
+
+            if (event.key === 'ArrowLeft') {
+                glide.go('<');
+            }
+        })
     }
 };
 

@@ -34,7 +34,8 @@ class Slider {
     createSlider() {
         noUiSlider.cssClasses.base += ' slider__base';
         noUiSlider.cssClasses.connect += ' slider__connect';
-        noUiSlider.cssClasses.handle += ' slider__handle';
+        noUiSlider.cssClasses.handle += ' slider__handle';   
+        noUiSlider.cssClasses.tooltip += ' slider__tooltip';
 
         noUiSlider.create(this.range, {
             connect: true,
@@ -42,6 +43,7 @@ class Slider {
             step: this.rangeData.step,
             margin: this.rangeData.margin,
             range: this.rangeData.range,
+            tooltips: true,
             format: wNumb({
                 decimals: 0,
                 thousand: ' ',

@@ -1,66 +1,48 @@
-include ./label-wrapper/label-wrapper
 include ./social-list/social-list
 include ../logo/logo
 include ../list/list
 include ../subscribtion-field/subscribtion-field
 
-mixin footer({ logoLink, awards, nav, about, support, subscribtion, copyright, social })
+mixin footer({ heading, logoLink, awardSection, navSection, aboutSection, supportSection, subscribtionSection, copyright, socialSection })
     footer(class = 'footer')
         div(class = 'footer__content')
-            div(class = 'footer__logo')
-                a(
-                    class = 'footer__logo-link' 
-                    href = logoLink.href
-                    title = logoLink.title
-                    aria-label = logoLink.ariaLabel
-                )
-                    +logo()
-                
-            div(class = 'footer__awards') 
-                +label-wrapper({
-                    label: awards.label,
-                    hidden: true
-                })
-                    p #{awards.text}
+            a(
+                class = 'footer__logo-link' 
+                href = logoLink.href
+                title = logoLink.title
+                aria-label = logoLink.ariaLabel
+            )
+                +logo()
 
-            div(class = 'footer__nav')
-                +label-wrapper({
-                    label: nav.label
-                })
-                    +list(nav.list)
+            section(class = 'footer__section footer__section_awards')
+                h3(class = 'footer__label footer__label_visually-hidden') #{awardSection.label}  
+                p(class = 'footer__section-text') #{awardSection.text}
 
-            div(class = 'footer__about')
-                +label-wrapper({
-                    label: about.label
-                })
-                    +list(about.list)
+            section(class = 'footer__section footer__section_nav')
+                h3(class = 'footer__label') #{navSection.label}
+                +list(navSection.list)
 
-            div(class = 'footer__support')
-                +label-wrapper({
-                    label: support.label
-                })
-                    +list(support.list)
+            section(class = 'footer__section footer__section_about')
+                h3(class = 'footer__label') #{aboutSection.label}
+                +list(aboutSection.list)
 
-            div(class = 'footer__subscribtion')
-                +label-wrapper({
-                    label: subscribtion.label
-                })
-                    if (subscribtion.text)
-                        p(class = 'footer__subscribtion-text') #{subscribtion.text}
+            section(class = 'footer__section footer__section_support')
+                h3(class = 'footer__label') #{supportSection.label}
+                +list(supportSection.list)
 
-                    +subscribtion-field(subscribtion.subscribtionField)
+            section(class = 'footer__section footer__section_subscribtion')
+                h3(class = 'footer__label') #{subscribtionSection.label}
+                p(class = 'footer__section-text') #{subscribtionSection.text}
+                +subscribtion-field(subscribtionSection.subscribtionField)
 
         div(class = 'footer__separator')
             
         div(class = 'footer__basement') 
             p(class = 'footer__copyright') #{copyright.text}
             
-            div(class = 'footer__social')
-                +label-wrapper({
-                    label: social.label,
-                    hidden: true
-                })
-                    +social-list(social.socialList)
+            section(class = 'footer__social')
+                h3(class = 'footer__label footer__label_visually-hidden') #{socialSection.label}
+                +social-list(socialSection.socialList)
 
                     
 

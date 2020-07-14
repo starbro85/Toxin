@@ -1,9 +1,10 @@
-mixin slider({ label, range, initValue, step, margin  })
+mixin slider({ label, range, name, initValue, step, margin  })
     div(class = 'slider js-slider')
         label(class = 'slider__label')
             span #{label}
             input(
                 class = 'slider__input js-slider__input'
+                name = name
                 type = 'text' 
                 tabindex = '-1' 
                 readonly

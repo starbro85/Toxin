@@ -1,0 +1,24 @@
+include ../date-dropdown/date-dropdown
+include ../quantity-dropdown/quantity-dropdown
+include ../slider/slider
+include ../list/list
+include ../expandable-list/expandable-list
+
+mixin filter({ heading, dateDropdown, guestsDropdown, preferencesDropdown, slider, allowanceCheckboxList, accessibilityCheckboxList, expandableCheckboxList })
+    section(class = 'filter')
+        h2(class = 'filter__heading filter__heading_visually-hidden') #{heading}
+        +date-dropdown(dateDropdown)
+        +quantity-dropdown(guestsDropdown)
+        div(class = 'filter__slider')
+            +slider(slider)
+
+        section(class = 'filter__checkbox-list')
+            h3(class = 'filter__label') #{allowanceCheckboxList.label}
+            +list(allowanceCheckboxList.list)
+        
+        section(class = 'filter__checkbox-list')
+            h3(class = 'filter__label') #{accessibilityCheckboxList.label}
+            +list(accessibilityCheckboxList.list)
+
+        +quantity-dropdown(preferencesDropdown)
+        +expandable-list(expandableCheckboxList)

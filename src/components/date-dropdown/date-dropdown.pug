@@ -2,16 +2,16 @@ include ./datepicker/datepicker
 include ../text-field/text-field
 include ../button/button
 
-mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={}, datepicker={}, clearButton={}, applyButton={} })
+mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={}, datepicker={}, clearButton={}, applyButton={}, controlClass })
     div(
-        class = 'date-dropdown js-date-dropdown'
+        class = controlClass ? `date-dropdown js-date-dropdown ${controlClass}` : 'date-dropdown js-date-dropdown'
         data-is-twin = isTwin
         data-auto-apply = autoApply
     )
         if isTwin
             +text-field({ 
                 label: textField.from.label,
-                controlClass: 'js-date-dropdown__text-field',
+                controlClass: 'js-date-dropdown__text-field js-date-dropdown__text-field_from',
                 input: {
                     type: 'button',
                     name: textField.from.input.name,
@@ -31,7 +31,7 @@ mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={
             })
             +text-field({ 
                 label: textField.to.label,
-                controlClass: 'js-date-dropdown__text-field',
+                controlClass: 'js-date-dropdown__text-field js-date-dropdown__text-field_to',
                 input: {
                     type: 'button',
                     name: textField.to.input.name,

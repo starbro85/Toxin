@@ -1,0 +1,518 @@
+{
+    "lang": "ru",
+    "description": "Сервис поиска и бронирования отелей и гостиниц Toxin. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
+    "title": "Toxin | Детали номера 888.",
+    "heading": "Детали комнаты.",
+    "tagline": "Лучшие номера для вашей работы, отдыха и просто вдохновения",
+    "header": {
+        "auth": true,
+        "logoLink": {
+            "ariaLabel": "Детали комнаты",
+            "href": "landing-page.html",
+            "title": "Перейти на домашнюю страницу сайта"
+        },
+        "nav": [
+            {
+                "label": "О нас",
+                "href": "#",
+                "title": "Узнать о нас больше",
+                "bold": true
+            },
+            {
+                "isMenu": true,
+                "menu": {
+                    "label": "Услуги",
+                    "title": "Раскрыть меню с услугами компании",
+                    "list": {
+                        "links": [
+                            {
+                                "label": "Option 1",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 2",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 3",
+                                "href": "#",
+                                "title": "text"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "label": "Карьера",
+                "href": "#",
+                "title": "Постройте карьеру вместе с нами"
+            },
+            {
+                "label": "Новости",
+                "href": "#",
+                "title": "Узнать о последних новостях компании"
+            },
+            {
+                "isMenu": true,
+                "menu": {
+                    "label": "Документация",
+                    "title": "Раскрыть меню с документацией",
+                    "list": {
+                        "links": [
+                            {
+                                "label": "Option 1",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 2",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 3",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 1",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 2",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 3",
+                                "href": "#",
+                                "title": "text"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "signIn": {
+            "loginLink": {
+                "label": "Войти",
+                "href": "./login-page.html",
+                "title": "Перейти на страницу авторизации",
+                "button": true,
+                "border": true
+            },
+            "registrationLink": {
+                "label": "Создать",
+                "href": "./registration-page.html",
+                "title": "Перейти на страницу регистрации",
+                "button": true,
+                "fill": true
+            }
+        },
+        "button": {
+            "ariaLabel": "Открыть навигационное меню"
+        },
+        "userLink": {
+            "href": "#",
+            "title": "Перейти в личный кабинет"
+        }
+    },
+    "footer": {
+        "logoLink": {
+            "ariaLabel": "Домашняя страница",
+            "href": "landing-page.html",
+            "title": "Перейти на домашнюю страницу сайта"
+        },
+        "awardSection": {
+            "label": "Наши награды",
+            "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        },
+        "navSection": {
+            "label": "Навигация",
+            "list": {
+                "links": [
+                    {
+                        "label": "О нас",
+                        "href": "#",
+                        "title": "Узнать о нас больше"
+                    },
+                    {
+                        "label": "Новости",
+                        "href": "#",
+                        "title": "Узнать о последних новостях компании"
+                    },
+                    {
+                        "label": "Служба поддержки",
+                        "href": "#",
+                        "title": "Связаться с нашей службой поддержки"
+                    },
+                    {
+                        "label": "Услуги",
+                        "href": "#",
+                        "title": "Узнать о предоставляемых нами услугах"
+                    }
+                ]
+            }
+        },
+        "aboutSection": {
+            "label": "О нас",
+            "list": {
+                "links": [
+                    {
+                        "label": "О сервисе",
+                        "href": "#",
+                        "title": "Узнать больше о нашем сервисе"
+                    },
+                    {
+                        "label": "Наша команда",
+                        "href": "#",
+                        "title": "Узнать больше о нашей команде"
+                    },
+                    {
+                        "label": "Вакансии",
+                        "href": "#",
+                        "title": "Ознакомится с вакансиями компании"
+                    },
+                    {
+                        "label": "Инвесторы",
+                        "href": "#",
+                        "title": "Наши инвесторы"
+                    }
+                ]
+            }
+        },
+        "supportSection": {
+            "label": "Служба поддержки",
+            "list": {
+                "links": [
+                    {
+                        "label": "Соглашения",
+                        "href": "#"
+                    },
+                    {
+                        "label": "Сообщества",
+                        "href": "#"
+                    },
+                    {
+                        "label": "Связь с нами",
+                        "href": "#"
+                    }
+                ]
+            }
+        },
+        "subscribtionSection": {
+            "label": "Подписка",
+            "text": "Получайте специальные предложения и новости сервиса",
+            "subscribtionField": {
+                "textField": {
+                    "input": {
+                        "title": "Введите свой email",
+                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                    },
+                    "button": {
+                        "ariaLabel": "Подписаться",
+                        "title": "Подписаться на нашу рассылку"
+                    }
+                }   
+            }
+        },
+        "copyright": {
+            "text": "Copyright © 2018 Toxin отель. Все права зачищены."
+        },
+        "socialSection": {
+            "label": "Мы в социальных сетях",
+            "socialList": {
+                "links": [
+                    {
+                        "type": "tw",
+                        "href": "#",
+                        "title": "Мы в Twitter",
+                        "ariaLabel": "Перейти на страницу в Twitter"
+                    },
+                    {
+                        "type": "fb",
+                        "href": "#",
+                        "title": "Мы в Facebook",
+                        "ariaLabel": "Перейти на страницу в Facebook"
+                    },
+                    {
+                        "type": "inst",
+                        "href": "#",
+                        "title": "Мы в Instagram",
+                        "ariaLabel": "Перейти на страницу в Instagram"
+                    }
+                ]
+            }      
+        }
+    },
+    "presentation": {
+        "images": [
+            {   
+                "src": "./slideshow_1_1440px.jpg",
+                "alt": "image-1",
+                "source": [
+                    {
+                        "media": "(max-width: 879px)",
+                        "srcset": "./slideshow_1_889px.jpg"
+                    },
+                    {
+                        "media": "(min-width: 880px)",
+                        "srcset": "./slideshow_1_1440px.jpg"
+                    }
+                ]
+            },
+            {
+                "src": "./slideshow_2_1440px.jpg",
+                "alt": "image-1",
+                "source": [
+                    {
+                        "media": "(max-width: 879px)",
+                        "srcset": "./slideshow_2_889px.jpg"
+                    },
+                    {
+                        "media": "(min-width: 880px)",
+                        "srcset": "./slideshow_2_1440px.jpg"
+                    }
+                ]
+            },
+            {
+                "src": "./slideshow_3_1440px.jpg",
+                "alt": "image-1",
+                "source": [
+                    {
+                        "media": "(max-width: 879px)",
+                        "srcset": "./slideshow_3_889px.jpg"
+                    },
+                    {
+                        "media": "(min-width: 880px)",
+                        "srcset": "./slideshow_3_1440px.jpg"
+                    }
+                ]
+            }
+        ]
+    },
+    "featureSection": {
+        "label": "Сведения о номере"
+    },
+    "reviewSection": {
+        "label": "Отзывы",
+        "plural": {
+            "one": "Отзыв",
+            "few": "Отзыва",
+            "many": "Отзывов"
+        },
+        "link": {
+            "label": "Смотреть все комментарии...",
+            "href": "#",
+            "title": "Перейти на страницу комментариев"
+        },
+        "review": {
+            "date": {
+              "plural": {
+                    "zero": "Сегодня",
+                    "one": "день назад",
+                    "few": "дня назад",
+                    "many": "дней назад"
+                }
+            },
+            "like":{
+                "ariaLabel": {
+                    "plural": {
+                        "one": "человек оценил",
+                        "few": "человека оценило",
+                        "many": "человек оценили"
+                    },
+                    "active": "Снять оценку",
+                    "inactive": "Оценить"
+                },
+                "title": {
+                    "active": "Снять оценку",
+                    "inactive": "Оценить"
+                }
+            }     
+        }
+    },
+    "doughnutChartSection": {
+        "label": "Впечатления от номера",
+        "doughnutChart": {
+            "label": {
+                "count": 260,
+                "plural": {
+                    "zero": "Нет голосов",
+                    "one": "голос",
+                    "few": "голоса",
+                    "many": "голосов"
+                }
+            },
+            "chart": {    
+                "labels": [
+                    "Великолепно", 
+                    "Хорошо", 
+                    "Удовлетворительно", 
+                    "Разочарован"
+                ],
+                "colors": [
+                    "#FFE39C", 
+                    "#6FCF97", 
+                    "#BC9CFF", 
+                    "#919191"
+                ],
+                "counts": [
+                    130,
+                    65,
+                    65,
+                    0
+                ]
+            }
+        }
+    },
+    "rulesSection": {
+        "label": "Правила",
+        "list": {
+            "text": [
+                "Нельзя с питомцами",
+                "Без вечеринок и мероприятий",
+                "Время прибытия — после 13:00, а выезд до 12:00"
+            ]
+        }
+    },
+    "cancelSection": {
+        "label": "Отмена",
+        "paragraph": "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+    },
+    "formBooking": {
+        "category": "Люкс",
+        "service": "Сбор за услуги",
+        "discount": "Скидка",
+        "addition": "Дополнительные услуги",
+        "total": "Итого",
+        "term": {
+            "label": "в сутки",
+            "plural": {
+                "one": "сутки", 
+                "few": "суток", 
+                "many": "суток"
+            }
+        },
+        "dateDropdown": {
+            "isTwin": true,
+            "textField": {
+                "from": {
+                    "label": "Прибытие",
+                    "input": {
+                        "name": "arrival",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "required": true,
+                        "title": "Выберите даты пребывния в отеле",
+                        "ariaLabel": "Выберите даты пребывния в отеле"
+                    }
+                },
+                "to": {
+                    "label": "Выезд",
+                    "input": {
+                        "name": "departure",
+                        "placeholder": "ДД.ММ.ГГГГ",
+                        "required": true,
+                        "title": "Выберите даты пребывния в отеле",
+                        "ariaLabel": "Выберите даты пребывния в отеле"
+                    }
+                }
+            },
+            "datepicker": {
+                "initValue": [
+                    "19.08.2020",
+                    "23.08.2020"
+                ]
+            },
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
+            }
+        },
+        "quantityDropdown": {
+            "textField": {
+                "label": "Гости",
+                "input": {
+                    "name": "guests",
+                    "placeholder": "Сколько гостей",
+                    "required": true,    
+                    "title": "Выберите количество гостей",
+                    "ariaLabel": "Выберите количество гостей"
+                }
+            },
+            "clearButton": {
+                "label": "Очистить"
+            },
+            "applyButton": {
+                "label": "Применить"
+            },
+            "counters": [
+                {
+                    "label": "Взрослые",
+                    "ariaLabel": "Взрослые",
+                    "title": "Взрослые",
+                    "name": "adults",
+                    "initValue": 0,
+                    "maxValue": 5,
+                    "defaultValue": 2,
+                    "plural": {
+                        "one": "взрослый",
+                        "few": "взрослых",
+                        "many": "взрослых"
+                    },
+                    "boundPlural": {
+                        "one": "гость",
+                        "few": "гостя",
+                        "many": "гостей"
+                    },
+                    "isBound": true,
+                    "boundName": "guests"
+                },
+                {
+                    "label": "Дети",
+                    "ariaLabel": "Дети",
+                    "title": "Дети",
+                    "name": "kids",
+                    "initValue": 0,
+                    "maxValue": 5,
+                    "defaultValue": 1,
+                    "plural": {
+                        "one": "ребёнок",
+                        "few": "детей",
+                        "many": "детей"
+                    },
+                    "boundPlural": {
+                        "one": "гость",
+                        "few": "гостя",
+                        "many": "гостей"
+                    },
+                    "isBound": true,
+                    "boundName": "guests"
+                },
+                {
+                    "label": "Младенцы",
+                    "ariaLabel": "Младенцы",
+                    "name": "babies",
+                    "initValue": 0,
+                    "maxValue": 5,
+                    "plural": {
+                        "one": "младенец",
+                        "few": "младенцев",
+                        "many": "младенцев"
+                    }
+                }
+            ]
+        },
+        "submitButton": {
+            "label": "Забронировать",
+            "color": "purple",
+            "fill": true,
+            "icon": "arrow_forward"
+        }
+    }
+}

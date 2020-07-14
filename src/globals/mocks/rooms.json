@@ -1,99 +1,429 @@
 [
     {
-        "id": "1",
         "number": "888",
-        "category": "люкс",
-        "period": "в сутки",
-        "discount": {
-            "count": "2 179₽",
-            "description": "скидка"
-        },
-        "rent": {
-            "price": "9 990₽",
-            "period": "в сутки"
-        },
-        "service": {
-            "price": "0₽",
-            "description": "Сбор за услуги"
-        },
-        "addition": {
-            "price": "300₽",
-            "description": "Сбор за дополнительные <br> услуги "
-        },
+        "isLuxury": true,
         "rating": 5,
-        "reviews": {
+        "rent":  "9 990₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "features": [
+            {
+                "icon": "insert_emoticon",
+                "label": "Комфорт",
+                "description": "Шумопоглощающие стены"
+            },
+            {
+                "icon": "location_city",
+                "label": "Удобство",
+                "description": "Окно в каждой из спален"
+            },
+            {
+                "icon": "whatshot",
+                "label": "Уют",
+                "description": "Номер оснащён камином"
+            }
+        ],
+        "review": {
             "count": 145,
-            "plurals": {
-                "one": "Отзыв",
-                "few": "Отзыва",
-                "many": "Отзывов"
-            }
+            "list": [
+                {
+                    "id": "#1",
+                    "timestamp": 1594512000000,
+                    "text": "In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum!",
+                    "likeCount": 3
+                },
+                {
+                    "id": "#2",
+                    "timestamp": 1592092800000,
+                    "text": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+                    "likeCount": 2
+                },
+                {
+                    "id": "#3",
+                    "timestamp": 1589846400000,
+                    "text": "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент.",
+                    "likeCount": 12
+                }
+            ]
         },
-        "images": [
-            {
-                "src": "./888_image_1_271px.jpg",
-                "alt": "image-1"
-            },
-            {
-                "src": "./888_image_2_271px.jpg",
-                "alt": "image-2"
-            },
-            {
-                "src": "./888_image_3_271px.jpg",
-                "alt": "image-3"
-            },
-            {
-                "src": "./888_image_4_271px.jpg",
-                "alt": "image-4"
+        "images": {    
+            "card": [
+                {
+                    "src": "./888_image_1_271px.jpg",
+                    "alt": "888_image_1_271px"
+                },
+                {
+                    "src": "./888_image_2_271px.jpg",
+                    "alt": "888_image_2_271px"
+                },
+                {
+                    "src": "./888_image_3_271px.jpg",
+                    "alt": "888_image_3_271px"
+                },
+                {
+                    "src": "./888_image_4_271px.jpg",
+                    "alt": "888_image_4_271px"
+                }
+            ],
+            "presentation": {
+                "main": {
+                    "src": "./888_image_1_981px.jpg",
+                    "alt": "888_image_1_981px"
+                },
+                "aside": [
+                    {
+                        "src": "./888_image_2_459px.jpg",
+                        "alt": "888_image_2_459px"
+                    },
+                    {
+                        "src": "./888_image_3_459px.jpg",
+                        "alt": "888_image_3_459px"
+                    }
+                ]
             }
-        ]
+        }
     },
     {
-        "id": "2",
         "number": "840",
-        "period": "в сутки",
-        "discount": {
-            "count": "1 5550",
-            "description": "скидка"
-        },
-        "rent": {
-            "price": "9 900₽",
-            "period": "в сутки"
-        },
-        "service": {
-            "price": "0₽",
-            "description": "Сбор за услуги"
-        },
-        "addition": {
-            "price": "300₽",
-            "description": "Сбор за дополнительные <br> услуги "
-        },
         "rating": 4,
-        "reviews": {
-            "count": 65,
-            "plurals": {
-                "one": "Отзыв",
-                "few": "Отзыва",
-                "many": "Отзывов"
-            }
+        "rent":  "9 900₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 65
         },
-        "images": [
-            {
-                "src": "./840_image_1_271px.jpg",
-                "alt": "image-1"
-            },
-            {
-                "src": "./840_image_2_271px.jpg",
-                "alt": "image-2"
-            },
-            {
-                "src": "./840_image_3_271px.jpg",
-                "alt": "image-3"
-            },
-            {
-                "src": "./840_image_4_271px.jpg",
-                "alt": "image-4"
-            }
-        ]
+        "images": {    
+            "card": [
+                {
+                    "src": "./840_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./840_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./840_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./840_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "350",
+        "rating": 3,
+        "rent":  "5 000₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 77
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./350_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./350_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./350_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./350_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "352",
+        "rating": 3,
+        "rent":  "5 000₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 55
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./352_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./352_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./352_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./352_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }  
+    },
+    {
+        "number": "444",
+        "rating": 3,
+        "rent":  "5 000₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 15
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./444_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./444_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./444_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./444_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "450",
+        "rating": 4,
+        "rent":  "5 300₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 39
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./450_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./450_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./450_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./450_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "666",
+        "rating": 5,
+        "rent":  "5 000₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 25
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./666_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./666_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./666_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./666_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "678",
+        "rating": 5,
+        "rent":  "5 500₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 45
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./678_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./678_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./678_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./678_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "740",
+        "rating": 4,
+        "rent":  "6 000₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 44
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./740_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./740_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./740_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./740_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "856",
+        "rating": 5,
+        "rent":  "7 300₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 19
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./856_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./856_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./856_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./856_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "980",
+        "isLuxury": true,
+        "rating": 3,
+        "rent":  "8 500₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 35
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./980_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./980_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./980_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./980_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
+    },
+    {
+        "number": "982",
+        "rating": 3,
+        "rent":  "5 800₽",
+        "service": "0₽",
+        "addition": "300₽",
+        "discount": "2 179₽",
+        "review": {
+            "count": 56
+        },
+        "images": {
+            "card": [
+                {
+                    "src": "./982_image_1_271px.jpg",
+                    "alt": "image-1"
+                },
+                {
+                    "src": "./982_image_2_271px.jpg",
+                    "alt": "image-2"
+                },
+                {
+                    "src": "./982_image_3_271px.jpg",
+                    "alt": "image-3"
+                },
+                {
+                    "src": "./982_image_4_271px.jpg",
+                    "alt": "image-4"
+                }
+            ]
+        }
     }
 ]

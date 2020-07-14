@@ -13,10 +13,10 @@
 /* input */
 
 .checkbox__input {
-    position: absolute;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    outline: none;
 }
 
 /* mark */

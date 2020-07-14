@@ -1,7 +1,6 @@
 /* root styles
 */
 .room-card {
-    width: 270px;
     height: 257px;
     padding-bottom: 17px;
     display: grid;
@@ -11,16 +10,50 @@
     border-radius: 4px; 
 }
 
+/* carousel */
+
 .room-card__carousel {
-    width: 270px; 
+    width: 270px;
+    position: relative;
     height: 151px;
 }
 
-.room-card__info-header {
+/* link */
+
+.room-card__link {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    background-color: var(--dark-shade-50per);
+    font: var(--body-font);
+    font-size: 10px;
+    color: white;
+    transition: opacity .3s;
+}
+
+.room-card__link:hover {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.room-card__link:focus {
+    opacity: 1;
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
+/* header */
+
+.room-card__header {
     padding: 2px 20px 0 18px;
     display: grid; 
     grid-template-columns: auto auto 1fr auto auto;
-    grid-template-areas: 'header-room-number header-room-category . header-rent-price header-rent-period';
+    grid-template-areas: 'header-room-number header-room-category . header-rent-price header-rent-term';
     justify-content: space-between;
     align-items: baseline;
 }
@@ -55,8 +88,8 @@
     color: var(--dark-shade-50per);
 }
 
-.room-card__rent-period {
-    grid-area: header-rent-period;
+.room-card__rent-term {
+    grid-area: header-rent-term;
     margin-left: 3.7px;
     font: var(--body-font);
     font-size: 0.8571428571428571rem;
@@ -64,7 +97,9 @@
     color: var(--dark-shade-50per);
 }
 
-.room-card__info-rating {
+/* rating */
+
+.room-card__rating {
     position: relative;
     padding: 2px 20px 0 18px;
     display: grid;
@@ -72,7 +107,7 @@
     justify-content: space-between;
 }
 
-.room-card__info-rating:after {
+.room-card__rating:after {
     position: absolute;
     left: 20px; 
     top: -8px;
@@ -80,6 +115,8 @@
     width: calc(100% - 40px); height: 1px;
     background: var(--dark-shade-10per);
 }
+
+/* reviews */
 
 .room-card__reviews-count {
     align-self: start;

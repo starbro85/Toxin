@@ -2,8 +2,8 @@ extends ../../globals/template
 
 include ../../components/start-menu/start-menu
 
-block title
-    | Start page
+block variables
+    -title = 'Start page';
 
 block content
     +start-menu({

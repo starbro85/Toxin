@@ -5,26 +5,31 @@ mixin room-card({ roomCard, room })
     -
         const pluralize = require('../../globals/helpers/pluralize.js');
         const wrapWordIntoTag = require('../../globals/helpers/wrapWordIntoTag.js');
-        const reviewCount = pluralize(roomCard.reviewPlural, room.reviews.count)
+        const reviewCount = pluralize(roomCard.review.plural, room.review.count)
     
-    div(class = 'room-card js-room-card')
-        div(
-            class = 'room-card__carousel'
-        )
+    section(class = 'room-card')
+        div(class = 'room-card__carousel')
             +carousel({
-                images: room.images
+                images: room.images.card
             })
+            -const label = `${roomCard.link.label} ${room.number}`
+            -const title = `${roomCard.link.title} ${room.number}`
+            a(
+                class = 'room-card__link'
+                href = roomCard.link.href
+                title = title
+            ) #{label} 
 
-        div(class = 'room-card__info-header')
-            p(class = 'room-card__room-number') № #{room.number}
+        div(class = 'room-card__header')
+            h3(class = 'room-card__room-number') № #{room.number}
 
-            if room.category
-                p(class = 'room-card__room-category') #{room.category}
+            if room.isLuxury
+                p(class = 'room-card__room-category') #{roomCard.category}
 
-            p(class = 'room-card__rent-price') #{room.rent.price} 
-            p(class = 'room-card__rent-period') #{room.rent.period}
+            p(class = 'room-card__rent-price') #{room.rent} 
+            p(class = 'room-card__rent-term') #{roomCard.term}
 
-        div(class = 'room-card__info-rating')
+        div(class = 'room-card__rating')
             +rate-bar({
                 name: room.number,
                 count: '5',
@@ -34,4 +39,4 @@ mixin room-card({ roomCard, room })
                 disabled: 'true'
             })
 
-            p(class = 'room-card__reviews-count') !{wrapWordIntoTag(reviewCount, 1, 'b')}
+            p(class = 'room-card__reviews-count') !{wrapWordIntoTag({ str: reviewCount, number: 1, tag: 'b'})}

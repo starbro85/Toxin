@@ -1,0 +1,31 @@
+{
+    "#1": {
+        "name": "Peter",
+        "surname": "Murphy",
+        "avatar": {
+            "src": "./user_1_44px.jpg",
+            "alt": "peter_murphy"
+        },
+        "like": {
+            "review": [
+                "#2"
+            ]
+        }
+    },
+    "#2": {
+        "name": "Патрисия",
+        "surname": "Стёклышкова",
+        "avatar": {
+            "src": "./user_3_44px.jpg",
+            "alt": "patricia_stekleshkova"
+        }
+    },
+    "#3": {
+        "name": "Мурад",
+        "surname": "Сарафанов",
+        "avatar": {
+            "src": "./user_2_44px.jpg",
+            "alt": "murad_sarafanov"
+        }
+    }
+}

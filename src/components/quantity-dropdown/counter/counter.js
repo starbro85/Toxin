@@ -22,7 +22,7 @@ class Counter {
         const name = this.input.name;
         const value = Number(this.input.value);
         const plural = JSON.parse(this.input.dataset.plural);
-        const isBound = Boolean(this.input.dataset.isBound);
+        const isBound = this.input.hasAttribute('data-is-bound');
         const boundName = isBound ? this.input.dataset.boundName : '';
         const boundPlural = isBound ? JSON.parse(this.input.dataset.boundPlural) : '';
 

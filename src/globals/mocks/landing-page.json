@@ -1,7 +1,11 @@
 {
-    "heading": "Страница поиска номеров",
+    "lang": "ru",
+    "description": "Сервис поиска и бронирования отелей и гостиниц Toxin. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
+    "title": "Toxin | Домашняя страница.",
+    "heading": "Домашняя страница.",
+    "tagline": "Лучшие номера для вашей работы, отдыха и просто вдохновения",
     "header": {
-        "auth": true,
+        "auth": false,
         "logoLink": {
             "ariaLabel": "Домашняя страница",
             "href": "landing-page.html",
@@ -71,6 +75,21 @@
                                 "label": "Option 3",
                                 "href": "#",
                                 "title": "text"
+                            },
+                            {
+                                "label": "Option 1",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 2",
+                                "href": "#",
+                                "title": "text"
+                            },
+                            {
+                                "label": "Option 3",
+                                "href": "#",
+                                "title": "text"
                             }
                         ]
                     }
@@ -80,14 +99,14 @@
         "signIn": {
             "loginLink": {
                 "label": "Войти",
-                "href": "#",
+                "href": "./login-page.html",
                 "title": "Перейти на страницу авторизации",
                 "button": true,
                 "border": true
             },
             "registrationLink": {
-                "label": "Зарегистрироваться",
-                "href": "#",
+                "label": "Создать",
+                "href": "./registration-page.html",
                 "title": "Перейти на страницу регистрации",
                 "button": true,
                 "fill": true
@@ -101,17 +120,17 @@
             "title": "Перейти в личный кабинет"
         }
     },
-    "footer": { 
+    "footer": {
         "logoLink": {
             "ariaLabel": "Домашняя страница",
             "href": "landing-page.html",
             "title": "Перейти на домашнюю страницу сайта"
         },
-        "awards": {
+        "awardSection": {
             "label": "Наши награды",
             "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
         },
-        "nav": {
+        "navSection": {
             "label": "Навигация",
             "list": {
                 "links": [
@@ -138,7 +157,7 @@
                 ]
             }
         },
-        "about": {
+        "aboutSection": {
             "label": "О нас",
             "list": {
                 "links": [
@@ -165,7 +184,7 @@
                 ]
             }
         },
-        "support": {
+        "supportSection": {
             "label": "Служба поддержки",
             "list": {
                 "links": [
@@ -184,12 +203,15 @@
                 ]
             }
         },
-        "subscribtion": {
+        "subscribtionSection": {
             "label": "Подписка",
             "text": "Получайте специальные предложения и новости сервиса",
             "subscribtionField": {
                 "textField": {
-                    "title": "Введите свой email",
+                    "input": {
+                        "title": "Введите свой email",
+                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                    },
                     "button": {
                         "ariaLabel": "Подписаться",
                         "title": "Подписаться на нашу рассылку"
@@ -200,7 +222,7 @@
         "copyright": {
             "text": "Copyright © 2018 Toxin отель. Все права зачищены."
         },
-        "social": {
+        "socialSection": {
             "label": "Мы в социальных сетях",
             "socialList": {
                 "links": [
@@ -344,7 +366,7 @@
             "icon": "arrow_forward"
         }
     },
-    "presentation": {
+    "slideshow": {
         "images": [
             {   
                 "src": "./slideshow_1_1440px.jpg",

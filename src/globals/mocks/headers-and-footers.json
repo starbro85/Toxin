@@ -89,10 +89,6 @@
                 "title": "Go to registration-page",
                 "button": true,
                 "fill": true
-            },
-            "userLink": {
-                "href": "#",
-                "title": "Go to your personal account"
             }
         },
         "button": {
@@ -103,24 +99,24 @@
             "title": "Go to your personal account"
         }
     },
-    "footer": { 
+    "footer": {
         "logoLink": {
             "ariaLabel": "Домашняя страница",
             "href": "landing-page.html",
             "title": "Перейти на домашнюю страницу сайта"
         },
-        "awards": {
+        "awardSection": {
             "label": "Наши награды",
             "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
         },
-        "nav": {
+        "navSection": {
             "label": "Навигация",
             "list": {
                 "links": [
                     {
                         "label": "О нас",
                         "href": "#",
-                        "title": "Узнать больше о нашей компании"
+                        "title": "Узнать о нас больше"
                     },
                     {
                         "label": "Новости",
@@ -140,7 +136,7 @@
                 ]
             }
         },
-        "about": {
+        "aboutSection": {
             "label": "О нас",
             "list": {
                 "links": [
@@ -167,7 +163,7 @@
                 ]
             }
         },
-        "support": {
+        "supportSection": {
             "label": "Служба поддержки",
             "list": {
                 "links": [
@@ -186,12 +182,15 @@
                 ]
             }
         },
-        "subscribtion": {
+        "subscribtionSection": {
             "label": "Подписка",
             "text": "Получайте специальные предложения и новости сервиса",
             "subscribtionField": {
                 "textField": {
-                    "title": "Введите свой email",
+                    "input": {
+                        "title": "Введите свой email",
+                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                    },
                     "button": {
                         "ariaLabel": "Подписаться",
                         "title": "Подписаться на нашу рассылку"
@@ -202,7 +201,7 @@
         "copyright": {
             "text": "Copyright © 2018 Toxin отель. Все права зачищены."
         },
-        "social": {
+        "socialSection": {
             "label": "Мы в социальных сетях",
             "socialList": {
                 "links": [
