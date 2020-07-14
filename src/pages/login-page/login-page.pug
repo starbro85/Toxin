@@ -5,6 +5,7 @@ include ../../components/form-login/form-login
 include ../../components/carousel/carousel
 
 block variables
+    -const getImagePath = require('../../globals/helpers/getImagePath.js');  
     -const loginPage = require('./../../globals/mocks/login-page.json');
     -const lang = loginPage.lang;
     -const title = loginPage.title;
@@ -19,11 +20,22 @@ block content
         main(class = 'login-page')
             div(class = 'login-page__content')
                 +form-login(loginPage.formLogin)
-            div(class = 'login-page__slideshow')
-                div(class = 'login-page__carousel')
-                    +carousel({
-                        images: loginPage.slideshow.images,
-                        autoPlay: '7000',
-                        showBullets: false,
-                        showControls: false
-                    })
+            div(class = 'login-page__background')
+                -
+                    const path = getImagePath({
+                                    src: loginPage.image.src,
+                                    source: loginPage.image.source
+                                })
+                picture(class = 'login-page__picture')
+                    if path.source
+                        each res in path.source
+                            source(
+                                media = res.media 
+                                srcset = res.srcset
+                            )
+                    img(
+                        class = 'login-page__background-image'
+                        src = path.src
+                        loading = 'lazy'
+                        alt = loginPage.image.alt
+                    )

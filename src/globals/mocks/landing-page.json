@@ -370,7 +370,7 @@
         "images": [
             {   
                 "src": "./slideshow_1_1440px.jpg",
-                "alt": "image-1",
+                "alt": "Комната в розовых тонах",
                 "source": [
                     {
                         "media": "(max-width: 879px)",
@@ -384,7 +384,7 @@
             },
             {
                 "src": "./slideshow_2_1440px.jpg",
-                "alt": "image-1",
+                "alt": "Комната в светло-синих тонах",
                 "source": [
                     {
                         "media": "(max-width: 879px)",
@@ -398,7 +398,7 @@
             },
             {
                 "src": "./slideshow_3_1440px.jpg",
-                "alt": "image-1",
+                "alt": "Комната в светло-зелёных тонах",
                 "source": [
                     {
                         "media": "(max-width: 879px)",

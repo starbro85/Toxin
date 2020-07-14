@@ -25,21 +25,21 @@
     }
 }
 
-/* slideshow */
+/* background image */
 
-.login-page__slideshow {
+.login-page__background {
     position: absolute;
-    min-width: 100vw;
-    bottom: 0;
+    width: 100vw;
     z-index: -1;
+    bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
 }
 
-/* carousel */
+.login-page__picture {
+    display: grid;
+}
 
-.login-page__carousel {
+.login-page__image {
     position: relative;
-    max-width: 1440px;
 }

@@ -5,6 +5,7 @@ include ../../components/form-registration/form-registration
 include ../../components/carousel/carousel
 
 block variables
+    -const getImagePath = require('../../globals/helpers/getImagePath.js');  
     -const registrationPage = require('./../../globals/mocks/registration-page.json');
     -const lang = registrationPage.lang;
     -const title = registrationPage.title;
@@ -19,11 +20,22 @@ block content
         main(class = 'registration-page')
             div(class = 'registration-page__content')
                 +form-registration(registrationPage.formRegistration)
-            div(class = 'registration-page__slideshow')
-                div(class = 'registration-page__carousel')
-                    +carousel({
-                        images: registrationPage.slideshow.images,
-                        autoPlay: '7000',
-                        showBullets: false,
-                        showControls: false
-                    })
+            div(class = 'registration-page__background')
+                -
+                    const path = getImagePath({
+                                    src: registrationPage.image.src,
+                                    source: registrationPage.image.source
+                                })
+                picture(class = 'registration-page__picture')
+                    if path.source
+                        each res in path.source
+                            source(
+                                media = res.media 
+                                srcset = res.srcset
+                            )
+                    img(
+                        class = 'registration-page__background-image'
+                        src = path.src
+                        loading = 'lazy'
+                        alt = registrationPage.image.alt
+                    )

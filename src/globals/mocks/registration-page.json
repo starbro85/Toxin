@@ -330,63 +330,17 @@
             "border": true
         }
     },
-    "slideshow": {
-        "images": [
+    "image": {
+        "src": "./background-image_1440px.jpg",
+        "alt": "Картинка на заднем фоне",
+        "source": [
             {
-                "src": "./slideshow_4_1440px.jpg",
-                "alt": "image-1",
-                "source": [
-                    {
-                        "media": "(max-width: 879px)",
-                        "srcset": "./slideshow_4_889px.jpg"
-                    },
-                    {
-                        "media": "(min-width: 880px)",
-                        "srcset": "./slideshow_4_1440px.jpg"
-                    }
-                ]
+                "media": "(max-width: 1024px)",
+                "srcset": "./background-image_1024px.jpg"
             },
             {
-                "src": "./slideshow_3_1440px.jpg",
-                "alt": "image-1",
-                "source": [
-                    {
-                        "media": "(max-width: 879px)",
-                        "srcset": "./slideshow_3_889px.jpg"
-                    },
-                    {
-                        "media": "(min-width: 880px)",
-                        "srcset": "./slideshow_3_1440px.jpg"
-                    }
-                ]
-            },
-            {
-                "src": "./slideshow_2_1440px.jpg",
-                "alt": "image-1",
-                "source": [
-                    {
-                        "media": "(max-width: 879px)",
-                        "srcset": "./slideshow_2_889px.jpg"
-                    },
-                    {
-                        "media": "(min-width: 880px)",
-                        "srcset": "./slideshow_2_1440px.jpg"
-                    }
-                ]
-            },
-            {   
-                "src": "./slideshow_1_1440px.jpg",
-                "alt": "image-1",
-                "source": [
-                    {
-                        "media": "(max-width: 879px)",
-                        "srcset": "./slideshow_1_889px.jpg"
-                    },
-                    {
-                        "media": "(min-width: 880px)",
-                        "srcset": "./slideshow_1_1440px.jpg"
-                    }
-                ]
+                "media": "(min-width: 880px)",
+                "srcset": "./background-image_1440px.jpg"
             }
         ]
     }
