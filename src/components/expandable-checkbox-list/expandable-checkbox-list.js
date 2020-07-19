@@ -1,5 +1,7 @@
 import './expandable-checkbox-list.css';
 
+import '../checkbox-list/checkbox-list.js';
+
 const render = require('./../../globals/helpers/render.js');
 
 import { Expander } from '../../globals/helpers/expander.js';

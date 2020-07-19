@@ -11,15 +11,19 @@ mixin room-card({ roomCard, room })
         div(class = 'room-card__carousel')
             +carousel({
                 images: room.images.card,
-                responsive: true
+                responsive: true,
+                prevButton: {
+                    ariaLabel: 'Перейти к предыдущему слайду'
+                },
+                nextButton: {
+                    ariaLabel: 'Перейти к следующему слайду'
+                }
             })
-            -const label = `${roomCard.link.label} ${room.number}`
-            -const title = `${roomCard.link.title} ${room.number}`
             a(
                 class = 'room-card__link'
                 href = roomCard.link.href
-                title = title
-            ) #{label} 
+                title = roomCard.link.title
+            ) #{roomCard.link.label} 
 
         div(class = 'room-card__header')
             h3(class = 'room-card__room-number') № #{room.number}

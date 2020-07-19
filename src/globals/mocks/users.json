@@ -4,7 +4,7 @@
         "surname": "Murphy",
         "avatar": {
             "src": "./user_1_44px.jpg",
-            "alt": "peter_murphy"
+            "alt": "Peter Murphy"
         },
         "like": {
             "review": [
@@ -17,7 +17,7 @@
         "surname": "Стёклышкова",
         "avatar": {
             "src": "./user_3_44px.jpg",
-            "alt": "patricia_stekleshkova"
+            "alt": "Патрисия Стёклышкова"
         }
     },
     "#3": {
@@ -25,7 +25,7 @@
         "surname": "Сарафанов",
         "avatar": {
             "src": "./user_2_44px.jpg",
-            "alt": "murad_sarafanov"
+            "alt": "Мурад Сарафанов"
         }
     }
 }

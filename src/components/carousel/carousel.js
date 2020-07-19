@@ -1,7 +1,6 @@
 import './carousel.css';
 
 import { Swiper, Navigation, Autoplay, Lazy } from 'swiper';
-import 'swiper/swiper-bundle.min.css';
 
 Swiper.use([Navigation, Autoplay, Lazy]);
 
@@ -10,7 +9,8 @@ const render = require('./../../globals/helpers/render.js');
 class Carousel {
     constructor(node) {
         this.root = node;
-        this.controls = this.root.querySelector('.js-carousel__controls');
+        this.buttonPrev = this.root.querySelector('.js-carousel__control-button_prev');
+        this.buttonNext = this.root.querySelector('.js-carousel__control-button_next');
         
         this.autoplayDelay = Number(this.root.dataset.autoplayDelay);
 
@@ -40,17 +40,27 @@ class Carousel {
             slideBlankClass: 'carousel__slide_blank'
         })
 
-        if (this.controls) {
-            this.root.addEventListener('keyup', event => {
-                if (event.key === 'ArrowRight') {
-                    swiper.slideNext();
-                }
+        this.buttonPrev.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowRight') {
+                this.buttonNext.focus();
+                swiper.slideNext();
+            }
 
-                if (event.key === 'ArrowLeft') {
-                    swiper.slidePrev();
-                }
-            })
-        }    
+            if (event.key === 'ArrowLeft') {
+                swiper.slidePrev();
+            }
+        })
+
+        this.buttonNext.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowRight') {
+                swiper.slideNext();
+            }
+
+            if (event.key === 'ArrowLeft') {
+                this.buttonPrev.focus();
+                swiper.slidePrev();
+            }
+        })
     }
 };
 

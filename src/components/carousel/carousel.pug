@@ -1,4 +1,4 @@
-mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBullets=true, autoplay=false })
+mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextButton={}, prevButton={}, showBullets=true, autoplay=false })
 
     -const getImagePath = require('../../globals/helpers/getImagePath.js');    
     -let classes = 'carousel js-carousel';
@@ -7,7 +7,6 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBul
     div(
         class = classes
         data-autoplay-delay = autoplay ? autoplay.delay : false
-        tabindex = showControls ? '0' : false
     )
         ul(class = 'carousel__slides')    
             each img in images
@@ -33,10 +32,10 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBul
                         )
 
         if showControls
-            div(class = 'carousel__controls js-carousel__controls')
+            div(class = 'carousel__controls')
                 button(
                     class = 'carousel__control-button carousel__control-button_prev js-carousel__control-button_prev'
-                    tabindex = '-1'
+                    aria-label = prevButton.ariaLabel ? prevButton.ariaLabel : 'prev button'
                 )
                     div(
                         class = 'carousel__icon carousel__icon_prev'
@@ -45,7 +44,7 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBul
 
                 button(
                     class = 'carousel__control-button carousel__control-button_next js-carousel__control-button_next'
-                    tabindex = '-1'
+                    aria-label = nextButton.ariaLabel ? nextButton.ariaLabel : 'next button'
                 )
                     div(
                         class = 'carousel__icon carousel__icon_next'
