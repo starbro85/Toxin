@@ -13,6 +13,7 @@
 }
 
 .carousel__slides {
+    position: relative;
     display: flex;
     align-items: flex-end;
     list-style: none;
@@ -23,6 +24,8 @@
 .carousel__picture {
     display: grid;
 }
+
+/* image */
 
 .carousel_responsive .carousel__image {
     max-width: 100%;
@@ -56,8 +59,7 @@
 }
 
 .carousel__control-button:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    outline: none;
 }
 
 .carousel__control-button_prev:hover {

@@ -7,6 +7,7 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBul
     div(
         class = classes
         data-autoplay-delay = autoplay ? autoplay.delay : false
+        tabindex = showControls ? '0' : false
     )
         ul(class = 'carousel__slides')    
             each img in images
@@ -32,10 +33,7 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBul
                         )
 
         if showControls
-            div(
-                class = 'carousel__controls js-carousel__controls'
-                tabindex = '0'
-            )
+            div(class = 'carousel__controls js-carousel__controls')
                 button(
                     class = 'carousel__control-button carousel__control-button_prev js-carousel__control-button_prev'
                     tabindex = '-1'
