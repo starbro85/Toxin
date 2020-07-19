@@ -44,8 +44,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.4.1",
-    "@splidejs/splide": "^2.4.8",
     "chart.js": "^2.9.3",
     "cleave.js": "^1.6.0",
     "flatpickr": "^4.6.3",
