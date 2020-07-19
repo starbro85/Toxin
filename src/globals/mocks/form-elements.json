@@ -359,8 +359,8 @@
     },
     "checkboxButtonsSection": {
         "label": "Checkbox buttons",
-        "list": {
-            "checkboxes": [
+        "checkboxList": {
+            "list": [
                 {
                     "name": "smoke",
                     "label": "Можно курить"
@@ -654,8 +654,8 @@
         "expandableList": {
             "collapsed": {
                 "label": "Expandable checkbox list",
-                "list": {
-                    "checkboxes": [
+                "checkboxList": {
+                    "list": [
                         {
                             "name": "breakfast",
                             "label": "Завтрак"
@@ -689,8 +689,8 @@
             "expanded": {
                 "label": "Expandable checkbox list",
                 "expanded": true,
-                "list": {
-                    "checkboxes": [
+                "checkboxList": {
+                    "list": [
                         {
                             "name": "breakfast",
                             "label": "Завтрак"
@@ -725,8 +725,8 @@
     },
     "richCheckboxButtonsSection": {
         "label": "Rich checkbox buttons",
-        "list": {
-            "checkboxes": [
+        "checkboxList": {
+            "list": [
                 {
                     "name": "smoke",
                     "label": "Широкий коридор",
@@ -740,17 +740,17 @@
                     "title": true
                 }
             ]
-        }
+        }    
     },
     "bulletListSection": {
         "label": "Bullet list",
-        "list": {
-            "text": [
+        "bulletList": {
+            "list": [
                 "Нельзя с питомцами",
                 "Без вечеринок и мероприятий",
                 "Время прибытия — после 13:00, а выезд до 12:00"
             ]
-        }
+        }      
     },
     "featuresSection": {
         "features": {

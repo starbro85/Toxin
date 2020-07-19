@@ -26,7 +26,9 @@ block content
                 div(class = 'landing-page__carousel')
                     +carousel({
                         images: landingPage.slideshow.images,
-                        autoPlay: '7000',
+                        autoplay: {
+                            delay: '7000'
+                        },
                         showBullets: false,
                         showControls: false
                     })

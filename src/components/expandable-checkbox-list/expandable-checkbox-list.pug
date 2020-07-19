@@ -1,0 +1,17 @@
+include ../checkbox-list/checkbox-list
+
+mixin expandable-checkbox-list({ label, expanded=false, disabled=false, checkboxList })
+    div(class = expanded ? `expandable-checkbox-list js-expandable-checkbox-list expandable-checkbox-list_expanded` : 'expandable-checkbox-list js-expandable-checkbox-list')
+        button(
+            class = 'expandable-checkbox-list__button js-expandable-checkbox-list__button'
+            type = 'button' 
+            disabled = disabled ? true : false
+            aria-expanded = `${expanded}`
+        )
+            span(class = 'expandable-checkbox-list__label') #{label}
+            span(
+                class = 'expandable-checkbox-list__icon'
+                aria-hidden = 'true'
+            ) expand_more
+        div(class = 'expandable-checkbox-list__expand-container')
+            +checkbox-list(checkboxList)

@@ -2,6 +2,9 @@
 
 .carousel {
     position: relative;
+    width: 100%;
+    display: grid;
+    overflow: hidden
 }
 
 .carousel:focus {
@@ -9,30 +12,21 @@
     outline-offset: 2px;
 }
 
-/* track */
-
-.carousel__track {
-    max-width: 100vw;
-}
-
-/* slides */
-
 .carousel__slides {
+    display: flex;
     align-items: flex-end;
-}
-
-/* slide */
-
-.carousel__slide {
-    display: grid;
-    height: 100%;
-    max-width: max-content;
+    list-style: none;
 }
 
 /* picture */
 
 .carousel__picture {
-    display: grid; 
+    display: grid;
+}
+
+.carousel_responsive .carousel__image {
+    max-width: 100%;
+    height: auto;
 }
 
 /* controls */
@@ -47,45 +41,45 @@
     justify-content: space-between;
 }
 
+.carousel__controls:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
 /* control button */
 
 .carousel__control-button {
     width: 42px;
     z-index: 1;
-    font: var(--icon-font);
-    font-size: 24px;
     color: white;
     cursor: pointer;
+}
+
+.carousel__control-button:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
 }
 
 .carousel__control-button_prev:hover {
     background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-25per) 100%);
 }
 
-.carousel__control-button_prev:focus {
-    background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-25per) 100%);
-    outline: var(--outline);
-    outline-offset: 2px;
-}
-
 .carousel__control-button_next:hover {
     background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
 }
 
-.carousel__control-button_next:focus {
-    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-25per) 100%);
-    outline: var(--outline);
-    outline-offset: 2px;
+.carousel__icon {
+    font: var(--icon-font);
+    font-size: 24px;
 }
 
-.carousel__control-button-icon_prev {
+.carousel__icon_prev {
     transform: rotate(90deg);
 }
 
-.carousel__control-button-icon_next {
+.carousel__icon_next {
     transform: rotate(-90deg);
 }
-
 
 /* bullets */
 

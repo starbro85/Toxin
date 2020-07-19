@@ -1,6 +1,6 @@
-include ../../list/list
+include ../../link-list/link-list
 
-mixin menu({ label, title, list })
+mixin menu({ label, title, linkList })
     div(class = 'menu js-menu') 
         button(
             class = 'menu__button js-menu__button'
@@ -13,5 +13,5 @@ mixin menu({ label, title, list })
                 aria-hidden = 'true'
             ) expand_more
         div(class = 'menu__containter js-menu__containter')
-            +list(list)
+            +link-list(linkList)
             

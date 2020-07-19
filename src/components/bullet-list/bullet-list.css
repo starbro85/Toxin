@@ -1,0 +1,27 @@
+/* bullet list */
+
+.bullet-list {
+    display: grid;
+    list-style: none;
+    row-gap: 10px;
+}
+
+/* item */
+
+.bullet-list__item {
+    position: relative;
+    padding-left: 20px;
+    font: var(--body-font);
+    color: var(--dark-shade-75per);
+}
+
+.bullet-list__item::before {
+    content: '';
+    position: absolute;
+    left: 0; 
+    top: 7px;
+    width: 10px; 
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--dark-shade-25per);
+}

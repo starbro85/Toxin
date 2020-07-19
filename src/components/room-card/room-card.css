@@ -1,6 +1,7 @@
-/* root styles
-*/
+/* root styles */
+
 .room-card {
+    max-width: 270px;
     height: 257px;
     padding-bottom: 17px;
     display: grid;
@@ -13,9 +14,8 @@
 /* carousel */
 
 .room-card__carousel {
-    width: 270px;
+    display: grid;
     position: relative;
-    height: 151px;
 }
 
 /* link */
@@ -122,10 +122,5 @@
     align-self: start;
     font: var(--body-font);
     color: var(--dark-shade-50per);
-}
-
-.room-card__rewiew-explantion {
-    font-weight: normal;
-    margin-right: 1px;
 }
 

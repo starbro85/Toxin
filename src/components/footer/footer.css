@@ -30,6 +30,7 @@
 /* label */
 
 .footer__label {
+    margin-bottom: 20px;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
@@ -83,10 +84,11 @@
 @media (min-width: 1167px) {
     .footer__content {
         grid-template-areas: 
-            'logo . nav . about . support . subscribtion'
-            'awards . nav . about . support . subscribtion'; 
-        grid-template-columns: auto minmax(10px, 40px) max-content minmax(10px, 57px) max-content minmax(10px, 92px) max-content minmax(10px, 51px) max-content;
+            'logo nav about support subscribtion'
+            'awards nav about support subscribtion'; 
+        grid-template-columns: auto max-content max-content max-content max-content;
         grid-template-rows: max-content auto;
+        justify-content: space-between;
         row-gap: 18px;
         background-color: white;
     }
@@ -112,59 +114,66 @@
     }
 }
 
-/* section */
-
-.footer__section {
-    display: grid;
-    grid-auto-rows: max-content;
-    row-gap: 20px;
-    font: var(--body-font);
-    color: var(--dark-shade-50per);
-}
-
 @media (max-width: 879px) {
-    .footer__section_nav,
-    .footer__section_about,
-    .footer__section_support,
-    .footer__section_subscribtion {
+    .footer__nav-section,
+    .footer__about-section,
+    .footer__support-section,
+    .footer__subscribtion-section {
         display: none;
     }
 }
 
 @media (min-width: 880px) {
-    .footer__section_nav {
+    .footer__nav-section {
         grid-area: nav;
     }
     
-    .footer__section_about {
+    .footer__about-section {
         grid-area: about;
     }
     
-    .footer__section_support {
+    .footer__support-section {
         grid-area: support;
     }
     
-    .footer__section_subscribtion {
+    .footer__subscribtion-section {
         grid-area: subscribtion;
     }
 }
 
 @media (max-width: 1166px) {
-    .footer__section_awards {
+    .footer__awards-section {
         display: none;
     }
 }
 
 @media (min-width: 1167px) { 
-    .footer__section_awards {
+    .footer__nav-section,
+    .footer__about-section,
+    .footer__support-section,
+    .footer__subscribtion-section {
+        margin-top: 5px;
+    }
+
+    .footer__nav-section,
+    .footer__about-section,
+    .footer__support-section {
+        width: 159px;
+    }
+
+    .footer__awards-section {
         grid-area: awards;
     }
 }
 
-.footer__section-text {
+.footer__section-paragraph {
     width: 260px;
     font: var(--body-font);
     color: var(--dark-shade-50per);
+}
+
+.footer__section-paragraph:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 

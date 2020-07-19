@@ -1,24 +1,23 @@
 include ../date-dropdown/date-dropdown
 include ../quantity-dropdown/quantity-dropdown
 include ../slider/slider
-include ../list/list
-include ../expandable-list/expandable-list
+include ../checkbox-list/checkbox-list
+include ../expandable-checkbox-list/expandable-checkbox-list
 
-mixin filter({ heading, dateDropdown, guestsDropdown, preferencesDropdown, slider, allowanceCheckboxList, accessibilityCheckboxList, expandableCheckboxList })
-    section(class = 'filter')
-        h2(class = 'filter__heading filter__heading_visually-hidden') #{heading}
+mixin filter({ heading, dateDropdown, guestsDropdown, preferencesDropdown, slider, allowanceCheckboxGroup, accessibilityCheckboxGroup, expandableCheckboxList })
+    form(class = 'filter')
         +date-dropdown(dateDropdown)
         +quantity-dropdown(guestsDropdown)
         div(class = 'filter__slider')
             +slider(slider)
 
-        section(class = 'filter__checkbox-list')
-            h3(class = 'filter__label') #{allowanceCheckboxList.label}
-            +list(allowanceCheckboxList.list)
+        fieldset(class = 'filter__checkbox-group')
+            legend(class = 'filter__label') #{allowanceCheckboxGroup.label}
+            +checkbox-list(allowanceCheckboxGroup.checkboxList)
         
-        section(class = 'filter__checkbox-list')
-            h3(class = 'filter__label') #{accessibilityCheckboxList.label}
-            +list(accessibilityCheckboxList.list)
+        fieldset(class = 'filter__checkbox-group')
+            legend(class = 'filter__label') #{accessibilityCheckboxGroup.label}
+            +checkbox-list(accessibilityCheckboxGroup.checkboxList)
 
         +quantity-dropdown(preferencesDropdown)
-        +expandable-list(expandableCheckboxList)
+        +expandable-checkbox-list(expandableCheckboxList)

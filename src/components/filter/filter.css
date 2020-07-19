@@ -24,9 +24,10 @@
     margin: 10px 0;
 }
 
-/* checkbox list */
+/* checkbox group */
 
-.filter__checkbox-list {
+.filter__checkbox-group {
+    padding: 0;
     margin-bottom: 10px;
 }
 

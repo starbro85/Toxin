@@ -1,0 +1,7 @@
+include ../link/link
+
+mixin link-list({ list })
+    ul(class = 'link-list')
+        each data in list
+            li(class = 'link-list__item')
+                +link(data)

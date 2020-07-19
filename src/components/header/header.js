@@ -3,6 +3,7 @@ import './menu/menu.css';
 
 import './../logo/logo.js';
 import './../link/link.js';
+import './../link-list/link-list.js';
 
 import { Expander } from '../../globals/helpers/expander.js'
 import { Menu } from './menu/menu.js'

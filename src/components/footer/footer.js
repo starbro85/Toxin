@@ -1,4 +1,4 @@
 import './footer.css';
 import './social-list/social-list.css';
 
-import '../list/list.js';
+import '../link-list/link-list.js';

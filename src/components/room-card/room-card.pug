@@ -10,7 +10,8 @@ mixin room-card({ roomCard, room })
     section(class = 'room-card')
         div(class = 'room-card__carousel')
             +carousel({
-                images: room.images.card
+                images: room.images.card,
+                responsive: true
             })
             -const label = `${roomCard.link.label} ${room.number}`
             -const title = `${roomCard.link.title} ${room.number}`

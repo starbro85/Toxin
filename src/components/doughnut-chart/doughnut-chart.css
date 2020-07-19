@@ -43,6 +43,7 @@
     border: 1px solid black;
     color: black;
     white-space: nowrap;
+    pointer-events: none;
 }
 
 /* legend */

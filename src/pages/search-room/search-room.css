@@ -1,7 +1,6 @@
 /* search room */
 
 .search-room {
-    position: relative;
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
 }
@@ -83,7 +82,7 @@
 
 @media (min-width: 613px) and (max-width: 1279px) {
     .search-room__result-section {
-        --result-section-col-span: span 2;
+        --column-span: span 2;
     }
 }
 
@@ -96,18 +95,18 @@
 
 @media (min-width: 1280px) {
     .search-room__result-section {
-        --result-section-col-span: span 3;
+        --column-span: span 3;
     }
 }
 
 .search-room__result-section-heading {
-    grid-column: var(--result-section-col-span);
+    grid-column: var(--column-span);
     font: var(--h1-font);
     color: var(--dark-shade-100per);
 }
 
 .search-room__result-section-pagination {
-    grid-column: var(--result-section-col-span);
+    grid-column: var(--column-span);
     margin-top: 20px;
     justify-self: center;
 }

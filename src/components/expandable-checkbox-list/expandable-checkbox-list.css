@@ -1,6 +1,6 @@
 /* button */
 
-.expandable-list__button {
+.expandable-checkbox-list__button {
     width: min(100%, 320px);
     height: 44px;
     padding-right: 10px;
@@ -11,64 +11,57 @@
 }
 
 @supports not (width: min(100%, 320px)) {
-    .expandable-list__button {
+    .expandable-checkbox-list__button {
         width: 100%;
         max-width: 320px;
     }
 }
 
-.expandable-list__button:focus {
+.expandable-checkbox-list__button:focus {
     outline: var(--outline);
     outline-offset: 1px;
 }
 
 /* label */
 
-.expandable-list__label {
+.expandable-checkbox-list__label {
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;
 }
 /* icon */
 
-.expandable-list__icon {
+.expandable-checkbox-list__icon {
     font: var(--icon-font);
     font-size: 1.71428571429rem;
     color: var(--dark-shade-50per);
     transition: transform .2s;
 }
 
-.expandable-list_expanded .expandable-list__icon {
+.expandable-checkbox-list_expanded .expandable-checkbox-list__icon {
     color: var(--dark-shade-75per);
 }
 
-.expandable-list__button:hover .expandable-list__icon {
+.expandable-checkbox-list__button:hover .expandable-checkbox-list__icon {
     color: var(--dark-shade-75per);
 }
 
-.expandable-list__button:active .expandable-list__icon {
+.expandable-checkbox-list__button:active .expandable-checkbox-list__icon {
     transform:  translateY(5px);
     transition: transform .2s;
 }
 
-/* viewport */
-
-.expandable-list__viewport {
+.expandable-checkbox-list__expand-container {
+    padding-top: 4px;
     opacity: 0;          
     max-height: 0;       
     visibility: hidden;
     transition: visibility step-end .6s, opacity .6s, max-height .6s;
- }   
+}
 
- .expandable-list_expanded .expandable-list__viewport {
+ .expandable-checkbox-list_expanded .expandable-checkbox-list__expand-container {
     max-height: 1000px;
     opacity: 1;  
     visibility: visible;
     transition: opacity .6s, max-height .6s;
-}
-
-/* container */
-
-.expandable-list__container {
-    padding-top: 4px;
 }

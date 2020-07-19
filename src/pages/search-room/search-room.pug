@@ -23,7 +23,7 @@ block content
         main(class = 'search-room')
             div(class = 'search-room__content')
                 div(class = 'search-room__filter')
-                    +filter(searchRoom.filterSection.filter)
+                    +filter(searchRoom.filter)
                 section(class = 'search-room__result-section')
                     h2(class = 'search-room__result-section-heading') #{searchRoom.resultSection.heading}
                     each item in rooms

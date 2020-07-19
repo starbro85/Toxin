@@ -25,12 +25,8 @@ class doughnutChart {
             tooltipEl.classList.add('doughnut-chart__tooltip', 'js-doughnut-chart__tooltip');
         }
 
-        function getBody(bodyItem) {
-            return bodyItem.lines;
-        }
-
         if (tooltipModel.body) {
-            const bodyLines = tooltipModel.body.map(getBody);
+            const bodyLines = tooltipModel.body.map((bodyItem) => bodyItem.lines);
             const innerHtml = bodyLines.reduce((innerHTML, body) => innerHTML += body, '');
 
             tooltipEl.innerHTML = innerHtml;

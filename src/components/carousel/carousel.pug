@@ -1,74 +1,55 @@
-mixin carousel({ images, ariaLabel, showControls=true, showBullets=true, autoPlay=false })
+mixin carousel({ images, ariaLabel, responsive=false, showControls=true, showBullets=true, autoplay=false })
+
     -const getImagePath = require('../../globals/helpers/getImagePath.js');    
+    -let classes = 'carousel js-carousel';
+    -classes = responsive ? `${classes} carousel_responsive` : classes;
 
     div(
-        class = 'carousel js-carousel glide'
-        data-auto-play = autoPlay
-        tabindex = '0'
+        class = classes
+        data-autoplay-delay = autoplay ? autoplay.delay : false
     )
-        div(
-            class = 'carousel__track glide__track' 
-            data-glide-el = 'track'
-        )
-            ul(class = 'carousel__slides glide__slides')    
-                each img in images
-                    -
-                        const path = getImagePath({
-                            src: img.src,
-                            source: img.source
-                        })
+        ul(class = 'carousel__slides')    
+            each img in images
+                -
+                    const path = getImagePath({
+                        src: img.src,
+                        source: img.source
+                    })
 
-                    li(class = 'carousel__slide glide__slide') 
-                        picture(class = 'carousel__picture')
-                            if path.source
-                                each res in path.source
-                                    source(
-                                        media = res.media 
-                                        srcset = res.srcset
-                                    )
+                li(class = 'carousel__slide')
+                    picture(class = 'carousel__picture')
+                        if path.source
+                            each res in path.source
+                                source(
+                                    media = res.media 
+                                    srcset = res.srcset
+                                )
+                        img(
+                            class = 'carousel__image'
+                            src = path.src
+                            loading = 'lazy'
+                            alt = img.alt
+                        )
 
-                            img(
-                                class = 'carousel__image'
-                                src = path.src
-                                loading = 'lazy'
-                                alt = img.alt
-                            )
-        
         if showControls
             div(
-                class = 'carousel__controls glide__controls' 
-                data-glide-el = 'controls'
+                class = 'carousel__controls js-carousel__controls'
+                tabindex = '0'
+            )
+                button(
+                    class = 'carousel__control-button carousel__control-button_prev js-carousel__control-button_prev'
+                    tabindex = '-1'
                 )
-                button(
-                    class = 'carousel__control-button carousel__control-button_prev glide__next-button' 
-                    data-glide-dir = '<'
-                    aria-label = 'prev slide'
-                    tabindex = '-1'
-                ) 
                     div(
-                        class = 'carousel__control-button-icon  carousel__control-button-icon_prev'
-                        aria-hidden = 'true'
-                    ) expand_more
-                button(
-                    class = 'carousel__control-button carousel__control-button_next glide__next-button' 
-                    data-glide-dir = '>'
-                    aria-label = 'next slide'
-                    tabindex = '-1'
-                ) 
-                    div(
-                        class = 'carousel__control-button-icon carousel__control-button-icon_next'
+                        class = 'carousel__icon carousel__icon_prev'
                         aria-hidden = 'true'
                     ) expand_more
 
-        if showBullets
-            div(
-                class = 'carousel__bullets glide__bullets' 
-                data-glide-el = 'controls[nav]'
-                aria-hidden = 'true'
-            ) 
-                each item, index in images
-                    button(
-                        class = 'carousel__bullet glide__bullet' 
-                        data-glide-dir = `=${index}`
-                        disabled
-                    )
+                button(
+                    class = 'carousel__control-button carousel__control-button_next js-carousel__control-button_next'
+                    tabindex = '-1'
+                )
+                    div(
+                        class = 'carousel__icon carousel__icon_next'
+                        aria-hidden = 'true'
+                    ) expand_more

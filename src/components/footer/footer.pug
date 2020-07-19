@@ -1,6 +1,6 @@
 include ./social-list/social-list
 include ../logo/logo
-include ../list/list
+include ../link-list/link-list
 include ../subscribtion-field/subscribtion-field
 
 mixin footer({ heading, logoLink, awardSection, navSection, aboutSection, supportSection, subscribtionSection, copyright, socialSection })
@@ -14,25 +14,25 @@ mixin footer({ heading, logoLink, awardSection, navSection, aboutSection, suppor
             )
                 +logo()
 
-            section(class = 'footer__section footer__section_awards')
+            section(class = 'footer__awards-section')
                 h3(class = 'footer__label footer__label_visually-hidden') #{awardSection.label}  
-                p(class = 'footer__section-text') #{awardSection.text}
+                p(class = 'footer__section-paragraph') #{awardSection.text}
 
-            section(class = 'footer__section footer__section_nav')
+            section(class = 'footer__nav-section')
                 h3(class = 'footer__label') #{navSection.label}
-                +list(navSection.list)
+                +link-list(navSection.linkList)
 
-            section(class = 'footer__section footer__section_about')
+            section(class = 'footer__about-section')
                 h3(class = 'footer__label') #{aboutSection.label}
-                +list(aboutSection.list)
+                +link-list(aboutSection.linkList)
 
-            section(class = 'footer__section footer__section_support')
+            section(class = 'footer__support-section')
                 h3(class = 'footer__label') #{supportSection.label}
-                +list(supportSection.list)
+                +link-list(supportSection.linkList)
 
-            section(class = 'footer__section footer__section_subscribtion')
+            section(class = 'footer__subscribtion-section')
                 h3(class = 'footer__label') #{subscribtionSection.label}
-                p(class = 'footer__section-text') #{subscribtionSection.text}
+                p(class = 'footer__section-paragraph') #{subscribtionSection.text}
                 +subscribtion-field(subscribtionSection.subscribtionField)
 
         div(class = 'footer__separator')

@@ -5,8 +5,9 @@ include ../../components/text-field/text-field
 include ../../components/quantity-dropdown/quantity-dropdown
 include ../../components/date-dropdown/date-dropdown
 include ../../components/subscribtion-field/subscribtion-field
-include ../../components/expandable-list/expandable-list
-include ../../components/list/list
+include ../../components/expandable-checkbox-list/expandable-checkbox-list
+include ../../components/bullet-list/bullet-list
+include ../../components/checkbox-list/checkbox-list
 include ../../components/radio-bar/radio-bar
 include ../../components/toggle/toggle
 include ../../components/like/like
@@ -48,14 +49,14 @@ block content
                 div(class = 'form-elements__filter-dropdown-section form-elements__filter-dropdown-section_expanded')
                     +quantity-dropdown(formElements.filterDropdownSection.quantityDropdown.expanded)
                 div(class = 'form-elements__expandable-checkbox-list-section')
-                    +expandable-list(formElements.expandableCheckboxListSection.expandableList.collapsed)
+                    +expandable-checkbox-list(formElements.expandableCheckboxListSection.expandableList.collapsed)
                 div(class = 'form-elements__expandable-checkbox-list-section')
-                    +expandable-list(formElements.expandableCheckboxListSection.expandableList.expanded)
+                    +expandable-checkbox-list(formElements.expandableCheckboxListSection.expandableList.expanded)
 
             div(class = 'form-elements__group-3')
                 div(class = 'form-elements__checkbox-buttons-section')
                     h3(class = 'form-elements__label') #{formElements.checkboxButtonsSection.label}
-                    +list(formElements.checkboxButtonsSection.list)
+                    +checkbox-list(formElements.checkboxButtonsSection.checkboxList)
                 div(class = 'form-elements__radio-buttons-section')
                     h3(class = 'form-elements__label') #{formElements.radioButtonsSection.label}
                     +radio-bar(formElements.radioButtonsSection.radioBar)
@@ -80,7 +81,7 @@ block content
                     +quantity-dropdown(formElements.dropdownSection.quantityDropdown.expanded)
                 div(class = 'form-elements__rich-checkbox-buttons-section')
                     h3(class = 'form-elements__label') #{formElements.richCheckboxButtonsSection.label}
-                    +list(formElements.richCheckboxButtonsSection.list)  
+                    +checkbox-list(formElements.richCheckboxButtonsSection.checkboxList)  
             
             div(class = 'form-elements__group-5')
                 div(class = 'form-elements__range-section')
@@ -103,7 +104,7 @@ block content
                     +quantity-dropdown(formElements.dropdownSection.quantityDropdown.expanded)
                 div(class = 'form-elements__bullet-list-section')
                     h3(class = 'form-elements__label') #{formElements.bulletListSection.label}
-                    +list(formElements.bulletListSection.list) 
+                    +bullet-list(formElements.bulletListSection.bulletList) 
 
             div(class = 'form-elements__group-7')
                 div(class = 'form-elements__features-section')

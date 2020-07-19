@@ -8,7 +8,6 @@ mixin checkbox({ name, label, title, description, checked=false, disabled=false 
             checked = checked ? true : false
             disabled = disabled ? true : false
         )
-        span(class = 'checkbox__mark')
 
         if label
             span(class = description ? 'checkbox__label checkbox__label_font-weight_bold' : 'checkbox__label') #{label}

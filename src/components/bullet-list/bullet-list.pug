@@ -1,0 +1,5 @@
+mixin bullet-list({ list })
+    ul(class = 'bullet-list')
+        each data in list
+            li(class = 'bullet-list__item')
+                | #{data}

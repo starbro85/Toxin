@@ -23,8 +23,8 @@
                 "menu": {
                     "label": "Услуги",
                     "title": "Раскрыть меню с услугами компании",
-                    "list": {
-                        "links": [
+                    "linkList": {
+                        "list": [
                             {
                                 "label": "Option 1",
                                 "href": "#",
@@ -59,8 +59,8 @@
                 "menu": {
                     "label": "Документация",
                     "title": "Раскрыть меню с документацией",
-                    "list": {
-                        "links": [
+                    "linkList": {
+                        "list": [
                             {
                                 "label": "Option 1",
                                 "href": "#",
@@ -132,8 +132,8 @@
         },
         "navSection": {
             "label": "Навигация",
-            "list": {
-                "links": [
+            "linkList": {
+                "list": [
                     {
                         "label": "О нас",
                         "href": "#",
@@ -159,8 +159,8 @@
         },
         "aboutSection": {
             "label": "О нас",
-            "list": {
-                "links": [
+            "linkList": {
+                "list": [
                     {
                         "label": "О сервисе",
                         "href": "#",
@@ -186,8 +186,8 @@
         },
         "supportSection": {
             "label": "Служба поддержки",
-            "list": {
-                "links": [
+            "linkList": {
+                "list": [
                     {
                         "label": "Соглашения",
                         "href": "#"
@@ -225,7 +225,7 @@
         "socialSection": {
             "label": "Мы в социальных сетях",
             "socialList": {
-                "links": [
+                "list": [
                     {
                         "type": "tw",
                         "href": "#",
