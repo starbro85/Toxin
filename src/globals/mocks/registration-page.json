@@ -1,8 +1,8 @@
 {
     "lang": "ru",
     "description": "Сервис поиска и бронирования отелей и гостиниц Toxin. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
-    "title": "Toxin | Регистрация.",
-    "heading": "Регистрация.",
+    "title": "Toxin | Страница регистрации.",
+    "heading": "Страница регистрации.",
     "header": {
         "auth": false,
         "logoLink": {
@@ -116,6 +116,7 @@
         }
     },
     "footer": {
+        "heading": "Подвал сайта",
         "logoLink": {
             "ariaLabel": "Домашняя страница",
             "href": "landing-page.html",
@@ -204,12 +205,12 @@
             "subscribtionField": {
                 "textField": {
                     "input": {
-                        "title": "Введите свой email",
-                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                        "title": "Введите email",
+                        "ariaLabel": "Введите email"
                     },
                     "button": {
                         "ariaLabel": "Подписаться",
-                        "title": "Подписаться на нашу рассылку"
+                        "title": "Подписаться"
                     }
                 }   
             }
@@ -244,40 +245,43 @@
         }
     },
     "formRegistration": {
-        "heading": "Регистрация аккаунта",
-        "nameInput": {
-            "input": {
-                "name": "name",
-                "placeholder": "Имя",
-                "required": true,
-                "title": "Введите имя",
-                "ariaLabel": "Введите имя"
-            }
-        },
-        "surnameInput": {
-            "input": {
-                "name": "surname",
-                "placeholder": "Фамилия",
-                "required": true,
-                "title": "Введите фамилию",
-                "ariaLabel": "Введите фамилию"
-            }
-        },
-        "radioBar": {
-            "ariaLabel": "Выберите свой пол",
-            "radioButtons": [
-                {
-                    "label": "Мужчина",
-                    "name": "gender",
-                    "value": "male",
-                    "checked": true
-                },
-                {
-                    "label": "Женщина",
-                    "name": "gender",
-                    "value": "female"
+        "label": "Регистрация аккаунта",
+        "personalDataGroup": { 
+            "ariaLabel": "Персональные данные", 
+            "nameInput": {
+                "input": {
+                    "name": "name",
+                    "placeholder": "Имя",
+                    "required": true,
+                    "title": "Введите имя",
+                    "ariaLabel": "Введите имя"
                 }
-            ]
+            },
+            "surnameInput": {
+                "input": {
+                    "name": "surname",
+                    "placeholder": "Фамилия",
+                    "required": true,
+                    "title": "Введите фамилию",
+                    "ariaLabel": "Введите фамилию"
+                }
+            },
+            "radioBar": {
+                "ariaLabel": "Выбор пола",
+                "radioButtons": [
+                    {
+                        "label": "Мужчина",
+                        "name": "gender",
+                        "value": "male",
+                        "checked": true
+                    },
+                    {
+                        "label": "Женщина",
+                        "name": "gender",
+                        "value": "female"
+                    }
+                ]
+            }
         },
         "birthdayInput": {
             "label": "Дата рождения",
@@ -290,30 +294,33 @@
                 "ariaLabel": "Введите дату рождения"
             }
         },
-        "emailInput": {
-            "label": "данные для входа в сервис",
-            "input": {
-                "name": "email",
-                "type": "email",
-                "placeholder": "Email",
-                "required": true,
-                "title": "Введите email",
-                "ariaLabel": "Введите email"
+        "loginDataGroup": {
+            "ariaLabel": "Данные для входа в сервис",
+            "emailInput": {
+                "label": "данные для входа в сервис",
+                "input": {
+                    "name": "email",
+                    "type": "email",
+                    "placeholder": "Email",
+                    "required": true,
+                    "title": "Введите email",
+                    "ariaLabel": "Введите email"
+                }
+            },
+            "passwordInput": {
+                "input": {
+                    "name": "password",
+                    "type": "password",
+                    "placeholder": "Пароль",
+                    "required": true,
+                    "title": "Введите пароль",
+                    "ariaLabel": "Введите пароль"
+                }
+            },
+            "toggle": {
+                "name": "special",
+                "label": "Получать спецпредложения"
             }
-        },
-        "passwordInput": {
-            "input": {
-                "name": "password",
-                "type": "password",
-                "placeholder": "Пароль",
-                "required": true,
-                "title": "Введите пароль",
-                "ariaLabel": "Введите пароль"
-            }
-        },
-        "toggle": {
-            "name": "special",
-            "label": "Получать спецпредложения"
         },
         "submitButton": {
             "label": "Перейти к оплате",
@@ -324,7 +331,7 @@
         "loginText": "Уже есть аккаунт на Toxin",
         "loginLink": {
             "label": "Войти",
-            "href": "#",
+            "href": "./login-page.html",
             "title": "Перейти на страницу авторизации",
             "button": true,
             "border": true

@@ -5,7 +5,7 @@
     width: min(100%, 320px);
     display: grid;
     grid-auto-flow: column;
-    column-gap: 10px;
+    column-gap: 20px;
 }
 
 @supports not (width: min(100%, 320px)) {

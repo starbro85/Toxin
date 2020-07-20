@@ -1,7 +1,9 @@
 /* doughnut chart */
 
 .doughnut-chart {
+    width: min(100%, 304px);
     display: flex;
+    justify-content: space-between;
     align-items: flex-end;
 }
 
@@ -49,9 +51,9 @@
 /* legend */
 
 .doughnut-chart__legend {
-    margin-left: 30px;
-    display: grid;
-    grid-auto-rows: max-content;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column-reverse;
     font: var(--body-font);
     color: var(--dark-shade-75per);
     list-style: none;
@@ -59,7 +61,8 @@
 
 .doughnut-chart__legend-item {
     position: relative;
-    padding-left: 20px;
+    padding-left: 15px;
+    line-height: 23px;
 }
 
 .doughnut-chart__legend-item::before {

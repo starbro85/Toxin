@@ -1,6 +1,7 @@
 /* features list */
 
 .features-list {
+    width: min(100%, 280px); 
     display: grid;
     row-gap: 20px;
 }
@@ -8,8 +9,6 @@
 /* item */
 
 .features-list__item {
-    width: 280px; 
-    padding-bottom: 20px;
     display: grid;
     grid-template-areas: 
         'icon label'
@@ -19,6 +18,7 @@
 }
 
 .features-list__item:not(:last-child) {
+    padding-bottom: 20px;
     border-bottom: var(--border-1);
     border-color: var(--dark-shade-10per);
 }

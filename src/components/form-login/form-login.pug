@@ -2,25 +2,28 @@ include ../text-field/text-field
 include ../button/button
 include ../link/link
 
-mixin form-login({ heading, emailInput, passwordInput, submitButton, registrationLink, registrationText })
+mixin form-login({ label, loginDataGroup={}, submitButton, registrationLink, registrationText })
     form(
         class = 'form-login'
         name = 'login' 
         method = 'get'
     )
-        h2(class = 'form-login__heading') #{heading}
+        h2(
+            class = 'form-login__label'
+        ) #{label}
+        
         div(
             class = 'form-login__fieldset'
             role = 'group'
+            aria-label = loginDataGroup.ariaLabel ? loginDataGroup.ariaLabel : false
         )
-            div(class = 'form-login__input')
-                +text-field(emailInput)
-            div(class = 'form-login__input')
-                +text-field(passwordInput)
+            +text-field(loginDataGroup.emailInput)
+            +text-field(loginDataGroup.passwordInput)
                 
         div(class = 'form-login__submit-button')
             +button(submitButton)
+
         div(class = 'form-login__registration')
-            span(class = 'form-login__registration-text') #{registrationText}
+            p(class = 'form-login__registration-text') #{registrationText}
             span(class = 'form-login__registration-link')
                 +link(registrationLink)

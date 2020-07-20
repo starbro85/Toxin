@@ -1,6 +1,6 @@
 {
     "formSearch": {
-        "heading": "Найдём номера под ваши пожелания",
+        "label": "Найдём номера под ваши пожелания",
         "dateDropdown": {
             "isTwin": true,
             "textField": {
@@ -10,8 +10,7 @@
                         "name": "arrival",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле",
-                        "ariaLabel": "Выберите даты пребывния в отеле"
+                        "title": "Даты пребывния в отеле"
                     }
                 },
                 "to": {
@@ -20,8 +19,7 @@
                         "name": "departure",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле",
-                        "ariaLabel": "Выберите даты пребывния в отеле"
+                        "title": "Даты пребывния в отеле"
                     }
                 }
             },
@@ -45,8 +43,7 @@
                     "name": "guests",
                     "placeholder": "Сколько гостей",
                     "required": true,    
-                    "title": "Выберите количество гостей",
-                    "ariaLabel": "Выберите количество гостей"
+                    "title": "Количество гостей"
                 }
             },
             "clearButton": {
@@ -118,40 +115,43 @@
         }
     },
     "formRegistration": {
-        "heading": "Регистрация аккаунта",
-        "nameInput": {
-            "input": {
-                "name": "name",
-                "placeholder": "Имя",
-                "required": true,
-                "title": "Введите имя",
-                "ariaLabel": "Введите имя"
-            }
-        },
-        "surnameInput": {
-            "input": {
-                "name": "surname",
-                "placeholder": "Фамилия",
-                "required": true,
-                "title": "Введите фамилию",
-                "ariaLabel": "Введите фамилию"
-            }
-        },
-        "radioBar": {
-            "ariaLabel": "Выберите свой пол",
-            "radioButtons": [
-                {
-                    "label": "Мужчина",
-                    "name": "gender",
-                    "value": "male",
-                    "checked": true
-                },
-                {
-                    "label": "Женщина",
-                    "name": "gender",
-                    "value": "female"
+        "label": "Регистрация аккаунта",
+        "personalDataGroup": { 
+            "ariaLabel": "Персональные данные", 
+            "nameInput": {
+                "input": {
+                    "name": "name",
+                    "placeholder": "Имя",
+                    "required": true,
+                    "title": "Введите имя",
+                    "ariaLabel": "Введите имя"
                 }
-            ]
+            },
+            "surnameInput": {
+                "input": {
+                    "name": "surname",
+                    "placeholder": "Фамилия",
+                    "required": true,
+                    "title": "Введите фамилию",
+                    "ariaLabel": "Введите фамилию"
+                }
+            },
+            "radioBar": {
+                "ariaLabel": "Выбор пола",
+                "radioButtons": [
+                    {
+                        "label": "Мужчина",
+                        "name": "gender",
+                        "value": "male",
+                        "checked": true
+                    },
+                    {
+                        "label": "Женщина",
+                        "name": "gender",
+                        "value": "female"
+                    }
+                ]
+            }
         },
         "birthdayInput": {
             "label": "Дата рождения",
@@ -164,30 +164,33 @@
                 "ariaLabel": "Введите дату рождения"
             }
         },
-        "emailInput": {
-            "label": "данные для входа в сервис",
-            "input": {
-                "name": "email",
-                "type": "email",
-                "placeholder": "Email",
-                "required": true,
-                "title": "Введите email",
-                "ariaLabel": "Введите email"
+        "loginDataGroup": {
+            "ariaLabel": "Данные для входа в сервис",
+            "emailInput": {
+                "label": "Данные для входа в сервис",
+                "input": {
+                    "name": "email",
+                    "type": "email",
+                    "placeholder": "Email",
+                    "required": true,
+                    "title": "Введите email",
+                    "ariaLabel": "Введите email"
+                }
+            },
+            "passwordInput": {
+                "input": {
+                    "name": "password",
+                    "type": "password",
+                    "placeholder": "Пароль",
+                    "required": true,
+                    "title": "Введите пароль",
+                    "ariaLabel": "Введите пароль"
+                }
+            },
+            "toggle": {
+                "name": "special",
+                "label": "Получать спецпредложения"
             }
-        },
-        "passwordInput": {
-            "input": {
-                "name": "password",
-                "type": "password",
-                "placeholder": "Пароль",
-                "required": true,
-                "title": "Введите пароль",
-                "ariaLabel": "Введите пароль"
-            }
-        },
-        "toggle": {
-            "name": "special",
-            "label": "Получать спецпредложения"
         },
         "submitButton": {
             "label": "Перейти к оплате",
@@ -227,8 +230,7 @@
                         "name": "arrival",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле",
-                        "ariaLabel": "Выберите даты пребывния в отеле"
+                        "title": "Даты пребывния в отеле"
                     }
                 },
                 "to": {
@@ -237,8 +239,7 @@
                         "name": "departure",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле",
-                        "ariaLabel": "Выберите даты пребывния в отеле"
+                        "title": "Даты пребывния в отеле"
                     }
                 }
             },
@@ -262,8 +263,8 @@
                     "name": "guests",
                     "placeholder": "Сколько гостей",
                     "required": true,    
-                    "title": "Выберите количество гостей",
-                    "ariaLabel": "Выберите количество гостей"
+                    "title": "Количество гостей",
+                    "ariaLabel": "Количество гостей"
                 }
             },
             "clearButton": {
@@ -337,25 +338,28 @@
         }
     },
     "formLogin": {
-        "heading": "Войти",
-        "emailInput": {
-            "input": {
-                "name": "email",
-                "type": "email",
-                "placeholder": "Email",
-                "required": true,
-                "title": "Введите email",
-                "ariaLabel": "Введите email"
-            }
-        },
-        "passwordInput": {
-            "input": {
-                "name": "password",
-                "type": "password",
-                "placeholder": "Пароль",
-                "required": true,
-                "title": "Введите пароль",
-                "ariaLabel": "Введите пароль"
+        "label": "Войти",
+        "loginDataGroup": {
+            "ariaLabel": "Данные для входа в сервис",
+            "emailInput": {
+                "input": {
+                    "name": "email",
+                    "type": "email",
+                    "placeholder": "Email",
+                    "required": true,
+                    "title": "Введите email",
+                    "ariaLabel": "Введите email"
+                }
+            },
+            "passwordInput": {
+                "input": {
+                    "name": "password",
+                    "type": "password",
+                    "placeholder": "Пароль",
+                    "required": true,
+                    "title": "Введите пароль",
+                    "ariaLabel": "Введите пароль"
+                }
             }
         },
         "submitButton": {

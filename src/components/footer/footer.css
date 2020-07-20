@@ -27,6 +27,16 @@
     }
 }
 
+/* heading */
+
+.footer__heading {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
 /* label */
 
 .footer__label {
@@ -241,7 +251,7 @@
 @media (min-width: 880px) {
     .footer__separator {
         grid-area: separator;
-        width: 100vw;
+        width: 100%;
         height: 1px;
         background-color: var(--dark-shade-25per);
     }

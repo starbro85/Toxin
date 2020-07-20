@@ -64,7 +64,7 @@
 
 .landing-page__slideshow {
     position: absolute;
-    min-width: 100vw;
+    min-width: 100%;
     bottom: 0;
     z-index: -1;
     display: flex;

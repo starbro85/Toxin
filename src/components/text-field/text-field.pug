@@ -1,7 +1,6 @@
 mixin text-field({ label, input, button, icon, controlClass, activeClass })
     
     -let rootClasses = 'text-field js-text-field';
-    -rootClasses = label ? `${rootClasses} text-field_with_label` : rootClasses;
     -rootClasses = button ? `${rootClasses} text-field_with_button` : icon ? `${rootClasses} text-field_with_icon` : rootClasses;
     -rootClasses = input.type === 'button' ? `${rootClasses} text-field_type_button` : rootClasses;
     -rootClasses = controlClass ? `${rootClasses} ${controlClass}` : rootClasses;

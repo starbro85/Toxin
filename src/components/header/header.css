@@ -73,7 +73,7 @@
         top: 90%;
         left: -5px;
         width: min(95vw, 400px);
-        padding: 0 25px;
+        padding: 20px 15px;
         border: var(--border-1);
         border-radius: 4px;
         box-shadow: var(--shadow-1);
@@ -135,13 +135,6 @@
     list-style: none;
 }
 
-@media (orientation: landscape) and (max-width: 879px) {
-    .header__nav-list {
-        max-height: 80vh;
-        overflow-y: scroll;
-    }  
-}
-
 @media (max-width: 879px) {
     .header__nav-list {
         height: 100%;
@@ -149,14 +142,6 @@
         grid-auto-columns: max-content;
         row-gap: 10px;
     }
-    
-    .header__nav-list::after {
-        content: "";
-        display: block;
-        width: 100%;
-        padding-bottom: 10px;
-    }
-    
 }
 
 @media (min-width: 880px) {

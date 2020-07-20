@@ -5,6 +5,7 @@ include ../subscribtion-field/subscribtion-field
 
 mixin footer({ heading, logoLink, awardSection, navSection, aboutSection, supportSection, subscribtionSection, copyright, socialSection })
     footer(class = 'footer')
+        h2(class = 'footer__heading') #{heading}
         div(class = 'footer__content')
             a(
                 class = 'footer__logo-link' 

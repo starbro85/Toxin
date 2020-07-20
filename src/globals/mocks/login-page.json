@@ -1,8 +1,8 @@
 {
     "lang": "ru",
     "description": "Сервис поиска и бронирования отелей и гостиниц Toxin. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
-    "title": "Toxin | Регистрация.",
-    "heading": "Регистрация.",
+    "title": "Toxin | Страница авторизации.",
+    "heading": "Страница авторизации.",
     "header": {
         "auth": false,
         "logoLink": {
@@ -116,6 +116,7 @@
         }
     },
     "footer": {
+        "heading": "Подвал сайта",
         "logoLink": {
             "ariaLabel": "Домашняя страница",
             "href": "landing-page.html",
@@ -204,12 +205,12 @@
             "subscribtionField": {
                 "textField": {
                     "input": {
-                        "title": "Введите свой email",
-                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                        "title": "Введите email",
+                        "ariaLabel": "Введите email"
                     },
                     "button": {
                         "ariaLabel": "Подписаться",
-                        "title": "Подписаться на нашу рассылку"
+                        "title": "Подписаться"
                     }
                 }   
             }
@@ -244,25 +245,28 @@
         }
     },
     "formLogin": {
-        "heading": "Войти",
-        "emailInput": {
-            "input": {
-                "name": "email",
-                "type": "email",
-                "placeholder": "Email",
-                "required": true,
-                "title": "Введите email",
-                "ariaLabel": "Введите email"
-            }
-        },
-        "passwordInput": {
-            "input": {
-                "name": "password",
-                "type": "password",
-                "placeholder": "Пароль",
-                "required": true,
-                "title": "Введите пароль",
-                "ariaLabel": "Введите пароль"
+        "label": "Войти",
+        "loginDataGroup": {
+            "ariaLabel": "Данные для входа в сервис",
+            "emailInput": {
+                "input": {
+                    "name": "email",
+                    "type": "email",
+                    "placeholder": "Email",
+                    "required": true,
+                    "title": "Введите email",
+                    "ariaLabel": "Введите email"
+                }
+            },
+            "passwordInput": {
+                "input": {
+                    "name": "password",
+                    "type": "password",
+                    "placeholder": "Пароль",
+                    "required": true,
+                    "title": "Введите пароль",
+                    "ariaLabel": "Введите пароль"
+                }
             }
         },
         "submitButton": {
@@ -274,7 +278,7 @@
         "registrationText": "Нет аккаунта на Toxin",
         "registrationLink": {
             "label": "Создать",
-            "href": "#",
+            "href": "./registration-page.html",
             "title": "Перейти на страницу реистрации",
             "button": true,
             "border": true

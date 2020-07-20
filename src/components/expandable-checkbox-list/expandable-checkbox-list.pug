@@ -1,6 +1,6 @@
 include ../checkbox-list/checkbox-list
 
-mixin expandable-checkbox-list({ label, expanded=false, disabled=false, checkboxList })
+mixin expandable-checkbox-list({ label, expanded=false, disabled=false, checkboxList=[] })
     div(class = expanded ? `expandable-checkbox-list js-expandable-checkbox-list expandable-checkbox-list_expanded` : 'expandable-checkbox-list js-expandable-checkbox-list')
         button(
             class = 'expandable-checkbox-list__button js-expandable-checkbox-list__button'

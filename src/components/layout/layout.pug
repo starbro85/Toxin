@@ -2,14 +2,13 @@ include ../header/header
 include ../footer/footer
 
 mixin layout({ heading, header, footer, user, slideshow })
-    div(class = 'layout')
-        div(class = 'layout__header')
-            +header({ header, user })
+    body(class = 'page')
+        if heading
+            h1(class = 'page__heading') #{heading}
 
-        div(class = 'layout__main')   
-            h1(class = 'layout__heading') #{heading}
-            if block
-                block
+        +header({ header, user })  
 
-        div(class = 'layout__footer')
-            +footer(footer)
+        if block
+            block
+        
+        +footer(footer)

@@ -19,9 +19,9 @@
     }
 }
 
-/*  heading */
+/*  label */
 
-.form-login__heading {
+.form-login__label {
     font: var(--h1-font);
     color: var(--dark-shade-100per);
 }

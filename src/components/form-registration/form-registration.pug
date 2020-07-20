@@ -4,31 +4,35 @@ include ../toggle/toggle
 include ../button/button
 include ../link/link
 
-mixin form-registration({ heading, nameInput, surnameInput, birthdayInput, emailInput, passwordInput, toggle, radioBar, submitButton, loginText, loginLink })
+mixin form-registration({ label, personalDataGroup={}, birthdayInput, loginDataGroup={},  submitButton, loginText, loginLink })
     form(
         class = 'form-registration'
         name = 'registration' 
         method = 'get'
         autocomplete = 'off'
     )
-        h2(class = 'form-registration__heading') #{heading}
+        h2(
+            class = 'form-registration__label'
+        ) #{label}
         div(
             class = 'form-registration__fieldset'
             role = 'group'
+            aria-label = personalDataGroup.ariaLabel ? personalDataGroup.ariaLabel : false
         )
-            +text-field(nameInput)
-            +text-field(surnameInput)
-            +radio-bar(radioBar)
+            +text-field(personalDataGroup.nameInput)
+            +text-field(personalDataGroup.surnameInput)
+            +radio-bar(personalDataGroup.radioBar)
 
         +text-field(birthdayInput)
         
         div(
             class = 'form-registration__fieldset'
             role = 'group'
+            aria-label = loginDataGroup.ariaLabel ? loginDataGroup.ariaLabel : false
         )
-            +text-field(emailInput)
-            +text-field(passwordInput)
-            +toggle(toggle)
+            +text-field(loginDataGroup.emailInput)
+            +text-field(loginDataGroup.passwordInput)
+            +toggle(loginDataGroup.toggle)
 
         div(class = 'form-registration__submit-button')
             +button(submitButton)

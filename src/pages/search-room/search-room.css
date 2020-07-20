@@ -76,7 +76,7 @@
 
 @media (min-width: 613px) {
     .search-room__result-section {
-        gap: 12px 20px
+        gap: 20px 12px;
     };
 }
 

@@ -4,7 +4,7 @@
     width: min(100%, 380px);
     padding: 45px min(5vw, 28px) 30px min(5vw, 28px);
     display: grid;
-    row-gap: 20px;
+    row-gap: 22px;
     background-color: white;
     box-shadow: var(--shadow-3);
     border: var(--border-2);
@@ -17,6 +17,16 @@
         max-width: 380px;
         padding: 45px 7.36% 30px 7.36%;
     }
+}
+
+/* label */
+
+.form-booking__label {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
 }
 
 /* header */
@@ -88,12 +98,16 @@
 }
 
 .form-booking__calc-description {
+    display: inline-flex;
     font: var(--body-font);
     line-height: 18px;
     color: var(--dark-shade-75per);
+    white-space: pre-wrap;
 }
 
 .form-booking__calc-value {
+    display: inline-flex;
+    border: none;
     font: var(--body-font);
     line-height: 18px;
     color: var(--dark-shade-75per);
@@ -106,7 +120,8 @@
 /* total */
 
 .form-booking__total {
-    margin-top: 10px;
+    margin-top: 5px;
+    padding: 0 2px;
     display: grid;
     grid-template-columns: max-content 1fr max-content;
     align-items: bottom;

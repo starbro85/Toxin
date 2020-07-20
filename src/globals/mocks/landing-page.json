@@ -121,6 +121,7 @@
         }
     },
     "footer": {
+        "heading": "Подвал сайта",
         "logoLink": {
             "ariaLabel": "Домашняя страница",
             "href": "landing-page.html",
@@ -209,12 +210,12 @@
             "subscribtionField": {
                 "textField": {
                     "input": {
-                        "title": "Введите свой email",
-                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                        "title": "Введите email",
+                        "ariaLabel": "Введите email"
                     },
                     "button": {
                         "ariaLabel": "Подписаться",
-                        "title": "Подписаться на нашу рассылку"
+                        "title": "Подписаться"
                     }
                 }   
             }
@@ -249,7 +250,7 @@
         }
     },
     "formSearch": {
-        "heading": "Найдём номера под ваши пожелания",
+        "label": "Найдём номера под ваши пожелания",
         "dateDropdown": {
             "isTwin": true,
             "textField": {
@@ -259,8 +260,7 @@
                         "name": "arrival",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле",
-                        "ariaLabel": "Выберите даты пребывния в отеле"
+                        "title": "Выберите даты пребывния в отеле"
                     }
                 },
                 "to": {
@@ -269,8 +269,7 @@
                         "name": "departure",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле",
-                        "ariaLabel": "Выберите даты пребывния в отеле"
+                        "title": "Выберите даты пребывния в отеле"
                     }
                 }
             },
@@ -294,8 +293,7 @@
                     "name": "guests",
                     "placeholder": "Сколько гостей",
                     "required": true,    
-                    "title": "Выберите количество гостей",
-                    "ariaLabel": "Выберите количество гостей"
+                    "title": "Выберите количество гостей"
                 }
             },
             "clearButton": {

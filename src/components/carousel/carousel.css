@@ -27,6 +27,10 @@
     height: auto;
 }
 
+.carousel__image_lazy:not(.carousel__image_loaded) {
+    display: none;
+}
+
 /* controls */
 
 .carousel__controls {

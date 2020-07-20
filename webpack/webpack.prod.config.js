@@ -17,62 +17,6 @@ const config = {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, '..', 'dist'),
     },
-
-    plugins: [
-        new CleanWebpackPlugin(),
-        new MomentLocalesPlugin({
-            localesToKeep: ['ru', 'en']
-        }),
-        new HtmlWebpackPlugin({
-            title: 'start-menu',
-            filename: 'start-menu.html',
-            template: '../src/pages/start-menu/start-menu.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'cards',
-            filename: 'cards.html',
-            template: '../src/pages/cards/cards.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'form-elements',
-            filename: 'form-elements.html',
-            template: '../src/pages/form-elements/form-elements.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'headers-and-footers',
-            filename: 'headers-and-footers.html',
-            template: '../src/pages/headers-and-footers/headers-and-footers.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'landing-page',
-            filename: 'landing-page.html',
-            template: '../src/pages/landing-page/landing-page.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'search-room',
-            filename: 'search-room.html',
-            template: '../src/pages/search-room/search-room.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'room-detail',
-            filename: 'room-detail.html',
-            template: '../src/pages/room-detail/room-detail.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'registration-page',
-            filename: 'registration-page.html',
-            template: '../src/pages/registration-page/registration-page.pug',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'login-page',
-            filename: 'login-page.html',
-            template: '../src/pages/login-page/login-page.pug',
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-        })
-    ],
-
     module: {
         rules: [
             {
@@ -132,7 +76,61 @@ const config = {
                 }
             },
         ]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MomentLocalesPlugin({
+            localesToKeep: ['ru', 'en']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'start-menu',
+            filename: 'start-menu.html',
+            template: '../src/pages/start-menu/start-menu.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'cards',
+            filename: 'cards.html',
+            template: '../src/pages/cards/cards.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'form-elements',
+            filename: 'form-elements.html',
+            template: '../src/pages/form-elements/form-elements.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'headers-and-footers',
+            filename: 'headers-and-footers.html',
+            template: '../src/pages/headers-and-footers/headers-and-footers.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'landing-page',
+            filename: 'landing-page.html',
+            template: '../src/pages/landing-page/landing-page.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'search-room',
+            filename: 'search-room.html',
+            template: '../src/pages/search-room/search-room.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'room-detail',
+            filename: 'room-detail.html',
+            template: '../src/pages/room-detail/room-detail.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'registration-page',
+            filename: 'registration-page.html',
+            template: '../src/pages/registration-page/registration-page.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'login-page',
+            filename: 'login-page.html',
+            template: '../src/pages/login-page/login-page.pug',
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css',
+        })
+    ],
 }
 
 module.exports = config;

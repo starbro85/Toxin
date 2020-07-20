@@ -2,13 +2,17 @@ include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
 
-mixin form-booking({ root, room })
+mixin form-booking({ root={}, room={} })
     form(
         class = 'form-booking js-form-booking'
-        name = 'booking'
+        name = `${room.number}_booking`
         method = 'post'
         autocomplete = 'off'
     )
+        h2(
+            class = 'form-booking__label'
+        ) #{root.label}
+
         div(class = 'form-booking__header')  
             p(class = 'form-booking__header-room-number ') № #{room.number} 
 
@@ -37,12 +41,16 @@ mixin form-booking({ root, room })
                         class = 'form-booking__calc-rent-term js-form-booking__calc-rent-term'
                         data-plural = root.term.plural
                     )
+
                 p(class = 'form-booking__calc-value js-form-booking__calc-summary-price')
+
             div(class = 'form-booking__calc-detail')
                 p(class = 'form-booking__calc-description') #{root.service}
                     if room.discount
                         span(class = 'form-booking__calc-discount js-form-booking__calc-discount') : #{root.discount} #{room.discount}
+
                 p(class = 'form-booking__calc-value js-form-booking__calc-service-price') #{room.service}
+
             div(class = 'form-booking__calc-detail')
                 p(class = 'form-booking__calc-description') #{root.addition}
                 p(class = 'form-booking__calc-value js-form-booking__calc-addition-price') #{room.addition}
@@ -51,5 +59,13 @@ mixin form-booking({ root, room })
             p(class = 'form-booking__total-label') #{root.total}
             div(class = 'form-booking__total-dashed-line')
             p(class = 'form-booking__total-price js-form-booking__total-price')
+            input(
+                name = 'total-price'
+                class = 'form-booking__total-input js-form-booking__total-input'
+                readonly
+                hidden
+                aria-hidden = 'true'
+            )
+            
         div(class = 'form-booking__submit-button')
             +button(root.submitButton)

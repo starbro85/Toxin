@@ -188,12 +188,12 @@
             "subscribtionField": {
                 "textField": {
                     "input": {
-                        "title": "Введите свой email",
-                        "ariaLabel": "Подпишитесь на нашу рассылку"
+                        "title": "Введите email",
+                        "ariaLabel": "Введите email"
                     },
                     "button": {
                         "ariaLabel": "Подписаться",
-                        "title": "Подписаться на нашу рассылку"
+                        "title": "Подписаться"
                     }
                 }   
             }

@@ -4,7 +4,7 @@ include ../slider/slider
 include ../checkbox-list/checkbox-list
 include ../expandable-checkbox-list/expandable-checkbox-list
 
-mixin filter({ heading, dateDropdown, guestsDropdown, preferencesDropdown, slider, allowanceCheckboxGroup, accessibilityCheckboxGroup, expandableCheckboxList })
+mixin filter({ heading, dateDropdown={}, guestsDropdown={}, preferencesDropdown={}, slider={}, allowanceCheckboxGroup={}, accessibilityCheckboxGroup={}, expandableCheckboxList={} })
     form(class = 'filter')
         +date-dropdown(dateDropdown)
         +quantity-dropdown(guestsDropdown)

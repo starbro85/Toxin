@@ -19,9 +19,9 @@
     }
 }
 
-/*  heading */
+/*  label */
 
-.form-registration__heading {
+.form-registration__label {
     font: var(--h1-font);
     color: var(--dark-shade-100per);
 }

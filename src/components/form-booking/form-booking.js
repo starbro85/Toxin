@@ -25,6 +25,7 @@ class FormBooking {
         this.additionPriceContainer = this.root.querySelector('.js-form-booking__calc-addition-price');
         this.discountContainer = this.root.querySelector('.js-form-booking__calc-discount');
         this.totalPriceContainer = this.root.querySelector('.js-form-booking__total-price');
+        this.totalPriceInput = this.root.querySelector('.js-form-booking__total-input');
 
         this.rentTermPlural = JSON.parse(this.rentTermContainer.dataset.plural);
         this.rentPrice = moneyFormat.from(this.rentPriceContainer.innerHTML);
@@ -47,6 +48,7 @@ class FormBooking {
             this.summaryPriceContainer.innerHTML = moneyFormat.to(this.summaryPrice);
             this.totalPrice = this.summaryPrice + this.servicePrice + this.additionPrice - this.discount;
             this.totalPriceContainer.innerHTML = moneyFormat.to(this.totalPrice);
+            this.totalPriceInput.value = this.totalPrice;
         });
     }
 };

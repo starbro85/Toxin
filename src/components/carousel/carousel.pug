@@ -7,9 +7,10 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
     div(
         class = classes
         data-autoplay-delay = autoplay ? autoplay.delay : false
+        data-show-controls = showControls ? true : false
     )
         ul(class = 'carousel__slides')    
-            each img in images
+            each img, index in images
                 -
                     const path = getImagePath({
                         src: img.src,
@@ -18,19 +19,33 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
 
                 li(class = 'carousel__slide')
                     picture(class = 'carousel__picture')
-                        if path.source
-                            each res in path.source
-                                source(
-                                    media = res.media 
-                                    srcset = res.srcset
-                                )
-                        img(
-                            class = 'carousel__image'
-                            src = path.src
-                            loading = 'lazy'
-                            alt = img.alt
-                        )
-
+                        if index === 0
+                            if path.source
+                                each res in path.source
+                                    source(
+                                        media = res.media 
+                                        srcset = res.srcset
+                                    )
+                            img(
+                                class = 'carousel__image'
+                                src = path.src
+                                alt = img.alt
+                            )
+                        
+                        else 
+                            if path.source
+                                each res in path.source
+                                    source(
+                                        media = res.media 
+                                        data-srcset = res.srcset
+                                    )
+                            img(
+                                class = 'carousel__image carousel__image_lazy'
+                                data-src = path.src
+                                alt = img.alt
+                            )
+                            div(class = 'carousel__image-preloader')
+                            
         if showControls
             div(class = 'carousel__controls')
                 button(
