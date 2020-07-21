@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     display: grid;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .carousel__slides {

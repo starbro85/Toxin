@@ -10,10 +10,12 @@ block variables
     -const lang = loginPage.lang;
     -const title = loginPage.title;
     -const description = loginPage.description;
+
+block heading
+    | #{loginPage.heading}
     
 block content
     +layout({
-            heading: loginPage.heading,
             header: loginPage.header,
             footer: loginPage.footer
         })

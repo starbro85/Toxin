@@ -1,14 +1,10 @@
 include ../header/header
 include ../footer/footer
 
-mixin layout({ heading, header, footer, user, slideshow })
-    body(class = 'page')
-        if heading
-            h1(class = 'page__heading') #{heading}
+mixin layout({ header, footer, user })
+    +header({ header, user })  
 
-        +header({ header, user })  
-
-        if block
-            block
-        
-        +footer(footer)
+    if block
+        block
+    
+    +footer(footer)

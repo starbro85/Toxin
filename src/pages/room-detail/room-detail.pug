@@ -17,10 +17,12 @@ block variables
     -const description = roomDetail.description;
     -const getImagePath = require('./../../globals/helpers/getImagePath.js');
     -const pluralize = require('./../../globals/helpers/pluralize.js');
+
+block heading
+    | #{`${roomDetail.heading} ${room.number}`}
     
 block content
     +layout({
-            heading: `${roomDetail.heading} ${room.number}`,
             header: roomDetail.header,
             footer: roomDetail.footer,
             user: users['#1']

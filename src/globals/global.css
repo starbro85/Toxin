@@ -63,6 +63,10 @@ html {
     font-size: min(3.7vmin, 14px);
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 /* zero padding and margin, remove border and background, add border-box for headings, button, input tags */
 
 *, h1, h2, h3, button, input, a {

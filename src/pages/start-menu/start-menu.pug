@@ -1,35 +1,77 @@
 extends ../../globals/template
 
-include ../../components/start-menu/start-menu
+include ../../components/link/link
 
 block variables
-    -title = 'Start page';
+    -title = 'Start menu';
 
 block content
-    +start-menu({
-        items: [
+    -
+        const uiKitLinks = [
             {
                 href: 'colors-and-type.html',
-                title: 'Перейти на страницу "colors & type"',
-                text: 'colors & type'
+                title: 'UI-Kit - colors & type',
+                label: 'colors & type'
             },
             {
                 href: 'form-elements.html',
-                title: 'Перейти на страницу "form elements"',
-                text: 'form elements'
+                title: 'UI-Kit - form elements',
+                label: 'form elements'
             },
             {
                 href: 'cards.html',
-                title: 'Перейти на страницу "cards"',
-                text: 'cards'
+                title: 'UI-Kit - cards',
+                label: 'cards'
             },
             {
                 href: 'headers-and-footers.html',
-                title: 'Перейти на "headers & footers"',
-                text: 'headers & footers'
+                title: 'UI-Kit - headers & footers',
+                label: 'headers & footers'
+            }
+        ];
+
+        const pages = [
+            {
+                href: 'landing-page.html',
+                title: 'Pages - landing page',
+                label: 'landing page'
             },
-        ]
-    })
-                
+            {
+                href: 'search-room.html',
+                title: 'Pages - search room',
+                label: 'search room'
+            },
+            {
+                href: 'room-detail.html',
+                title: 'Pages - room detail',
+                label: 'room detail'
+            },
+            {
+                href: 'login-page.html',
+                title: 'Pages - login page',
+                label: 'login page'
+            },
+            {
+                href: 'registration-page.html',
+                title: 'Pages - registration page',
+                label: 'registration page'
+            }
+        ];
+
+
+    div(class = 'start-menu')
+        ul(class = 'start-menu__list')
+            li(class = 'start-menu__list-item start-menu__list-item_heading') Toxin UI Kit
+
+            each data in uiKitLinks
+                li(class = 'start-menu__list-item')
+                    +link(data)
+        
+        ul(class = 'start-menu__list')
+            li(class = 'start-menu__list-item start-menu__list-item_heading') Toxin Pages
+
+            each data in pages
+                li(class = 'start-menu__list-item')
+                    +link(data)
         
             

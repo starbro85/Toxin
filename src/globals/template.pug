@@ -22,5 +22,12 @@ html(lang = lang)
         )
 
         title #{title}
- 
-    block content
+
+    body(class = 'page')
+        h1(
+            class = 'page__heading'
+            style = 'position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px;'
+        )
+            block heading
+
+        block content

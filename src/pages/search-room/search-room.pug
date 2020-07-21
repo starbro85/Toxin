@@ -13,9 +13,11 @@ block variables
     -const title = searchRoom.title;
     -const description = searchRoom.description;
 
+block heading
+    | #{searchRoom.heading}
+
 block content
-    +layout({       
-            heading: searchRoom.heading,
+    +layout({
             header: searchRoom.header,
             footer: searchRoom.footer,
             user: users['#1']

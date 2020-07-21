@@ -1,0 +1,29 @@
+/* start-menu */
+
+.start-menu {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    row-gap: 70px;
+}
+
+/* list */
+
+.start-menu__list {
+    display: grid;
+    row-gap: 20px; 
+    list-style: none;
+}
+
+/* list-item styles */
+
+.start-menu__list-item {
+    text-align: center;
+}
+
+.start-menu__list-item_heading {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
+    text-align: center;
+}

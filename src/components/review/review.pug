@@ -8,14 +8,14 @@ mixin review({ user, date, text, like  })
         const path = getImagePath({src: user.avatar.src});
         const days = Math.floor((Date.now() - date.timestamp)/(60*60*24*1000));
 
-    div(class = 'review js-review')
+    section(class = 'review js-review')
         img(
             class = 'review__avatar js-review__avatar'
             src = path.src,
             alt = user.avatar.alt
         )
         div(class = 'review__info')
-            p(class = 'review__name js-review__name') #{user.name} #{user.surname}
+            h3(class = 'review__name js-review__name') #{user.name} #{user.surname}
             p(class = 'review__date js-review__date') #{pluralize(date.plural, days)}
         div(class = 'review__like js-review__like')
             +like(like)

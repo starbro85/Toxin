@@ -371,6 +371,10 @@
                 "alt": "Комната в розовых тонах",
                 "source": [
                     {
+                        "media": "(max-width: 433px)",
+                        "srcset": "./slideshow_1_433px.jpg"
+                    },
+                    {
                         "media": "(max-width: 879px)",
                         "srcset": "./slideshow_1_889px.jpg"
                     },
@@ -385,6 +389,10 @@
                 "alt": "Комната в светло-синих тонах",
                 "source": [
                     {
+                        "media": "(max-width: 433px)",
+                        "srcset": "./slideshow_2_433px.jpg"
+                    },
+                    {
                         "media": "(max-width: 879px)",
                         "srcset": "./slideshow_2_889px.jpg"
                     },
@@ -398,6 +406,10 @@
                 "src": "./slideshow_3_1440px.jpg",
                 "alt": "Комната в светло-зелёных тонах",
                 "source": [
+                    {
+                        "media": "(max-width: 433px)",
+                        "srcset": "./slideshow_3_433px.jpg"
+                    },
                     {
                         "media": "(max-width: 879px)",
                         "srcset": "./slideshow_3_889px.jpg"

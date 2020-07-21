@@ -10,10 +10,12 @@ block variables
     -const lang = landingPage.lang;
     -const title = landingPage.title;
     -const description = landingPage.description;
-    
+
+block heading
+    | #{landingPage.heading}
+
 block content
     +layout({
-            heading: landingPage.heading,
             header: landingPage.header,
             footer: landingPage.footer,
             user: user

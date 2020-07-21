@@ -1,1 +1,3 @@
-import './../../components/start-menu/start-menu.js';
+import './start-menu.css';
+
+import '../../components/link/link.js';

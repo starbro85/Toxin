@@ -44,10 +44,10 @@ class Carousel {
 
     init() {
         const swiper = new Swiper(this.root, {
-            navigation: {
+            navigation: this.showControls ? {
                 nextEl: '.js-carousel__control-button_next',
                 prevEl: '.js-carousel__control-button_prev',
-            },
+            } : false,
             autoplay: this.autoplayDelay ? {
                 delay: this.autoplayDelay
             } : false,
