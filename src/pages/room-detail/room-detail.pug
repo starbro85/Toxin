@@ -37,6 +37,9 @@ block content
                     class = 'room-detail__image room-detail__image_main'
                     src = path.src
                     alt = room.images.presentation.main.alt
+                    width = room.images.presentation.main.width
+                    height = room.images.presentation.main.height
+                    loading = room.images.presentation.main.width && room.images.presentation.main.height ? 'lazy' : 'auto'
                 )
 
                 each img in room.images.presentation.aside
@@ -45,7 +48,10 @@ block content
                     img(
                         class = 'room-detail__image room-detail__image_aside'
                         src = path.src
-                        alt = img.alt
+                        alt = img.alt ? img.alt : false
+                        width = img.width ? img.width : false
+                        height = img.height ? img.height : false
+                        loading = img.width && img.height ? 'lazy' : 'auto'
                     )
             div(class = 'room-detail__layout-wrapper')
                 div(class = 'room-detail__content')
@@ -96,7 +102,7 @@ block content
                         
                         section(class = 'room-detail__cancel-section')
                             h3(class = 'room-detail__label') #{roomDetail.informationBlock.cancelSection.label}
-                            p(class = 'room-detail__paragraph') #{roomDetail.informationBlock.cancelSection.paragraph}
+                            p(class = 'room-detail__paragraph') !{roomDetail.informationBlock.cancelSection.paragraph}
                     
                     div(class = 'room-detail__form-booking')
                         +form-booking({

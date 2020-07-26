@@ -29,7 +29,10 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
                             img(
                                 class = 'carousel__image'
                                 src = path.src
-                                alt = img.alt
+                                alt = img.alt ? img.alt : false
+                                width = img.width ? img.width : false
+                                height = img.height ? img.height : false
+                                loading = img.width && img.height ? 'lazy' : 'auto'
                             )
                         
                         else 
@@ -42,7 +45,10 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
                             img(
                                 class = 'carousel__image carousel__image_lazy'
                                 data-src = path.src
-                                alt = img.alt
+                                alt = img.alt ? img.alt : false
+                                width = img.width ? img.width : false
+                                height = img.height ? img.height : false
+                                loading = img.width && img.height ? 'lazy' : 'auto'
                             )
                             div(class = 'carousel__image-preloader')
                             
@@ -53,7 +59,7 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
                     aria-label = prevButton.ariaLabel ? prevButton.ariaLabel : 'prev button'
                 )
                     div(
-                        class = 'carousel__icon carousel__icon_prev'
+                        class = 'carousel__icon'
                         aria-hidden = 'true'
                     ) expand_more
 
@@ -62,6 +68,6 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
                     aria-label = nextButton.ariaLabel ? nextButton.ariaLabel : 'next button'
                 )
                     div(
-                        class = 'carousel__icon carousel__icon_next'
+                        class = 'carousel__icon'
                         aria-hidden = 'true'
                     ) expand_more

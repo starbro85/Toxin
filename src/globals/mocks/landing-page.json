@@ -260,7 +260,7 @@
                         "name": "arrival",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле"
+                        "title": "Дата прибытия"
                     }
                 },
                 "to": {
@@ -269,15 +269,9 @@
                         "name": "departure",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Выберите даты пребывния в отеле"
+                        "title": "Дата выезда"
                     }
                 }
-            },
-            "datepicker": {
-                "initValue": [
-                    "19.08.2020",
-                    "23.08.2020"
-                ]
             },
             "clearButton": {
                 "label": "Очистить"
@@ -293,7 +287,7 @@
                     "name": "guests",
                     "placeholder": "Сколько гостей",
                     "required": true,    
-                    "title": "Выберите количество гостей"
+                    "title": "Количество гостей"
                 }
             },
             "clearButton": {

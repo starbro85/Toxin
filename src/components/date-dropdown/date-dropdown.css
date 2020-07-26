@@ -8,12 +8,6 @@
     column-gap: 20px;
 }
 
-@supports not (width: min(100%, 320px)) {
-    .date-dropdown {
-        width: 100%;
-    }
-}
-
 /* viewport */
 
 .date-dropdown__viewport {

@@ -10,17 +10,16 @@ mixin form-booking({ root={}, room={} })
         autocomplete = 'off'
     )
         h2(
-            class = 'form-booking__label'
-        ) #{root.label}
+            class = 'form-booking__heading'
+        ) #{root.heading}
 
-        div(class = 'form-booking__header')  
-            p(class = 'form-booking__header-room-number ') № #{room.number} 
+        section(class = 'form-booking__header-section')  
+            h3(class = 'form-booking__number ') № #{room.number}
+                if room.isLuxury
+                    strong(class = 'form-booking__category') &nbsp;#{root.headerSection.category}
 
-            if room.isLuxury
-                strong(class = 'form-booking__header-room-category') #{root.category}
-
-            p(class = 'form-booking__header-rent-price') #{room.rent} 
-            p(class = 'form-booking__header-rent-term') #{root.term.label}
+            p(class = 'form-booking__rent') #{room.rent}
+                small(class = 'form-booking__term') &nbsp;#{root.headerSection.term}
 
         +date-dropdown({
             controlClass: 'js-form-booking__date-dropdown',
@@ -32,40 +31,43 @@ mixin form-booking({ root={}, room={} })
         })
         +quantity-dropdown(root.quantityDropdown)
 
-        div(class = 'form-booking__calc')
-            div(class = 'form-booking__calc-detail')
-                p(class = 'form-booking__calc-description')
-                    span(class = 'form-booking__calc-rent-price js-form-booking__calc-rent-price') #{room.rent} 
-                    | x
-                    span(
-                        class = 'form-booking__calc-rent-term js-form-booking__calc-rent-term'
-                        data-plural = root.term.plural
-                    )
+        section(class = 'form-booking__price-section')
+            h3(class = 'form-booking__label') #{root.priceListSection.heading}
+            dl(class = 'form-booking__price-list')
+                div(class = 'form-booking__price-item')
+                    dt(class = 'form-booking__description')
+                        span(class = 'form-booking__rent js-form-booking__rent') #{room.rent}
+                        |&nbsp;x&nbsp;
+                        span(
+                            class = 'form-booking__period js-form-booking__period'
+                            data-plural = root.priceListSection.period.plural
+                        )
 
-                p(class = 'form-booking__calc-value js-form-booking__calc-summary-price')
+                    dd(class = 'form-booking__summary js-form-booking__summary')
 
-            div(class = 'form-booking__calc-detail')
-                p(class = 'form-booking__calc-description') #{root.service}
-                    if room.discount
-                        span(class = 'form-booking__calc-discount js-form-booking__calc-discount') : #{root.discount} #{room.discount}
+                div(class = 'form-booking__price-item')
+                    dt(class = 'form-booking__description') #{root.priceListSection.service}
+                        if room.discount
+                            span(class = 'form-booking__discount js-form-booking__discount') : #{root.priceListSection.discount} #{room.discount}
 
-                p(class = 'form-booking__calc-value js-form-booking__calc-service-price') #{room.service}
+                    dd(class = 'form-booking__service js-form-booking__service') #{room.service}
 
-            div(class = 'form-booking__calc-detail')
-                p(class = 'form-booking__calc-description') #{root.addition}
-                p(class = 'form-booking__calc-value js-form-booking__calc-addition-price') #{room.addition}
+                div(class = 'form-booking__price-item')
+                    dt(class = 'form-booking__description') !{root.priceListSection.addition}
+                    dd(class = 'form-booking__addition js-form-booking__addition') #{room.addition}
 
-        div(class = 'form-booking__total')
-            p(class = 'form-booking__total-label') #{root.total}
-            div(class = 'form-booking__total-dashed-line')
-            p(class = 'form-booking__total-price js-form-booking__total-price')
-            input(
-                name = 'total-price'
-                class = 'form-booking__total-input js-form-booking__total-input'
+                div(class = 'form-booking__total')
+                    dt(class = 'form-booking__description') #{root.priceListSection.total}
+                    dd(class = 'form-booking__price js-form-booking__price')
+                    
+            
+        div(class = 'form-booking__submit-button')
+            +button(root.submitButton)
+
+        input(
+                name = 'price'
+                class = 'form-booking__price-input js-form-booking__price-input'
                 readonly
                 hidden
                 aria-hidden = 'true'
             )
-            
-        div(class = 'form-booking__submit-button')
-            +button(root.submitButton)

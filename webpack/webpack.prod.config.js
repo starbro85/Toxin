@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 const config = {
     context: path.resolve(__dirname, '..', 'src'),
@@ -20,25 +20,6 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                    },
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: function () {
-                                return [
-                                    autoprefixer({ overrideBrowserslist: ['last 2 versions'] }),
-                                ];
-                            },
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.pug$/,
                 use: [
                     {
@@ -47,6 +28,36 @@ const config = {
                             pretty: false
                         }
                     }]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    { 
+                        loader: 'css-loader', 
+                        options: { 
+                            importLoaders: 1 
+                        } 
+                    },
+                    { 
+                        loader: 'postcss-loader', 
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                postcssPresetEnv({
+                                    stage: 3,
+                                    features: {
+                                        'nesting-rules': true,
+                                        'not-pseudo-class': true
+                                    },
+                                    browsers: 'last 2 versions'
+                                })
+                            ]
+                        }
+                    }
+                ],
             },
             {
                 test: /\.js$/,
@@ -58,6 +69,7 @@ const config = {
                 loader: 'file-loader',
                 exclude: [
                     /fonts/,
+                    /pixel-perfect/
                 ],
                 options: {
                     name: 'img/[name].[ext]'
@@ -68,7 +80,7 @@ const config = {
                 loader: 'file-loader',
                 exclude: [
                     /node_modules/,
-                    /img/,
+                    /img/
                 ],
                 options: {
                     name: 'fonts/[name]/[name].[ext]',

@@ -5,13 +5,6 @@
     width: min(100%, 320px);
 }
 
-@supports not (width: min(100%, 320px)) {
-    .quantity-dropdown {
-        width: 100%;
-        max-width: 320px;
-    }
-}
-
 /* viewport */
 
 .quantity-dropdown__viewport {
@@ -62,9 +55,6 @@
 
 .quantity-dropdown_expanded .quantity-dropdown__button {
     border-color: var(--dark-shade-50per);
-}
-
-.quantity-dropdown_expanded .quantity-dropdown__button {
     border-bottom-right-radius: 0; 
     border-bottom-left-radius: 0;
 }

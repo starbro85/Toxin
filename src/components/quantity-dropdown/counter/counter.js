@@ -77,8 +77,8 @@ class Counter {
 
     init() {
         this.normalizeRange();
-
-        window.addEventListener('load', this.sendCounterData);
+        this.sendCounterData();
+        
         this.root.addEventListener('counter-value-clear', this.handleCounterClear)
         this.increment.addEventListener('click', this.handleCounterChange);   
         this.decrement.addEventListener('click', this.handleCounterChange);

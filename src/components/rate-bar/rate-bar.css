@@ -2,9 +2,9 @@
 
 .rate-bar {
     display: flex;
-}
 
-.rate-bar:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 2px;
+    }
 }

@@ -7,16 +7,24 @@
     list-style: none;
 }
 
-.social-list__link:active {  
-    opacity: 0.5;
-    transition: opacity 0.3s;
-}
+/* link */
 
-.social-list__link:hover .social-list__svg {
-    transform: scale(1.1);
-}
+.social-list__link {
+    display: flex;
 
-.social-list__link:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    &:active {  
+        opacity: 0.5;
+        transition: opacity 0.3s;
+    }
+
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 2px;
+    }
+
+    &:hover { 
+        & .social-list__svg {
+            transform: scale(1.1);
+        }
+    }
 }

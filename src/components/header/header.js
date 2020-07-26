@@ -23,7 +23,12 @@ class Header {
     }
 
     init() {
-        new this.Expander(this.root, this.button, 'header_expanded')
+        new this.Expander(this.root, this.button, {
+            toggleClass: 'header_expanded',
+            trapFocus: true,
+            outsideClickCollapse: true,
+            disableOutsideEvents: true
+        })
         this.menu.forEach((item) => new this.Menu(item, this.Expander));
     }
 }

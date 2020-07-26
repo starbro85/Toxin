@@ -17,28 +17,32 @@ mixin footer({ heading, logoLink, awardSection, navSection, aboutSection, suppor
 
             section(class = 'footer__awards-section')
                 h3(class = 'footer__label footer__label_visually-hidden') #{awardSection.label}  
-                p(class = 'footer__section-paragraph') #{awardSection.text}
+                p(class = 'footer__paragraph') #{awardSection.text}
 
-            section(class = 'footer__nav-section')
-                h3(class = 'footer__label') #{navSection.label}
-                +link-list(navSection.linkList)
+            nav(class = 'footer__nav')
+                section(class = 'footer__nav-section')
+                    h3(class = 'footer__label') #{navSection.label}
+                    +link-list(navSection.linkList)
 
-            section(class = 'footer__about-section')
-                h3(class = 'footer__label') #{aboutSection.label}
-                +link-list(aboutSection.linkList)
+                section(class = 'footer__about-section')
+                    h3(class = 'footer__label') #{aboutSection.label}
+                    +link-list(aboutSection.linkList)
 
-            section(class = 'footer__support-section')
-                h3(class = 'footer__label') #{supportSection.label}
-                +link-list(supportSection.linkList)
+                section(class = 'footer__support-section')
+                    h3(class = 'footer__label') #{supportSection.label}
+                    +link-list(supportSection.linkList)
 
             section(class = 'footer__subscribtion-section')
                 h3(class = 'footer__label') #{subscribtionSection.label}
-                p(class = 'footer__section-paragraph') #{subscribtionSection.text}
+                p(class = 'footer__paragraph') #{subscribtionSection.text}
                 +subscribtion-field(subscribtionSection.subscribtionField)
 
         div(class = 'footer__separator')
             
-        div(class = 'footer__basement') 
+        div(
+            class = 'footer__basement'
+            role="contentinfo"
+        ) 
             p(class = 'footer__copyright') #{copyright.text}
             
             section(class = 'footer__social')

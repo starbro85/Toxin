@@ -10,7 +10,7 @@
                         "name": "arrival",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Даты пребывния в отеле"
+                        "title": "Дата прибытия"
                     }
                 },
                 "to": {
@@ -19,7 +19,7 @@
                         "name": "departure",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Даты пребывния в отеле"
+                        "title": "Дата выезда"
                     }
                 }
             },
@@ -208,18 +208,24 @@
         }
     },
     "formBooking": {
-        "category": "Люкс",
-        "service": "Сбор за услуги",
-        "discount": "Скидка",
-        "addition": "Дополнительные услуги",
-        "total": "Итого",
-        "term": {
-            "label": "в сутки",
-            "plural": {
-                "one": "сутки", 
-                "few": "суток", 
-                "many": "суток"
-            }
+        "heading": "Форма резервации номера",
+        "headerSection": {
+            "category": "Люкс",
+            "term": "в сутки"
+        },
+        "priceListSection": {
+            "period": {
+                "plural": {
+                    "zero": "", 
+                    "one": "сутки", 
+                    "few": "суток", 
+                    "many": "суток"
+                }
+            },
+            "discount": "Скидка",
+            "service": "Сбор за услуги",
+            "addition": "Сбор за дополнительные&#10;услуги",
+            "total": "Итого"
         },
         "dateDropdown": {
             "isTwin": true,
@@ -230,7 +236,7 @@
                         "name": "arrival",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Даты пребывния в отеле"
+                        "title": "Дата прибытия"
                     }
                 },
                 "to": {
@@ -239,7 +245,7 @@
                         "name": "departure",
                         "placeholder": "ДД.ММ.ГГГГ",
                         "required": true,
-                        "title": "Даты пребывния в отеле"
+                        "title": "Дата выезда"
                     }
                 }
             },
@@ -263,8 +269,7 @@
                     "name": "guests",
                     "placeholder": "Сколько гостей",
                     "required": true,    
-                    "title": "Количество гостей",
-                    "ariaLabel": "Количество гостей"
+                    "title": "Количество гостей"
                 }
             },
             "clearButton": {
@@ -279,7 +284,7 @@
                     "ariaLabel": "Взрослые",
                     "title": "Взрослые",
                     "name": "adults",
-                    "initValue": 0,
+                    "initValue": 2,
                     "maxValue": 5,
                     "defaultValue": 2,
                     "plural": {
@@ -300,7 +305,7 @@
                     "ariaLabel": "Дети",
                     "title": "Дети",
                     "name": "kids",
-                    "initValue": 0,
+                    "initValue": 1,
                     "maxValue": 5,
                     "defaultValue": 1,
                     "plural": {

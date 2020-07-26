@@ -56,6 +56,15 @@
     font-size: 12px;
     color: var(--dark-shade-50per);
     text-decoration: none;
+
+    &:focus {
+        outline: var(--outline);
+        outline-offset: -5px;
+    }
+
+    &:hover:not(.pagination__link_next, .pagination__link_prev, .pagination__link_active) {
+        text-decoration: underline;
+    }
 }
 
 .pagination__link_active {
@@ -72,18 +81,8 @@
     font: var(--icon-font);
     font-size: 24px;
     color: white;
-}
 
-.pagination__link_prev:hover, 
-.pagination__link_next:hover {
-    box-shadow: var(--shadow-hover);
-}
-
-.pagination__link:focus {
-    outline: var(--outline);
-    outline-offset: -5px;
-}
-
-.pagination__link:not(.pagination__link_next):not(.pagination__link_prev):not(.pagination__link_active):hover {
-    text-decoration: underline;
+    &:hover {
+        box-shadow: var(--shadow-hover);
+    }
 }

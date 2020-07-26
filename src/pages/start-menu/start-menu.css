@@ -19,11 +19,10 @@
 /* list-item styles */
 
 .start-menu__list-item {
-    text-align: center;
+    justify-self: center;
 }
 
 .start-menu__list-item_heading {
     font: var(--h1-font);
     color: var(--dark-shade-100per);
-    text-align: center;
 }

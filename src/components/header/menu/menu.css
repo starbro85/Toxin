@@ -9,11 +9,11 @@
 .menu__button {
     display: flex;
     cursor: pointer;
-}
 
-.menu__button:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 2px;
+    }
 }
 
 /* label */
@@ -23,9 +23,15 @@
     color: var(--dark-shade-50per);
 }
 
-.menu_expanded .menu__label,
-.menu__button:hover .menu__label,
-.menu__button:focus .menu__label {
+.menu__button {
+    &:hover, &:focus {
+        & .menu__label {
+            color: var(--dark-shade-75per);
+        }
+    }
+}
+
+.menu_expanded .menu__label {
     color: var(--dark-shade-75per);
 }
 
@@ -38,17 +44,24 @@
     transition: transform .2s;
 }
 
-.menu_expanded .menu__icon,
-.menu__button:hover .menu__icon,
-.menu__button:focus .menu__icon {
-    color: var(--dark-shade-75per);
-}
- 
-.menu__button:active .menu__icon {      
-    transform:  translateY(5px);
-    transition: transform .2s;
+.menu__button {
+    &:hover, &:focus {
+        & .menu__icon {
+            color: var(--dark-shade-75per);
+        }
+    }
+
+    &:active {      
+        & .menu__icon {      
+            transform:  translateY(5px);
+            transition: transform .2s;
+        }
+    }
 }
 
+.menu_expanded .menu__icon {
+    color: var(--dark-shade-75per);
+}
 
 /* container */ 
 
@@ -70,11 +83,22 @@
     opacity: 0;
     transform: scale(0);
     transition: opacity .1s, transform .3s, z-index step-end .3s, visibility step-end 0.3s;
-}
 
-@supports not (padding: min(3vw, 15px)) {
-    .menu__containter {
-        padding: 10%;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        border-style: solid;
     }
 }
 
@@ -86,79 +110,44 @@
     transition: opacity .3s, transform .3s;
 }
 
-.menu__containter::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-
-.menu__containter::before {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-
-@media (min-width: 879px) {
-    .menu__containter {
-        right: -15px;
-        top: 35px;
-    }
-
-    .menu__containter::after {
-        right: 16px;
-        top: -11px;
-        border-width: 0 10px 10px 10px;
-        border-color: transparent transparent var(--dark-shade-25per) transparent;
-    }
-
-    .menu__containter::before {
-        right: 16px;
-        top: -9px;
-        border-width: 0 10px 10px 10px;
-        border-color: transparent transparent white transparent;
-    }
-}
-
-
-@media (max-width: 880px) {
+@media (width < 880px) {
     .menu__containter {
         left: 110%;
         top: -15px;
-    }
 
-    .menu__containter::after {
-        left: -11px;
-        top: 16px;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent var(--dark-shade-25per) transparent  transparent;
-    }
+        &:after {
+            left: -11px;
+            top: 16px;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--dark-shade-25per) transparent  transparent;
+        }
 
-    .menu__containter::before {
-        left: -9px;
-        top: 16px;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white  transparent  transparent;
+        &:before {
+            left: -9px;
+            top: 16px;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white  transparent  transparent;
+        }
     }
 }
-    
-/* link */
 
-.menu__link {
-    font: var(--body-font);
-    color: var(--dark-shade-50per);
-}
+@media (width >= 880px) {
+    .menu__containter {
+        right: -15px;
+        top: 35px;
 
-.menu__link:focus {
-    outline: var(--outline);
-    outline-offset: 4px;
-}
+        &:after {
+            right: 16px;
+            top: -11px;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent var(--dark-shade-25per) transparent;
+        }
 
-.menu__link:hover {
-    color: var(--dark-shade-75per);
-    text-decoration: underline;
+        &:before {
+            right: 16px;
+            top: -9px;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent white transparent;
+        }
+    }
 }

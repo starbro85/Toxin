@@ -1,3 +1,5 @@
+/* expandable checkbox list */
+
 /* button */
 
 .expandable-checkbox-list__button {
@@ -8,18 +10,11 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-}
 
-@supports not (width: min(100%, 320px)) {
-    .expandable-checkbox-list__button {
-        width: 100%;
-        max-width: 320px;
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 1px;
     }
-}
-
-.expandable-checkbox-list__button:focus {
-    outline: var(--outline);
-    outline-offset: 1px;
 }
 
 /* label */
@@ -42,14 +37,18 @@
     color: var(--dark-shade-75per);
 }
 
-.expandable-checkbox-list__button:hover .expandable-checkbox-list__icon {
-    color: var(--dark-shade-75per);
+.expandable-checkbox-list__button {
+    &:hover .expandable-checkbox-list__icon {
+        color: var(--dark-shade-75per);
+    }
+
+    &:active .expandable-checkbox-list__icon {
+        transform:  translateY(5px);
+        transition: transform .2s;
+    }
 }
 
-.expandable-checkbox-list__button:active .expandable-checkbox-list__icon {
-    transform:  translateY(5px);
-    transition: transform .2s;
-}
+/* expand container */
 
 .expandable-checkbox-list__expand-container {
     padding-top: 4px;

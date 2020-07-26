@@ -18,18 +18,13 @@ mixin room-card({ roomCard, room })
                 nextButton: {
                     ariaLabel: 'Перейти к следующему слайду'
                 }
-            })
-            a(
-                class = 'room-card__link'
-                href = roomCard.link.href
-                title = roomCard.link.title
-            ) #{roomCard.link.label} 
+            }) 
 
         div(class = 'room-card__header')
             h3(class = 'room-card__room-number') № #{room.number}
 
-            if room.isLuxury
-                p(class = 'room-card__room-category') #{roomCard.category}
+                if room.isLuxury
+                    strong(class = 'room-card__room-category') &nbsp;#{roomCard.category}
 
             p(class = 'room-card__rent-price') #{room.rent} 
             p(class = 'room-card__rent-term') #{roomCard.term}
@@ -45,3 +40,9 @@ mixin room-card({ roomCard, room })
             })
 
             p(class = 'room-card__reviews-count') !{wrapWordIntoTag({ str: reviewCount, number: 1, tag: 'b'})}
+
+        a(
+            class = 'room-card__link'
+            href = roomCard.link.href
+            title = roomCard.link.title
+        ) #{roomCard.link.label}

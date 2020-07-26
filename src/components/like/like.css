@@ -9,15 +9,15 @@
     border: var(--border-1);
     border-radius: 10px;
     cursor: pointer;
-}
 
-.like:hover:not(:disabled) {
-    box-shadow: var(--shadow-hover);
-}
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 1px;
+    }
 
-.like:focus {
-    outline: var(--outline);
-    outline-offset: 1px;
+    &:hover:not(:disabled) {
+        box-shadow: var(--shadow-hover);
+    }
 }
 
 .like_active {
@@ -42,7 +42,8 @@
     color: var(--dark-shade-25per);
 }
 
-.like_active.like .like__icon,
-.like_active.like .like__count {
-    color: var(--purple-100per);
+.like_active { 
+    & .like__icon, & .like__count {
+        color: var(--purple-100per);
+    }
 }

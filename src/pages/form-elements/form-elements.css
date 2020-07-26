@@ -6,37 +6,7 @@
     justify-content: center;
 }
 
-@supports not (width: min(90vw, 1159px)) {
-    .form-elements {
-        width: 100%;
-        max-width: 1159px;
-    }
-}
-
-@media(min-width: 1085px) {    
-    .form-elements {
-        grid-template-areas:
-            'group-1 . group-3 . group-5'
-            'group-2 . group-4 . group-6'
-            'group-7 group-7 group-7 group-7 group-7';
-        grid-template-columns: 320px minmax(25px, 126px) 320px minmax(25px, 72px) 320px;
-        row-gap: 100px;
-    }
-}
-
-@media(max-width: 1085px) {
-    .form-elements {
-        grid-template-areas:
-            'group-1 group-2' 
-            'group-6 group-4'
-            'group-3 group-5'
-            'group-7 group-7';
-        grid-template-columns: repeat(2, 320px);
-        gap: 25px;
-    }
-}
-
-@media(max-width: 725px) {
+@media (width < 725px) {
     .form-elements {
         grid-template-areas:
             'group-1' 
@@ -49,12 +19,29 @@
         grid-template-columns: min(90vw, 320px);
         row-gap: 72px;
     }
+}
 
-    @supports not (width: min(90vw, 320px)) {
-        .form-elements {
-            width: 90vw;
-            max-width: 320px;
-        }
+
+@media (width >= 725px) and (width < 1085px) {
+    .form-elements {
+        grid-template-areas:
+            'group-1 group-2' 
+            'group-6 group-4'
+            'group-3 group-5'
+            'group-7 group-7';
+        grid-template-columns: repeat(2, 320px);
+        gap: 25px;
+    }
+}
+
+@media(width >= 1085px) {    
+    .form-elements {
+        grid-template-areas:
+            'group-1 . group-3 . group-5'
+            'group-2 . group-4 . group-6'
+            'group-7 group-7 group-7 group-7 group-7';
+        grid-template-columns: 320px minmax(25px, 126px) 320px minmax(25px, 72px) 320px;
+        row-gap: 100px;
     }
 }
 
@@ -119,18 +106,17 @@
     display: grid;
 }
 
-@media(min-width: 725px) {
+@media (width <= 725px) {
+    .form-elements__group-7 {
+        grid-auto-flow: row;
+    }
+}
+
+@media (width >= 725px) {
     .form-elements__group-7 {
         grid-template-columns: max-content auto;
         column-gap: 20px;
         justify-content: space-between;
-    }
-}
-
-
-@media(max-width: 725px) {
-    .form-elements__group-7 {
-        grid-auto-flow: row;
     }
 }
 
@@ -277,13 +263,6 @@
     margin-bottom: 20px;
     display: grid;
     gap: 30px;
-}
-
-@supports not (width: min(100%, 320px)) {
-    .form-elements__buttons-section {
-        width: 100%;
-        max-width: 320px;
-    }
 }
 
 .form-elements__buttons-column {

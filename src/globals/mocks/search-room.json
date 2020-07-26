@@ -234,6 +234,7 @@
         }
     },
     "filter": {
+        "heading": "Фильтр результатов поиска",
         "dateDropdown": {
             "autoApply": true,
             "textField": {
@@ -274,7 +275,7 @@
                     "ariaLabel": "Взрослые",
                     "title": "Взрослые",
                     "name": "adults",
-                    "initValue": 0,
+                    "initValue": 2,
                     "maxValue": 5,
                     "plural": {
                         "one": "взрослый",
@@ -294,7 +295,7 @@
                     "ariaLabel": "Дети",
                     "title": "Дети",
                     "name": "kids",
-                    "initValue": 0,
+                    "initValue": 1,
                     "maxValue": 5,
                     "plural": {
                         "one": "ребёнок",
@@ -313,7 +314,7 @@
                     "label": "Младенцы",
                     "ariaLabel": "Младенцы",
                     "name": "babies",
-                    "initValue": 0,
+                    "initValue": 1,
                     "maxValue": 5,
                     "plural": {
                         "one": "младенец",
@@ -329,8 +330,7 @@
                 "input": {
                     "name": "preferences",
                     "placeholder": "Удобства номера",
-                    "title": "Выберите нужную конфигурацию номера",
-                    "ariaLabel": "Выберите нужную конфигурацию номера"
+                    "title": "Конфигурация номера"
                 }
             },
             "autoApply": true,
@@ -399,7 +399,7 @@
                     },
                     {
                         "name": "guests",
-                        "label": "Можно пригласить гостей \n (до 10 человек)",
+                        "label": "Можно пригласить гостей&#10;(до 10 человек)",
                         "checked": true
                     }
                 ]
@@ -412,13 +412,13 @@
                     {
                         "name": "smoke",
                         "label": "Широкий коридор",
-                        "description": "Ширина коридоров в номере \n не менее 91 см.",
+                        "description": "Ширина коридоров в номере&#10;не менее 91 см.",
                         "title": true
                     },
                     {
                         "name": "pet",
                         "label": "Помощник для инвалидов",
-                        "description": "На 1 этаже вас встретит специалист \n и проводит до номера.",
+                        "description": "На 1 этаже вас встретит специалист&#10;и проводит до номера.",
                         "title": true
                     }
                 ]

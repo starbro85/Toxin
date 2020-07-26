@@ -18,19 +18,19 @@ class FormBooking {
     constructor(node) {
         this.root = node;
         this.dateDropdown = this.root.querySelector('.js-form-booking__date-dropdown');
-        this.rentTermContainer = this.root.querySelector('.js-form-booking__calc-rent-term');
-        this.rentPriceContainer = this.root.querySelector('.js-form-booking__calc-rent-price');
-        this.summaryPriceContainer = this.root.querySelector('.js-form-booking__calc-summary-price');
-        this.servicePriceContainer = this.root.querySelector('.js-form-booking__calc-service-price');
-        this.additionPriceContainer = this.root.querySelector('.js-form-booking__calc-addition-price');
-        this.discountContainer = this.root.querySelector('.js-form-booking__calc-discount');
-        this.totalPriceContainer = this.root.querySelector('.js-form-booking__total-price');
-        this.totalPriceInput = this.root.querySelector('.js-form-booking__total-input');
+        this.periodContainer = this.root.querySelector('.js-form-booking__period');
+        this.rentContainer = this.root.querySelector('.js-form-booking__rent');
+        this.summaryContainer = this.root.querySelector('.js-form-booking__summary');
+        this.serviceContainer = this.root.querySelector('.js-form-booking__service');
+        this.additionContainer = this.root.querySelector('.js-form-booking__addition');
+        this.discountContainer = this.root.querySelector('.js-form-booking__discount');
+        this.priceContainer = this.root.querySelector('.js-form-booking__price');
+        this.priceInput = this.root.querySelector('.js-form-booking__price-input');
 
-        this.rentTermPlural = JSON.parse(this.rentTermContainer.dataset.plural);
-        this.rentPrice = moneyFormat.from(this.rentPriceContainer.innerHTML);
-        this.servicePrice = moneyFormat.from(this.servicePriceContainer.innerHTML);
-        this.additionPrice = moneyFormat.from(this.additionPriceContainer.innerHTML);
+        this.periodPlural = JSON.parse(this.periodContainer.dataset.plural);
+        this.rent = moneyFormat.from(this.rentContainer.innerHTML);
+        this.service = moneyFormat.from(this.serviceContainer.innerHTML);
+        this.addition = moneyFormat.from(this.additionContainer.innerHTML);
         this.discount = moneyFormat.from(this.discountContainer.innerHTML);
 
         this.init();
@@ -42,13 +42,14 @@ class FormBooking {
         });
         this.dateDropdown.addEventListener('date-dropdown-to-update', (event) => {
             this.departureTimestamp = event.detail.value;
-            this.dateRange = Math.floor((this.departureTimestamp - this.arrivalTimestamp)/(60*60*24*1000));
-            this.rentTermContainer.innerHTML = pluralize(this.rentTermPlural, this.dateRange);
-            this.summaryPrice = this.rentPrice * this.dateRange;
-            this.summaryPriceContainer.innerHTML = moneyFormat.to(this.summaryPrice);
-            this.totalPrice = this.summaryPrice + this.servicePrice + this.additionPrice - this.discount;
-            this.totalPriceContainer.innerHTML = moneyFormat.to(this.totalPrice);
-            this.totalPriceInput.value = this.totalPrice;
+            this.dateRange = this.departureTimestamp ? Math.floor((this.departureTimestamp - this.arrivalTimestamp)/(60*60*24*1000)) : 0;
+            console.log(this.dateRange)
+            this.periodContainer.innerHTML = pluralize(this.periodPlural, this.dateRange);
+            this.summary = this.rent * this.dateRange;
+            this.summaryContainer.innerHTML = moneyFormat.to(this.summary);
+            this.price = this.summary + this.service + this.addition - this.discount;
+            this.priceContainer.innerHTML = moneyFormat.to(this.price);
+            this.priceInput.value = this.price;
         });
     }
 };

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHardDiskPlugin = require('html-webpack-harddisk-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 const config = {
     context: path.resolve(__dirname, '..', 'src'),
@@ -32,8 +33,29 @@ const config = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader'
-                ],
+                    { 
+                        loader: 'css-loader', 
+                        options: { 
+                            importLoaders: 1 
+                        } 
+                    },
+                    { 
+                        loader: 'postcss-loader', 
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                postcssPresetEnv({
+                                    stage: 3,
+                                    features: {
+                                        'nesting-rules': true,
+                                        'not-pseudo-class': true
+                                    },
+                                    browsers: 'last 2 versions'
+                                })
+                            ]
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(ico|svg|jpg|png|gif|ttf|eot|woff|woff2|xml|webmanifest)$/,
@@ -41,6 +63,7 @@ const config = {
             }
         ]
     },
+
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),

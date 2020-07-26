@@ -15,12 +15,12 @@
         'icon description';
     grid-template-columns: max-content;
     column-gap: 10px;
-}
-
-.features-list__item:not(:last-child) {
-    padding-bottom: 20px;
-    border-bottom: var(--border-1);
-    border-color: var(--dark-shade-10per);
+    
+    &:not(:last-child) {
+        padding-bottom: 20px;
+        border-bottom: var(--border-1);
+        border-color: var(--dark-shade-10per);
+    }
 }
 
 /* icon */

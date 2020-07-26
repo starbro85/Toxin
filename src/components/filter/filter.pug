@@ -6,6 +6,7 @@ include ../expandable-checkbox-list/expandable-checkbox-list
 
 mixin filter({ heading, dateDropdown={}, guestsDropdown={}, preferencesDropdown={}, slider={}, allowanceCheckboxGroup={}, accessibilityCheckboxGroup={}, expandableCheckboxList={} })
     form(class = 'filter')
+        h2(class = 'filter__heading') #{heading}
         +date-dropdown(dateDropdown)
         +quantity-dropdown(guestsDropdown)
         div(class = 'filter__slider')

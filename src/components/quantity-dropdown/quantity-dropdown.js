@@ -141,7 +141,11 @@ class QuantityDropdown {
     init() {
         this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.getCountersData));
 
-        new this.Expander(this.root, this.button, 'quantity-dropdown_expanded');
+        new this.Expander(this.root, this.button, {
+            toggleClass: 'quantity-dropdown_expanded',
+            trapFocus: true,
+            outsideClickCollapse: true
+        });
         this.counters.forEach((counter) => new this.Counter(counter));
 
         this.sendTextFieldValue();

@@ -3,8 +3,9 @@
 .carousel {
     position: relative;
     width: 100%;
+    height: 100%;
     display: grid;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .carousel__slides {
@@ -27,10 +28,6 @@
     height: auto;
 }
 
-.carousel__image_lazy:not(.carousel__image_loaded) {
-    display: none;
-}
-
 /* controls */
 
 .carousel__controls {
@@ -41,11 +38,21 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-}
 
-.carousel__controls:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    &:hover, &:focus-within {
+        & .carousel__control-button {
+            opacity: 1;
+            transition: opacity .3s;
+        }
+
+        & .carousel__control-button_prev {
+            background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-50per) 100%);
+        }
+
+        & .carousel__control-button_next {
+            background: linear-gradient(90deg, transparent 0%, var(--dark-shade-50per) 100%);
+        }
+    }
 }
 
 /* control button */
@@ -55,57 +62,47 @@
     z-index: 1;
     color: white;
     cursor: pointer;
+    opacity: 0.3;
+    transition: opacity .3s;
+
+    &:focus {
+        outline: var(--outline);
+        outline-offset: -1px;
+    }
 }
 
-.carousel__control-button:focus {
-    outline: var(--outline);
-    outline-offset: -1px;
+@media (pointer: coarse) {
+    .carousel__control-button {
+        opacity: 1;
+    }
 }
 
-.carousel__control-button_prev:hover,
-.carousel__control-button_prev:focus {
-    background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-50per) 100%);
+.carousel__control-button_prev{
+    & .carousel__icon {
+        transform: rotate(90deg);
+    }
 }
 
-.carousel__control-button_next:hover,
-.carousel__control-button_next:focus {
-    background: linear-gradient(90deg, transparent 0%, var(--dark-shade-50per) 100%);
+@media (pointer: coarse) {
+    .carousel__control-button_prev {
+        background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-50per) 100%);
+    }
+}
+
+.carousel__control-button_next {
+    & .carousel__icon {
+        transform: rotate(-90deg);
+    }
+}
+
+@media (pointer: coarse) {
+    .carousel__control-button_next {
+        background: linear-gradient(90deg, transparent 0%, var(--dark-shade-50per) 100%);
+    }
 }
 
 .carousel__icon {
     font: var(--icon-font);
     font-size: 24px;
-}
-
-.carousel__icon_prev {
-    transform: rotate(90deg);
-}
-
-.carousel__icon_next {
-    transform: rotate(-90deg);
-}
-
-/* bullets */
-
-.carousel__bullets {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-}
-
-/* bullet */
-
-.carousel__bullet {
-    width: 7.5px;
-    height: 7.5px;
-    border: 1px solid white;
-    border-radius: 50%;
-}
-
-.carousel__bullet:not(:last-child) {
-    margin-right: 1.75px;
-}
-
-.glide__bullet--active {
-    background-color: white;
+    pointer-events: none;
 }

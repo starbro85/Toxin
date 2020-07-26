@@ -65,18 +65,19 @@
     cursor: pointer;
 }
 
-.slider .slider__range .slider__handle::after,
-.slider .slider__range .slider__handle::before {
-    content: none;
-}
+.slider .slider__range .slider__handle {
+    &:after, &:before {
+        content: none;
+    }
 
-.slider .slider__range  .slider__handle:hover {
-    box-shadow: var(--shadow-hover);
-}
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 2px;
+    }
 
-.slider .slider__range  .slider__handle:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    &:hover {
+        box-shadow: var(--shadow-hover);
+    }
 }
 
 /* tooltip */

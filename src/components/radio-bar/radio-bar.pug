@@ -4,7 +4,7 @@ mixin radio-bar({ radioButtons, ariaLabel })
     div(
         class = 'radio-bar'
         role = 'radiogroup'
-        aria-label = ariaLabel
+        aria-label = ariaLabel ? ariaLbel : false
     )
         each data in radioButtons
             +radio-button(data)

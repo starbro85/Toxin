@@ -9,14 +9,6 @@
     box-shadow: var(--shadow-3);
     border: var(--border-2);
     border-radius: 4px; 
-} 
-
-@supports not (width: min(100%, 380px)) {
-    .form-registration {
-        width: 100%;
-        max-width: 380px;
-        padding: 38px 7.36% 30px 7.36%;
-    }
 }
 
 /*  label */

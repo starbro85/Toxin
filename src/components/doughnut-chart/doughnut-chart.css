@@ -63,15 +63,15 @@
     position: relative;
     padding-left: 15px;
     line-height: 23px;
-}
 
-.doughnut-chart__legend-item::before {
-    content: '';
-    position: absolute;
-    left: 0; 
-    top: 7px;
-    width: 10px; 
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--chart-color);
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0; 
+        top: 7px;
+        width: 10px; 
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--chart-color);
+    }
 }

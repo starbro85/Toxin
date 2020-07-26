@@ -18,13 +18,6 @@
     justify-content: center;
 }
 
-@supports not (width: min(90vw, 1159px)){
-    .registration-page__content {
-        width: 90vw;
-        max-width: 1159px;
-    }
-}
-
 /* background image */
 
 .registration-page__background {

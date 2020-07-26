@@ -4,12 +4,7 @@
     width: min(100%, 266px);
 }
 
-@supports not (width: min(100%, 266px)) {
-    .subscribtion-field {
-        width: 100%;
-        max-width: 266px;
-    }
-}
+/* icon */
 
 .subscribtion-field__icon {
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);   

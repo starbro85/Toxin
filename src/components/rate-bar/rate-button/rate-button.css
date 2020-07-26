@@ -10,30 +10,30 @@
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-}
 
-.rate-button:not(:disabled):hover {
-    box-shadow: var(--shadow-hover);
-}
+    &:before {
+        content: 'star';
+        font: var(--icon-font);
+        font-size: 24px;
+        background: var(--purple-gradient);  
+        background-clip: text; 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+    }
 
-.rate-button:disabled {
-    cursor: default;
-}
+    &:checked ~ .rate-button:before {
+        content: 'star_border';   
+    }
 
-.rate-button:focus {
-    outline: var(--outline);
-}
+    &:disabled {
+        cursor: default;
+    }
 
-.rate-button::before {
-    content: 'star';
-    font: var(--icon-font);
-    font-size: 24px;
-    background: var(--purple-gradient);  
-    background-clip: text; 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
+    &:focus {
+        outline: var(--outline);
+    }
 
-.rate-button:checked ~ .rate-button::before {
-    content: 'star_border';   
+    &:hover:not(:disabled) {
+        box-shadow: var(--shadow-hover);
+    }
 }

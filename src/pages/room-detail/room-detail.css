@@ -24,17 +24,18 @@
 
 .room-detail__image {
     width: 100%;
+    height: auto;
 }
 
-@media (min-width: 1441px) {
+@media (width < 1440px) {
     .room-detail__image_main {
-        grid-row: span 2;
+        grid-column: span 2;
     }
 }
 
-@media (max-width: 1440px) {
+@media (width >= 1440px) {
     .room-detail__image_main {
-        grid-column: span 2;
+        grid-row: span 2;
     }
 }
 
@@ -55,22 +56,15 @@
     display: grid;
 }
 
-@supports not (width: min(90vw, 1159px)){
-    .room-detail__content {
-        width: 90vw;
-        max-width: 1159px;
-    }
-}
 
-
-@media (max-width: 1289px) {
+@media (width < 1290px) {
     .room-detail__content {
         justify-content: center;
         row-gap: 70px;
     }
 }
 
-@media (min-width: 1290px) {
+@media (width >= 1290px) {
     .room-detail__content {
         grid-auto-flow: column;
         column-gap: 70px;
@@ -84,27 +78,28 @@
 }
 
 
-@media (max-width: 639px) {
+@media (width < 640px) {
     .room-detail__information-block {
         row-gap: 70px;
-    }
-}
-
-@media (min-width: 640px) and (max-width: 1289px) {
-    .room-detail__information-block {
-        gap: 70px 30px;
         justify-items: center;
     }
 }
 
-@media (max-width: 1289px) {
+@media (width >= 640px) and (width < 1290px) {
     .room-detail__information-block {
-        grid-auto-columns: 1fr;
-        row-gap: 70px;
+        gap: 70px 30px;
     }
 }
 
-@media (min-width: 1290px) {
+@media (width < 1290px) {
+    .room-detail__information-block {
+        grid-auto-columns: 1fr;
+        row-gap: 70px;
+        justify-items: center;
+    }
+}
+
+@media (width >= 1290px) {
     .room-detail__information-block {
         grid-auto-columns: auto;
         justify-content: center;
@@ -126,13 +121,14 @@
 
 /* feature section */
 
-@media (max-width: 639px) and (orientation: portrait) {
+@media (width < 640px) {
     .room-detail__feature-section {
-        padding: 0 20px;
+        width: min(100%, 341px);
+        padding-left: 20px;
     }
 }
 
-@media (min-width: 1290px) {
+@media (width >= 1290px) {
     .room-detail__feature-section {
         margin-right: 27px;
     }
@@ -140,9 +136,10 @@
 
 /* doughnut section */
 
-@media (max-width: 639px) and (orientation: portrait) {
+@media (width < 640px) {
     .room-detail__doughnut-section {
-        padding: 0 20px;
+        width: min(100%, 341px);
+        padding-left: 20px;
     }
 }
 
@@ -154,13 +151,13 @@
     grid-template-columns: 1fr 80px;
 }
 
-@media (max-width: 639px) and (orientation: portrait) {
+@media (width < 640px) {
     .room-detail__review-section {
-        padding: 0 20px;
+        padding-left: 20px;
     }
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
     .room-detail__review-section {
         grid-column: span 2;
     }
@@ -192,6 +189,12 @@
     width: min(100%, 271px);
 }
 
+@media (width < 640px) {
+    .room-detail__rules-section {
+        width: min(100%, 341px);
+    }
+}
+
 
 /* cancel section */
 
@@ -199,9 +202,9 @@
     width: min(100%, 341px);
 }
 
-@media (max-width: 639px) and (orientation: portrait) {
+@media (width < 640px) {
     .room-detail__cancel-section {
-        padding: 0 20px;
+        padding-left: 20px;
     }
 }
 
@@ -212,7 +215,7 @@
     color: var(--dark-shade-75per);
 }
 
-@media (min-width: 1289px) {
+@media (width >= 1290px) {
     .room-detail__paragraph {
         white-space: pre-wrap;
     }
@@ -220,20 +223,16 @@
 
 /* form booking*/
 
-@media (min-width: 640px) {
+@media (width < 1290px) {
+    .room-detail__form-booking {
+        display: flex;
+        justify-content:center;
+    }
+}
+
+@media (width >= 1290px) {
     .room-detail__form-booking {
         width: 380px;
-    }
-}
-
-@media (min-width: 640px) and (max-width: 1289px) {
-    .room-detail__form-booking {
-        justify-self: center;
-    }
-}
-
-@media (min-width: 1290px) {
-    .room-detail__form-booking {
         grid-column: 2;
     }
 }

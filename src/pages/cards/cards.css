@@ -8,21 +8,21 @@
     justify-content: center;
 }
 
-@media (min-width: 1292px) {
+@media (width < 890px) {
     .cards {
-        grid-template-columns: 380px 380px auto;
+        grid-template-columns: 100%;
     }
 }
 
-@media (max-width: 1292px) and (min-width: 890px) {
+@media (width >= 890px) and (width < 1292px) {
     .cards {
         grid-template-columns: 380px 380px;
     }
 }
 
-@media (max-width: 890px) {
+@media (width >= 1292px) {
     .cards {
-        grid-template-columns: 100%;
+        grid-template-columns: 380px 380px auto;
     }
 }
 

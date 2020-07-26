@@ -7,6 +7,7 @@ mixin review({ user, date, text, like  })
         const pluralize = require('./../../globals/helpers/pluralize.js');
         const path = getImagePath({src: user.avatar.src});
         const days = Math.floor((Date.now() - date.timestamp)/(60*60*24*1000));
+        const pubdate = new Date(date.timestamp).toISOString();
 
     section(class = 'review js-review')
         img(
@@ -14,9 +15,14 @@ mixin review({ user, date, text, like  })
             src = path.src,
             alt = user.avatar.alt
         )
-        div(class = 'review__info')
-            h3(class = 'review__name js-review__name') #{user.name} #{user.surname}
-            p(class = 'review__date js-review__date') #{pluralize(date.plural, days)}
         div(class = 'review__like js-review__like')
             +like(like)
+
+        h4(class = 'review__name js-review__name') #{user.name} #{user.surname}
+        
+        time(
+            class = 'review__date js-review__date'
+            pubdate = pubdate
+        ) #{pluralize(date.plural, days)}
+
         p(class = 'review__text js-review__text') #{text}

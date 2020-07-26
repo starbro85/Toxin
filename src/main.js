@@ -1,7 +1,10 @@
-import 'normalize.css';
+/* globals */
 
+import 'normalize.css';
 import './globals/fonts.css'; 
 import './globals/global.css'; 
+
+/* pages */
 
 import './pages/start-menu/start-menu.js';
 import './pages/form-elements/form-elements.js';

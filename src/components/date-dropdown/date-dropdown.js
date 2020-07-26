@@ -150,7 +150,11 @@ class DateDropdown {
             this.textField = this.root.querySelectorAll('.js-date-dropdown__text-field');
             this.button = this.root.querySelectorAll('.js-date-dropdown__button');
 
-            new this.Expander(this.root, this.button[0], 'date-dropdown_expanded');
+            new this.Expander(this.root, this.button[0], {
+                toggleClass: 'date-dropdown_expanded',
+                trapFocus: true,
+                outsideClickCollapse: true
+            });
             
             this.button[1].addEventListener('click', (event) => {
                 this.button[0].click();
@@ -161,7 +165,11 @@ class DateDropdown {
             this.textField = this.root.querySelector('.js-date-dropdown__text-field');
             this.button = this.root.querySelector('.js-date-dropdown__button');
 
-            new this.Expander(this.root, this.button, 'date-dropdown_expanded');
+            new this.Expander(this.root, this.button, {
+                toggleClass: 'date-dropdown_expanded',
+                trapFocus: true,
+                outsideClickCollapse: true
+            });
         }
 
         window.addEventListener('load', this.autoApply ? this.setAutoApplyMode : this.setManualApplyMode);

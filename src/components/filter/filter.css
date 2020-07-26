@@ -10,7 +10,7 @@
 
 /* heading */
 
-.filter__heading_visually-hidden {
+.filter__heading {
     position: absolute;
     clip: rect(0 0 0 0);
     width: 1px;

@@ -17,20 +17,13 @@
     justify-content: center;
 }
 
-@supports not (width: min(90vw, 1159px)){
-    .login-page__content {
-        width: 90vw;
-        max-width: 1159px;
-    }
-}
-
-@media (max-width: 1024px) {
+@media (width < 1025px) {
     .login-page__content {
         padding: 50px 0;
     }
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
     .login-page__content {
         padding: 172px 0;
     }

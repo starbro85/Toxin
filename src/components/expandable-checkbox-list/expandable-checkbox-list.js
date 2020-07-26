@@ -17,7 +17,11 @@ class ExpandableList {
     }
 
     init() {
-        new this.Expander(this.root, this.button, 'expandable-checkbox-list_expanded');
+        new this.Expander(this.root, this.button, {
+            toggleClass: 'expandable-checkbox-list_expanded', 
+            focusTrap: false, 
+            outsideClickCollapse: false
+        });
     }
 }
 

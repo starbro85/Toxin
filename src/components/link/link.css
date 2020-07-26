@@ -2,41 +2,45 @@
 
 .link {
     cursor: pointer;
-}
+    display: flex;
 
-.link:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
-}
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 2px;
+    }
+    
+    &:disabled {
+        cursor: default;
+    }
 
-.link:disabled {
-    cursor: default;
-}
+    &:not(.link_button) {
+        font: var(--body-font);
+        color: var(--dark-shade-50per);
+        line-height: 1.2857142857143rem;
+        white-space: nowrap;
+    }
 
-.link:not(.link_button) {
-    font: var(--body-font);
-    color: var(--dark-shade-50per);
-    line-height: 1.2857142857143rem;
-    white-space: nowrap;
-}
+    &:hover:not(.link_button) {
+        text-decoration: underline;
+        color: var(--dark-shade-75per);
+    }
 
-.link:not(.link_button):hover {
-    text-decoration: underline;
-    color: var(--dark-shade-75per);
+    &:active:not(.link_button) {
+        color: var(--purple-100per);
+    }
 }
 
 .link_bold:not(.link_button) {
     font-weight: bold;
     color: var(--dark-shade-75per);
-}
 
-.link_bold:not(.link_button):hover {
-    color: var(--dark-shade-100per);
-}
+    &:hover {
+        color: var(--dark-shade-100per);
+    }
 
-.link:not(.link_button):active,
-.link_bold:not(.link_button):active {
-    color: var(--purple-100per);
+    &:active:not(.link_button) {
+        color: var(--purple-100per);
+    }
 }
 
 .link_button {
@@ -51,51 +55,42 @@
     text-transform: uppercase;
 }
 
-@supports not (width: min(100%, 320px)) {
-    .link_button {
-        width: 100%;
-        max-width: 320px;
-        height: 100%;
-        max-height: 44px;
-    }
-}
-
-.link_button.link_filled {
+.link_filled {
     padding: 0 20px;
     background: var(--purple-gradient);
     color: white;
+
+    &:active {
+        opacity: .5;
+        transition: opacity .3s;
+    }
+
+    &:disabled {
+        opacity: .5;
+        transition: opacity .3s;
+    }
+
+    &:hover:not(:disabled) {
+        box-shadow: var(--shadow-hover);
+    }
 }
 
-.link_button.link_filled:hover:not(:disabled) {
-    box-shadow: var(--shadow-hover);
-}
-
-.link_button.link_filled:active {
-    opacity: .5;
-    transition: opacity .3s;
-}
-
-.link_button.link_filled:disabled {
-    opacity: .5;
-    transition: opacity .3s;
-}
-
-.link_button.link_with_border {
+.link_with_border {
     padding: 0 18px;
     border: var(--border-3);
     color: var(--purple-100per);
-}
 
-.link_button.link_with_border:hover:not(:disabled) {
-    box-shadow: var(--shadow-hover);
-}
+    &:active {
+        border-color: var(--purple-50per);
+        transition: border-color .3s;
+    }
 
-.link_button.link_with_border:active {
-    border-color: var(--purple-50per);
-    transition: border-color .3s;
-}
+    &:disabled {
+        border-color: var(--purple-50per);
+        transition: border-color .3s;
+    }
 
-.link_button.link_with_border:disabled {
-    border-color: var(--purple-50per);
-    transition: border-color .3s;
+    &:hover:not(:disabled) {
+        box-shadow: var(--shadow-hover);
+    }
 }

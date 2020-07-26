@@ -3,24 +3,15 @@
 .review {
     width: min(100%, 711px);
     display: grid;
-    grid-template-areas: 
-        'avatar info'
-        'like text';
+    grid-auto-flow: row;
     grid-template-columns: max-content fit-content(653px);
-    gap: 9.93px 10px;
-}
-
-@supports not (width: min(100%, 711px)) {
-    .review {
-        width: 100%;
-        max-width: 711px;
-    }
+    column-gap: 10px;
 }
 
 /* avatar */
 
 .review__avatar {
-    grid-area: avatar;
+    grid-row: span 2;
     width: 48px; 
     height: 48px;
     justify-self: end;
@@ -29,12 +20,12 @@
     box-shadow: var(--shadow-1);
 } 
 
-/* info */
+/* like */
 
-.review__info {
-    grid-area: info;
-    display: flex;
-    flex-direction: column;
+.review__like {
+    grid-row: 3;
+    padding-top: 10px;
+    justify-self: center;
 }
 
 /* name */
@@ -52,17 +43,10 @@
     color: var(--dark-shade-75per);
 }
 
-/* like */
-
-.review__like {
-    grid-area: like;
-    justify-self: center;
-}
-
 /* text */
 
 .review__text {
-    grid-area: text;
+    padding-top: 10px;
     font: var(--body-font);
     color: var(--dark-shade-75per);
 }

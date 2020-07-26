@@ -2,6 +2,7 @@
 
 .toggle {   
     display: flex;
+    cursor: pointer;
 }
 
 /* input */
@@ -18,44 +19,44 @@
     align-items: center;
     border: var(--border-1);
     border-radius: 10px;
-    cursor: pointer;
-}    
+    cursor: inherit;
 
-.toggle__input:hover:not(:disabled) {
-    box-shadow: var(--shadow-hover);
-}
+    &:before {
+        content: '';
+        width: 13px;
+        height: 13px;
+        border-radius: 10px;
+        background: var(--dark-shade-25per);
+        transition: transform .3s;
+    }  
 
-.toggle__input:checked {
-    border-color: var(--purple-100per);
-}
+    &:checked {
+        border-color: var(--purple-100per);
+    }
 
-.toggle__input:focus {
-    outline: var(--outline);
-    outline-offset: 1px;
-}
+    &:checked:before {
+        background: var(--purple-gradient);
+        transform: translateX(135%);
+        transition: transform .3s;
+    }
 
-.toggle__input:disabled {
-    border-color: var(--dark-shade-5per);
-    cursor: default;
-}
+    &:checked:disabled::before {
+        background: var(--dark-shade-25per);
+    }
 
-.toggle__input::before {
-    content: '';
-    width: 13px;
-    height: 13px;
-    border-radius: 10px;
-    background: var(--dark-shade-25per);
-    transition: transform .3s;
-}  
+    &:disabled {
+        border-color: var(--dark-shade-5per);
+        cursor: default;
+    }
+    
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 1px;
+    }
 
-.toggle__input:checked::before {
-    background: var(--purple-gradient);
-    transform: translateX(135%);
-    transition: transform .3s;
-}
-
-.toggle__input:checked:disabled::before {
-    background: var(--dark-shade-25per);
+    &:hover:not(:disabled) {
+        box-shadow: var(--shadow-hover);
+    }
 }
 
 /* label */
