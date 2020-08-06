@@ -80,23 +80,35 @@
             display: flex;
             min-height: 24px;
             justify-content: space-between;
+            column-gap: 10px;
     
             & .form-booking__description {
-                display: inline-flex;
-                font: var(--body-font);
-                line-height: 18px;
-                color: var(--dark-shade-75per);
-                white-space: pre-wrap;
+                width: min(100%, 245px);
+                display: flex;
+                justify-content: space-between;
+
+                & .form-booking__text {
+                    font: var(--body-font);
+                    line-height: 18px;
+                    color: var(--dark-shade-75per);
+
+                    & .form-booking__discount {
+                        white-space: nowrap;
+                    }
+                }
             }
             
             & .form-booking__summary,
             & .form-booking__service,
             & .form-booking__addition {
+                min-width: 57px;
                 display: inline-flex;
+                justify-content: flex-end;
                 border: none;
                 font: var(--body-font);
                 line-height: 18px;
                 color: var(--dark-shade-75per);
+                white-space: nowrap;
             }
         }
 

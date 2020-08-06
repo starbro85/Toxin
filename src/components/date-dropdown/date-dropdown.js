@@ -19,99 +19,115 @@ class DateDropdown {
         this.isTwin = this.root.hasAttribute('data-is-twin');
         this.autoApply = this.root.hasAttribute('data-auto-apply');
 
-        this.datepickerData = {};
+        this.textFieldData = {};
 
-        this.Expander = Expander;
-        this.Datepicker = Datepicker;
-
-        this.init();
-    }
-      
-    getDatepickerData = (event) => {
-        const datepickerValues = event.detail.values;
-        const datepickerLang = event.detail.lang;
-
-        this.datepickerData.values = datepickerValues;
-        this.datepickerData.lang = datepickerLang;
+        this.init(Expander, Datepicker);
     }
 
-    sendTextFieldValue = (input, value) => {
-        let inputValue;
-        let inputTitle;
-        let submitValue;
-
-        if (value.length) {
-            inputValue = value ? value.reduce((acc, item) => `${acc}${moment(item).locale(this.datepickerData.lang).format('D MMM').slice(0, -1)} - `, '').slice(0, -2) : '';
-            inputTitle = value ? value.reduce((acc, item) => `${acc}${moment(item).locale(this.datepickerData.lang).format('LL')} - `, '').slice(0, -2) : '';
-            submitValue = value ? value.map((item) => Number(moment(item).format('x'))) : '';
-        }
-
-        else {
-            inputValue = value ? moment(value).format('DD.MM.YYYY') : '';
-            inputTitle = value ? capitalize(moment(value).locale(this.datepickerData.lang).format('dddd, LL')) : '';
-            submitValue = value ? Number(moment(value).format('x')) : '';
-        }
-
-        if (input.classList.contains('js-date-dropdown__text-field_from')) {
-            this.root.dispatchEvent(new CustomEvent('date-dropdown-from-update', {
-                detail: {
-                    value: submitValue
-                }
-            }));
-        }
-
-        else if (input.classList.contains('js-date-dropdown__text-field_to')) {
-            this.root.dispatchEvent(new CustomEvent('date-dropdown-to-update', {
-                detail: {
-                    value: submitValue
-                }
-            }));
-        }
-
-        else {
-            this.root.dispatchEvent(new CustomEvent('date-dropdown-update', {
-                detail: {
-                    value: submitValue
-                }
-            }));
-        }
-
-        input.dispatchEvent(new CustomEvent('text-field-value-sent', {
-            detail: {
-                value: inputValue,
-                title: inputTitle,
-                submitValue: submitValue
+    getTextFieldData() {
+        this.datepicker.addEventListener('datepicker-data-sent', (event) => {
+            const textFieldData = {};
+            const dates = event.detail.dates;
+            const lang = event.detail.lang;
+            
+            if (this.isTwin) {
+                textFieldData.values = dates ? dates.map((date) => moment(date).format('DD.MM.YYYY'))  : ['', ''];
+                textFieldData.titles = dates ? dates.map((date) => capitalize(moment(date).locale(lang).format('dddd, LL'))) : ['', ''];
+                textFieldData.submitValues = dates ? dates.map((date) => Number(moment(date).format('x'))) : ['', ''];
+            } else {
+                textFieldData.value = dates ? dates.reduce((value, date) => `${value}${moment(date).locale(lang).format('D MMM')} - `, '').slice(0, -2) : '';
+                textFieldData.title = dates ? dates.reduce((title, date) => `${title}${moment(date).locale(lang).format('LL')} - `, '').slice(0, -2) : '';
+                textFieldData.submitValues = dates ? dates.reduce((submitValue, date) => `${submitValue}${Number(moment(date).format('x'))} - `, '').slice(0, -2) : '';
             }
-        }))
+
+            this.textFieldData = textFieldData;
+        });
+    }
+
+    sendTextFieldData = () => {
+        const textFieldData = this.textFieldData;
+
+        if (this.isTwin) {
+            this.textField.forEach((node, index) => node.dispatchEvent(
+                new CustomEvent('text-field-value-sent', {
+                    detail: {
+                        value: textFieldData.values[index],
+                        title: textFieldData.titles[index],
+                        submitValue: textFieldData.submitValues[index]
+                    }
+                })
+            ));
+        } else {
+            this.textField.dispatchEvent(
+                new CustomEvent('text-field-value-sent', {
+                    detail: {
+                        value: textFieldData.value,
+                        title: textFieldData.title,
+                        submitValue: textFieldData.submitValues
+                    }
+                })
+            );
+        }
     };
 
     setClearButtonDisabledState() {
-        const values = this.datepickerData.values;
-        const isDisabled = values ? values.reduce((isDisabled, value) => value ? isDisabled = false : isDisabled , true) : true;
+        if (this.isTwin) {
+            const value = this.textFieldData.value;
+            const isDisabled = value ? value.reduce((isDisabled, value) => value ? isDisabled = false : isDisabled , true) : false;
 
-        this.clearButton.disabled = isDisabled;
+            this.clearButton.disabled = isDisabled;
+        } else {
+            const value = this.textFieldData.value;
+            const isDisabled = value ?  true : false;
+
+            this.clearButton.disabled = isDisabled;
+        }
     }
 
     handleApplyValue = (event) => {
         if (event.target === this.clearButton) {
             this.datepicker.dispatchEvent(new CustomEvent('clear-datepicker'));
-            this.datepickerData.values = ['', ''];
+
+            if (this.isTwin) { 
+                this.textFieldData.values = ['', ''];
+                this.textFieldData.submitValues = ['', ''];
+                this.textFieldData.titles = ['', ''];
+            } else { 
+                this.textFieldData.value = '';
+                this.textFieldData.submitValue = '';
+                this.textFieldData.title = '';
+            }
         }
         
-        if (this.isTwin) {
-            this.textField.forEach((item, index) => this.sendTextFieldValue(item, this.datepickerData.values[index]))
-        } 
-        else {
-            this.sendTextFieldValue(this.textField, this.datepickerData.values);
-        }
+        this.sendTextFieldData();
 
         this.setClearButtonDisabledState();
-    }
- 
-    setManualApplyMode = () => {
-        this.datepicker.addEventListener('datepicker-data-sent', this.getDatepickerData);
 
-        new this.Datepicker(this.datepicker);
+        this.root.dispatchEvent(
+            new CustomEvent('date-dropdown-value-apply', {
+                detail: {
+                    values: this.textFieldData.submitValues
+                }
+            })
+        );
+    }
+
+    setAutoApplyMode() { 
+        this.datepicker.addEventListener('datepicker-data-sent', (event) => {
+            this.sendTextFieldData();
+
+            this.root.dispatchEvent(
+                new CustomEvent('date-dropdown-value-apply', {
+                    detail: {
+                        values: this.textFieldData.submitValues
+                    }
+                })
+            );
+        }); 
+    }
+
+    setManualApplyMode() {
+        this.sendTextFieldData();
 
         this.clearButton = this.root.querySelector('.js-date-dropdown__clear-button');
         this.applyButton = this.root.querySelector('.js-date-dropdown__apply-button');
@@ -121,58 +137,50 @@ class DateDropdown {
 
         this.setClearButtonDisabledState();
 
-        if (this.isTwin) {
-            this.textField.forEach((item, index) => this.sendTextFieldValue(item, this.datepickerData.values[index]))
-        } 
-        else {
-            this.sendTextFieldValue(this.textField, this.datepickerData.values);
-        }
-    }
-
-    setAutoApplyMode = () => {
-        this.datepicker.addEventListener('datepicker-data-sent', (event) => {
-            this.getDatepickerData(event);
-
-            if (this.isTwin) {
-                this.textField.forEach((item, index) => this.sendTextFieldValue(item, this.datepickerData.values[index]))
-            } 
-            else {
-                this.sendTextFieldValue(this.textField, this.datepickerData.values);
-            }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            this.root.dispatchEvent(
+                new CustomEvent('date-dropdown-value-apply', {
+                    detail: {
+                        values: this.textFieldData.submitValues
+                    }
+                })
+            )
         });
-
-        new this.Datepicker(this.datepicker);
     }
-    
-
-    init() {
+      
+    init(Expander, Datepicker) {
         if (this.isTwin) {
+            this.buttons = this.root.querySelectorAll('.js-date-dropdown__button');
             this.textField = this.root.querySelectorAll('.js-date-dropdown__text-field');
-            this.button = this.root.querySelectorAll('.js-date-dropdown__button');
 
-            new this.Expander(this.root, this.button[0], {
+            new Expander(this.root, {
+                control: this.buttons,
+                toggleClass: 'date-dropdown_expanded',
+                trapFocus: true,
+                outsideClickCollapse: true,
+                multiple: true
+            });
+        } else {
+            this.button = this.root.querySelector('.js-date-dropdown__button');
+            this.textField = this.root.querySelector('.js-date-dropdown__text-field');
+
+            new Expander(this.root, {
+                control: this.button,
                 toggleClass: 'date-dropdown_expanded',
                 trapFocus: true,
                 outsideClickCollapse: true
-            });
-            
-            this.button[1].addEventListener('click', (event) => {
-                this.button[0].click();
             })
         }
 
-        else {
-            this.textField = this.root.querySelector('.js-date-dropdown__text-field');
-            this.button = this.root.querySelector('.js-date-dropdown__button');
+        this.getTextFieldData();
 
-            new this.Expander(this.root, this.button, {
-                toggleClass: 'date-dropdown_expanded',
-                trapFocus: true,
-                outsideClickCollapse: true
-            });
+        new Datepicker(this.datepicker);
+        
+        if (this.autoApply) { 
+            this.setAutoApplyMode(); 
+        } else { 
+            this.setManualApplyMode(); 
         }
-
-        window.addEventListener('load', this.autoApply ? this.setAutoApplyMode : this.setManualApplyMode);
     }
 };
 

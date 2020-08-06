@@ -14,10 +14,10 @@
     }
 
     &:not(.link_button) {
+        width: max-content;
         font: var(--body-font);
         color: var(--dark-shade-50per);
         line-height: 1.2857142857143rem;
-        white-space: nowrap;
     }
 
     &:hover:not(.link_button) {

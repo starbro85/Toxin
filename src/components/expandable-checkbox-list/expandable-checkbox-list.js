@@ -17,7 +17,8 @@ class ExpandableList {
     }
 
     init() {
-        new this.Expander(this.root, this.button, {
+        new this.Expander(this.root, {
+            control: this.button,
             toggleClass: 'expandable-checkbox-list_expanded', 
             focusTrap: false, 
             outsideClickCollapse: false

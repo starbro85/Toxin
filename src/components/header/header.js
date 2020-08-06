@@ -23,7 +23,8 @@ class Header {
     }
 
     init() {
-        new this.Expander(this.root, this.button, {
+        new this.Expander(this.root, {
+            control: this.button,
             toggleClass: 'header_expanded',
             trapFocus: true,
             outsideClickCollapse: true,

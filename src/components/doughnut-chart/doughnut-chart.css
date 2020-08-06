@@ -39,9 +39,11 @@
 /* tooltip */
 
 .doughnut-chart__tooltip {
+    width: max-content;
+    max-width: 200px;
     padding: 5px;
     font: lighter 12px Arial;
-    background-color: ivory;
+    background-color: white;
     border: 1px solid black;
     color: black;
     white-space: nowrap;

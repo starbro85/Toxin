@@ -1,8 +1,8 @@
 import './form-booking.css';
 
-import './../button/button.js';
-import './../date-dropdown/date-dropdown.js';
-import './../quantity-dropdown/quantity-dropdown.js';
+import './tooltip/tooltip.js';
+import '../button/button.js';
+import '../quantity-dropdown/quantity-dropdown.js';
 
 import wnumb from 'wnumb';
 
@@ -11,8 +11,8 @@ const moneyFormat = new wnumb({
     suffix: '₽',
     thousand: ' '
 })
-const pluralize = require('./../../globals/helpers/pluralize.js');
-const render = require('./../../globals/helpers/render.js');
+const pluralize = require('../../globals/helpers/pluralize.js');
+const render = require('../../globals/helpers/render.js');
 
 class FormBooking {
     constructor(node) {
@@ -37,19 +37,16 @@ class FormBooking {
     }
 
     init() {   
-        this.dateDropdown.addEventListener('date-dropdown-from-update', (event) => {
-            this.arrivalTimestamp = event.detail.value;
-        });
-        this.dateDropdown.addEventListener('date-dropdown-to-update', (event) => {
-            this.departureTimestamp = event.detail.value;
-            this.dateRange = this.departureTimestamp ? Math.floor((this.departureTimestamp - this.arrivalTimestamp)/(60*60*24*1000)) : 0;
-            console.log(this.dateRange)
+        this.dateDropdown.addEventListener('date-dropdown-value-apply', (event) => {
+            this.arriveTimestamp = event.detail.values[0];
+            this.departureTimestamp = event.detail.values[1];
+            this.dateRange = this.departureTimestamp && this.arriveTimestamp ? Math.floor((this.departureTimestamp - this.arriveTimestamp)/(60*60*24*1000)) : 0;
             this.periodContainer.innerHTML = pluralize(this.periodPlural, this.dateRange);
             this.summary = this.rent * this.dateRange;
             this.summaryContainer.innerHTML = moneyFormat.to(this.summary);
             this.price = this.summary + this.service + this.addition - this.discount;
-            this.priceContainer.innerHTML = moneyFormat.to(this.price);
-            this.priceInput.value = this.price;
+            this.priceContainer.innerHTML = this.price > 0 ? moneyFormat.to(this.price) : moneyFormat.to(0);
+            this.priceInput.value = this.price > 0 ? this.price : 0;
         });
     }
 };

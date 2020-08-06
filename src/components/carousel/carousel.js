@@ -1,8 +1,8 @@
 import './carousel.css';
 
-import { Swiper, Navigation, Autoplay, Lazy } from 'swiper';
+import { Swiper, Navigation, Keyboard, Autoplay, Lazy } from 'swiper';
 
-Swiper.use([Navigation, Autoplay, Lazy]);
+Swiper.use([Navigation, Keyboard, Autoplay, Lazy]);
 
 const render = require('./../../globals/helpers/render.js');
 
@@ -18,36 +18,36 @@ class Carousel {
         this.init();
     }
 
-    setKeyboardControl(swiper) {
-        this.buttonPrev.addEventListener('keyup', (event) => {
+    handleKeyboardControl = (event) => {
+        if (event.target === this.buttonPrev) {
             if (event.key === 'ArrowRight') {
                 this.buttonNext.focus();
-                swiper.slideNext();
+                this.buttonNext.click();
             }
 
             if (event.key === 'ArrowLeft') {
-                swiper.slidePrev();
+                this.buttonPrev.click();
             }
-        })
+        }
 
-        this.buttonNext.addEventListener('keyup', (event) => {
+        if (event.target === this.buttonNext) {
             if (event.key === 'ArrowRight') {
-                swiper.slideNext();
+                this.buttonNext.click();
             }
 
             if (event.key === 'ArrowLeft') {
                 this.buttonPrev.focus();
-                swiper.slidePrev();
+                this.buttonPrev.click();
             }
-        })
+        }
     }
 
     init() {
         window.addEventListener('load', event => {
             const swiper = new Swiper(this.root, {
                 navigation: this.showControls ? {
-                    nextEl: '.js-carousel__control-button_next',
-                    prevEl: '.js-carousel__control-button_prev',
+                    nextEl: this.buttonNext,
+                    prevEl: this.buttonPrev,
                 } : false,
                 autoplay: this.autoplayDelay ? {
                     delay: this.autoplayDelay
@@ -75,9 +75,8 @@ class Carousel {
                 slideBlankClass: 'carousel__slide_blank'
             })
 
-            if (this.showControls) {
-                this.setKeyboardControl(swiper);
-            }
+            if (this.buttonPrev) { this.buttonPrev.addEventListener('keyup', this.handleKeyboardControl); }
+            if (this.buttonNext) { this.buttonNext.addEventListener('keyup', this.handleKeyboardControl); }
         })   
     }
 };

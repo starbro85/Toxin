@@ -18,13 +18,9 @@ class Datepicker {
         this.init();
     }
 
-    onReady = () => {
-        this.calendar = this.root.querySelector('.flatpickr-calendar');
-        this.days = this.root.querySelector('.flatpickr-days');
-
-        this.prevButton = this.root.querySelector('.flatpickr-prev-month');
-        this.nextButton = this.root.querySelector('.flatpickr-next-month');
-        this.yearInput = this.root.querySelector('.numInput');
+    handleOnReady = () => {
+        const prevButton = this.root.querySelector('.flatpickr-prev-month');
+        const nextButton = this.root.querySelector('.flatpickr-next-month');
 
         let prevButtonAriaLabel;
         let nextButtonAriaLabel;
@@ -39,30 +35,37 @@ class Datepicker {
             nextButtonAriaLabel = 'Next month';
         }
 
-        this.calendar.setAttribute('tabindex', false);
-        this.days.setAttribute('tabindex', false);
+        prevButton.setAttribute('tabindex', '0');
+        prevButton.setAttribute('role', 'button');
+        prevButton.setAttribute('aria-label', prevButtonAriaLabel);
+        nextButton.setAttribute('tabindex', '0');
+        nextButton.setAttribute('role', 'button');
+        nextButton.setAttribute('aria-label', nextButtonAriaLabel);
 
-        this.yearInput.setAttribute('tabindex', '0');
-        this.yearInput.setAttribute('type', 'text');
-        this.yearInput.setAttribute('role', 'spinbutton');
-        this.yearInput.setAttribute('aria-valuemin', moment(new Date().getTime()).format('YYYY'));
-        this.yearInput.setAttribute('aria-valuenow', this.yearInput.value);
-        this.yearInput.addEventListener('keyup', (event) => {
+        const calendar = this.root.querySelector('.flatpickr-calendar');
+        calendar.setAttribute('tabindex', false);
+
+
+        const days = this.root.querySelector('.flatpickr-days');
+        days.setAttribute('tabindex', false);
+
+
+        const yearInput = this.root.querySelector('.numInput');
+        
+        yearInput.setAttribute('tabindex', '0');
+        yearInput.setAttribute('type', 'text');
+        yearInput.setAttribute('role', 'spinbutton');
+        yearInput.setAttribute('aria-valuemin', moment(new Date().getTime()).format('YYYY'));
+        yearInput.setAttribute('aria-valuenow', yearInput.value);
+        yearInput.setAttribute('readonly', true);
+        yearInput.addEventListener('keyup', (event) => {
             if (event.code === 'ArrowUp' || event.code === 'ArrowDown') {
-                this.yearInput.setAttribute('aria-valuenow', this.yearInput.value);
+                yearInput.setAttribute('aria-valuenow', yearInput.value);
             }
-        })
-        this.yearInput.setAttribute('readonly', true);
-
-        this.prevButton.setAttribute('tabindex', '0');
-        this.prevButton.setAttribute('role', 'button');
-        this.prevButton.setAttribute('aria-label', prevButtonAriaLabel);
-        this.nextButton.setAttribute('tabindex', '0');
-        this.nextButton.setAttribute('role', 'button');
-        this.nextButton.setAttribute('aria-label', nextButtonAriaLabel);
+        });  
     }
 
-    onDayCreate = (dObj, dStr, fp, dayElem) => {
+    handleOnDayCreate = (dObj, dStr, fp, dayElem) => {
         const day = dayElem;
         const timestump = Number(`${day.getAttribute('aria-label')}000`);
         const date = capitalize(moment(timestump).locale(this.lang).format('dddd, LL'));
@@ -70,25 +73,27 @@ class Datepicker {
         day.setAttribute('aria-label', date);
         day.setAttribute('title', date);
 
-        if (day.classList.contains('today') || day.classList.contains('startRange') || day.classList.contains('endRange')) {
-            day.setAttribute('tabindex', '0');
-            day.addEventListener('keydown', (event) => {
-                if (event.code === 'Tab') {
-                    if (event.shiftKey) {
-                        this.nextButton.focus();
-                    }
+        if (!day.classList.contains('flatpickr-disabled')) { day.setAttribute('tabindex', '0'); }
+
+        day.addEventListener('keydown', (event) => {
+            if (event.code === 'Tab' && event.shiftKey) {
+                const prevSibling = event.target.previousSibling;
+
+                if (!prevSibling.classList.contains('flatpickr-disabled')) {
+                    prevSibling.focus();
+                } else { 
+                    const nextButton = this.root.querySelector('.flatpickr-next-month');
+                    nextButton.focus(); 
                 }
-            })
-        }  
+            }
+        });
     }
 
     sendDatepickerData = (selectedDates) => {
-        const values = selectedDates;
-
         this.root.dispatchEvent(
             new CustomEvent('datepicker-data-sent', {
                 detail: {
-                    values: values,
+                    dates: selectedDates,
                     lang: this.lang
                 }
             })
@@ -96,9 +101,7 @@ class Datepicker {
     };
 
     init() {
-        if (this.lang === 'ru') {
-            flatpickr.localize(Russian);
-        }
+        if (this.lang === 'ru') { flatpickr.localize(Russian); }
 
         const datepicker = new flatpickr(this.root, {
             appendTo: this.root,
@@ -111,16 +114,14 @@ class Datepicker {
             prevArrow: 'arrow_back',
             nextArrow: 'arrow_forward',
             monthSelectorType: 'static',
-            onReady: this.onReady,
-            onDayCreate: this.onDayCreate,
+            onReady: this.handleOnReady,
+            onDayCreate: this.handleOnDayCreate,
             onChange: this.sendDatepickerData
         });
 
         if (this.initValue) {
             this.sendDatepickerData(datepicker.selectedDates);
-        }
-
-        else {
+        } else {
             this.sendDatepickerData(['', '']);
         }
 

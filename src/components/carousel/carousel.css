@@ -101,7 +101,10 @@
     }
 }
 
+/* icon */
+
 .carousel__icon {
+    display: block;
     font: var(--icon-font);
     font-size: 24px;
     pointer-events: none;

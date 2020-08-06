@@ -19,45 +19,44 @@ class QuantityDropdown {
         this.inputs = this.root.querySelectorAll('.js-counter__input');
 
         this.autoApply = this.root.hasAttribute('data-auto-apply');
-        this.countersData = {};
+        this.textFieldData = {};
 
-        this.Counter = Counter;
-        this.Expander = Expander;
-
-        this.init();
+        this.init(Counter, Expander);
     }
       
-    getCountersData = () => {
-        const name = event.detail.name;
-        const value = event.detail.value;
-        const plural = event.detail.plural;
-        const isBound = event.detail.isBound;
-        const boundplural = event.detail.boundPlural;
-        const boundName = event.detail.boundName;
+    getTextFieldData = () => {
+        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', (event) => {
+            const name = event.detail.name;
+            const value = event.detail.value;
+            const plural = event.detail.plural;
+            const isBound = event.detail.isBound;
+            const boundplural = event.detail.boundPlural;
+            const boundName = event.detail.boundName;
 
-        if (isBound) {
-            if (!this.countersData[boundName])
-                this.countersData[boundName] = {
-                    name: boundName,
-                    isBound: isBound,
-                    plural: boundplural,
-                    originData: {}
-                }
-            this.countersData[boundName].originData[name] = { name: name };
-            this.countersData[boundName].originData[name].plural = plural;
-            this.countersData[boundName].originData[name].value = value;
-            this.countersData[boundName].value = Object.values(this.countersData[boundName].originData)
-                                                    .reduce((sumValue, data) => sumValue + data.value, 0);
-        }
-
-        else {
-            this.countersData[name] = {
-                name: name,
-                plural: plural,
-                value: value,
-                isBound: isBound
+            if (isBound) {
+                if (!this.textFieldData[boundName])
+                    this.textFieldData[boundName] = {
+                        name: boundName,
+                        isBound: isBound,
+                        plural: boundplural,
+                        originData: {}
+                    }
+                this.textFieldData[boundName].originData[name] = { name: name };
+                this.textFieldData[boundName].originData[name].plural = plural;
+                this.textFieldData[boundName].originData[name].value = value;
+                this.textFieldData[boundName].value = Object.values(this.textFieldData[boundName].originData)
+                                                        .reduce((sumValue, data) => sumValue + data.value, 0);
             }
-        }
+
+            else {
+                this.textFieldData[name] = {
+                    name: name,
+                    plural: plural,
+                    value: value,
+                    isBound: isBound
+                }
+            }
+        })); 
     }
 
     getInputSizeInChar() {
@@ -69,7 +68,7 @@ class QuantityDropdown {
     }
     
     getInputValue() {
-        const counters = Object.values(this.countersData);
+        const counters = Object.values(this.textFieldData);
         const inputValue = counters
             .reduce((inputValue, counter) => (counter.value !== 0) ? `${inputValue}${pluralize(counter.plural, counter.value)}, ` : `${inputValue}`, '')
             .slice(0, -2);
@@ -78,7 +77,7 @@ class QuantityDropdown {
     }
 
     getSubmitValue() {
-        const counters = Object.values(this.countersData);
+        const counters = Object.values(this.textFieldData);
         const submitValue = counters
             .reduce((submitValue, counter) => counter.value ? `${submitValue}"${counter.name}": "${counter.value}", ` : `${submitValue}`, '')
             .slice(0, -2);
@@ -86,7 +85,7 @@ class QuantityDropdown {
         return submitValue ? `{${submitValue}}` : '';
     }
 
-    sendTextFieldValue = () => {
+    sendTextFieldData = () => {
         const inputValue = normalizeStr({
                                         str: this.getInputValue(),
                                         size: this.getInputSizeInChar()
@@ -104,7 +103,7 @@ class QuantityDropdown {
     };
 
     setClearButtonDisabledState() {
-        const counters = Object.values(this.countersData);
+        const counters = Object.values(this.textFieldData);
         const isDisabled = counters.reduce((isDisabled, data) => data.value > 0 ? isDisabled = false : isDisabled , true);
 
         this.clearButton.disabled = isDisabled;
@@ -114,11 +113,11 @@ class QuantityDropdown {
         if (event.target === this.clearButton) {
             this.counters.forEach(counter => counter.dispatchEvent(new CustomEvent('counter-value-clear')));
 
-            this.sendTextFieldValue(); 
+            this.sendTextFieldData(); 
         }
 
         if (event.target === this.applyButton) {
-            this.sendTextFieldValue();    
+            this.sendTextFieldData();    
         }
 
         this.setClearButtonDisabledState();
@@ -135,20 +134,21 @@ class QuantityDropdown {
     }
 
     setAutoApplyMode() {
-        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.sendTextFieldValue));
+        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.sendTextFieldData));
     }
     
-    init() {
-        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.getCountersData));
+    init(Counter, Expander) {
+        this.getTextFieldData();
 
-        new this.Expander(this.root, this.button, {
+        new Expander(this.root, {
+            control: this.button,
             toggleClass: 'quantity-dropdown_expanded',
             trapFocus: true,
             outsideClickCollapse: true
         });
-        this.counters.forEach((counter) => new this.Counter(counter));
+        this.counters.forEach((counter) => new Counter(counter));
 
-        this.sendTextFieldValue();
+        this.sendTextFieldData();
 
         if (this.autoApply) {
             this.setAutoApplyMode();

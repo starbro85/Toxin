@@ -1,0 +1,12 @@
+mixin tooltip({ ariaLabel, description, id })
+    div(class = 'tooltip')
+        button(
+            class = 'tooltip__button'
+            type = 'button'
+            aria-label = ariaLabel
+            aria-describedby = id ? `tooltip__description-${id}` : 'tooltip__description'
+        ) i
+        span(
+            class = 'tooltip__description'
+            id = id ? `tooltip__description-${id}` : 'tooltip__description'
+        ) #{description}

@@ -1,3 +1,4 @@
+include ./tooltip/tooltip
 include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
@@ -36,24 +37,31 @@ mixin form-booking({ root={}, room={} })
             dl(class = 'form-booking__price-list')
                 div(class = 'form-booking__price-item')
                     dt(class = 'form-booking__description')
-                        span(class = 'form-booking__rent js-form-booking__rent') #{room.rent}
-                        |&nbsp;x&nbsp;
-                        span(
-                            class = 'form-booking__period js-form-booking__period'
-                            data-plural = root.priceListSection.period.plural
-                        )
+                        span(class = 'form-booking__text')
+                            span(class = 'form-booking__rent js-form-booking__rent') #{room.rent}
+                            |&nbsp;x&nbsp;
+                            span(
+                                class = 'form-booking__period js-form-booking__period'
+                                data-plural = root.priceListSection.period.plural
+                            )
 
                     dd(class = 'form-booking__summary js-form-booking__summary')
 
                 div(class = 'form-booking__price-item')
-                    dt(class = 'form-booking__description') #{root.priceListSection.service}
-                        if room.discount
-                            span(class = 'form-booking__discount js-form-booking__discount') : #{root.priceListSection.discount} #{room.discount}
+                    dt(class = 'form-booking__description') 
+                        span(class = 'form-booking__text') #{root.priceListSection.service.text}
+                            if room.discount
+                                | : #{root.priceListSection.discount} 
+                                span(class = 'form-booking__discount js-form-booking__discount') #{room.discount}
+                        +tooltip(root.priceListSection.service.tooltip)
 
                     dd(class = 'form-booking__service js-form-booking__service') #{room.service}
 
                 div(class = 'form-booking__price-item')
-                    dt(class = 'form-booking__description') !{root.priceListSection.addition}
+                    dt(class = 'form-booking__description') 
+                        span(class = 'form-booking__text') #{root.priceListSection.addition.text}
+                        +tooltip(root.priceListSection.addition.tooltip)
+
                     dd(class = 'form-booking__addition js-form-booking__addition') #{room.addition}
 
                 div(class = 'form-booking__total')

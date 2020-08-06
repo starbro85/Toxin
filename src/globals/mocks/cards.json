@@ -223,8 +223,22 @@
                 }
             },
             "discount": "Скидка",
-            "service": "Сбор за услуги",
-            "addition": "Сбор за дополнительные&#10;услуги",
+            "service": {
+                "text": "Сбор за услуги",
+                "tooltip": {
+                    "ariaLabel": "Информация о услугах",
+                    "description": "Информация",
+                    "id": "service"
+                }
+            },
+            "addition": {
+                "text": "Сбор за дополнительные&#10;услуги",
+                "tooltip": {
+                    "ariaLabel": "Информация о дополнительных услугах",
+                    "description": "Информация",
+                    "id": "service"
+                }
+            },
             "total": "Итого"
         },
         "dateDropdown": {

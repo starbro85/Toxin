@@ -1,0 +1,55 @@
+/* root */
+
+.tooltip {
+    position: relative;
+    widht: max-content;
+    height: max-content;
+}
+
+/* button */
+
+.tooltip__button {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-1);
+    border-radius: 50%;
+    font: var(--body-font);
+    color: var(--dark-shade-25per);
+    cursor: pointer;
+}
+
+.tooltip__button:focus {
+    outline: var(--outline);
+    outline-offset: 2px;
+}
+
+/* description */
+
+.tooltip__description {
+    width: max-content;
+    max-width: 200px;
+    position: absolute;
+    bottom: -3px;
+    visibility: hidden;
+    opacity: 0;
+    margin-left: 5px;
+    padding: 5px;
+    font: lighter 12px Arial;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 0;
+    pointer-events: none;
+}
+
+.tooltip__button:hover,
+.tooltip__button:focus {
+    & + .tooltip__description {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity step-end 0.5s;
+    }
+}

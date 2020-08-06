@@ -32,14 +32,15 @@ class TextField {
     init() {
         if (this.input.type === 'button') { 
             this.hiddenInput = this.root.querySelector('.js-text-field__hidden-input');
-            this.hiddenInput.addEventListener('focus', (event) => this.input.focus())
+            this.hiddenInput.addEventListener('focus', (event) => this.input.focus());
+
+            this.root.addEventListener('text-field-value-sent', event => {
+                this.input.value = event.detail.value ? event.detail.value : this.value;
+                this.input.title = event.detail.title ? event.detail.title : this.title;
+                this.hiddenInput.value = event.detail.submitValue;
+            });
         }
 
-        this.root.addEventListener('text-field-value-sent', event => {
-            this.input.value = event.detail.value ? event.detail.value : this.value;
-            this.input.title = event.detail.title ? event.detail.title : this.title;
-            this.hiddenInput.value = event.detail.submitValue;
-        })
         this.setMask();
     }
 };

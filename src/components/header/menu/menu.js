@@ -9,7 +9,8 @@ class Menu {
     }
 
     init() {
-        new this.Expander(this.root, this.button, {
+        new this.Expander(this.root, {
+            control: this.button,
             toggleClass: 'menu_expanded',
             trapFocus: true,
             outsideClickCollapse: true

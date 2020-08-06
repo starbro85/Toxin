@@ -58,7 +58,7 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
                     class = 'carousel__control-button carousel__control-button_prev js-carousel__control-button_prev'
                     aria-label = prevButton.ariaLabel ? prevButton.ariaLabel : 'prev button'
                 )
-                    div(
+                    span(
                         class = 'carousel__icon'
                         aria-hidden = 'true'
                     ) expand_more
@@ -67,7 +67,7 @@ mixin carousel({ images, ariaLabel, responsive=false, showControls=true, nextBut
                     class = 'carousel__control-button carousel__control-button_next js-carousel__control-button_next'
                     aria-label = nextButton.ariaLabel ? nextButton.ariaLabel : 'next button'
                 )
-                    div(
+                    span(
                         class = 'carousel__icon'
                         aria-hidden = 'true'
                     ) expand_more
