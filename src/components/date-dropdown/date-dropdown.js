@@ -72,8 +72,8 @@ class DateDropdown {
 
     setClearButtonDisabledState() {
         if (this.isTwin) {
-            const value = this.textFieldData.value;
-            const isDisabled = value ? value.reduce((isDisabled, value) => value ? isDisabled = false : isDisabled , true) : false;
+            const values = this.textFieldData.values;
+            const isDisabled = values ? values.reduce((isDisabled, value) => value ? isDisabled = false : isDisabled , true) : true;
 
             this.clearButton.disabled = isDisabled;
         } else {
@@ -127,7 +127,9 @@ class DateDropdown {
     }
 
     setManualApplyMode() {
-        this.sendTextFieldData();
+        if (this.textFieldData.values) {
+            this.sendTextFieldData();
+        }
 
         this.clearButton = this.root.querySelector('.js-date-dropdown__clear-button');
         this.applyButton = this.root.querySelector('.js-date-dropdown__apply-button');

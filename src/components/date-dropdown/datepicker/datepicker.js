@@ -121,10 +121,8 @@ class Datepicker {
 
         if (this.initValue) {
             this.sendDatepickerData(datepicker.selectedDates);
-        } else {
-            this.sendDatepickerData(['', '']);
         }
-
+        
         this.root.addEventListener('clear-datepicker', (event) => datepicker.clear());
     }
 }
