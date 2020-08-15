@@ -1,8 +1,8 @@
-const pluralize = function (plural, count) {
-    if (count === 0) return `${plural.zero}`;
-    if (count === 1) return `${count} ${plural.one}`;
-    if (count > 1 && count < 5) return `${count} ${plural.few}`;
-    if (count >= 5) return `${count} ${plural.many}`;
+const pluralize = function (lang, plural, number) {
+    const rule = new Intl.PluralRules(lang).select(number);
+    const result = plural[rule]
+
+    return result;
 };
 
 module.exports = pluralize;

@@ -2,9 +2,7 @@ import './doughnut-chart.css';
 
 import Chart from "chart.js";
 
-const render = require("./../../globals/helpers/render.js");
-
-class doughnutChart {
+class DoughnutChart {
     constructor(node) {
         this.root = node;
         this.container = this.root.querySelector('.js-doughnut-chart__container');
@@ -91,4 +89,9 @@ class doughnutChart {
     }
 }
 
-render(".js-doughnut-chart", doughnutChart);
+export function renderDoughnutChart (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll('.js-doughnut-chart') : document.querySelectorAll('.js-doughnut-chart');
+    if (components.length > 0) {
+        Array.from(components).map((node) => new DoughnutChart(node));
+    };
+}

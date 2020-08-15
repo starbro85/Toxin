@@ -1,4 +1,13 @@
-mixin radio-button({ name, value, label, checked=false, disabled=false })
+mixin radio-button(radioButton)
+    -
+        const {
+            name,
+            value,
+            label,
+            checked=false,
+            disabled=false
+        } = radioButton;
+
     label(class = 'radio-button')
         input(
             class = 'radio-button__input'
@@ -8,6 +17,4 @@ mixin radio-button({ name, value, label, checked=false, disabled=false })
             checked = checked ? true : false
             disabled = disabled ? true : false
         )
-
-        if label
-            span(class = 'radio-button__label') #{label}
+        span(class = 'radio-button__label') #{label}

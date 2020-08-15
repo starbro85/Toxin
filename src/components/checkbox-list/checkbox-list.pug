@@ -1,7 +1,10 @@
 include ../checkbox/checkbox
 
-mixin checkbox-list({ list=[] })
-    ul(class = 'checkbox-list')
-        each data in list
+mixin checkbox-list(checkboxList, id)
+    ul(
+        class = 'checkbox-list'
+        id = id ? id : false
+    )
+        each item in checkboxList
             li(class = 'checkbox-list__item')
-                +checkbox(data)
+                +checkbox(item)

@@ -1,29 +1,43 @@
 include ./rate-button/rate-button
 
-mixin rate-bar({ name, count, rating, ariaLabel, title, disabled })
-    -const pluralize = require('../../globals/helpers/pluralize.js');
+mixin rate-bar(rateBar, lang)
+    -
+        const pluralize = require('../../globals/helpers/pluralize.js');
+
+        const {
+            name,
+            count,
+            rating,
+            disabled
+        } = rateBar;
+
+        const i18n = require('../../components/rate-bar/i18n.json')[lang]; 
+
+        const {
+            STAR_PLURAL,
+            OUT_OF,
+            RATING
+        } = i18n;
 
     div(
         class = 'rate-bar js-rate-bar'
         role = 'group'
-        aria-label = ariaLabel ? `${ariaLabel.prefix}${rating}${ariaLabel.preposition}${pluralize(ariaLabel.plural, count)}` : false
+        aria-label = `${RATING}: ${rating} ${OUT_OF} ${count} ${pluralize(lang, STAR_PLURAL, count)}`
     )
-        -for (let index = 1; index <= count; index++)
-            if index === rating
-                +rate-button({
-                    name, 
-                    title: title ? pluralize(title.plural, index) : false,
-                    ariaLabel: ariaLabel ? pluralize(ariaLabel.plural, index) : false,
-                    disabled, 
-                    value: index, 
-                    checked: 'true' 
-                })
+        - let index = 0;
+        while index < count
+            -
+                let checked = false;
 
-            else
-                +rate-button({  
-                    name, 
-                    title: title ? pluralize(title.plural, index) : false,
-                    ariaLabel: ariaLabel ? pluralize(ariaLabel.plural, index) : false,
-                    disabled, 
-                    value: index
-                })
+                index++;
+        
+                if (index === rating) { checked = true; }
+
+            +rate-button({
+                name, 
+                value: index, 
+                title: `${index} ${pluralize(lang, STAR_PLURAL, index)}`,
+                ariaLabel: `${index} ${pluralize(lang, STAR_PLURAL, index)}`,
+                disabled, 
+                checked
+            })

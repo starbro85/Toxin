@@ -1,12 +1,20 @@
-mixin tooltip({ ariaLabel, description, id })
-    div(class = 'tooltip')
-        button(
-            class = 'tooltip__button'
-            type = 'button'
-            aria-label = ariaLabel
-            aria-describedby = id ? `tooltip__description-${id}` : 'tooltip__description'
-        ) i
+mixin tooltip(description, lang)
+    -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const i18n = require('../../components/tooltip/i18n.json')[lang]; 
+
+        const { ADDITIONAL_INFO } = i18n[lang];
+
+
+    span(
+        class = 'tooltip'
+        role = 'tooltip'
+        aria-label = ADDITIONAL_INFO
+        aria-describedby = `tooltip-description-${id}`
+    ) i
         span(
             class = 'tooltip__description'
-            id = id ? `tooltip__description-${id}` : 'tooltip__description'
+            id = `tooltip-description-${id}`
         ) #{description}

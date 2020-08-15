@@ -1,0 +1,22 @@
+{
+    "ru": {
+        "LOGIN": "Войти",
+        "SERVICE_LOGIN_DETAILS": "Данные для входа в сервис",
+        "ENTER_EMAIL": "Введите email",
+        "ENTER_PASSWORD": "Введите пароль",
+        "PASSWORD": "Пароль",
+        "NO_ACCOUNT_ON": "Нет аккаунта на",
+        "CREATE": "Создать",
+        "REGISTRATION_PAGE": "Страница регистрации"
+    },
+    "en": {
+        "LOGIN": "Login",
+        "SERVICE_LOGIN_DETAILS": "Service login details",
+        "ENTER_EMAIL": "Enter email",
+        "ENTER_PASSWORD": "Enter password",
+        "PASSWORD": "Password",
+        "NO_ACCOUNT_ON": "No account on",
+        "CREATE": "Create",
+        "REGISTRATION_PAGE": "Registration page"
+    }
+}

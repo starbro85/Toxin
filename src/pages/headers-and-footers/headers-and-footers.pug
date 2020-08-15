@@ -1,7 +1,8 @@
 extends ../../globals/template
 
 include ../../components/ui-kit-layout/ui-kit-layout
-include ../../components/headers-and-footers/headers-and-footers
+include ../../components/header/header
+include ../../components/footer/footer
 
 block variables
     -title = 'Form elements';
@@ -14,4 +15,14 @@ block content
         -const headersAndFooters = require('./../../globals/mocks/headers-and-footers.json');
         -const users = require('./../../globals/mocks/users.json');
 
-        +headers-and-footers({ headersAndFooters, users })
+        div(class = 'headers-and-footers')
+            +header({
+                header: headersAndFooters.header
+            })
+        
+            -headersAndFooters.header.auth = true
+
+            +header({
+                header: headersAndFooters.header
+            })
+            +footer(headersAndFooters.footer)

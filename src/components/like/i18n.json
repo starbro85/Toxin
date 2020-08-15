@@ -1,0 +1,18 @@
+{
+    "ru": {
+        "PEOPLE_RATED_PLURAL": {
+            "one": "человек оценил",
+            "other": "человек оценили"
+        },
+        "RATE": "Оценить",
+        "REMOVE_RATING": "Снять оценку"
+    },
+    "en": {
+        "PEOPLE_RATED_PLURAL": {
+            "one": "person rated",
+            "other": "people rated"
+        },
+        "RATE": "Rate",
+        "REMOVE_RATING": "Remove rating"
+    }
+}

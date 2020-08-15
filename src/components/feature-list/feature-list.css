@@ -1,6 +1,6 @@
-/* features list */
+/* feature list */
 
-.features-list {
+.feature-list {
     width: min(100%, 280px); 
     display: grid;
     row-gap: 20px;
@@ -8,7 +8,7 @@
 
 /* item */
 
-.features-list__item {
+.feature-list__item {
     display: grid;
     grid-template-areas: 
         'icon label'
@@ -25,7 +25,7 @@
 
 /* icon */
 
-.features-list__icon {
+.feature-list__icon {
     grid-area: icon;
     font: var(--icon-font);
     font-size: 48px;
@@ -37,7 +37,7 @@
 
 /* label */
 
-.features-list__label {
+.feature-list__label {
     grid-area: label;
     font: var(--body-font);
     font-weight: bold;
@@ -46,7 +46,7 @@
 
 /* description */
 
-.features-list__description {
+.feature-list__description {
     grid-area: description;
     font: var(--body-font);
     color: var(--dark-shade-75per);

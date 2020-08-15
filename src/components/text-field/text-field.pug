@@ -1,10 +1,35 @@
-mixin text-field({ label, input, button, icon, controlClass, activeClass })
-    
-    -let rootClasses = 'text-field js-text-field';
-    -rootClasses = button ? `${rootClasses} text-field_with_button` : icon ? `${rootClasses} text-field_with_icon` : rootClasses;
-    -rootClasses = input.type === 'button' ? `${rootClasses} text-field_type_button` : rootClasses;
-    -rootClasses = controlClass ? `${rootClasses} ${controlClass}` : rootClasses;
-    -rootClasses = activeClass ? `${rootClasses} ${activeClass}` : rootClasses;
+mixin text-field(textField)
+
+    -
+        const { 
+            label, 
+            type,
+            value,
+            title,
+            mask,
+            tabindex,
+            placeholder,
+            ariaLabel,
+            ariaExpanded,
+            ariaControls,
+            readonly=false,
+            required=false,
+            spellcheck=false,
+            disabled=false,
+            autofocus=false,
+            input={}, 
+            button, 
+            icon, 
+            controlClass, 
+            activeClass 
+        } = textField;
+
+        let rootClasses = 'text-field js-text-field';
+
+        rootClasses = button ? `${rootClasses} text-field_with_button` : icon ? `${rootClasses} text-field_with_icon` : rootClasses;
+        rootClasses = type === 'button' ? `${rootClasses} text-field_type_button` : rootClasses;
+        rootClasses = controlClass ? `${rootClasses} ${controlClass}` : rootClasses;
+        rootClasses = activeClass ? `${rootClasses} ${activeClass}` : rootClasses;
     
     div(class = rootClasses)
         label(class = 'text-field__input-container')
@@ -17,20 +42,21 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
 
             input(
                 class = inputClasses
-                type = input.type
-                name = (input.type !== 'button') ? input.name : false
-                value = (input.type !== 'button') ? input.value : input.placeholder
-                placeholder = (input.type !== 'button') ? input.placeholder : false
-                readonly = input.readonly ? true : false
-                required = (input.type !== 'button') ? input.required ? true : false : false
-                spellcheck = input.spellcheck ? true : false
-                disabled = input.disabled ? true : false
-                autofocus = input.autofocus ? true : false
-                title = input.title
-                aria-label = input.ariaLabel
-                aria-expanded = input.ariaExpanded
-                tabindex = input.tabindex
-                data-mask = input.mask
+                type = type
+                name = (type !== 'button') ? name : false
+                value = (type !== 'button') ? value : placeholder
+                placeholder = (type !== 'button') ? placeholder : false
+                readonly = readonly ? true : false
+                required = (type !== 'button') ? required ? true : false : false
+                spellcheck = spellcheck ? true : false
+                disabled = disabled ? true : false
+                autofocus = autofocus ? true : false
+                title = title
+                aria-label = ariaLabel
+                aria-expanded = ariaExpanded
+                aria-controls = ariaControls
+                tabindex = tabindex
+                data-mask = mask
             )
             
             if !button
@@ -40,12 +66,12 @@ mixin text-field({ label, input, button, icon, controlClass, activeClass })
                         aria-hidden = 'true'
                     ) #{icon.text}
 
-        if input.type === 'button'
+        if type === 'button'
             input(
                 class = 'text-field__hidden-input js-text-field__hidden-input'
-                name = input.name
-                required = input.required ? true : false
-                disabled = input.disabled ? true : false
+                name = name
+                required = required ? true : false
+                disabled = disabled ? true : false
                 tabindex = '-1'
                 aria-hidden = 'true'
             )

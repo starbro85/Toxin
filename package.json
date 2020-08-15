@@ -49,10 +49,10 @@
     "chart.js": "^2.9.3",
     "cleave.js": "^1.6.0",
     "flatpickr": "^4.6.3",
-    "moment": "^2.27.0",
     "normalize.css": "^8.0.1",
     "nouislider": "^14.6.0",
     "swiper": "^6.0.4",
+    "uniqid": "^5.2.0",
     "wnumb": "^1.2.0"
   },
   "keywords": []

@@ -2,7 +2,15 @@ include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
 
-mixin form-search({ label, dateDropdown, quantityDropdown, submitButton })
+mixin form-search(lang)
+    -
+        const i18n = require('../../components/form-search/i18n.json')[lang]; 
+
+        const {
+            WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES,
+            FIND_A_ROOM
+        } = i18n;
+
     form(
         class = 'form-search'
         name = 'search' 
@@ -11,8 +19,54 @@ mixin form-search({ label, dateDropdown, quantityDropdown, submitButton })
     )
         h2(
             class = 'form-search__label'
-        ) #{label}
-        +date-dropdown(dateDropdown)
-        +quantity-dropdown(quantityDropdown)
+        ) #{WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES}
+
+        +date-dropdown({
+            isTwin: true,
+            required: true
+        }, lang)
+
+        +quantity-dropdown({
+            label: GUESTS,
+            name: 'guests',
+            placeholder: NUMBER_OF_GUESTS,
+            required: true,    
+            title: NUMBER_OF_GUESTS,
+            counterList: [
+                {
+                    label: ADULTS,
+                    title: ADULTS,
+                    name: 'adults',
+                    maxValue: 5,
+                    plural: ADULT_PLURAL,
+                    boundPlural: GUEST_PLURAL,
+                    isBound: true,
+                    boundName: 'guests'
+                },
+                {
+                    label: KIDS,
+                    title: KIDS,
+                    name: 'kids',
+                    maxValue: 5,
+                    plural: KID_PLURAL,
+                    boundPlural: GUEST_PLURAL,
+                    isBound: true,
+                    boundName: 'guests'
+                },
+                {
+                    label: BABIES,
+                    title: BABIES,
+                    name: 'babies',
+                    maxValue: 5,
+                    plural: BABY_PLURAL,
+                }
+            ]
+        }, lang)
+
         div(class = 'form-search__submit-button')
-            +button(submitButton)
+            +button({
+                label: FIND_A_ROOM,
+                color: 'purple',
+                fill: true,
+                icon: 'arrow_forward'
+            })

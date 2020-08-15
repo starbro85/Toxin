@@ -1,37 +1,38 @@
 import './header.css';
+
 import './menu/menu.css';
+import '../logo/logo.js';
+import '../link/link.js';
+import '../link-list/link-list.js';
 
-import './../logo/logo.js';
-import './../link/link.js';
-import './../link-list/link-list.js';
-
-import { Expander } from '../../globals/helpers/expander.js'
 import { Menu } from './menu/menu.js'
-
-const render = require('./../../globals/helpers/render.js');
+import { Expander } from '../../globals/helpers/expander.js'
 
 class Header {
-    constructor(node, Menu, Expander) {
+    constructor(node,) {
         this.root = node;
         this.button = this.root.querySelector('.js-header__button');
         this.menu = this.root.querySelectorAll('.js-menu');
-
-        this.Menu = Menu;
-        this.Expander = Expander;
 
         this.init();
     }
 
     init() {
-        new this.Expander(this.root, {
+        new Expander(this.root, {
             control: this.button,
             toggleClass: 'header_expanded',
             trapFocus: true,
             outsideClickCollapse: true,
             disableOutsideEvents: true
-        })
-        this.menu.forEach((item) => new this.Menu(item, this.Expander));
+        });
+
+        this.menu.forEach((item) => new Menu(item))
     }
 }
 
-render('.js-header', Header, Menu, Expander);
+export function renderHeader (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll('.js-header') : document.querySelectorAll('.js-header');
+    if (components.length > 0) {
+        Array.from(components).map((node) => new Header(node));
+    };
+}

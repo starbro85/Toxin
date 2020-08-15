@@ -1,0 +1,23 @@
+{
+    "ru": {
+        "VOTE_PLURAL": {
+            "one": "Голос",
+            "few": "Голоса",
+            "many": "Голосов"
+        },
+        "DELIGHTFULLY": "Восхитительно",
+        "GOOD": "Хорошо",
+        "SATISFACTORILY": "Удовлетворительно",
+        "DISAPPOINTED": "Разочарован"
+    },
+    "en": {
+        "VOTE_PLURAL": {
+            "one": "Vote",
+            "other": "Votes"
+        },
+        "DELIGHTFULLY": "Delightfully",
+        "GOOD": "Good",
+        "SATISFACTORILY": "Satisfactorily",
+        "DISAPPOINTED": "Disappointed"
+    }
+}

@@ -1,10 +1,8 @@
 import './carousel.css';
 
-import { Swiper, Navigation, Keyboard, Autoplay, Lazy } from 'swiper';
+import { Swiper, Navigation, Autoplay, Lazy } from 'swiper';
 
-Swiper.use([Navigation, Keyboard, Autoplay, Lazy]);
-
-const render = require('./../../globals/helpers/render.js');
+Swiper.use([Navigation, Autoplay, Lazy]);
 
 class Carousel {
     constructor(node) {
@@ -12,7 +10,7 @@ class Carousel {
         this.buttonPrev = this.root.querySelector('.js-carousel__control-button_prev');
         this.buttonNext = this.root.querySelector('.js-carousel__control-button_next');
         
-        this.autoplayDelay = Number(this.root.dataset.autoplayDelay);
+        this.autoplayDelay = this.root.hasAttribute('data-autoplay');
         this.showControls = this.root.hasAttribute('data-show-controls');
 
         this.init();
@@ -44,13 +42,13 @@ class Carousel {
 
     init() {
         window.addEventListener('load', event => {
-            const swiper = new Swiper(this.root, {
+            new Swiper(this.root, {
                 navigation: this.showControls ? {
                     nextEl: this.buttonNext,
                     prevEl: this.buttonPrev,
                 } : false,
                 autoplay: this.autoplayDelay ? {
-                    delay: this.autoplayDelay
+                    delay: 10000
                 } : false,
                 preloadImages: false,
                 lazy: {
@@ -79,6 +77,11 @@ class Carousel {
             if (this.buttonNext) { this.buttonNext.addEventListener('keyup', this.handleKeyboardControl); }
         })   
     }
-};
+}
 
-render('.js-carousel', Carousel);
+export function renderCarousel (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll(selector) : document.querySelectorAll(selector);
+    if (components.length > 0) {
+        Array.from(components).map((node) => new Carousel(node));
+    };
+}

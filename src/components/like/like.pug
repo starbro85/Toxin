@@ -1,20 +1,26 @@
-mixin like({ count, ariaLabel, title, active=false })
+mixin like(like, lang)
     -
-        if (ariaLabel) {
-            const pluralize = require('../../globals/helpers/pluralize.js');
-            ariaLabel = active ? `${pluralize(ariaLabel.plural, count)}. ${ariaLabel.active}` : `${pluralize(ariaLabel.plural, count)}. ${ariaLabel.inactive}`;
-        }
+        const pluralize = require('../../globals/helpers/pluralize.js');
+        
+        const {
+            count,
+            active=false
+        } = like;
 
-        if (title) {
-            const pluralize = require('../../globals/helpers/pluralize.js');
-            title = active ? title.active : title.inactive;
-        }
+        const i18n = require('../../components/like/i18n.json')[lang]; 
+
+        const {
+            PEOPLE_RATED_PLURAL,
+            RATE, 
+            REMOVE_RATING
+        } = i18n;
+            
 
     button(
         class = 'like js-like'
-        data-active = active
-        aria-label = ariaLabel
-        title = title
+        data-active = active ? true : false
+        aria-label = `${count} ${pluralize(lang, PEOPLE_RATED_PLURAL, count)}, ${active ? REMOVE_RATING : RATE}`
+        title = `${count} ${pluralize(lang, PEOPLE_RATED_PLURAL, count)}, ${active ? REMOVE_RATING : RATE}`
     )
         span(
             class = 'like__icon js-like__icon'

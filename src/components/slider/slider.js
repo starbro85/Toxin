@@ -2,9 +2,8 @@ import './slider.css';
 
 import noUiSlider from 'nouislider';
 import 'nouislider/distribute/nouislider.min.css';
-import wNumb from 'wnumb';
 
-const render = require('./../../globals/helpers/render.js');
+const currencyFormat = require('../../globals/helpers/currencyFormat.js');
 
 class Slider {
     constructor(node) {
@@ -13,6 +12,8 @@ class Slider {
         this.input = this.root.querySelector('.js-slider__input');
 
         this.rangeData = {
+            lang: this.range.dataset.lang,
+            currency: this.range.dataset.currency,
             range: {
                 'min': Number(JSON.parse(this.range.dataset.range)[0]),
                 'max': Number(JSON.parse(this.range.dataset.range)[1])
@@ -25,12 +26,11 @@ class Slider {
         this.init();
     }
 
-    updateInputValue = values => {
+    updateInputValue = (values) => {
         const inputValue = values.reduce((result, value) => `${result}${value} - `, '').slice(0, -2);
 
         this.input.value = inputValue;
     }
-
     createSlider() {
         noUiSlider.cssClasses.base += ' slider__base';
         noUiSlider.cssClasses.connect += ' slider__connect';
@@ -44,11 +44,10 @@ class Slider {
             margin: this.rangeData.margin,
             range: this.rangeData.range,
             tooltips: true,
-            format: wNumb({
-                decimals: 0,
-                thousand: ' ',
-                suffix: '₽'
-            })
+            format: {
+                to: (value) => currencyFormat(this.rangeData.lang, this.rangeData.currency, value),
+                from: (value) => Number(value.replace(' - ', ''))
+            }
         });
 
         this.range.noUiSlider.on('update', this.updateInputValue);
@@ -57,6 +56,11 @@ class Slider {
     init() {
         this.createSlider();
     }
-};
+}
 
-render('.js-slider', Slider);
+export function renderSlider (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll('.js-slider') : document.querySelectorAll('.js-slider');
+    if (components.length > 0) {
+        Array.from(components).map((node) => new Slider(node));
+    };
+}

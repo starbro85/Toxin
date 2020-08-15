@@ -1,7 +1,10 @@
 include ../link/link
 
-mixin link-list({ list })
-    ul(class = 'link-list')
-        each data in list
+mixin link-list(linkList, id)
+    ul(
+        class = 'link-list'
+        id = id
+    )
+        each item in linkList
             li(class = 'link-list__item')
-                +link(data)
+                +link(item)

@@ -1,17 +1,16 @@
 import './quantity-dropdown.css';
 import './counter/counter.css';
 
-import './../text-field/text-field.js';
+import '../text-field/text-field.js';
 
 import { Counter } from './counter/counter.js';
 import { Expander } from '../../globals/helpers/expander';
 
 const normalizeStr = require('./../../globals/helpers/normalizeStr.js');
 const pluralize = require('./../../globals/helpers/pluralize.js');
-const render = require('./../../globals/helpers/render.js');
 
 class QuantityDropdown {
-    constructor(node, Counter, Expander) {
+    constructor(node) {
         this.root = node;
         this.textField = this.root.querySelector('.js-quantity-dropdown__text-field');
         this.button = this.root.querySelector('.js-quantity-dropdown__button')
@@ -84,80 +83,14 @@ class QuantityDropdown {
 
         return submitValue ? `{${submitValue}}` : '';
     }
-
-    sendTextFieldData = () => {
-        const inputValue = normalizeStr({
-                                        str: this.getInputValue(),
-                                        size: this.getInputSizeInChar()
-                                    });
-        const title = this.getInputValue();
-        const hiddenInputValue = this.getSubmitValue();
-
-        this.textField.dispatchEvent(new CustomEvent('text-field-value-sent', {
-            detail: {
-                value: inputValue,
-                title: title,
-                submitValue: hiddenInputValue
-            }
-        }));
-    };
-
-    setClearButtonDisabledState() {
-        const counters = Object.values(this.textFieldData);
-        const isDisabled = counters.reduce((isDisabled, data) => data.value > 0 ? isDisabled = false : isDisabled , true);
-
-        this.clearButton.disabled = isDisabled;
-    }
-
-    handleApplyValue = (event) => {
-        if (event.target === this.clearButton) {
-            this.counters.forEach(counter => counter.dispatchEvent(new CustomEvent('counter-value-clear')));
-
-            this.sendTextFieldData(); 
-        }
-
-        if (event.target === this.applyButton) {
-            this.sendTextFieldData();    
-        }
-
-        this.setClearButtonDisabledState();
-    }
-
-    setManualApplyMode() {
-        this.clearButton = this.root.querySelector('.js-quantity-dropdown__clear-button');
-        this.applyButton = this.root.querySelector('.js-quantity-dropdown__apply-button');
-
-        this.clearButton.addEventListener('click', this.handleApplyValue);
-        this.applyButton.addEventListener('click', this.handleApplyValue);
-
-        this.setClearButtonDisabledState();
-    }
-
-    setAutoApplyMode() {
-        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', this.sendTextFieldData));
-    }
     
-    init(Counter, Expander) {
-        this.getTextFieldData();
-
-        new Expander(this.root, {
-            control: this.button,
-            toggleClass: 'quantity-dropdown_expanded',
-            trapFocus: true,
-            outsideClickCollapse: true
-        });
-        this.counters.forEach((counter) => new Counter(counter));
-
-        this.sendTextFieldData();
-
-        if (this.autoApply) {
-            this.setAutoApplyMode();
-        }
-
-        else {
-            this.setManualApplyMode();
-        }
+    init() {
     }
-};
+}
 
-render('.js-quantity-dropdown', QuantityDropdown, Counter, Expander);
+export function renderQuantityDropdown (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll('.js-quantity-dropdown') : document.querySelectorAll('.js-quantity-dropdown');
+    if (components.length > 0) {
+        Array.from(components).map((node) => new QuantityDropdown(node));
+    };
+}

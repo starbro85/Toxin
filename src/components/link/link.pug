@@ -1,11 +1,22 @@
-mixin link({ href, label, title, color, bold, button, border, fill })
+mixin link(link)
+    -
+        const {
+            href,
+            label,
+            title,
+            color,
+            bold,
+            button,
+            border,
+            fill
+        } = link;
 
-    -let classes = 'link';
+        let classes = 'link';
 
-    -classes = bold ? `${classes} link_bold` :  classes;
-    -classes = button ? `${classes} link_button` :  classes;
-    -classes = fill ? `${classes} link_filled` : classes;
-    -classes = border ? `${classes} link_with_border` : classes;
+        classes = bold ? `${classes} link_bold` :  classes;
+        classes = button ? `${classes} link_button` :  classes;
+        classes = fill ? `${classes} link_filled` : classes;
+        classes = border ? `${classes} link_with_border` : classes;
 
     a(
         class = classes

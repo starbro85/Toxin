@@ -1,0 +1,12 @@
+{
+    "ru": {
+        "ENTER_EMAIL": "Введите email",
+        "SUBSCRIBION": "Подписка",
+        "SUBSCRIBE": "Подписаться"
+    },
+    "en": {
+        "ENTER_EMAIL": "Enter email",
+        "SUBSCRIBION": "Subscribtion",
+        "SUBSCRIBE": "Subscribe"
+    }
+}

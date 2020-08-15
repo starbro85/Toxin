@@ -1,0 +1,24 @@
+mixin feature(featureList)
+    -
+        const uniqid = require('uniqid');
+
+    dl(class = 'feature-list')
+        each item, index in featureList
+            -
+                const id = uniqid();
+
+            div(class = 'feature-list__item')
+                div(
+                    class = 'feature-list__icon'
+                    role = 'image'
+                    aria-labelledby = `feature-label-${id}`
+                    aria-describedby = `feature-description-${id}`
+                ) #{item.icon}
+                dt(
+                    class = 'feature-list__label'
+                    id = `feature-list-label-${id}`
+                ) #{item.label}
+                dd(
+                    class = 'feature-list__description'
+                    id = `feature-list-description-${id}`
+                ) #{item.description}

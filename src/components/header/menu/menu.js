@@ -1,21 +1,22 @@
-class Menu {
-    constructor(node, Expander) {
+import './menu.css';
+
+import { Expander } from '../../../globals/helpers/expander.js'
+
+export class Menu {
+    constructor(node,) {
         this.root = node;
         this.button = this.root.querySelector('.js-menu__button');
-
-        this.Expander = Expander;
 
         this.init();
     }
 
     init() {
-        new this.Expander(this.root, {
+        new Expander(this.root, {
             control: this.button,
             toggleClass: 'menu_expanded',
             trapFocus: true,
-            outsideClickCollapse: true
-        })
+            outsideClickCollapse: true,
+            disableOutsideEvents: true
+        });
     }
 }
-
-export { Menu };

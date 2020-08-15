@@ -3,79 +3,157 @@ include ../quantity-dropdown/quantity-dropdown
 include ../date-dropdown/date-dropdown
 include ../button/button
 
-mixin form-booking({ root={}, room={} })
+mixin form-booking(formBooking, lang)
+    -
+        const currencyFormat = require('../../globals/helpers/currencyFormat.js');
+
+        const {
+            number,
+            isLuxury,
+            rent,
+            service,
+            addition,
+            discount,
+            dateInitValue,
+            guestInitValue
+        } = formBooking;
+
+        const i18n = require('../../components/form-booking/i18n.json')[lang]; 
+
+        const {
+            DAY_PLURAL,
+            NUMBER_OF_GUESTS,
+            PRICE_LIST,
+            DISCOUNT,
+            SERVICE_FEE,
+            ADDITION_SERVICE_FEE,
+            TOTAL,
+            BOOK,
+            GUESTS,
+            GUEST_PLURAL, 
+            ADULTS,
+            ADULT_PLURAL,
+            KIDS,
+            KID_PLURAL,
+            BABIES,
+            BABY_PLURAL,
+            LUXURY
+        } = i18n;
+
+        const rentFormatted = currencyFormat({ lang, currency: rent.currency, number: rent.number });
+        const serviceFormatted = currencyFormat({ lang, currency: service.currency, number: service.number });
+        const additionFormatted = currencyFormat({ lang, currency: addition.currency, number: addition.number });
+        const discountFormatted = currencyFormat({ lang, currency: discount.currency, number: discount.number });
+
     form(
         class = 'form-booking js-form-booking'
-        name = `${room.number}_booking`
+        name = `${number}_booking`
         method = 'post'
         autocomplete = 'off'
     )
-        h2(
-            class = 'form-booking__heading'
-        ) #{root.heading}
+        h2(class = 'form-booking__header-section')  
+            span(class = 'form-booking__number') № #{number}
+                if isLuxury
+                    strong(class = 'form-booking__category') &nbsp;#{LUXURY}
 
-        section(class = 'form-booking__header-section')  
-            h3(class = 'form-booking__number ') № #{room.number}
-                if room.isLuxury
-                    strong(class = 'form-booking__category') &nbsp;#{root.headerSection.category}
-
-            p(class = 'form-booking__rent') #{room.rent}
-                small(class = 'form-booking__term') &nbsp;#{root.headerSection.term}
+            span(class = 'form-booking__rent') #{rentFormatted)}
+                small(class = 'form-booking__term') &nbsp;#{rent.term}
 
         +date-dropdown({
             controlClass: 'js-form-booking__date-dropdown',
-            isTwin: root.dateDropdown.isTwin,
-            textField: root.dateDropdown.textField,
-            datepicker: root.dateDropdown.datepicker,
-            clearButton: root.dateDropdown.clearButton,
-            applyButton: root.dateDropdown.applyButton
-        })
-        +quantity-dropdown(root.quantityDropdown)
+            initValue: dateInitValue,
+            isTwin: true,
+            required: true
+        }, lang)
+        +quantity-dropdown({
+            label: GUESTS,
+            name: 'guests',
+            placeholder: NUMBER_OF_GUESTS,
+            required: true,    
+            title: NUMBER_OF_GUESTS,
+            counterList: [
+                {
+                    label: ADULTS,
+                    title: ADULTS,
+                    name: 'adults',
+                    initValue: guestInitValue[adults],
+                    maxValue: 5,
+                    plural: ADULT_PLURAL,
+                    boundPlural: GUEST_PLURAL,
+                    isBound: true,
+                    boundName: 'guests'
+                },
+                {
+                    label: KIDS,
+                    title: KIDS,
+                    name: 'kids',
+                    initValue: guestInitValue[kids],
+                    maxValue: 5,
+                    plural: KID_PLURAL,
+                    boundPlural: GUEST_PLURAL,
+                    isBound: true,
+                    boundName: 'guests'
+                },
+                {
+                    label: BABIES,
+                    title: BABIES,
+                    name: 'babies',
+                    initValue: guestInitValue[babies],
+                    maxValue: 5,
+                    plural: BABY_PLURAL,
+                }
+            ]
+        }, lang)
 
         section(class = 'form-booking__price-section')
-            h3(class = 'form-booking__label') #{root.priceListSection.heading}
+            h3(class = 'form-booking__label') #{PRICE_LIST}
             dl(class = 'form-booking__price-list')
                 div(class = 'form-booking__price-item')
                     dt(class = 'form-booking__description')
                         span(class = 'form-booking__text')
-                            span(class = 'form-booking__rent js-form-booking__rent') #{room.rent}
+                            span(class = 'form-booking__rent js-form-booking__rent') #{rentFormatted}
                             |&nbsp;x&nbsp;
                             span(
                                 class = 'form-booking__period js-form-booking__period'
-                                data-plural = root.priceListSection.period.plural
+                                data-plural = DAY_PLURAL
                             )
 
                     dd(class = 'form-booking__summary js-form-booking__summary')
 
                 div(class = 'form-booking__price-item')
                     dt(class = 'form-booking__description') 
-                        span(class = 'form-booking__text') #{root.priceListSection.service.text}
-                            if room.discount
-                                | : #{root.priceListSection.discount} 
-                                span(class = 'form-booking__discount js-form-booking__discount') #{room.discount}
-                        +tooltip(root.priceListSection.service.tooltip)
+                        span(class = 'form-booking__text') #{SERVICE_FEE}
+                            if discount
+                                | : #{DISCOUNT} 
+                                span(class = 'form-booking__discount js-form-booking__discount') #{discountFormatted}
+                        +tooltip(service.tooltip, lang)
 
-                    dd(class = 'form-booking__service js-form-booking__service') #{room.service}
+                    dd(class = 'form-booking__service js-form-booking__service') #{serviceFormatted)}
 
                 div(class = 'form-booking__price-item')
                     dt(class = 'form-booking__description') 
-                        span(class = 'form-booking__text') #{root.priceListSection.addition.text}
-                        +tooltip(root.priceListSection.addition.tooltip)
+                        span(class = 'form-booking__text') #{ADDITION_SERVICE_FEE}
+                        +tooltip(addition.tooltip, lang)
 
-                    dd(class = 'form-booking__addition js-form-booking__addition') #{room.addition}
+                    dd(class = 'form-booking__addition js-form-booking__addition') #{additionFormatted}
 
                 div(class = 'form-booking__total')
-                    dt(class = 'form-booking__description') #{root.priceListSection.total}
+                    dt(class = 'form-booking__description') #{TOTAL}
                     dd(class = 'form-booking__price js-form-booking__price')
                     
             
         div(class = 'form-booking__submit-button')
-            +button(root.submitButton)
+            +button(
+                label: BOOK,
+                color: 'purple',
+                fill: true,
+                icon: 'arrow_forward'
+            )
 
         input(
-                name = 'price'
-                class = 'form-booking__price-input js-form-booking__price-input'
-                readonly
-                hidden
-                aria-hidden = 'true'
-            )
+            name = 'price'
+            class = 'form-booking__price-input js-form-booking__price-input'
+            readonly
+            hidden
+            aria-hidden = 'true'
+        )

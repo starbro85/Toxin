@@ -1,48 +1,56 @@
 include ../rate-bar/rate-bar
-include ../carousel/carousel
+include ./carousel/carousel
 
-mixin room-card({ roomCard, room })
+mixin room-card(roomCard, lang)
     -
         const pluralize = require('../../globals/helpers/pluralize.js');
-        const wrapWordIntoTag = require('../../globals/helpers/wrapWordIntoTag.js');
-        const reviewCount = pluralize(roomCard.review.plural, room.review.count)
+        const currencyFormat = require('../../globals/helpers/currencyFormat.js');
+
+        const {  
+            number,
+            isLuxury,
+            rent,
+            rating,
+            reviewCount,
+            href,
+            imageList
+        } = roomCard;
+        
+        const i18n = require('../../components/room-card/i18n.json')[lang]; 
+
+        const {
+            LEARN_MORE,
+            REVIEW_PLURAL,
+            LUXURY
+        } = i18n;
     
-    section(class = 'room-card')
-        div(class = 'room-card__carousel')
-            +carousel({
-                images: room.images.card,
-                responsive: true,
-                prevButton: {
-                    ariaLabel: 'Перейти к предыдущему слайду'
-                },
-                nextButton: {
-                    ariaLabel: 'Перейти к следующему слайду'
-                }
-            }) 
+    section(class = 'room-card js-room-card')
+        +carousel(imageList, lang) 
 
-        div(class = 'room-card__header')
-            h3(class = 'room-card__room-number') № #{room.number}
+        h3(class = 'room-card__heading')
+            span(class = 'room-card__number') № #{number}
+                if isLuxury
+                    strong(class = 'room-card__сategory') &nbsp;#{LUXURY}
 
-                if room.isLuxury
-                    strong(class = 'room-card__room-category') &nbsp;#{roomCard.category}
-
-            p(class = 'room-card__rent-price') #{room.rent} 
-            p(class = 'room-card__rent-term') #{roomCard.term}
+            span(class = 'room-card__rent')
+                b(class = 'room-card__price') #{currencyFormat(lang, rent.currency, rent.number)} 
+                small(class = 'room-card__term') #{rent.term}
+        
+        hr(class = 'room-card__separator')
 
         div(class = 'room-card__rating')
             +rate-bar({
-                name: room.number,
-                count: '5',
-                rating: room.rating,
-                ariaLabel: roomCard.rateBar ? roomCard.rateBar.ariaLabel : false,
-                title: roomCard.rateBar ? roomCard.rateBar.title : false,
-                disabled: 'true'
-            })
-
-            p(class = 'room-card__reviews-count') !{wrapWordIntoTag({ str: reviewCount, number: 1, tag: 'b'})}
-
+                name: number,
+                count: 5,
+                rating: rating,
+                disabled: true
+            }, lang)
+            p(class = 'room-card__review')
+                b #{reviewCount}&nbsp;
+                | #{pluralize(lang, REVIEW_PLURAL, reviewCount)}
+        
         a(
             class = 'room-card__link'
-            href = roomCard.link.href
-            title = roomCard.link.title
-        ) #{roomCard.link.label}
+            href = href
+            title = LEARN_MORE
+        ) #{LEARN_MORE}

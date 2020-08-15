@@ -1,0 +1,113 @@
+/* carousel */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+}
+
+.carousel__slides {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    list-style: none;
+}
+
+/* picture */
+
+.carousel__picture {
+    display: grid;
+}
+
+/* image */
+
+.carousel__image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* controls */
+
+.carousel__controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &:focus-within {
+        & .carousel__control {
+            opacity: 1;
+            transition: opacity .3s;
+        }
+
+        & .carousel__control_prev {
+            background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-50per) 100%);
+        }
+
+        & .carousel__control_next {
+            background: linear-gradient(90deg, transparent 0%, var(--dark-shade-50per) 100%);
+        }
+    }
+}
+
+/* control button */
+
+.carousel__control {
+    width: 42px;
+    z-index: 1;
+    color: white;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity .3s;
+
+    &:focus {
+        outline: var(--outline);
+        outline-offset: -1px;
+    }
+}
+
+@media (pointer: coarse) {
+    .carousel__control {
+        opacity: 1;
+    }
+}
+
+.carousel__control_prev{
+    & .carousel__icon {
+        transform: rotate(90deg);
+    }
+}
+
+@media (pointer: coarse) {
+    .carousel__control_prev {
+        background: linear-gradient(-90deg, transparent 0%, var(--dark-shade-50per) 100%);
+    }
+}
+
+.carousel__control_next {
+    & .carousel__icon {
+        transform: rotate(-90deg);
+    }
+}
+
+@media (pointer: coarse) {
+    .carousel__control_next {
+        background: linear-gradient(90deg, transparent 0%, var(--dark-shade-50per) 100%);
+    }
+}
+
+/* icon */
+
+.carousel__icon {
+    display: block;
+    font: var(--icon-font);
+    font-size: 24px;
+    pointer-events: none;
+}

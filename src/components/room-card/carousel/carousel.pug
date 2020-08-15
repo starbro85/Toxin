@@ -1,0 +1,52 @@
+mixin carousel(imageList, lang)
+    -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');   
+
+        const i18n = require('../../components/room-card/carousel/i18n.json')[lang]; 
+
+        const { 
+            PREV_SLIDE, 
+            NEXT_SLIDE 
+        } = i18n;
+
+    div(
+        class = 'carousel js-carousel'
+        data-autoplay = autoplay ? true : false
+        data-show-controls = showControls ? true : false
+    )
+        ul(class = 'carousel__slides')    
+            each item, index in imageList
+                -
+                    const path = getImagePath(item.src, item.source)
+
+                li(class = 'carousel__slide')
+                    picture(class = 'carousel__picture')
+                        img(
+                            class = 'carousel__image'
+                            src = path.src
+                            alt = item.alt ? item.alt : false
+                            width = item.width ? item.width : false
+                            height = item.height ? item.height : false
+                            loading = item.width && item.height ? 'lazy' : 'auto'
+                        )  
+
+        div(class = 'carousel__controls')
+            button(
+                class = 'carousel__control carousel__control_prev js-carousel__control_prev'
+                title = PREV_SLIDE
+                aria-label = PREV_SLIDE
+            )
+                span(
+                    class = 'carousel__icon'
+                    aria-hidden = 'true'
+                ) expand_more
+
+            button(
+                class = 'carousel__control carousel__control_next js-carousel__control_next'
+                title = NEXT_SLIDE
+                aria-label = NEXT_SLIDE
+            )
+                span(
+                    class = 'carousel__icon'
+                    aria-hidden = 'true'
+                ) expand_more

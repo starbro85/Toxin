@@ -1,19 +1,26 @@
 include ../text-field/text-field
 
-mixin subscribtion-field({ textField })
+mixin subscribtion-field(showLabel, lang)
+    -
+        const i18n = require('../../globals/mocks/i18n.json'); 
+
+        const {
+            SUBSCRIBTION,
+            SUBSCRIBE,
+            ENTER_EMAIL
+        } = i18n[lang];
+
     form(class = 'subscribtion-field')
         +text-field({ 
-            label: textField.label, 
-            input: {
-                type: 'email', 
-                placeholder: 'Email',
-                required: 'true',
-                title: textField.input.ariaLabel,
-                ariaLabel: textField.input.ariaLabel
-            },
+            label: showLabel ? SUBSCRIBTION : false,
+            type: 'email', 
+            placeholder: 'Email',
+            required: true,
+            title: ENTER_EMAIL,
+            ariaLabel: showLabel ? false : SUBSCRIBTION,
             button: {
-                ariaLabel: textField.button.ariaLabel,
-                title: textField.button.title
+                ariaLabel: SUBSCRIBE,
+                title: SUBSCRIBE
             },
             icon: {
                 text: 'arrow_forward',

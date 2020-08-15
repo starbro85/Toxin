@@ -1,10 +1,16 @@
 include ./radio-button/radio-button
 
-mixin radio-bar({ radioButtons, ariaLabel })
+mixin radio-bar(radioBar)
+    -
+        const {
+            radioButtons,
+            ariaLabel
+        } = radioBar;
+
     div(
         class = 'radio-bar'
         role = 'radiogroup'
-        aria-label = ariaLabel ? ariaLbel : false
+        aria-label = ariaLabel ? ariaLabel : false
     )
-        each data in radioButtons
-            +radio-button(data)
+        each item in radioButtons
+            +radio-button(item)

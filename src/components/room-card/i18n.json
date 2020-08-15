@@ -1,0 +1,19 @@
+{
+    "ru": {
+        "LEARN_MORE": "Узнать больше",
+        "REVIEW_PLURAL": {
+            "one": "Отзыв",
+            "few": "Отзыва",
+            "many": "Отзывов"
+        },
+        "LUXURY": "Люкс"
+    },
+    "en": {
+        "LEARN_MORE": "Learn more",
+        "REVIEW_PLURAL": {
+            "one": "Review",
+            "other": "Reviews"
+        },
+        "LUXURY": "Luxury"
+    }
+}

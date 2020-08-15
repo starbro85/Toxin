@@ -1,0 +1,146 @@
+include ../../date-dropdown/date-dropdown
+include ../../quantity-dropdown/quantity-dropdown
+include ../../slider/slider
+include ../../checkbox-list/checkbox-list
+include ../../expandable-checkbox-list/expandable-checkbox-list
+
+mixin filter(filter, lang)
+    -
+        const {
+            dateInitValue,
+            guestsInitValue,
+            amenitiesInitValue,
+            permissionCheckboxList,
+            accessibilityCheckboxList,
+            additionAmenitiesCheckboxList
+        } = filter;
+
+        const i18n = require('../../components/search-room/filter/i18n.json')[lang]; 
+
+        const {
+            FILTER,
+            GUESTS, 
+            GUEST_PLURAL,
+            NUMBER_OF_GUESTS,
+            ADULTS,
+            ADULT_PLURAL,
+            KIDS, 
+            KID_PLURAL,
+            BABIES, 
+            BABY_PLURAL,
+            PRICE_RANGE,
+            PERMISSION, 
+            ACCESSIBILITY,
+            ROOM_AMENITIES,
+            BEDROOMS, 
+            BEDROOM_PLURAL,
+            BEDS, 
+            BED_PLURAL,
+            BATHROOMS, 
+            BATH_ROOM_PLURAL,
+            ADDITION_AMENITIES,
+        } = i18n;
+
+    form(class = 'filter js-filter')
+        h2(class = 'filter__heading') #{FILTER}
+        +date-dropdown({
+            initValue: dateInitValue,
+            autoApply: true, 
+        }, lang)
+        +quantity-dropdown({
+            label: GUESTS,
+            name: 'guests',
+            placeholder: NUMBER_OF_GUESTS,
+            required: true,
+            autoApply: true,
+            title: NUMBER_OF_GUESTS,
+            counterList: [
+                {
+                    label: ADULTS,
+                    title: ADULTS,
+                    name: 'adults',
+                    initValue: guestsInitValue.adults,
+                    maxValue: 5,
+                    plural: ADULT_PLURAL,
+                    boundPlural: GUEST_PLURAL,
+                    isBound: true,
+                    boundName: 'guests'
+                },
+                {
+                    label: KIDS,
+                    title: KIDS,
+                    name: 'kids',
+                    initValue: guestsInitValue.kids,
+                    maxValue: 5,
+                    plural: KID_PLURAL,
+                    boundPlural: GUEST_PLURAL,
+                    isBound: true,
+                    boundName: 'guests'
+                },
+                {
+                    label: BABIES,
+                    title: BABIES,
+                    name: 'babies',
+                    initValue: guestsInitValue.babies,
+                    maxValue: 5,
+                    plural: BABY_PLURAL,
+                }
+            ]
+        }, lang)
+        
+        div(class = 'filter__slider')
+            +slider({
+                label: PRICE_RANGE,
+                name: 'price-range',
+                range: [500, 16300],
+                initValue: [5000, 10000],
+                step: 100,
+                margin: 1000
+            }, lang)
+
+        fieldset(class = 'filter__checkbox-group')
+            legend(class = 'filter__label') #{PERMISSION}
+            +checkbox-list(permissionCheckboxList)
+        
+        fieldset(class = 'filter__checkbox-group')
+            legend(class = 'filter__label') #{ACCESSIBILITY}
+            +checkbox-list(accessibilityCheckboxList)
+
+        +quantity-dropdown({
+            label: ROOM_AMENITIES,
+            name: 'room-amenities',
+            placeholder: ROOM_AMENITIES,
+            required: true,
+            autoApply: true,
+            title: ROOM_AMENITIES,
+            counterList: [
+                {
+                    label: BEDROOMS,
+                    title: BEDROOMS,
+                    name: 'adults',
+                    initValue: amenitiesInitValue.bedrooms,
+                    maxValue: 5,
+                    plural: BEDROOM_PLURAL
+                },
+                {
+                    label: BEDS,
+                    title: BEDS,
+                    name: 'kids',
+                    initValue: amenitiesInitValue.beds,
+                    maxValue: 5,
+                    plural: BED_PLURAL,
+                },
+                {
+                    label: BATHROOMS,
+                    title: BATHROOMS,
+                    name: 'bathrooms',
+                    initValue: amenitiesInitValue.bathrooms,
+                    maxValue: 5,
+                    plural: BATH_ROOM_PLURAL,
+                }
+            ]
+        }, lang)
+        +expandable-checkbox-list({
+            label: ADDITION_AMENITIES,
+            checkboxList: additionAmenitiesCheckboxList
+        }, lang)

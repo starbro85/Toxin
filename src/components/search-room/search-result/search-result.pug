@@ -1,0 +1,23 @@
+include ../../room-card/room-card
+include ../../pagination/pagination
+
+mixin search-result(searchResult, lang)
+    -
+        const {
+            pagination,
+            resultList
+        } = searchResult;
+
+        const i18n = require('../../components/search-room/search-result/i18n.json')[lang]; 
+
+        const { SEARCH_RESULTS } = i18n;
+
+    section(class = 'search-result js-search-result')
+        h2(class = 'search-result__heading') #{SEARCH_RESULTS}
+        ul(class = 'search-result__list')
+            each item in resultList
+                li(class = 'search-result__item')
+                    +room-card(item, lang)
+
+        div(class = 'search-result__pagination')
+            +pagination(pagination, lang)

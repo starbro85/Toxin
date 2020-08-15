@@ -1,0 +1,16 @@
+include ./filter/filter
+include ./search-result/search-result
+
+mixin search-room(searchRoom, lang)
+    -
+        const {
+            filter,
+            searchResult
+        } = searchRoom;
+
+    main(class = 'search-room js-search-room') 
+        div(class = 'search-room__content')
+            div(class = 'search-room__filter')
+                +filter(filter, lang)
+                
+            +search-result(searchResult, lang)

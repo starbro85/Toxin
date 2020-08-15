@@ -1,4 +1,4 @@
-const getImagePath = function ({ src, source }) {
+const getImagePath = function (src, source) {
     const path = {};
 
     try {

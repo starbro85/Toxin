@@ -1,4 +1,13 @@
-mixin rate-button({ name, value, ariaLabel, checked=false, disabled=false })
+mixin rate-button(rateButton)
+    -
+        const {
+            name,
+            value,
+            ariaLabel,
+            checked=false,
+            disabled=false
+        } = rateButton;
+        
     input(
         class = 'rate-button js-rate-button'
         type = 'radio'

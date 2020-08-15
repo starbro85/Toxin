@@ -1,6 +1,6 @@
 import './counter.css';
 
-class Counter {
+export class Counter {
     constructor(node) {
         this.root = node;
         this.decrement = this.root.querySelector('.js-counter__control_decrement');
@@ -86,5 +86,3 @@ class Counter {
         this.input.addEventListener('input', this.handleCounterChange);
     }
 };
-
-export { Counter };

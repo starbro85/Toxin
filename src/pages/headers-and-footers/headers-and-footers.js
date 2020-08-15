@@ -1,2 +1,5 @@
-import './../../components/ui-kit-layout/ui-kit-layout.js';
-import './../../components/headers-and-footers/headers-and-footers.js';
+import './headers-and-footers.css';
+
+import '../../components/ui-kit-layout/ui-kit-layout.js';
+import '../../components/header/header.js';
+import '../../components/footer/footer.js';

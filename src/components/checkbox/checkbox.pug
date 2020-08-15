@@ -1,16 +1,38 @@
-mixin checkbox({ name, label, title, description, checked=false, disabled=false })
-    label(class = description ? 'checkbox checkbox_with_description' : 'checkbox')     
+mixin checkbox(checkbox)
+    -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+        
+        const {
+            name,
+            label,
+            title,
+            description,
+            checked=false,
+            disabled=false
+        } = checkbox;
+
+    label(class = 'checkbox')     
         input(
             class = 'checkbox__input'
             type = 'checkbox' 
             name = name
-            title = title
+            title = title ? title : false
             checked = checked ? true : false
             disabled = disabled ? true : false
+            aria-labelledby = description ? `checkbox-label-${id}` : false
+            aria-describedby = description ? `checkbox-description-${id}` : false
         )
 
-        if label
-            span(class = 'checkbox__label') !{label}
-
         if description
-            span(class = 'checkbox__description') !{description}
+            b(
+                class = 'checkbox__label'
+                id = `checkbox-label-${id}`
+            ) !{label}
+            small(
+                class = 'checkbox__description'
+                id = `checkbox-description-${id}`
+            ) !{description}
+
+        else
+            span(class = 'checkbox__label') !{label}

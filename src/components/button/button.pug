@@ -1,18 +1,30 @@
-mixin button({ type='submit', disabled=false, label, title, controlClass, fill, border, link, color, icon })
+mixin button(button)
+    -
+        const {
+            type,
+            label,
+            title,
+            controlClass,
+            fill,
+            border,
+            link,
+            color,
+            disabled,
+            icon
+        } = button
 
-    -let classes = 'button';
+        let classes = 'button';
     
-    -classes = controlClass ? `${classes} ${controlClass}` : classes;
-    -classes = color ? ` ${classes} button_color_${color}` : classes;
-    -classes = fill ? `${classes} button_filled` : classes;
-    -classes = border ? `${classes} button_with_border` : classes;
-    -classes = link ? ` ${classes} button_link` : classes;
-    -classes = icon ? `${classes} button_with_icon` : classes;
+        classes = controlClass ? `${classes} ${controlClass}` : classes;
+        classes = color ? ` ${classes} button_color_${color}` : classes;
+        classes = fill ? `${classes} button_filled` : classes;
+        classes = border ? `${classes} button_with_border` : classes;
+        classes = link ? ` ${classes} button_link` : classes;
+        classes = icon ? `${classes} button_with_icon` : classes;
 
     button(
         class = classes
         disabled = disabled ? true : false
-        style = style
         type = type
         title = title
     )

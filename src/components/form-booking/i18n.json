@@ -1,0 +1,73 @@
+{
+    "ru": {
+        "DAY_PLURAL": {
+            "one": "сутки",
+            "other": "суток"
+        },
+        "PRICE_LIST": "Прайс-лист",
+        "DISCOUNT": "Скидка",
+        "SERVICE_FEE": "Сбор за услуги",
+        "ADDITION_SERVICE_FEE": "Сбор за дополнительные услуги",
+        "TOTAL": "Итого",
+        "BOOK": "Забронировать",
+        "GUESTS": "Гости",
+        "GUEST_PLURAL": {
+            "one": "Гость",
+            "few": "Гостя",
+            "many": "Гостей"
+        },
+        "NUMBER_OF_GUESTS": "Количество гостей",
+        "ADULTS": "Взрослые",
+        "ADULT_PLURAL": {
+            "one": "Взрослый",
+            "other": "Взрослых"
+        },
+        "KIDS": "Дети",
+        "KID_PLURAL": {
+            "one": "Ребёнок",
+            "few": "Ребёнка",
+            "many": "Детей"
+        },
+        "BABIES": "Младенцы",
+        "BABY_PLURAL": {
+            "one": "Младенец",
+            "few": "Младенца",
+            "many": "Младенцев"
+        },
+        "LUXURY": "Люкс"
+    },
+    "en": {
+        "DAY_PLURAL": {
+            "one": "day",
+            "other": "days"
+        },
+        "PRICE_LIST": "Price-list",
+        "DISCOUNT": "Discount",
+        "SERVICE_FEE": "Service fee",
+        "ADDITION_SERVICE_FEE": "Additional service fee",
+        "TOTAL": "Total",
+        "BOOK": "Book",
+        "GUESTS": "Guests",
+        "GUEST_PLURAL": {
+            "one": "Guest",
+            "other": "Guests"
+        },
+        "NUMBER_OF_GUESTS": "Number of guests",
+        "ADULTS": "Adults",
+        "ADULT_PLURAL": {
+            "one": "Adult",
+            "other": "Adults"
+        },
+        "KIDS": "Kids",
+        "KID_PLURAL": {
+            "one": "Kid",
+            "other": "Kids"
+        },
+        "BABIES": "Babies",
+        "BABY_PLURAL": {
+            "one": "Baby",
+            "other": "Babies"
+        },
+        "LUXURY": "Luxury"
+    }
+}

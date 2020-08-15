@@ -1,0 +1,23 @@
+{
+    "ru": {
+        "PREV_PAGE": "Предыдущая страница",
+        "NEXT_PAGE": "Следующая страница",
+        "PAGE": "страница",
+        "PAGE_ORDINAL_SUFFIXES": {
+            "other": "-я"
+        },
+        "YOU_HERE": "Вы здесь"
+    },
+    "en": {
+        "PREV_PAGE": "Prev page",
+        "NEXT_PAGE": "Next page",
+        "PAGE": "page",
+        "PAGE_ORDINAL_SUFFIXES": {
+            "one": "st",
+            "two": "nd",
+            "few": "rd",
+            "other": "th"
+        },
+        "YOU_HERE": "You here"
+    }
+}

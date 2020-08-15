@@ -1,0 +1,22 @@
+{
+    "ru": {
+        "FOOTER_SITE": "Подвал сайта",
+        "MAIN_PAGE": "Главная страница",
+        "AWARDS": "Награды",
+        "NAVIGATION": "Навигация",
+        "ABOUT_US": "О нас",
+        "SUPPORT": "Поддержка",
+        "SUBSCRIBTION": "Подписка",
+        "WE_IN_SOCIAL_MEDIA": "Мы в социальных сетях"
+    },
+    "en": {
+        "FOOTER_SITE": "Footer site",
+        "MAIN_PAGE": "MAin page",
+        "AWARDS": "Awards",
+        "NAVIGATION": "Navigation",
+        "ABOUT_US": "About us",
+        "SUPPORT": "Support",
+        "SUBSCRIBTION": "Subscribtion",
+        "WE_IN_SOCIAL_MEDIA": "We in social media"
+    }
+}

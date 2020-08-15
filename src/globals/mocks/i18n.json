@@ -1,0 +1,288 @@
+{
+    "ru": { 
+        "PREV_SLIDE": "Предыдущий слайд",
+        "NEXT_SLIDE": "Следующий слайд",
+        "ARRIVAL": "Прибытие",
+        "ARRIVAL_TIME": "Время прибытия",
+        "DEPARTURE": "Отъезд",
+        "DEPARTURE_TIME": "Время отъезда",
+        "TIME_OF_STAY": "Время прибывания в отеле",
+        "DATE_RANGE_PLACEHOLDER": "ДД.ММ - ДД.ММ",
+        "VOTE_PLURAL": {
+            "one": "Голос",
+            "few": "Голоса",
+            "many": "Голосов"
+        },
+        "DELIGHTFULLY": "Восхитительно",
+        "GOOD": "Хорошо",
+        "SATISFACTORILY": "Удовлетворительно",
+        "DISAPPOINTED": "Разочарован",
+        "FOOTER_SITE": "Подвал сайта",
+        "AWARDS": "Награды",
+        "NAVIGATION": "Навигация",
+        "ABOUT_US": "О нас",
+        "SUPPORT": "Поддержка",
+        "WE_IN_SOCIAL_MEDIA": "Мы в социальных сетях",
+        "ADDITIONAL_INFO": "Дополнительная информация",
+        "ENTER_EMAIL": "Введите email",
+        "SUBSCRIBTION": "Подписка",
+        "SUBSCRIBE": "Подписаться",
+        "SEARCH_RESULTS": "Номера, которые мы для вас подобрали",
+        "FILTER": "Фильтр",
+        "GUESTS": "Гости",
+        "GUEST_PLURAL": {
+            "one": "Гость",
+            "few": "Гостя",
+            "many": "Гостей"
+        },
+        "NUMBER_OF_GUESTS": "Количество гостей",
+        "ADULTS": "Взрослые",
+        "ADULT_PLURAL": {
+            "one": "Взрослый",
+            "other": "Взрослых"
+        },
+        "KIDS": "Дети",
+        "KID_PLURAL": {
+            "one": "Ребёнок",
+            "few": "Ребёнка",
+            "many": "Детей"
+        },
+        "BABIES": "Младенцы",
+        "BABY_PLURAL": {
+            "one": "Младенец",
+            "few": "Младенца",
+            "many": "Младенцев"
+        },
+        "PRICE_RANGE": "Диапазон цены",
+        "PERMISSION": "Разрешено",
+        "ACCESSIBILITY": "Доступность",
+        "ROOM_AMENITIES": "Удобства номера",
+        "BEDROOMS": "Спальни",
+        "BEDROOM_PLURAL": {
+            "one": "Спальня",
+            "few": "Спальни",
+            "many": "Спален"
+        },
+        "BEDS": "",
+        "BED_PLURAL": {
+            "one": "Кровать",
+            "few": "Кровати",
+            "many": "Кроватей"
+        },
+        "BATH_ROOMS": "Ванные комнаты",
+        "BATH_ROOM_PLURAL": {
+            "one": "Ванная комната",
+            "few": "Ванные комнаты",
+            "many": "Ванных комнат"
+        },
+        "ADDITION_AMENITIES": "Дополнительные удобства",
+        "ROOM_DETAIL": "Узнать больше",
+        "REVIEW_PLURAL": {
+            "one": "Отзыв",
+            "few": "Отзыв",
+            "many": "Отзывов"
+        },
+        "LUXURY": "Люкс",
+        "STAR_PLURAL": {
+            "one": "звезда", 
+            "few": "звезды", 
+            "many": "звёзд"
+        },
+        "OUT_OF": "из",
+        "RATING": "Рейтинг",
+        "CLEAR": "Очистить",
+        "APPLY": "Применить",
+        "PREV_PAGE": "Предыдущая страница",
+        "NEXT_PAGE": "Следующая страница",
+        "PAGE": "Страница",
+        "PAGE_ORDINAL_SUFFIXES": {
+            "other": "я"
+        },
+        "YOU_HERE": "вы здесь",
+        "PEOPLE_RATED_PLURAL": {
+            "one": "человек оценил",
+            "other": "человек оценили"
+        },
+        "RATE": "Оценить",
+        "REMOVE_RATING": "Снять оценку",
+        "LANDING_PAGE": "Целевая страница",
+        "NAVIGATION_MENU": "Навигационное меню",
+        "LOGIN": "Войти",
+        "LOGIN_PAGE": "Страница авторизации",
+        "REGISTRATION": "Регистрация",
+        "REGISTRATION_PAGE": "Страница регистрации",
+        "PERSONAL_ACCOUNT": "Личный кабинет",
+        "WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES": "Найдём номера под ваши пожелания",
+        "FIND_A_ROOM": "Подобрать номер",
+        "ACCOUNT_REGISTRATION": "Регистрация аккаунта",
+        "PERSONAL_DATA": "Персональные данные",
+        "NAME": "Имя",
+        "ENTER_YOUR_NAME": "Введите имя",
+        "SURNAME": "Фамилия",
+        "ENTER_YOUR_SURNAME": "Введите фамилию",
+        "GENDER_SELECTION": "Выбор пола",
+        "MALE": "Мужчина",
+        "FEMALE": "Женщина",
+        "DATE_SINGLE_PLACEHOLDER": "ДД.ММ.ГГГГ",
+        "DATE_OF_BIRTH": "Дата рождения",
+        "ENTER_YOUR_DATE_OF_BIRTH": "Введите дату рождения",
+        "SERVICE_LOGIN_DETAILS": "Данные для входа в сервис",
+        "ENTER_PASSWORD": "Введите пароль",
+        "PASSWORD": "Пароль",
+        "RECEIVE_SPECIAL_OFFERS": "Получать спецпредложения",
+        "PROCEED_TO_CHECKOUT": "Перейти к оплате",
+        "ALREADY_HABE_AN_ACCOUNT_ON": "Уже есть аккаунт на",
+        "NO_ACCOUNT_ON": "Нет аккаунта на",
+        "CREATE": "Создать",
+        "DAY_PLURAL": {
+            "one": "сутки",
+            "other": "суток"
+        },
+        "PRICE_LIST": "Прайс-лист",
+        "DISCOUNT": "Скидка",
+        "SERVICE_FEE": "Сбор за услуги",
+        "ADDITION_SERVICE_FEE": "Сбор за дополнительные услуги",
+        "TOTAL": "Итого",
+        "BOOK": "Забронировать"
+    },
+    "en": {
+        "PREV_SLIDE": "Previous slide",
+        "NEXT_SLIDE": "Next slide",
+        "ARRIVAL": "Arrival",
+        "DATE_ARRIVAL_TITLE": "Arrival time",
+        "DEPARTURE": "Departure",
+        "DEPARTURE_TIME": "Departure time",
+        "TIME_OF_STAY": "Time of stay",
+        "DATE_RANGE_PLACEHOLDER": "DD/MM - DD/MM",
+        "VOTE_PLURAL": {
+            "one": "Vote",
+            "other": "Votes"
+        },
+        "DELIGHTFULLY": "Delightfully",
+        "GOOD": "Good",
+        "SATISFACTORILY": "Satisfactorily",
+        "DISAPPOINTED": "Disappointed",
+        "FOOTER_SITE": "Footer site",
+        "AWARDS": "Awards",
+        "NAVIGATION": "Navigation",
+        "ABOUT_US": "About us",
+        "SUPPORT": "Support",
+        "WE_IN_SOCIAL_MEDIA": "We in social media",
+        "ADDITIONAL_INFO": "Additional information",
+        "ENTER_EMAIL": "Enter email",
+        "SUBSCRIBTION": "Subscribtion",
+        "SUBSCRIBE": "Subscribe",
+        "SEARCH_RESULTS": "The numbers we have selected for you",
+        "FILTER": "Filter",
+        "GUESTS": "Guests",
+        "GUEST_PLURAL": {
+            "one": "Guest",
+            "other": "Guests"
+        },
+        "NUMBER_OF_GUESTS": "Number of guests",
+        "ADULTS": "Adults",
+        "ADULT_PLURAL": {
+            "one": "Adult",
+            "other": "Adults"
+        },
+        "KIDS": "Kids",
+        "KID_PLURAL": {
+            "one": "Kid",
+            "other": "Kids"
+        },
+        "BABIES": "Babies",
+        "BABY_PLURAL": {
+            "one": "Baby",
+            "other": "Babies"
+        },
+        "PRICE_RANGE": "Price range",
+        "PERMISSION": "Permission",
+        "ACCESSIBILITY": "Accessibility",
+        "ROOM_AMENITIES": "Room amenities",
+        "BEDROOMS": "Bedrooms",
+        "BEDROOM_PLURAL": {
+            "one": "bedroom",
+            "other": "bedrooms"
+        },
+        "BEDS": "Beds",
+        "BED_PLURAL": {
+            "one": "bed",
+            "other": "beds"
+        },
+        "BATH_ROOMS": "Bath rooms",
+        "BATH_ROOM_PLURAL": {
+            "one": "bath rooms",
+            "other": "bath rooms"
+        },
+        "ADDITION_AMENITIES": "Addition amenities",
+        "ROOM_DETAIL": "Learn more",
+        "REVIEW_PLURAL": {
+            "one": "Review",
+            "other": "Reviews"
+        },
+        "LUXURY": "Luxury",
+        "DAY_PLURAL": {
+            "one": "day",
+            "other": "days"
+        },
+        "STAR_PLURAL": {
+            "one": "star", 
+            "other": "stars"
+        },
+        "OUT_OF": "out of",
+        "RATING": "Rating",
+        "CLEAR": "Clear",
+        "APPLY": "Apply",
+        "PREV_PAGE": "Prev page",
+        "NEXT_PAGE": "Next page",
+        "PAGE": "Page",
+        "PAGE_ORDINAL_SUFFIXES": {
+            "one": "st",
+            "two": "nd",
+            "few": "rd",
+            "other": "th"
+        },
+        "YOU_HERE": "you here",
+        "PEOPLE_RATED_PLURAL": {
+            "one": "person rated",
+            "other": "people rated"
+        },
+        "RATE": "Rate",
+        "REMOVE_RATING": "Remove rating",
+        "LANDING_PAGE": "Landing page",
+        "NAVIGATION_MENU": "Navigation menu",
+        "LOGIN": "Login",
+        "LOGIN_PAGE": "Login page",
+        "REGISTRATION": "Registration",
+        "REGISTRATION_PAGE": "Registration page",
+        "PERSONAL_ACCOUNT": "Personal account",
+        "WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES": "We will find rooms according to your wishes",
+        "FIND_A_ROOM": "Find a room",
+        "ACCOUNT_REGISTRATION": "Account registration",
+        "PERSONAL_DATA": "Personal data",
+        "NAME": "Name",
+        "ENTER_YOUR_NAME": "Enter your first name",
+        "SURNAME": "Surname",
+        "ENTER_YOUR_SURNAME": "Enter your last name",
+        "GENDER_SELECTION": "Gender selection",
+        "MALE": "Male",
+        "FEMALE": "Female",
+        "DATE_SINGLE_PLACEHOLDER": "DD/MM/YYYY",
+        "DATE_OF_BIRTH": "Date of birth",
+        "ENTER_YOUR_DATE_OF_BIRTH": "Enter your date of birth",
+        "SERVICE_LOGIN_DETAILS": "Service login details",
+        "ENTER_PASSWORD": "Enter password",
+        "PASSWORD": "Password",
+        "RECEIVE_SPECIAL_OFFERS": "Receive special offers",
+        "PROCEED_TO_CHECKOUT": "Proceed to checkout",
+        "ALREADY_HABE_AN_ACCOUNT_ON": "Already have an account on",
+        "NO_ACCOUNT_ON": "No account on",
+        "CREATE": "Create",
+        "PRICE_LIST": "Price-list",
+        "DISCOUNT": "Discount",
+        "SERVICE_FEE": "Service fee",
+        "ADDITION_SERVICE_FEE": "Additional service fee",
+        "TOTAL": "Total",
+        "BOOK": "Book"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "ru": {
+        "CLEAR": "Очистить",
+        "APPLY": "Применить",
+        "ARRIVAL": "Прибытие",
+        "ARRIVAL_TIME": "Время прибытия",
+        "DEPARTURE": "Отъезд",
+        "DEPARTURE_TIME": "Время отъезда",
+        "TIME_OF_STAY": "Время прибывания в отеле",
+        "DATE_RANGE_PLACEHOLDER": "ДД.ММ - ДД.ММ",
+        "DATE_SINGLE_PLACEHOLDER": "ДД.ММ.ГГГГ"
+
+    },
+    "en": {
+        "CLEAR": "Clear",
+        "APPLY": "Apply",
+        "ARRIVAL": "Arrival",
+        "DATE_ARRIVAL_TITLE": "Arrival time",
+        "DEPARTURE": "Departure",
+        "DEPARTURE_TIME": "Departure time",
+        "TIME_OF_STAY": "Time of stay",
+        "DATE_RANGE_PLACEHOLDER": "DD/MM - DD/MM",
+        "DATE_SINGLE_PLACEHOLDER": "DD/MM/YYYY"
+    }
+}

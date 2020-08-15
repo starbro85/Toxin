@@ -2,7 +2,21 @@ include ../text-field/text-field
 include ../button/button
 include ../link/link
 
-mixin form-login({ label, loginDataGroup={}, submitButton, registrationLink, registrationText })
+mixin form-login(lang)
+    -
+        const i18n = require('../../components/form-login/i18n.json')[lang]; 
+
+        const {
+            LOGIN,
+            SERVICE_LOGIN_DETAILS,
+            ENTER_EMAIL,
+            ENTER_PASSWORD,
+            PASSWORD,
+            NO_ACCOUNT_ON,
+            CREATE,
+            REGISTRATION_PAGE
+        } = i18n;
+
     form(
         class = 'form-login'
         name = 'login' 
@@ -10,20 +24,47 @@ mixin form-login({ label, loginDataGroup={}, submitButton, registrationLink, reg
     )
         h2(
             class = 'form-login__label'
-        ) #{label}
+        ) #{LOGIN}
         
         div(
             class = 'form-login__fieldset'
             role = 'group'
-            aria-label = loginDataGroup.ariaLabel ? loginDataGroup.ariaLabel : false
+            aria-label = SERVICE_LOGIN_DETAILS
         )
-            +text-field(loginDataGroup.emailInput)
-            +text-field(loginDataGroup.passwordInput)
+            +text-field({
+                input: {
+                    name: 'email',
+                    type: 'email',
+                    placeholder: 'Email',
+                    required: true,
+                    title: ENTER_EMAIL
+                }
+            })
+            +text-field({
+                input: {
+                    name: 'password',
+                    type: 'password',
+                    placeholder: PASSWORD,
+                    required: true,
+                    title: ENTER_EMAIL
+                }
+            })
                 
         div(class = 'form-login__submit-button')
-            +button(submitButton)
+            +button({
+                label: LOGIN,
+                color: 'purple',
+                fill: true,
+                icon: 'arrow_forward'
+            })
 
         div(class = 'form-login__registration')
-            p(class = 'form-login__registration-text') #{registrationText}
+            p(class = 'form-login__registration-text') #{NO_ACCOUNT_ON} Toxin?
             span(class = 'form-login__registration-link')
-                +link(registrationLink)
+                +link({
+                    label: CREATE,
+                    href: './registration-page.html',
+                    title: REGISTRATION_PAGE,
+                    button: true,
+                    border: true
+                })

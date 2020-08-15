@@ -1,4 +1,12 @@
-mixin toggle({ name, label, checked=false, disabled=false })
+mixin toggle(toggle)
+    -
+        const {
+            name,
+            label,
+            checked=false,
+            disabled=false
+        } = toggle;
+        
     label(class = 'toggle')
         input(
             class = 'toggle__input'

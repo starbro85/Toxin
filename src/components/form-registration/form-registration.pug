@@ -4,7 +4,34 @@ include ../toggle/toggle
 include ../button/button
 include ../link/link
 
-mixin form-registration({ label, personalDataGroup={}, birthdayInput, loginDataGroup={},  submitButton, loginText, loginLink })
+mixin form-registration(lang)
+    -
+        const i18n = require('../../components/form-registration/i18n.json')[lang];  
+
+        const {
+            ACCOUNT_REGISTRATION, 
+            PERSONAL_DATA,
+            NAME, 
+            ENTER_YOUR_NAME,
+            SURNAME, 
+            ENTER_YOUR_SURNAME,
+            GENDER_SELECTION, 
+            MALE,
+            FEMALE, 
+            DATE_SINGLE_PLACEHOLDER,
+            DATE_OF_BIRTH, 
+            ENTER_YOUR_DATE_OF_BIRTH,
+            SERVICE_LOGIN_DETAILS, 
+            ENTER_EMAIL,
+            ENTER_PASSWORD, 
+            PASSWORD,
+            RECEIVE_SPECIAL_OFFERS, 
+            PROCEED_TO_CHECKOUT,
+            ALREADY_HABE_AN_ACCOUNT_ON,
+            LOGIN, 
+            LOGIN_PAGE
+        } = i18n;
+
     form(
         class = 'form-registration'
         name = 'registration' 
@@ -13,30 +40,96 @@ mixin form-registration({ label, personalDataGroup={}, birthdayInput, loginDataG
     )
         h2(
             class = 'form-registration__label'
-        ) #{label}
-        div(
-            class = 'form-registration__fieldset'
-            role = 'group'
-            aria-label = personalDataGroup.ariaLabel ? personalDataGroup.ariaLabel : false
-        )
-            +text-field(personalDataGroup.nameInput)
-            +text-field(personalDataGroup.surnameInput)
-            +radio-bar(personalDataGroup.radioBar)
-
-        +text-field(birthdayInput)
+        ) #{ACCOUNT_REGISTRATION}
         
         div(
             class = 'form-registration__fieldset'
             role = 'group'
-            aria-label = loginDataGroup.ariaLabel ? loginDataGroup.ariaLabel : false
+            aria-label = PERSONAL_DATA
         )
-            +text-field(loginDataGroup.emailInput)
-            +text-field(loginDataGroup.passwordInput)
-            +toggle(loginDataGroup.toggle)
+            +text-field({
+                name: 'name',
+                placeholder: NAME,
+                required: true,
+                title: ENTER_YOUR_NAME
+            })
+            +text-field({
+                name: 'surname',
+                placeholder: SURNAME,
+                required: true,
+                title: ENTER_YOUR_SURNAME
+            })
+            +radio-bar({
+                ariaLabel: GENDER_SELECT,
+                radioButtons: [
+                    {
+                        label: MALE,
+                        name: 'gender',
+                        value: 'male',
+                        checked: true
+                    },
+                    {
+                        label: FEMALE,
+                        name: 'gender',
+                        value: 'female'
+                    }
+                ]
+            })
+
+        +text-field({
+            label: DATE_OF_BIRTH,
+            input: {
+                name: 'birthday',
+                placeholder: DATE_SINGLE_PLACEHOLDER,
+                mask: 'date',
+                required: true,
+                title: ENTER_YOUR_DATE_OF_BIRTH
+            }
+        })
+        
+        div(
+            class = 'form-registration__fieldset'
+            role = 'group'
+            aria-label = SERVICE_LOGIN_DETAILS
+        )
+            +text-field({
+                input: {
+                    label: SERVICE_LOGIN_DETAILS,
+                    name: 'email',
+                    type: 'email',
+                    placeholder: 'Email',
+                    required: true,
+                    title: ENTER_EMAIL
+                }
+            })
+            +text-field({
+                input: {
+                    name: 'password',
+                    type: 'password',
+                    placeholder: PASSWORD,
+                    required: true,
+                    title: ENTER_EMAIL
+                }
+            })
+            +toggle({
+                name: 'special',
+                label: RECEIVE_SPECIAL_OFFERS
+            })
 
         div(class = 'form-registration__submit-button')
-            +button(submitButton)
+            +button({
+                label: PROCEED_TO_CHECKOUT,
+                color: 'purple',
+                fill: true,
+                icon: 'arrow_forward'
+            })
         div(class = 'form-registration__login')
-            p(class = 'form-registration__login-text') #{loginText}
+            p(class = 'form-registration__login-text') #{ALREADY_HABE_AN_ACCOUNT_ON}
             div(class = 'form-registration__login-link')
-                +link(loginLink)
+                +link({
+                    label: LOGIN,
+                    href: './login-page.html',
+                    title: LOGIN_PAGE,
+                    button: true,
+                    border: true
+                })

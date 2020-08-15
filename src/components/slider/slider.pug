@@ -1,4 +1,18 @@
-mixin slider({ label, range, name, initValue, step, margin  })
+mixin slider(slider, lang)
+    -
+        const {
+            label,
+            range,
+            name,
+            initValue,
+            step,
+            margin 
+        } = slider;
+
+        const i18n = require('../../components/slider/i18n.json')[lang];
+
+        const { CURRENCY } = i18n;
+
     div(class = 'slider js-slider')
         label(class = 'slider__label')
             span #{label}
@@ -15,4 +29,6 @@ mixin slider({ label, range, name, initValue, step, margin  })
             data-init-value = initValue 
             data-step = step
             data-margin = margin
+            data-lang = lang
+            data-currency = CURRENCY
         )

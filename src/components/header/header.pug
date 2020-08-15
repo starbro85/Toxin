@@ -2,57 +2,94 @@ include ./menu/menu
 include ../logo/logo
 include ../link/link
 
-mixin header({ header, user })
+mixin header(header, lang)
+    -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const {
+            auth,
+            navList,
+            user
+        } = header;
+
+        const i18n = require('../../components/header/i18n.json')[lang]; 
+
+        const {
+            MAIN_PAGE,
+            NAVIGATION_MENU,
+            LOGIN,
+            LOGIN_PAGE,
+            REGISTRATION,
+            REGISTRATION_PAGE,
+            PERSONAL_ACCOUNT
+        } = i18n;
+
     header(class = 'header js-header')
         div(class = 'header__content')
             a(
                 class = 'header__logo-link' 
-                href = header.logoLink.href
-                title = header.logoLink.title
-                aria-label = header.logoLink.ariaLabel
+                href = './login-page.html',
+                title = MAIN_PAGE
+                aria-label = MAIN_PAGE
             )
-                    +logo()
+                +logo()
 
             button(
                 class = 'header__button js-header__button'
                 aria-expanded = 'false'
-                aria-controls = 'header__nav header__sign-in'
-                aria-label = header.button.ariaLabel
+                aria-controls = `navigation-${id}`
+                aria-label = NAVIGATION_MENU
             )
-                span(class = 'header__button-icon') 
+                span(
+                    class = 'header__button-icon'
+                    aria-hidden = 'true'
+                ) 
             
             nav(
                 class = 'header__nav js-header__nav'
-                id = 'id-header__nav'
+                id = `navigation-${id}`
             )
                 ul(class = 'header__nav-list')
-                    each data in header.nav
-                        if data.isMenu
+                    each item in navList
+                        if item.isMenu
                             li(class = 'header__nav-item')
-                                +menu(data.menu)
+                                +menu(item.menu)
 
                         else 
                             li(class = 'header__nav-item')
-                                +link(data)
+                                +link(item)
                     
-                    if header.auth
+                    if auth
                         li(
                             class = 'header__nav-separator'
-                            aria-hidden = 'true'
+                            role = 'separator'
                         )
                         li(class = 'header__nav-item')
                             +link({
-                                label: `${user.name} ${user.surname}`,
-                                href: header.userLink.href,
-                                title: header.userLink.title
+                                label: user.fullname,
+                                href: user.href,
+                                title: PERSONAL_ACCOUNT
                             })
                         
                     else 
                         li(
                             class = 'header__nav-separator header__nav-separator_mobile-only'
-                            aria-hidden = 'true'
+                            role = 'separator'
                         )
                         li(class = 'header__nav-item')
-                            +link(header.signIn.loginLink)
+                            +link({
+                                label: LOGIN,
+                                href: './login-page.html',
+                                title: LOGIN,
+                                button: true,
+                                border: true
+                            })
                         li(class = 'header__nav-item')
-                            +link(header.signIn.registrationLink)
+                            +link({
+                                label: REGISTRATION,
+                                href: './registration-page.html',
+                                title: REGISTRATION,
+                                button: true,
+                                fill: true
+                            })

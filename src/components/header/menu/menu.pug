@@ -1,17 +1,29 @@
 include ../../link-list/link-list
 
-mixin menu({ label, title, linkList })
+mixin menu(menu)
+    -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const {
+            label,
+            title,
+            linkList
+        } = menu;
+
     div(class = 'menu js-menu') 
         button(
             class = 'menu__button js-menu__button'
             title = title
             aria-expanded = 'false'
+            aria-controls = `link-list-${id}`
         )
             span(class = 'menu__label') #{label}
             span(
                 class = 'menu__icon'
                 aria-hidden = 'true'
             ) expand_more
+
         div(class = 'menu__containter js-menu__containter')
-            +link-list(linkList)
+            +link-list(linkList, `link-list-${id}`)
             

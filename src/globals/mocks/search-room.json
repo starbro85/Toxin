@@ -1,592 +1,719 @@
 {
     "lang": "ru",
-    "description": "Сервис поиска и бронирования отелей и гостиниц Toxin. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
-    "title": "Toxin | Поиск номеров.",
-    "heading": "Поиск номеров.",
-    "header": {
-        "auth": false,
-        "logoLink": {
-            "ariaLabel": "Домашняя страница",
-            "href": "landing-page.html",
-            "title": "Перейти на домашнюю страницу сайта"
-        },
-        "nav": [
-            {
-                "label": "О нас",
-                "href": "#",
-                "title": "Узнать о нас больше",
-                "bold": true
-            },
-            {
-                "isMenu": true,
-                "menu": {
-                    "label": "Услуги",
-                    "title": "Раскрыть меню с услугами компании",
-                    "linkList": {
-                        "list": [
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "label": "Карьера",
-                "href": "#",
-                "title": "Постройте карьеру вместе с нами"
-            },
-            {
-                "label": "Новости",
-                "href": "#",
-                "title": "Узнать о последних новостях компании"
-            },
-            {
-                "isMenu": true,
-                "menu": {
-                    "label": "Документация",
-                    "title": "Раскрыть меню с документацией",
-                    "linkList": {
-                        "list": [
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            }
-                        ]
-                    }
-                }
-            }
-        ],
-        "signIn": {
-            "loginLink": {
-                "label": "Войти",
-                "href": "./login-page.html",
-                "title": "Перейти на страницу авторизации",
-                "button": true,
-                "border": true
-            },
-            "registrationLink": {
-                "label": "Создать",
-                "href": "./registration-page.html",
-                "title": "Перейти на страницу регистрации",
-                "button": true,
-                "fill": true
-            }
-        },
-        "button": {
-            "ariaLabel": "Открыть навигационное меню"
-        },
-        "userLink": {
-            "href": "#",
-            "title": "Перейти в личный кабинет"
-        }
-    },
-    "footer": {
-        "heading": "Подвал сайта",
-        "logoLink": {
-            "ariaLabel": "Домашняя страница",
-            "href": "landing-page.html",
-            "title": "Перейти на домашнюю страницу сайта"
-        },
-        "awardSection": {
-            "label": "Наши награды",
-            "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-        },
-        "navSection": {
-            "label": "Навигация",
-            "linkList": {
-                "list": [
-                    {
-                        "label": "О нас",
-                        "href": "#",
-                        "title": "Узнать о нас больше"
-                    },
-                    {
-                        "label": "Новости",
-                        "href": "#",
-                        "title": "Узнать о последних новостях компании"
-                    },
-                    {
-                        "label": "Служба поддержки",
-                        "href": "#",
-                        "title": "Связаться с нашей службой поддержки"
-                    },
-                    {
+    "description": "Сервис поиска и бронирования отелей и гостиниц. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
+    "title": "Toxin | Поиск номеров",
+    "heading": "Поиск номеров",
+    "layout": {
+        "header": {
+            "auth": false,
+            "navList": [
+                {
+                    "label": "О нас",
+                    "href": "#",
+                    "title": "О нас",
+                    "bold": true
+                },
+                {
+                    "isMenu": true,
+                    "menu": {
                         "label": "Услуги",
-                        "href": "#",
-                        "title": "Узнать о предоставляемых нами услугах"
+                        "title": "Услуги",
+                        "linkList": [
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            }
+                        ]
                     }
-                ]
-            }
-        },
-        "aboutSection": {
-            "label": "О нас",
-            "linkList": {
-                "list": [
-                    {
-                        "label": "О сервисе",
-                        "href": "#",
-                        "title": "Узнать больше о нашем сервисе"
-                    },
-                    {
-                        "label": "Наша команда",
-                        "href": "#",
-                        "title": "Узнать больше о нашей команде"
-                    },
-                    {
-                        "label": "Вакансии",
-                        "href": "#",
-                        "title": "Ознакомится с вакансиями компании"
-                    },
-                    {
-                        "label": "Инвесторы",
-                        "href": "#",
-                        "title": "Наши инвесторы"
-                    }
-                ]
-            }
-        },
-        "supportSection": {
-            "label": "Служба поддержки",
-            "linkList": {
-                "list": [
-                    {
-                        "label": "Соглашения",
-                        "href": "#"
-                    },
-                    {
-                        "label": "Сообщества",
-                        "href": "#"
-                    },
-                    {
-                        "label": "Связь с нами",
-                        "href": "#"
-                    }
-                ]
-            }
-        },
-        "subscribtionSection": {
-            "label": "Подписка",
-            "text": "Получайте специальные предложения и новости сервиса",
-            "subscribtionField": {
-                "textField": {
-                    "input": {
-                        "title": "Введите email",
-                        "ariaLabel": "Введите email"
-                    },
-                    "button": {
-                        "ariaLabel": "Подписаться",
-                        "title": "Подписаться"
-                    }
-                }   
-            }
-        },
-        "copyright": {
-            "text": "Copyright © 2018 Toxin отель. Все права зачищены."
-        },
-        "socialSection": {
-            "label": "Мы в социальных сетях",
-            "socialList": {
-                "list": [
-                    {
-                        "type": "tw",
-                        "href": "#",
-                        "title": "Мы в Twitter",
-                        "ariaLabel": "Перейти на страницу в Twitter"
-                    },
-                    {
-                        "type": "fb",
-                        "href": "#",
-                        "title": "Мы в Facebook",
-                        "ariaLabel": "Перейти на страницу в Facebook"
-                    },
-                    {
-                        "type": "inst",
-                        "href": "#",
-                        "title": "Мы в Instagram",
-                        "ariaLabel": "Перейти на страницу в Instagram"
-                    }
-                ]
-            }      
-        }
-    },
-    "filter": {
-        "heading": "Фильтр результатов поиска",
-        "dateDropdown": {
-            "autoApply": true,
-            "textField": {
-                "label": "Даты пребывания в отеле",
-                "input": {
-                    "name": "rentPeriod",
-                    "placeholder": "ДД.ММ - ДД.ММ",
-                    "title": "Даты пребывания в отеле"
-                }
-            },
-            "datepicker": {
-                "initValue": [
-                    "19.08.2020",
-                    "23.08.2020"
-                ]
-            },
-            "clearButton": {
-                "label": "Очистить"
-            },
-            "applyButton": {
-                "label": "Применить"
-            }
-        },
-        "guestsDropdown": {
-            "autoApply": true,
-            "textField": {
-                "label": "Гости",
-                "input": {
-                    "name": "guests",
-                    "placeholder": "Сколько гостей",
-                    "required": true,    
-                    "title": "Количество гостей"
-                }
-            },
-            "counters": [
-                {
-                    "label": "Взрослые",
-                    "ariaLabel": "Взрослые",
-                    "title": "Взрослые",
-                    "name": "adults",
-                    "initValue": 2,
-                    "maxValue": 5,
-                    "plural": {
-                        "one": "взрослый",
-                        "few": "взрослых",
-                        "many": "взрослых"
-                    },
-                    "boundPlural": {
-                        "one": "гость",
-                        "few": "гостя",
-                        "many": "гостей"
-                    },
-                    "isBound": true,
-                    "boundName": "guests"
                 },
                 {
-                    "label": "Дети",
-                    "ariaLabel": "Дети",
-                    "title": "Дети",
-                    "name": "kids",
-                    "initValue": 1,
-                    "maxValue": 5,
-                    "plural": {
-                        "one": "ребёнок",
-                        "few": "детей",
-                        "many": "детей"
-                    },
-                    "boundPlural": {
-                        "one": "гость",
-                        "few": "гостя",
-                        "many": "гостей"
-                    },
-                    "isBound": true,
-                    "boundName": "guests"
+                    "label": "Карьера",
+                    "title": "Карьера",
+                    "href": "#"
                 },
                 {
-                    "label": "Младенцы",
-                    "ariaLabel": "Младенцы",
-                    "name": "babies",
-                    "initValue": 1,
-                    "maxValue": 5,
-                    "plural": {
-                        "one": "младенец",
-                        "few": "младенцев",
-                        "many": "младенцев"
+                    "label": "Новости",
+                    "title": "Новости",
+                    "href": "#"
+                },
+                {
+                    "isMenu": true,
+                    "menu": {
+                        "label": "Документация",
+                        "title": "Документация",
+                        "linkList": [
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            }
+                        ]
                     }
                 }
             ]
         },
-        "preferencesDropdown": {
-            "textField": {
-                "label": "Удобства номера",
-                "input": {
-                    "name": "preferences",
-                    "placeholder": "Удобства номера",
-                    "title": "Конфигурация номера"
-                }
-            },
-            "autoApply": true,
-            "counters": [
+        "footer": {
+            "awardsText": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+            "navLinkList": [
                 {
-                    "label": "Спальни",
-                    "ariaLabel": "Спальни",
-                    "title": "Спальни",
-                    "name": "bedrooms",
-                    "initValue": 2,
-                    "maxValue": 5,
-                    "plural": {
-                        "one": "спальня",
-                        "few": "спальни",
-                        "many": "спален"
-                    }
+                    "label": "О нас",
+                    "href": "#",
+                    "title": "О нас"
                 },
                 {
-                    "label": "Кровати",
-                    "ariaLabel": "Кровати",
-                    "title": "Кровати",
-                    "name": "beds",
-                    "initValue": 2,
-                    "maxValue": 5,
-                    "plural": {
-                        "one": "кровать",
-                        "few": "кровати",
-                        "many": "кроватей"
-                    }
+                    "label": "Новости",
+                    "href": "#",
+                    "title": "Новости"
                 },
                 {
-                    "label": "Ванные комнаты",
-                    "ariaLabel": "Ванные комнаты",
-                    "title": "Ванные комнаты",
-                    "name": "bathroom",
-                    "initValue": 1,
-                    "maxValue": 5,
-                    "plural": {
-                        "one": "ванная комната",
-                        "few": "ванные комнаты",
-                        "many": "ванных комнат"
-                    }
-                }
-            ]
-        },
-        "slider": {
-            "label": "Диапазон цены",
-            "name": "priceRange",
-            "range": [500, 16300],
-            "initValue": [5000, 10000],
-            "step": 100,
-            "margin": 1000
-        },
-        "allowanceCheckboxGroup": {
-            "label": "Checkbox buttons",
-            "checkboxList": {
-                "list": [
-                    {
-                        "name": "smoke",
-                        "label": "Можно курить"
-                    },
-                    {
-                        "name": "pet",
-                        "label": "Можно с питомцами",
-                        "checked": true
-                    },
-                    {
-                        "name": "guests",
-                        "label": "Можно пригласить гостей&#10;(до 10 человек)",
-                        "checked": true
-                    }
-                ]
-            }
-        },
-        "accessibilityCheckboxGroup": {
-            "label": "Доступность",
-            "checkboxList": {    
-                "list": [
-                    {
-                        "name": "smoke",
-                        "label": "Широкий коридор",
-                        "description": "Ширина коридоров в номере&#10;не менее 91 см.",
-                        "title": true
-                    },
-                    {
-                        "name": "pet",
-                        "label": "Помощник для инвалидов",
-                        "description": "На 1 этаже вас встретит специалист&#10;и проводит до номера.",
-                        "title": true
-                    }
-                ]
-            }
-        },
-        "expandableCheckboxList": {
-            "label": "Дополнительные удобства",
-            "checkboxList": {
-                "list": [
-                    {
-                        "name": "breakfast",
-                        "label": "Завтрак"
-                    },
-                    {
-                        "name": "desk",
-                        "label": "Письменный стол",
-                        "checked": true
-                    },
-                    {
-                        "name": "feedingChair",
-                        "label": "Стул для кормления",
-                        "checked": true
-                    },
-                    {
-                        "name": "crib",
-                        "label": "Кроватка",
-                        "checked": true
-                    },
-                    {
-                        "name": "tv",
-                        "label": "Телевизор"
-                    },
-                    {
-                        "name": "schampoo",
-                        "label": "Шампунь"
-                    }
-                ]
-            }
-        }
-    },
-    "resultSection": {
-        "heading": "Номера, которые мы для вас подобрали",
-        "roomCard": {
-            "link": {
-                "href": "./room-detail.html",
-                "label": "Перейти к деталям номера...",
-                "title": "Перейти к деталям номера..."
-            },
-            "rateBar": {
-                "title": {
-                    "plural": {
-                        "one": "звезда", 
-                        "few": "звезды", 
-                        "many": "звёзд"
-                    }
-                },
-                "ariaLabel": {
-                    "plural": {
-                        "one": "звезда", 
-                        "few": "звезды", 
-                        "many": "звёзд"
-                    },
-                    "prefix": "Рейтинг: ",
-                    "preposition": " из "
-                }
-            },
-            "term": "в сутки",
-            "category": "Люкс",
-            "review": {
-                "plural": {
-                    "one": "Отзыв",
-                    "few": "Отзыва",
-                    "many": "Отзывов"
-                }
-            }
-        },
-        "pagination": {
-            "pages": [
-                {
-                    "ariaLabel": "Перейти на предыдущую страницу",
-                    "title": "Перейти на предыдущую страницу",
-                    "prev": true,
-                    "href": "#"
+                    "label": "Служба поддержки",
+                    "href": "#",
+                    "title": "Служба поддержки"
                 },
                 {
-                    "ariaLabel": "Вы на этой странице",
-                    "title": "Вы на этой странице",
-                    "active": true
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на страницу",
-                    "title": "Перейти на страницу",
-                    "href": "#"
-                },
-                {
-                    "ariaLabel": "Перейти на следующую страницу",
-                    "title": "Перейти на следующую страницу",
-                    "next": true,
-                    "href": "#"
+                    "label": "Услуги",
+                    "href": "#",
+                    "title": "Узнать"
                 }
             ],
-            "description": "1 – 12 из 100+ вариантов аренды "
+            "aboutLinkList": [
+                {
+                    "label": "О сервисе",
+                    "href": "#",
+                    "title": "О сервисе"
+                },
+                {
+                    "label": "Наша команда",
+                    "href": "#",
+                    "title": "Наша команда"
+                },
+                {
+                    "label": "Вакансии",
+                    "href": "#",
+                    "title": "Вакансии"
+                },
+                {
+                    "label": "Инвесторы",
+                    "href": "#",
+                    "title": "Инвесторы"
+                }
+            ],
+            "supportLinkList": [
+                {
+                    "label": "Соглашения",
+                    "href": "#",
+                    "title": "Соглашения"
+                },
+                {
+                    "label": "Сообщества",
+                    "href": "#",
+                    "title": "Сообщества"
+                },
+                {
+                    "label": "Связь с нами",
+                    "href": "#",
+                    "title": "Связь с нами"
+                }
+            ],
+            "subscribtionText": "Получайте специальные предложения и новости сервиса",
+            "copyright": "Copyright © 2018 Toxin отель. Все права зачищены.",
+            "socialList": [
+                {
+                    "media": "tw",
+                    "href": "#"
+                },
+                {
+                    "media": "fb",
+                    "href": "#"
+                },
+                {
+                    "media": "inst",
+                    "href": "#"
+                }
+            ]
         }
-    }  
+    },
+    "searchRoom": {
+        "filter": {
+            "heading": "Фильтр результатов поиска",
+            "dateInitValue": [
+                "19.08.2020",
+                "23.08.2020"
+            ],
+            "guestsInitValue": {
+                "adults": 2,
+                "kids": 1,
+                "babies": 0
+            },
+            "amenitiesInitValue": {
+                "bedrooms": 2,
+                "beds": 2,
+                "bathrooms": 1
+            },
+            "permissionCheckboxList": [
+                {
+                    "name": "smoke",
+                    "label": "Можно курить"
+                },
+                {
+                    "name": "pet",
+                    "label": "Можно с питомцами",
+                    "checked": true
+                },
+                {
+                    "name": "guests",
+                    "label": "Можно пригласить гостей&#10;(до 10 человек)",
+                    "checked": true
+                }
+            ],
+            "accessibilityCheckboxList": [
+                {
+                    "name": "smoke",
+                    "label": "Широкий коридор",
+                    "description": "Ширина коридоров в номере&#10;не менее 91 см.",
+                    "title": true
+                },
+                {
+                    "name": "pet",
+                    "label": "Помощник для инвалидов",
+                    "description": "На 1 этаже вас встретит специалист&#10;и проводит до номера.",
+                    "title": true
+                }
+            ],
+            "additionAmenitiesCheckboxList": [
+                {
+                    "name": "breakfast",
+                    "label": "Завтрак"
+                },
+                {
+                    "name": "desk",
+                    "label": "Письменный стол",
+                    "checked": true
+                },
+                {
+                    "name": "feedingChair",
+                    "label": "Стул для кормления",
+                    "checked": true
+                },
+                {
+                    "name": "crib",
+                    "label": "Кроватка",
+                    "checked": true
+                },
+                {
+                    "name": "tv",
+                    "label": "Телевизор"
+                },
+                {
+                    "name": "schampoo",
+                    "label": "Шампунь"
+                }
+            ]
+        },
+        "searchResult": {
+            "heading": "Номера, которые мы для вас подобрали",
+            "pagination": {
+                "pageList": [
+                    {
+                        "active": true,
+                        "href": "#"
+                    },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" }
+                ],
+                "description": "1 – 12 из 100+ вариантов аренды"
+            },
+            "resultList": [
+                {
+                    "number": "888",
+                    "isLuxury": true,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 9990,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 145,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./888_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./888_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./888_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./888_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "840",
+                    "isLuxury": false,
+                    "rating": 4,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 9900,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 65,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./840_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./840_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./840_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./840_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "350",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5000,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 145,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./350_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./350_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./350_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./350_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "352",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5000,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 55,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./352_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./352_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./352_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./352_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "444",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5000,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 15,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./444_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./444_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./444_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./444_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "450",
+                    "isLuxury": false,
+                    "rating": 4,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5300,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 39,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./450_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./450_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./450_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./450_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "666",
+                    "isLuxury": false,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5300,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 25,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./666_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./666_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./666_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./666_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "678",
+                    "isLuxury": false,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5500,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 45,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./678_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./678_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./678_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./678_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "740",
+                    "isLuxury": false,
+                    "rating": 4,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 6000,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 44,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./740_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./740_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./740_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./740_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "856",
+                    "isLuxury": false,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 7300,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 19,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./856_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./856_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./856_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./856_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "980",
+                    "isLuxury": true,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 8500,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 35,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./980_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./980_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./980_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./980_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "982",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5800,
+                        "term": "в сутки"
+                    },
+                    "reviewCount": 56,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./982_image_1_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./982_image_2_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./982_image_3_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./982_image_4_271px.jpg",
+                            "alt": "Комната с двуместной кроватью",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
 }

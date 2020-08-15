@@ -1,0 +1,19 @@
+{
+    "ru": {
+        "STAR_PLURAL": {
+            "one": "звезда", 
+            "few": "звезды", 
+            "many": "звёзд"
+        },
+        "OUT_OF": "из",
+        "RATING": "Рейтинг"
+    },
+    "en": {
+        "STAR_PLURAL": {
+            "one": "star", 
+            "other": "stars"
+        },
+        "OUT_OF": "out of",
+        "RATING": "Rating"
+    }
+}

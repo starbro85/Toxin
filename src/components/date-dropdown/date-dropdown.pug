@@ -2,7 +2,35 @@ include ./datepicker/datepicker
 include ../text-field/text-field
 include ../button/button
 
-mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={}, datepicker={}, clearButton={}, applyButton={}, controlClass })
+mixin date-dropdown(dateDropdown, lang)
+    -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const {
+            isTwin=false,
+            expanded=false, 
+            autoApply=false,
+            required=false,
+            disabled=false,
+            initValue,
+            controlClass 
+        } = dateDropdown;
+
+        const i18n = require('../../components/date-dropdown/i18n.json')[lang];
+        
+        const {
+                CLEAR,
+                APPLY,
+                ARRIVAL,
+                ARRIVAL_TIME,
+                DEPARTURE,
+                DEPARTURE_TIME,
+                DATE_RANGE_PLACEHOLDER,
+                DATE_SINGLE_PLACEHOLDER,
+                TIME_OF_STAY
+            } = i18n;
+
     div(
         class = controlClass ? `date-dropdown js-date-dropdown ${controlClass}` : 'date-dropdown js-date-dropdown'
         data-is-twin = isTwin
@@ -10,17 +38,17 @@ mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={
     )
         if isTwin
             +text-field({ 
-                label: textField.from.label,
+                label: ARRIVAL,
                 controlClass: 'js-date-dropdown__text-field js-date-dropdown__text-field_from',
+                type: 'button',
+                name: 'arrival',
+                placeholder: DATE_SINGLE_PLACEHOLDER,
+                disabled,  
+                required,
+                title: ARRIVAL_TIME,
+                ariaExpanded: `${expanded}`,
+                ariaControls: `datepicker-${id}`,
                 input: {
-                    type: 'button',
-                    name: textField.from.input.name,
-                    placeholder: textField.from.input.placeholder,
-                    disabled: textField.from.input.disabled,  
-                    required: textField.from.input.required,
-                    title: textField.from.input.title,
-                    ariaLabel: textField.from.input.ariaLabel,
-                    ariaExpanded: `${expanded}`,
                     activeClass: 'date-dropdown__button',     
                     controlClass: 'js-date-dropdown__button'
                 },
@@ -30,17 +58,17 @@ mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={
                 }
             })
             +text-field({ 
-                label: textField.to.label,
+                label: DEPARTURE,
                 controlClass: 'js-date-dropdown__text-field js-date-dropdown__text-field_to',
+                type: 'button',
+                name: 'departure',
+                placeholder: DATE_SINGLE_PLACEHOLDER,
+                disabled,  
+                required,
+                title: DEPARTURE_TIME,
+                ariaExpanded: `${expanded}`,
+                ariaControls: `datepicker-${id}`,
                 input: {
-                    type: 'button',
-                    name: textField.to.input.name,
-                    placeholder: textField.to.input.placeholder,
-                    disabled: textField.to.input.disabled,  
-                    required: textField.to.input.required,
-                    title: textField.to.input.title,
-                    ariaLabel: textField.to.input.ariaLabel,
-                    ariaExpanded: `${expanded}`,
                     activeClass: 'date-dropdown__button',     
                     controlClass: 'js-date-dropdown__button'
                 },
@@ -52,17 +80,17 @@ mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={
 
         else 
             +text-field({ 
-                label: textField.label,
+                label: TIME_OF_STAY,
                 controlClass: 'js-date-dropdown__text-field',
+                type: 'button',
+                name: 'rentPeriod',
+                placeholder: DATE_RANGE_PLACEHOLDER,
+                disabled,  
+                required,
+                title: TIME_OF_STAY,
+                ariaExpanded: `${expanded}`,
+                ariaControls: `datepicker-${id}`,
                 input: {
-                    type: 'button',
-                    name: textField.input.name,
-                    placeholder: textField.input.placeholder,
-                    disabled: textField.input.disabled,  
-                    required: textField.input.required,
-                    title: textField.input.title,
-                    ariaLabel: textField.input.ariaLabel,
-                    ariaExpanded: `${expanded}`,
                     activeClass: 'date-dropdown__button',     
                     controlClass: 'js-date-dropdown__button'
                 },
@@ -74,23 +102,20 @@ mixin date-dropdown({ isTwin=false, expanded=false, autoApply=false, textField={
 
         div(class = 'date-dropdown__viewport')
             div(class = 'date-dropdown__container js-date-dropdown__container')
-                +datepicker({
-                    initValue: datepicker.initValue,
-                    lang: datepicker.lang ? datepicker.lang : 'ru'
-                })
+                +datepicker(initValue, lang, `datepicker-${id}`)
 
                 if (!autoApply)
                     div(class = 'date-dropdown__control-panel')
                         +button({
                             type: 'button',
-                            label: clearButton.label,
+                            label: CLEAR,
                             link: true,
                             color: 'dark-shade',
                             controlClass: 'js-date-dropdown__clear-button'
                         })
                         +button({
                             type: 'button',
-                            label: applyButton.label,
+                            label: APPLY,
                             link: true,
                             color: 'purple',
                             controlClass: 'js-date-dropdown__apply-button'

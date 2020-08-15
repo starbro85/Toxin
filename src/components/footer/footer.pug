@@ -3,51 +3,75 @@ include ../logo/logo
 include ../link-list/link-list
 include ../subscribtion-field/subscribtion-field
 
-mixin footer({ heading, logoLink, awardSection, navSection, aboutSection, supportSection, subscribtionSection, copyright, socialSection })
+mixin footer(footer, lang)
+    -
+        const {
+            awardsText,
+            navLinkList,
+            aboutLinkList,
+            supportLinkList,
+            subscribtionText,
+            copyright,
+            socialList
+        } = footer;
+
+        const i18n = require('../../components/footer/i18n.json')[lang]; 
+
+        const {
+            FOOTER_SITE,
+            MAIN_PAGE,
+            AWARDS,
+            NAVIGATION,
+            ABOUT_US,
+            SUPPORT,
+            SUBSCRIBTION,
+            WE_IN_SOCIAL_MEDIA
+        } = i18n;
+
     footer(class = 'footer')
-        h2(class = 'footer__heading') #{heading}
+        h2(class = 'footer__heading') #{FOOTER_SITE}
         div(class = 'footer__content')
             a(
                 class = 'footer__logo-link' 
-                href = logoLink.href
-                title = logoLink.title
-                aria-label = logoLink.ariaLabel
+                href = './login-page.html',
+                title = MAIN_PAGE
+                aria-label = MAIN_PAGE
             )
                 +logo()
 
             section(class = 'footer__awards-section')
-                h3(class = 'footer__label footer__label_visually-hidden') #{awardSection.label}  
-                p(class = 'footer__paragraph') #{awardSection.text}
+                h3(class = 'footer__label footer__label_visually-hidden') #{AWARDS}  
+                p(class = 'footer__paragraph') #{awardsText}
 
             nav(class = 'footer__nav')
                 section(class = 'footer__nav-section')
-                    h3(class = 'footer__label') #{navSection.label}
-                    +link-list(navSection.linkList)
+                    h3(class = 'footer__label') #{NAVIGATION}
+                    +link-list(navLinkList)
 
                 section(class = 'footer__about-section')
-                    h3(class = 'footer__label') #{aboutSection.label}
-                    +link-list(aboutSection.linkList)
+                    h3(class = 'footer__label') #{ABOUT_US}
+                    +link-list(aboutLinkList)
 
                 section(class = 'footer__support-section')
-                    h3(class = 'footer__label') #{supportSection.label}
-                    +link-list(supportSection.linkList)
+                    h3(class = 'footer__label') #{SUPPORT}
+                    +link-list(supportLinkList)
 
             section(class = 'footer__subscribtion-section')
-                h3(class = 'footer__label') #{subscribtionSection.label}
-                p(class = 'footer__paragraph') #{subscribtionSection.text}
-                +subscribtion-field(subscribtionSection.subscribtionField)
+                h3(class = 'footer__label') #{SUBSCRIBTION}
+                p(class = 'footer__paragraph') #{subscribtionText}
+                +subscribtion-field(false, lang)
 
-        div(class = 'footer__separator')
+        hr(class = 'footer__separator')
             
         div(
             class = 'footer__basement'
-            role="contentinfo"
+            role = 'contentinfo'
         ) 
-            p(class = 'footer__copyright') #{copyright.text}
+            p(class = 'footer__copyright') #{copyright}
             
             section(class = 'footer__social')
-                h3(class = 'footer__label footer__label_visually-hidden') #{socialSection.label}
-                +social-list(socialSection.socialList)
+                h3(class = 'footer__label footer__label_visually-hidden') #{WE_IN_SOCIAL_MEDIA}
+                +social-list(socialList)
 
                     
 

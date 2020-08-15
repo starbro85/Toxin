@@ -1,10 +1,27 @@
-mixin counter({ label, ariaLabel, title, name, initValue, maxValue, plural, isBound, boundPlural, boundName })
+mixin counter(counter)
+    -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const {
+            label,
+            ariaLabel,
+            title,
+            name,
+            initValue,
+            maxValue,
+            plural,
+            isBound,
+            boundPlural,
+            boundName
+        } = counter;
+
     div(
         class = 'counter js-counter'
     )
-
         p(
             class = 'counter__label'
+            id = `counter-${id}`
         ) #{label}
         button(
             class = 'counter__control counter__control_decrement js-counter__control_decrement'     
@@ -21,7 +38,7 @@ mixin counter({ label, ariaLabel, title, name, initValue, maxValue, plural, isBo
             aria-valuemin = '0'
             aria-valuemax = maxValue 
             aria-valuenow = initValue
-            aria-label = ariaLabel
+            aria-labelledby = `counter-${id}`
             data-plural = plural
             data-is-bound = isBound
             data-bound-plural = boundPlural

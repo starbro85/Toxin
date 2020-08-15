@@ -1,41 +1,25 @@
 extends ../../globals/template
 
 include ../../components/layout/layout
-include ../../components/filter/filter
-include ../../components/room-card/room-card
-include ../../components/pagination/pagination
+include ../../components/search-room/search-room
 
 block variables
-    -const searchRoom = require('./../../globals/mocks/search-room.json');
-    -const rooms = require('./../../globals/mocks/rooms.json');
-    -const users = require('./../../globals/mocks/users.json');
-    -const lang = searchRoom.lang;
-    -const title = searchRoom.title;
-    -const description = searchRoom.description;
+    -
+        const searchRoomPage = require('../../globals/mocks/search-room.json');
+        const lang = searchRoomPage.lang;
+        const title = searchRoomPage.title;
+        const description = searchRoomPage.description;
 
 block heading
-    | #{searchRoom.heading}
+    | #{searchRoomPage.heading}
 
 block content
-    +layout({
-            header: searchRoom.header,
-            footer: searchRoom.footer,
-            user: users['#1']
-        })
-        main(class = 'search-room')
-            div(class = 'search-room__content')
-                div(class = 'search-room__filter')
-                    +filter(searchRoom.filter)
-                section(class = 'search-room__result-section')
-                    h2(class = 'search-room__heading') #{searchRoom.resultSection.heading}
-                    ul(class = 'search-room__result-list')
-                        each item in rooms
-                            li(class = 'search-room__result-item')
-                                +room-card({ 
-                                    roomCard: searchRoom.resultSection.roomCard,
-                                    room: item
-                                })
-                    div(class = 'search-room__pagination')
-                        +pagination(searchRoom.resultSection.pagination)
-                
-                
+    -
+        const {
+            layout,
+            searchRoom
+        } = searchRoomPage;
+
+    +layout(layout, lang)
+        +search-room(searchRoom, lang)
+

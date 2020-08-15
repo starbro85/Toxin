@@ -1,4 +1,7 @@
-import './search-room.css';
+import '../../components/layout/layout.js';
+import '../../components/search-room/search-room.js';
 
-import './../../components/layout/layout.js';
-import './../../components/filter/filter.js';
+import { renderSearchRoom } from '../../components/search-room/search-room.js';
+
+renderSearchRoom();
+

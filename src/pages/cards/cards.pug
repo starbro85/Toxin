@@ -20,18 +20,14 @@ block content
             div(class = 'cards__column')
                 +form-search(cards.formSearch)
                 +form-registration(cards.formRegistration)
+                
             div(class = 'cards__column')
                 +form-booking({ 
                     root: cards.formBooking, 
                     room: rooms[0]
                 })
                 +form-login(cards.formLogin)
+
             div(class = 'cards__column')
-                +room-card({ 
-                    roomCard: cards.roomCard,
-                    room: rooms[0]
-                })
-                +room-card({ 
-                    roomCard: cards.roomCard,
-                    room: rooms[1]
-                })
+                each item in roomCards
+                    +room-card(item)

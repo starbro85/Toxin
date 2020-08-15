@@ -1,28 +1,52 @@
-mixin doughnut-chart({ label, chart={} })
-
+mixin doughnut-chart(doughnutChart, lang)
     -
         const pluralize = require('./../../globals/helpers/pluralize.js');
-        const wrapWordIntoTag = require('../../globals/helpers/wrapWordIntoTag.js');
-        const title = pluralize(label.plural, label.count);
-        const ariaLabel = chart.counts
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const {
+            countList,
+            colorList
+        } = doughnutChart;
+
+        const i18n = require('../../components/doughnut-chart/i18n.json')[lang];
+
+        const {
+            VOTE_PLURAL, 
+            DELIGHTFULLY,
+            GOOD, 
+            SATISFACTORILY,
+            DISAPPOINTED
+        } = i18n[lang];
+
+        const labelList = [ DISAPPOINTED, SATISFACTORILY, GOOD, DELIGHTFULLY ];
+        const sumCount = countList.reduce((sum, item) => sum += item, 0);
 
     div(
         class = 'doughnut-chart js-doughnut-chart'
-        data-counts = chart.counts
-        data-labels = chart.labels
-        data-colors = chart.colors
+        data-counts = countList
+        data-labels = labelList
+        data-colors = colorList
     )
         div(class = 'doughnut-chart__container js-doughnut-chart__container')
             canvas(
                 class = 'doughnut-chart__canvas js-doughnut-chart__canvas'
                 role = 'img'
-                aria-label = title
+                aria-labelledby = `doughnut-chart-label-${id}`
             )
-            p(class = 'doughnut-chart__title') !{wrapWordIntoTag({ str: title, number: 1, tag: 'span', classList: 'doughnut-chart__first-word'})}
-        ul(class = 'doughnut-chart__legend')
-            each item, index in chart.labels
-                li(
+            p(
+                class = 'doughnut-chart__label'
+                id = `doughnut-chart-label-${id}`
+            ) 
+                span(class = 'doughnut-chart__number') #{sumCount}
+                | #{pluralize(lang, VOTE_PLURAL, sumCount)}
+
+        dl(class = 'doughnut-chart__legend')
+            each item, index in labelList
+                dt(
                     class = 'doughnut-chart__legend-item'
-                    aria-label = `${item}: ${chart.counts[index]}`
-                    style = `--chart-color: ${chart.colors[index]}`
+                    style = `--chart-color: ${colorList[index]}`
                 ) #{item}
+                dd(
+                    class = 'doughnut-chart__legend-number'
+                ) #{countList[index]}

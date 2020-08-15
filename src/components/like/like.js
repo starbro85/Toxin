@@ -1,7 +1,5 @@
 import './like.css';
 
-const render = require('./../../globals/helpers/render.js');
-
 class Like {
     constructor(node) {
         this.root = node;
@@ -20,6 +18,11 @@ class Like {
             this.icon.innerHTML = 'favorite_border';
         }
     }
-};
+}
 
-render('.js-like', Like);
+export function renderLike (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll('.js-like') : document.querySelectorAll('.js-like');
+    if (components.length > 0) {
+        Array.from(components).map((node) => new Like(node));
+    };
+}

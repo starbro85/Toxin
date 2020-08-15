@@ -1,42 +1,60 @@
-mixin pagination({ pages, description })
+mixin pagination(pagination, lang)
+    -
+        const formatOrdinals = require('../../globals/helpers/formatOrdinals.js');
+
+        const {
+            pageList,
+            description
+        } = pagination;
+
+        const i18n = require('../../components/pagination/i18n.json')[lang]; 
+
+        const {
+            PREV_PAGE,
+            NEXT_PAGE,
+            PAGE_ORDINAL_SUFFIXES,
+            PAGE,
+            YOU_HERE
+        } = i18n;
+
     div(class = 'pagination js-pagination')
         ul(class = 'pagination__list')
-            each data, index in pages
-                if data.prev 
-                    li(class = 'pagination__item pagination__item_prev js-pagination__item_prev') 
-                        a(
-                            href = data.href
-                            class = 'pagination__link pagination__link_prev js-pagination__link_prev'
-                            title = data.title
-                            aria-label = data.ariaLabel
-                        ) arrow_back
+            li(class = 'pagination__item pagination__item_prev js-pagination__item_prev') 
+                a(
+                    class = 'pagination__link'
+                    title = PREV_PAGE
+                    aria-label = PREV_PAGE
+                ) arrow_back
 
-                else if data.next
-                    li(class = 'pagination__item pagination__item_next js-pagination__item_next') 
-                        a(
-                            href = data.href
-                            class = 'pagination__link pagination__link_next js-pagination__link_next'
-                            title = data.title
-                            aria-label = data.ariaLabel
-                        ) arrow_forward
-                
-                else if data.active
+            each item, index in pageList
+                -
+                    index++;
+                    const pageNumber = formatOrdinals(lang, PAGE_ORDINAL_SUFFIXES, index, lang);
+                    
+                if item.active
                     li(class = 'pagination__item js-pagination__item pagination__item_active js-pagination__item_active')
                         a(
-                            href = data.href
-                            class = 'pagination__link pagination__link_active js-pagination__link'
-                            title = data.title
-                            aria-label = data.ariaLabel
+                            href = item.href
+                            class = 'pagination__link'
+                            title = `${pageNumber} ${PAGE} (${YOU_HERE})`
+                            aria-label = `${pageNumber} ${PAGE} (${YOU_HERE})`
                         ) #{index}
                         
                 else 
                     li(class = 'pagination__item js-pagination__item')
                         a(
-                            href = data.href
+                            href = item.href
                             class = 'pagination__link js-pagination__link'
-                            title = `${data.title} ${index}`
-                            aria-label = `${data.ariaLabel} ${index}`
+                            title = `${pageNumber} ${PAGE}`
+                            aria-label = `${pageNumber} ${PAGE}`
                         ) #{index}
+
+            li(class = 'pagination__item pagination__item_next js-pagination__item_next') 
+                a(
+                    class = 'pagination__link'
+                    title = NEXT_PAGE
+                    aria-label = NEXT_PAGE
+                ) arrow_forward
 
         if description
             span(class = 'pagination__description') #{description}

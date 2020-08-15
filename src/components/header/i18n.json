@@ -1,0 +1,20 @@
+{
+    "ru": {
+        "MAIN_PAGE": "Главная страница",
+        "NAVIGATION_MENU": "Навигационное меню",
+        "LOGIN": "Войти",
+        "LOGIN_PAGE": "Страница авторизации",
+        "REGISTRATION": "Регистрация",
+        "REGISTRATION_PAGE": "Страница регистрации",
+        "PERSONAL_ACCOUNT": "Личный кабинет"
+    },
+    "en": {
+        "MAIN_PAGE": "Main page",
+        "NAVIGATION_MENU": "Navigation menu",
+        "LOGIN": "Login",
+        "LOGIN_PAGE": "Login page",
+        "REGISTRATION": "Registration",
+        "REGISTRATION_PAGE": "Registration page",
+        "PERSONAL_ACCOUNT": "Personal account"
+    }
+}

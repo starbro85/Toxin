@@ -1,7 +1,5 @@
 import './pagination.css';
 
-const render = require('./../../globals/helpers/render.js');
-
 class Pagination {
     constructor(node) {
         this.root = node;
@@ -19,14 +17,16 @@ class Pagination {
 
         if (activeItemIndex > 0) {
             this.prev.classList.add('pagination__item_shown');
-            const prevItemLink = this.items[activeItemIndex - 1].querySelector('.js-pagination__link');
-            this.prev.querySelector('.js-pagination__link_prev').setAttribute('href', prevItemLink.getAttribute('href'));
+            const nextLink = this.next.querySelector('.pagination__link');
+
+            nextLink.setAttribute('href', this.items[activeItemIndex - 1].getAttribute('href'));
         }
 
         if (activeItemIndex < this.items.length) {
+            const prevLink = this.next.querySelector('.pagination__link')
+
             this.next.classList.add('pagination__item_shown');
-            const nextItemLink = this.items[activeItemIndex + 1].querySelector('.js-pagination__link');
-            this.next.querySelector('.js-pagination__link_next').setAttribute('href', nextItemLink.getAttribute('href'));
+            prevLink.setAttribute('href', this.items[activeItemIndex + 1].getAttribute('href'));
         }
 
         if (activeItemIndex >= 4) {
@@ -38,7 +38,6 @@ class Pagination {
             this.items[this.items.length - 1].classList.add('pagination__item_shown');
         }
 
-
         this.items.forEach((item, index) => {
             if ((index >= activeItemIndex - 2) && (index <= activeItemIndex + 2) && (index !== activeItemIndex)) {
                 item.classList.add('pagination__item_shown');
@@ -49,6 +48,11 @@ class Pagination {
     init() {
         this.normalizeItemsList();
     }
-};
+}
 
-render('.js-pagination', Pagination);
+export function renderPagination (parentNode) {
+    const components = parentNode ? parentNode.querySelectorAll('.js-pagination') : document.querySelectorAll('.js-pagination');
+    if (components.length > 0) {
+        Array.from(components).map((node) => new Pagination(node));
+    };
+}

@@ -1,23 +1,45 @@
 include ../button/button
 include ./counter/counter
 
-mixin quantity-dropdown({ textField={},  expanded=false, autoApply=false, counters=[], clearButton={}, applyButton={} })
+mixin quantity-dropdown(quantityDropdown, lang)
+    -
+        const {
+            label,
+            name, 
+            placeholder,
+            title,
+            ariaLabel, 
+            disabled=false,  
+            required=false,
+            expanded=false, 
+            autoApply=false, 
+            counterList
+        } = quantityDropdown;
+
+        const i18n = require('../../components/quantity-dropdown/i18n.json')[lang]; 
+
+        const {
+            CLEAR,
+            APPLY
+        } = i18n;
+
+
     div(
         class = expanded ? 'quantity-dropdown quantity-dropdown_expanded js-quantity-dropdown' : 'quantity-dropdown js-quantity-dropdown'
         data-auto-apply = autoApply
     )
         +text-field({ 
-            label: textField.label,
+            type: 'button',
+            label,
+            name,
+            placeholder,
+            disabled,  
+            required,
+            title,
+            ariaLabel,
+            ariaExpanded: `${expanded}`,
             controlClass: 'js-quantity-dropdown__text-field',
             input: {
-                type: 'button',
-                name: textField.input.name,
-                placeholder: textField.input.placeholder,
-                disabled: textField.input.disabled,  
-                required: textField.input.required,
-                title: textField.input.title,
-                ariaLabel: textField.input.ariaLabel,
-                ariaExpanded: `${expanded}`,
                 activeClass: 'quantity-dropdown__button',     
                 controlClass: 'js-quantity-dropdown__button'
             },
@@ -29,26 +51,23 @@ mixin quantity-dropdown({ textField={},  expanded=false, autoApply=false, counte
 
         div(class = 'quantity-dropdown__viewport')
             div(class = 'quantity-dropdown__container js-quantity-dropdown__container')
-
-                if counters
-                    ul(class = 'quantity-dropdown__counters-list')
-
-                        each data in counters
-                            li(class = 'quantity-dropdown__counters-list-item')
-                                +counter(data)
+                ul(class = 'quantity-dropdown__counters-list')
+                    each item in counterList
+                        li(class = 'quantity-dropdown__counters-list-item')
+                            +counter(item)
         
                 if !autoApply
                     div(class = 'quantity-dropdown__control-panel')
                         +button({
                             type: 'button',
-                            label: clearButton.label,
+                            label: CLEAR,
                             link: true,
                             color: 'dark-shade',
                             controlClass: 'js-quantity-dropdown__clear-button'
                         })
                         +button({
                             type: 'button',
-                            label: applyButton.label,
+                            label: APPLY,
                             link: true,
                             color: 'purple',
                             controlClass: 'js-quantity-dropdown__apply-button'

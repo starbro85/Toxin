@@ -1,10 +1,16 @@
 include ../header/header
 include ../footer/footer
 
-mixin layout({ header, footer, user })
-    +header({ header, user })  
+mixin layout(layout, lang)
+    -
+        const {
+            header,
+            footer
+        } = layout;
+
+    +header(header, lang)  
 
     if block
         block
     
-    +footer(footer)
+    +footer(footer, lang)

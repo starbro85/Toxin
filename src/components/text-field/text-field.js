@@ -44,5 +44,3 @@ class TextField {
         this.setMask();
     }
 };
-
-render('.js-text-field', TextField);

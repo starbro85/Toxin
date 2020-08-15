@@ -1,0 +1,96 @@
+{
+    "ru": {
+        "FILTER": "Фильтр",
+        "GUESTS": "Гости",
+        "GUEST_PLURAL": {
+            "one": "Гость",
+            "few": "Гостя",
+            "many": "Гостей"
+        },
+        "NUMBER_OF_GUESTS": "Количество гостей",
+        "ADULTS": "Взрослые",
+        "ADULT_PLURAL": {
+            "one": "Взрослый",
+            "other": "Взрослых"
+        },
+        "KIDS": "Дети",
+        "KID_PLURAL": {
+            "one": "Ребёнок",
+            "few": "Ребёнка",
+            "many": "Детей"
+        },
+        "BABIES": "Младенцы",
+        "BABY_PLURAL": {
+            "one": "Младенец",
+            "few": "Младенца",
+            "many": "Младенцев"
+        },
+        "PRICE_RANGE": "Диапазон цены",
+        "PERMISSION": "Разрешено",
+        "ACCESSIBILITY": "Доступность",
+        "ROOM_AMENITIES": "Удобства комнаты",
+        "BEDROOMS": "Спальни",
+        "BEDROOM_PLURAL": {
+            "one": "Спальня",
+            "few": "Спальни",
+            "many": "Спален"
+        },
+        "BEDS": "Кровать",
+        "BED_PLURAL": {
+            "one": "Кровать",
+            "few": "Кровати",
+            "many": "Кроватей"
+        },
+        "BATHROOMS": "Ванные комнаты",
+        "BATHROOM_PLURAL": {
+            "one": "Ванная комната",
+            "few": "Ванные комнаты",
+            "many": "Ванных комнат"
+        },
+        "ADDITION_AMENITIES": "Дополнительные удобства"
+    },
+    "en": {
+        "FILTER": "Фильтр",
+        "GUESTS": "Guests",
+        "GUEST_PLURAL": {
+            "one": "Guest",
+            "other": "Guests"
+        },
+        "NUMBER_OF_GUESTS": "Number of guests",
+        "ADULTS": "Adults",
+        "ADULT_PLURAL": {
+            "one": "Adult",
+            "other": "Adults"
+        },
+        "KIDS": "Kids",
+        "KID_PLURAL": {
+            "one": "Kid",
+            "other": "Kids"
+        },
+        "BABIES": "Babies",
+        "BABY_PLURAL": {
+            "one": "Baby",
+            "other": "Babies"
+        },
+        "PRICE_RANGE": "Price range",
+        "PERMISSION": "Permission",
+        "ACCESSIBILITY": "Accessibility",
+        "ROOM_AMENITIES": "Room amenities",
+        "BEDROOMS": "Bedrooms",
+        "BEDROOM_PLURAL": {
+            "one": "bedroom",
+            "other": "bedrooms"
+        },
+        "BEDS": "Beds",
+        "BED_PLURAL": {
+            "one": "bed",
+            "other": "beds"
+        },
+        "BATHROOMS": "Bath rooms",
+        "BATHROOMS_PLURAL": {
+            "one": "bath rooms",
+            "other": "bath rooms"
+        },
+        "ADDITION_AMENITIES": "Addition amenities"
+    }
+}

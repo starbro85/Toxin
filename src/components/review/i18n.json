@@ -1,0 +1,15 @@
+{
+    "ru": {
+        "DAY_PLURAL": {
+            "one": "день",
+            "few": "дня",
+            "many": "дней"
+        }
+    },
+    "en": {
+        "DAY_PLURAL": {
+            "one": "day",
+            "other": "days"
+        }
+    }
+}
