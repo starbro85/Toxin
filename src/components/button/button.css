@@ -15,7 +15,7 @@
 
 .button:not(.button_link) {
     width: min(100%, 320px);
-    height: min(100%, 44px);
+    height: min(100%, 3.14285714286rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
 }
 
 .button:not(.button_link).button_with_border {
-    padding: 0 18px;
+    padding: 0 1.28571428571rem;
     border: var(--border-3);
     color: var(--purple-100per);
 
@@ -42,7 +42,7 @@
 }
 
 .button:not(.button_link).button_filled {
-    padding: 0 20px;
+    padding: 0 1.42857142857rem;
     background: var(--purple-gradient);
     color: white;
 
@@ -104,9 +104,9 @@
 .button__icon {
     position: absolute;
     right: 0;
-    width: 44px;
+    width: 3.14285714286rem;
     font: var(--icon-font);
-    font-size: 24px;
+    font-size: 1.71428571429rem;
     pointer-events: none;
 }
 

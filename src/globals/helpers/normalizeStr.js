@@ -1,10 +1,10 @@
-const normalizeStr = function(str, size) {     
+const normalizeStr = function(str, size) { 
     if (str.length > size) {
-        return str.split(', ').reduce((acc, item) => (`${acc} ${item},`.length < size) ? `${acc} ${item},` : `${acc}`, '').slice(1, -1) + '…';
-    }
-    else {
-        return str;
-    }
+        return str
+                .split(', ')
+                .reduce((string, word) => (`${string} ${word},`.length < size) ? `${string} ${word},` : `${string}`, '')
+                .slice(1, -1) + '…';
+    } else return str;
 };
 
 module.exports = normalizeStr;

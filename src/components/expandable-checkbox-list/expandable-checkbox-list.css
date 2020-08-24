@@ -4,8 +4,8 @@
 
 .expandable-checkbox-list__button {
     width: min(100%, 320px);
-    height: 44px;
-    padding-right: 10px;
+    height: 3.14285714286rem;
+    padding-right: 0.71428571428rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +43,7 @@
     }
 
     &:active .expandable-checkbox-list__icon {
-        transform:  translateY(5px);
+        transform:  translateY(0.35714285714rem);
         transition: transform .2s;
     }
 }
@@ -51,7 +51,7 @@
 /* expand container */
 
 .expandable-checkbox-list__expand-container {
-    padding-top: 4px;
+    padding-top: 0.28571428571rem;
     opacity: 0;          
     max-height: 0;       
     visibility: hidden;

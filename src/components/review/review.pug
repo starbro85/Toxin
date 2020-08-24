@@ -1,15 +1,7 @@
 include ../like/like
 
 mixin review(review, lang)
-    
     -
-        const getImagePath = require('../../globals/helpers/getImagePath.js');
-        const pluralize = require('../../globals/helpers/pluralize.js');
-        const path = getImagePath({src: user.image.src});
-        const pubdateTimestamp = new Date(pubdate).getTime();
-        const totalTimestamp = Date().now();
-        const elapsedDays = Math.floor((totalTimestamp - pubdateTimestamp)/(60*60*24*1000));
-
         const {
             user,
             pubdate,
@@ -17,24 +9,28 @@ mixin review(review, lang)
             like 
         } = review;
 
-        const i18n = require('../../components/review/i18n.json')[lang]; 
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+        const path = getImagePath(user.image);
 
-        const { DAY_PLURAL } = i18n;
-
-    section(class = 'review js-review')
+    article(
+        class = 'review js-review'
+        data-lang = lang
+    )
         img(
-            class = 'review__avatar js-review__avatar'
+            class = 'review__avatar'
             src = path.src,
-            alt = user.image.alt
+            alt = `${user.name} ${user.surname}`
+            title = `${user.name} ${user.surname}`
         )
-        div(class = 'review__like js-review__like')
+
+        div(class = 'review__like')
             +like(like, lang)
 
-        h4(class = 'review__name js-review__name') #{user.fullname}
+        h3(class = 'review__name') #{user.name} #{user.surname}
         
         time(
-            class = 'review__date js-review__date'
-            pubdate = pubdate
-        ) #{elapsedDays} #{pluralize(lang, DAY_PLURAL, elapsedDays)}
+            class = 'review__pubdate js-review__pubdate'
+            datetime = pubdate
+        ) 
 
-        p(class = 'review__text js-review__text') #{text}
+        p(class = 'review__text') #{text}

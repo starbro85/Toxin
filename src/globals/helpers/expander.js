@@ -10,9 +10,7 @@ export class Expander {
         if (this.expanded && event.code === 'Tab' && event.shiftKey && document.activeElement === this.firstFocusableElement) {
             this.lastFocusableElement.focus();
             event.preventDefault();
-        } 
-
-        else if (this.expanded && event.code === 'Tab' && !event.shiftKey && document.activeElement === this.lastFocusableElement) {
+        } else if (this.expanded && event.code === 'Tab' && !event.shiftKey && document.activeElement === this.lastFocusableElement) {
             this.firstFocusableElement.focus();
             event.preventDefault();
         } 
@@ -44,18 +42,16 @@ export class Expander {
         if (this.expanded) {
             this.root.addEventListener('keydown', this.handleTrapFocus);
             document.addEventListener('keyup', this.handleEscapeKeyPress);
-        }
-
-        else {
+        } else {
             this.root.removeEventListener('keydown', this.handleTrapFocus);
             document.removeEventListener('keyup', this.handleEscapeKeyPress);
         }
     }
 
     toggleOutsideClickCollapse() { 
-        if (this.expanded) { document.addEventListener('mouseup', this.handleOutsideClick); } 
+        if (this.expanded) { document.addEventListener('mousedown', this.handleOutsideClick); } 
 
-        else { document.removeEventListener('mouseup', this.handleOutsideClick); } 
+        else { document.removeEventListener('mousedown', this.handleOutsideClick); } 
     }
 
     toggle = () => {
@@ -79,7 +75,7 @@ export class Expander {
 
     init() {
         if (this.options.trapFocus) {
-            this.focusableElements = this.root.querySelectorAll('a[href]:not([disabled]):not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"])');
+            this.focusableElements = this.root.querySelectorAll('a[href]:not([disabled]):not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), [tabindex="0"]:not(:disabled)');
             this.firstFocusableElement = this.focusableElements[0];
             this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
         }
@@ -87,7 +83,7 @@ export class Expander {
         if (this.options.multiple) { 
             this.buttons = this.options.control;
 
-            this.buttons.forEach((button) => button.addEventListener('click', this.toggle)); 
+            this.buttons.forEach((button) => button.addEventListener('click', this.toggle));
         }
             
         else { 

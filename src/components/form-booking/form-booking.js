@@ -4,21 +4,26 @@ import './tooltip/tooltip.js';
 import '../button/button.js';
 import '../quantity-dropdown/quantity-dropdown.js';
 
-class FormBooking {
-    constructor(node) {
-        this.root = node;
-        this.dateDropdown = this.root.querySelector('.js-form-booking__date-dropdown');
+import { DateDropdown } from '../date-dropdown/date-dropdown.js';
+import { QuantityDropdown } from '../quantity-dropdown/quantity-dropdown.js';
 
-        this.init();
+export class FormBooking {
+    constructor(node) {
+        if (node) {
+            this.root = node;
+        }
     }
 
-    init() { 
+    _init() { 
+        new DateDropdown().render(this.root);
+        new QuantityDropdown().render(this.root);
+    }
+
+    render(parent) {
+        const components = parent ? parent.querySelectorAll('.js-form-booking') : document.querySelectorAll('.js-form-booking');
+
+        if (components.length > 0) {
+            Array.from(components).map((node) => new FormBooking(node)._init());
+        };
     }
 };
-
-export function renderFormBooking (parentNode) {
-    const components = parentNode ? parentNode.querySelectorAll('.js-form-booking') : document.querySelectorAll('.js-form-booking');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new FormBooking(node));
-    };
-}

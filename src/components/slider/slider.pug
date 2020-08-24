@@ -9,10 +9,6 @@ mixin slider(slider, lang)
             margin 
         } = slider;
 
-        const i18n = require('../../components/slider/i18n.json')[lang];
-
-        const { CURRENCY } = i18n;
-
     div(class = 'slider js-slider')
         label(class = 'slider__label')
             span #{label}
@@ -30,5 +26,4 @@ mixin slider(slider, lang)
             data-step = step
             data-margin = margin
             data-lang = lang
-            data-currency = CURRENCY
         )

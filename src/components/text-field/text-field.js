@@ -2,9 +2,7 @@ import './text-field.css';
 
 import Cleave from 'cleave.js';
 
-const render = require('./../../globals/helpers/render.js');
-
-class TextField {
+export class TextField {
     constructor(node) {
         this.root = node;
         this.input = this.root.querySelector('.js-text-field__input');
@@ -12,10 +10,10 @@ class TextField {
         this.title = this.input.title;
 
 
-        this.init();
+        this._init();
     }
 
-    setMask() {
+    _setMask() {
         switch(this.mask) {
             case 'date':
                 new Cleave(this.input, {
@@ -29,18 +27,15 @@ class TextField {
         }
     }
 
-    init() {
-        if (this.input.type === 'button') { 
-            this.hiddenInput = this.root.querySelector('.js-text-field__hidden-input');
-            this.hiddenInput.addEventListener('focus', (event) => this.input.focus());
+    _init() {
+        this._setMask();
+    }
 
-            this.root.addEventListener('text-field-value-sent', event => {
-                this.input.value = event.detail.value ? event.detail.value : this.value;
-                this.input.title = event.detail.title ? event.detail.title : this.title;
-                this.hiddenInput.value = event.detail.submitValue;
-            });
-        }
+    render(parent) {
+        const components = parent ? parent.querySelectorAll('.js-text-field') : document.querySelectorAll('.js-text-field');
 
-        this.setMask();
+        if (components.length > 0) {
+            Array.from(components).map((node) => new TextField(node)._init());
+        };
     }
 };

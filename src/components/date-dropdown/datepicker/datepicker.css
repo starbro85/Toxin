@@ -1,128 +1,130 @@
 /* datepicker */
+ .datepicker__calendar {
+     display: grid;
+     width: 100%;
 
-/* flatpickr */
+     &:focus {
+         outline: var(--outline);
+         outline-offset: 2px;
+     }
+ }
 
-.flatpickr-calendar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.flatpickr-months  {
+ .datepicker__header {
+    margin-bottom: 2.14285714286rem;
     display: flex;
     justify-content: space-between;
-}
 
-.flatpickr-current-month {
-    display: flex;
-    font: var(--h2-font);
-}
+    & .datepicker__prev, & .datepicker__next {
+        font: var(--icon-font);
+        font-size: 1.71428571429rem;
+        color: var(--purple-100per);
+        cursor: pointer;
 
-.numInput {
-    width: 50px;
-    margin-left: 5px;
-    font-weight: bold;
-    -moz-appearance: textfield;
-
-    &:focus {
-        outline: var(--outline);
-        outline-offset: 2px;
+        &:focus {
+            outline: var(--outline);
+            outline-offset: 2px;
+        }
     }
-    
-    &:-webkit-inner-spin-button, &.numInput:-webkit-outer-spin-button {
-        display: none;
-        margin: 0;
-    }
-}
 
-.flatpickr-prev-month, .flatpickr-next-month  {
-    font: var(--icon-font);
-    font-size: 24px;
-    color: var(--purple-100per);
-    cursor: pointer;
-    
-    &:focus {
-        outline: var(--outline);
-        outline-offset: 2px;
-    }
-    
-    &.flatpickr-disabled {
-        opacity: 0.5;
-        cursor: default;
-        pointer-events: none;
+    & .datepicker__title {
+        font: var(--h2-font);
+        color: var(--dark-shade-100per);
+        
+        &:focus-within {    
+            outline: var(--outline);
+            outline-offset: 2px;
+        }
+
+        & select {
+            & option {
+                font-weight: normal;
+                color: var(--dark-shade-75per);
+
+                &:checked {
+                    background-color: var(--dark-shade-25per);
+                }
+            }
+        }
     }
 }
 
-.flatpickr-weekdaycontainer {
+ .datepicker__row {
     display: grid;
     grid-auto-flow: column;
-    align-items: center;
+    grid-auto-columns: 1fr;
 }
 
-.flatpickr-weekday {
+ .datepicker__weekday {
     padding-top: calc(50% - 1.05rem/2);
     padding-bottom: calc(50% - 1.05rem/2);
-    text-align: center;
-    font: var(--h3-font); 
-    color: var(--purple-100per);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & abbr {  
+        font: var(--h3-font);
+        color: var(--purple-100per);
+        text-decoration: none;
+        cursor: help;
+    }
 }
 
-.flatpickr-rContainer {
-    margin-top: min(4%, 30px);
-}
-
-.dayContainer {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-.flatpickr-day {
+ .datepicker__day {
+    position: relative;
     padding-top: calc(50% - 1.05rem/2);
     padding-bottom: calc(50% - 1.05rem/2);
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     font: var(--h3-font); 
     font-weight: normal;
     color: var(--dark-shade-50per);
     cursor: pointer;
+
+    &:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(0);
+    }
 
     &:focus {
         outline: var(--outline);
         outline-offset: 2px;
     }
 
-    &.prevMonthDay, &.nextMonthDay {
+    &.is-disabled {
+        cursor: not-allowed;
+    }
+
+    &.is-otherMonth {
         color: var(--dark-shade-25per);
     }
 
-    &.flatpickr-disabled {
-        color: var(--dark-shade-25per);
-        cursor: default
-    }
-
-    &.today {
-        background: var(--green-gradient);
+    &.is-today {
         color: white;
         font-weight: bold;
-    }
 
-    &.startRange, &.endRange {
-        position: relative;
-        background: var(--purple-gradient);
-        color: white;
-        font-weight: bold;
-    }
-
-    &.startRange.endRange {
-        &:before {
-            content: none;
+        &:after {  
+            background: var(--green-gradient);
+            transform: scale(1);
         }
     }
 
-    &.startRange:before {
+    &.is-startRange, &.is-endRange{
+        color: white;
+        font-weight: bold;
+
+        &:after {
+            background: var(--purple-gradient);
+            transform: scale(1);
+        }
+    }
+
+    &.is-startRange:not(.is-endRange, :last-child):before {
         z-index: -1;
         content: '';
         position: absolute;
@@ -132,7 +134,7 @@
         background-color: var(--purple-25per);
     }
 
-    &.endRange:before {
+    &.is-endRange:not(.is-startRange, :first-child):before {
         z-index: -1;
         content: '';
         position: absolute;
@@ -142,10 +144,25 @@
         background-color: var(--purple-25per);
     }
 
-    &.inRange:not(.startRange, .endRange) {
+    &.is-selected:not(.is-startRange, .is-endRange) {
         position: relative;
 
+        &:first-child {
+            &:before {
+                border-top-left-radius: 50%;
+                border-bottom-left-radius: 50%;
+            }
+        }
+
+        &:last-child {
+            &:before {
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+            }
+        }
+
         &:before {
+            z-index: -1;
             content: '';
             position: absolute;
             width: 100%;
@@ -154,20 +171,25 @@
         }
     }
 
-    &:not(.endRange, .startRange, .flatpickr-disabled){
+    &:not(.is-endRange, .is-startRange, .is-today, .is-disabled){
         &:hover, &:focus {
-            text-decoration: underline;
+            color: white;
+            font-weight: bold;
+
+            &:after {
+                background-color: var(--purple-50per);
+                transform: scale(1);
+                transition: transform .3s;
+            }
         }
     }
 
-    &.startRange, &.endRange {
-        &:hover, &:focus {
+    &.is-startRange, &.is-endRange, &.is-today {
+        &:hover:after, &:focus:after {
             box-shadow: var(--shadow-hover);
         }
     }
 }
-
-
 
 
 

@@ -29,7 +29,7 @@ mixin footer(footer, lang)
         } = i18n;
 
     footer(class = 'footer')
-        h2(class = 'footer__heading') #{FOOTER_SITE}
+        h2(class = 'footer__heading visually-hidden') #{FOOTER_SITE}
         div(class = 'footer__content')
             a(
                 class = 'footer__logo-link' 
@@ -40,7 +40,7 @@ mixin footer(footer, lang)
                 +logo()
 
             section(class = 'footer__awards-section')
-                h3(class = 'footer__label footer__label_visually-hidden') #{AWARDS}  
+                h3(class = 'footer__label visually-hidden') #{AWARDS}  
                 p(class = 'footer__paragraph') #{awardsText}
 
             nav(class = 'footer__nav')
@@ -70,7 +70,7 @@ mixin footer(footer, lang)
             p(class = 'footer__copyright') #{copyright}
             
             section(class = 'footer__social')
-                h3(class = 'footer__label footer__label_visually-hidden') #{WE_IN_SOCIAL_MEDIA}
+                h3(class = 'footer__label visually-hidden') #{WE_IN_SOCIAL_MEDIA}
                 +social-list(socialList)
 
                     

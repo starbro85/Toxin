@@ -14,7 +14,6 @@ const currencyFormat = function(lang, currency, number) {
     })
     .reduce((string, part) => string + part);
 
-
     return result;
 }
 

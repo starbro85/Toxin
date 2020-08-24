@@ -3,7 +3,7 @@
 .pagination {
     width: max-content;
     display: grid;
-    row-gap: 9px;
+    row-gap: 0.64285714285rem;
     justify-items: center;
 }
 
@@ -12,7 +12,7 @@
 .pagination__description {
     font: var(--body-font);
     color: var(--dark-shade-75per);
-    line-height: 24px;
+    line-height: 1.71428571429rem;
 }
 
 /* list */
@@ -55,7 +55,7 @@
         background: var(--green-gradient);
         border-radius: 50%;
         font: var(--icon-font);
-        font-size: 24px;
+        font-size: 1.71428571429rem;
         color: white;
 
         &:hover {
@@ -65,8 +65,8 @@
 }
 
 .pagination__item_ellipsis {
-    width: 40px; 
-    height: 40px;
+    width: 2.85714285714rem; 
+    height: 2.85714285714rem;
     justify-content: center;
     align-items: center;
     font: var(--body-font);
@@ -77,13 +77,13 @@
 /* link */
 
 .pagination__link {
-    width: 40px; 
-    height: 40px;
+    width: 2.85714285714rem; 
+    height: 2.85714285714rem;
     display: inline-flex;
     justify-content: center; 
     align-items: center;
     font: var(--body-font);
-    font-size: 12px;
+    font-size: 0.85714285714rem;
     color: var(--dark-shade-50per);
     text-decoration: none;
 

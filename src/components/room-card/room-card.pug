@@ -21,20 +21,21 @@ mixin room-card(roomCard, lang)
         const {
             LEARN_MORE,
             REVIEW_PLURAL,
-            LUXURY
+            LUXURY,
+            PER_DAY
         } = i18n;
     
     section(class = 'room-card js-room-card')
         +carousel(imageList, lang) 
 
         h3(class = 'room-card__heading')
-            span(class = 'room-card__number') № #{number}
+            span(class = 'room-card__number') № #{number}&nbsp;
                 if isLuxury
-                    strong(class = 'room-card__сategory') &nbsp;#{LUXURY}
+                    strong(class = 'room-card__сategory') #{LUXURY}&nbsp;
 
             span(class = 'room-card__rent')
-                b(class = 'room-card__price') #{currencyFormat(lang, rent.currency, rent.number)} 
-                small(class = 'room-card__term') #{rent.term}
+                b(class = 'room-card__rent-price') #{currencyFormat(lang, rent.currency, rent.number)} 
+                small(class = 'room-card__rent-term') #{PER_DAY}
         
         hr(class = 'room-card__separator')
 
@@ -45,12 +46,13 @@ mixin room-card(roomCard, lang)
                 rating: rating,
                 disabled: true
             }, lang)
-            p(class = 'room-card__review')
+
+            p(class = 'room-card__review-count')
                 b #{reviewCount}&nbsp;
                 | #{pluralize(lang, REVIEW_PLURAL, reviewCount)}
         
         a(
             class = 'room-card__link'
             href = href
-            title = LEARN_MORE
+            title = `${LEARN_MORE}…`
         ) #{LEARN_MORE}

@@ -1,9 +1,9 @@
 /* slider */
 
 .slider {
-    height: 44px;
+    height: 3.14285714286rem;
     display: grid;
-    row-gap: 23px;
+    row-gap: 1.64285714286rem;
 }
 
 /* label */
@@ -21,9 +21,9 @@
 .slider__input {
     margin-right: -3px;
     font: var(--body-font);
-    font-size: 12px;
+    font-size: 0.85714285714rem;
     color: var(--dark-shade-50per);
-    height: 15px;
+    height: 1.07142857143rem;
     text-align: end;
     pointer-events: none;
     outline: none;
@@ -85,10 +85,9 @@
 .slider .slider__range .slider__tooltip {
     visibility: hidden;
     width: max-content;
-    max-width: 200px;
     opacity: 0;
-    padding: 5px;
-    font: lighter 12px Arial;
+    padding: 0.35714285714rem;
+    font: lighter 0.85714285714rem Arial;
     background-color: white;
     border: 1px solid black;
     color: black;

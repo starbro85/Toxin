@@ -2,10 +2,10 @@
 
 .date-dropdown {
     position: relative;
-    width: min(100%, 320px);
+    width: min(100%, 22.8571428571rem);
     display: grid;
     grid-auto-flow: column;
-    column-gap: 20px;
+    column-gap: 1.42857142857rem;
 }
 
 /* viewport */
@@ -13,12 +13,12 @@
 .date-dropdown__viewport {
     position: absolute;
     z-index: -1;
-    --padding: 20px;
+    --padding: 1.42857142857rem;
     min-width: calc(100% + var(--padding) * 2); 
-    padding: 10px var(--padding) var(--padding) var(--padding);
+    padding: 0.71428571428rem var(--padding) var(--padding) var(--padding);
     overflow: hidden;
     left: calc(var(--padding) * -1);
-    top: 60px;
+    top: 4.28571428571rem;
     opacity: 0;
     visibility: hidden;
     transition: visibility step-end .6s, opacity .6s, z-index step-end .6s;
@@ -37,7 +37,7 @@
     --padding: 6.25%;
     padding: var(--padding) var(--padding) var(--padding) var(--padding);
     border: var(--border-1);
-    border-radius: 3px;
+    border-radius: 0.21428571428rem;
     border-color: var(--dark-shade-50per);
     box-shadow: var(--shadow-1);
     background-color: white;

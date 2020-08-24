@@ -2,15 +2,8 @@
 
 .tooltip {
     position: relative;
-    widht: max-content;
-    height: max-content;
-}
-
-/* button */
-
-.tooltip__button {
-    width: 20px;
-    height: 20px;
+    width: 1.42857142857rem;
+    height: 1.42857142857rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -19,25 +12,35 @@
     font: var(--body-font);
     color: var(--dark-shade-25per);
     cursor: pointer;
-}
+    
+    &:focus {
+        outline: var(--outline);
+        outline-offset: 2px;
+    }
 
-.tooltip__button:focus {
-    outline: var(--outline);
-    outline-offset: 2px;
+    &:hover, &:focus {
+        & .tooltip__description {
+            z-index: 1;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity step-end 0.5s;
+        }
+    }
 }
 
 /* description */
 
 .tooltip__description {
-    width: max-content;
-    max-width: 200px;
+    z-index: -1;
+    max-width: 14.2857142857rem;
     position: absolute;
-    bottom: -3px;
+    right: -5.35714285714rem;
     visibility: hidden;
+    width: max-content;
+    display: block;
     opacity: 0;
-    margin-left: 5px;
-    padding: 5px;
-    font: lighter 12px Arial;
+    padding: 0.35714285714rem;
+    font: lighter 0.85714285714rem Arial;
     background-color: white;
     border: 1px solid black;
     color: black;
@@ -45,11 +48,3 @@
     pointer-events: none;
 }
 
-.tooltip__button:hover,
-.tooltip__button:focus {
-    & + .tooltip__description {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity step-end 0.5s;
-    }
-}

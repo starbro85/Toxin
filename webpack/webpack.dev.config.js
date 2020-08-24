@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHardDiskPlugin = require('html-webpack-harddisk-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 
 const config = {
@@ -67,13 +66,16 @@ const config = {
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new MomentLocalesPlugin({
-            localesToKeep: ['ru', 'en']
-        }),
         new HtmlWebpackPlugin({
             title: 'search-room',
             filename: 'search-room.html',
             template: '../src/pages/search-room/search-room.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'room-detail',
+            filename: 'room-detail.html',
+            template: '../src/pages/room-detail/room-detail.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

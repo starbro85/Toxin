@@ -1,8 +1,8 @@
 /* rate */
 
 .rate-button {
-    width: 24px;
-    height: 24px;   
+    width: 1.71428571429rem;
+    height: 1.71428571429rem;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
     &:before {
         content: 'star';
         font: var(--icon-font);
-        font-size: 24px;
+        font-size: 1.71428571429rem;
         background: var(--purple-gradient);  
         background-clip: text; 
         -webkit-background-clip: text;

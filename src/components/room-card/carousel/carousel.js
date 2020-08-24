@@ -10,10 +10,10 @@ export class Carousel {
         this.buttonPrev = this.root.querySelector('.js-carousel__control_prev');
         this.buttonNext = this.root.querySelector('.js-carousel__control_next');
 
-        this.init();
+        this._init();
     }
 
-    handleKeyboardControl = (event) => {
+    _handleKeyboardControl = (event) => {
         if (event.target === this.buttonPrev) {
             if (event.key === 'ArrowRight') {
                 this.buttonNext.focus();
@@ -37,7 +37,7 @@ export class Carousel {
         }
     }
 
-    init() {
+    _init() {
         new Swiper(this.root, {
             navigation: {
                 nextEl: this.buttonNext,
@@ -57,7 +57,7 @@ export class Carousel {
             slideBlankClass: 'carousel__slide_blank'
         })
 
-        if (this.buttonPrev) { this.buttonPrev.addEventListener('keyup', this.handleKeyboardControl); }
-        if (this.buttonNext) { this.buttonNext.addEventListener('keyup', this.handleKeyboardControl); }
+        if (this.buttonPrev) { this.buttonPrev.addEventListener('keyup', this._handleKeyboardControl); }
+        if (this.buttonNext) { this.buttonNext.addEventListener('keyup', this._handleKeyboardControl); }
     }
 }

@@ -3,9 +3,9 @@ mixin tooltip(description, lang)
         const uniqid = require('uniqid');
         const id = uniqid();
 
-        const i18n = require('../../components/tooltip/i18n.json')[lang]; 
+        const i18n = require('../../components/form-booking/tooltip/i18n.json')[lang]; 
 
-        const { ADDITIONAL_INFO } = i18n[lang];
+        const { ADDITIONAL_INFO } = i18n;
 
 
     span(
@@ -13,6 +13,7 @@ mixin tooltip(description, lang)
         role = 'tooltip'
         aria-label = ADDITIONAL_INFO
         aria-describedby = `tooltip-description-${id}`
+        tabindex = '0'
     ) i
         span(
             class = 'tooltip__description'

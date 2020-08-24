@@ -1,10 +1,10 @@
 /* counter */
 
 .counter {
-    height: 30px;
+    height: 2.14285714286rem;
     display: grid;
     grid-template-columns: 
-        auto 1fr 30px 32px 30px;
+        auto 1fr 2.14285714286rem 2.28571428571rem 2.14285714286rem;
     grid-template-areas: 
         'label . decrement counter increment';
     align-items: center;
@@ -15,7 +15,7 @@
 .counter__label {
     grid-area: label;
     font: var(--h3-font);
-    line-height: 24px;
+    line-height: 1.71428571429rem;
     text-transform: uppercase;
 }
 
@@ -25,7 +25,7 @@
     grid-area: counter;
     text-align: center;
     font: var(--h3-font);
-    line-height: 24px;
+    line-height: 1.71428571429rem;
     color: var(--dark-shade-100per);
 
     &:focus {
@@ -35,14 +35,14 @@
 }
 
 .counter__control {
-    width: 30px; height: 30px;
+    width: 2.14285714286rem; height: 2.14285714286rem;
     background: white;
     border: var(--border-1);
     border-color: var(--dark-shade-25per);
     border-radius: 50%;
     font: var(--body-font);
     font-size: 14px;
-    line-height: 24px;
+    line-height: 1.71428571429rem;
     color: var(--dark-shade-50per);
     cursor: pointer;
 

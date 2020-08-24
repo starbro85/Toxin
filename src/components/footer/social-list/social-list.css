@@ -3,7 +3,7 @@
 .social-list {
     display: grid;
     grid-auto-flow: column;
-    column-gap: 20px;
+    column-gap: 1.42857142857rem;
     list-style: none;
 }
 

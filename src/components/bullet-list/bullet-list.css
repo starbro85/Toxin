@@ -3,14 +3,14 @@
 .bullet-list {
     display: grid;
     list-style: none;
-    row-gap: 10px;
+    row-gap: 0.71428571428rem;
 }
 
 /* item */
 
 .bullet-list__item {
     position: relative;
-    padding-left: 20px;
+    padding-left: 1.42857142857rem;
     font: var(--body-font);
     color: var(--dark-shade-75per);
     white-space: pre-wrap;
@@ -19,9 +19,9 @@
         content: '';
         position: absolute;
         left: 0; 
-        top: 7px;
-        width: 10px; 
-        height: 10px;
+        top: 0.5rem;
+        width: 0.71428571428rem; 
+        height: 0.71428571428rem;
         border-radius: 50%;
         background-color: var(--dark-shade-25per);
     }

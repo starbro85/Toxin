@@ -15,7 +15,7 @@ mixin form-booking(formBooking, lang)
             addition,
             discount,
             dateInitValue,
-            guestInitValue
+            guestsInitValue
         } = formBooking;
 
         const i18n = require('../../components/form-booking/i18n.json')[lang]; 
@@ -37,13 +37,9 @@ mixin form-booking(formBooking, lang)
             KID_PLURAL,
             BABIES,
             BABY_PLURAL,
-            LUXURY
+            LUXURY,
+            PER_DAY
         } = i18n;
-
-        const rentFormatted = currencyFormat({ lang, currency: rent.currency, number: rent.number });
-        const serviceFormatted = currencyFormat({ lang, currency: service.currency, number: service.number });
-        const additionFormatted = currencyFormat({ lang, currency: addition.currency, number: addition.number });
-        const discountFormatted = currencyFormat({ lang, currency: discount.currency, number: discount.number });
 
     form(
         class = 'form-booking js-form-booking'
@@ -51,13 +47,14 @@ mixin form-booking(formBooking, lang)
         method = 'post'
         autocomplete = 'off'
     )
-        h2(class = 'form-booking__header-section')  
+        h2(class = 'form-booking__heading')  
             span(class = 'form-booking__number') № #{number}
                 if isLuxury
                     strong(class = 'form-booking__category') &nbsp;#{LUXURY}
 
-            span(class = 'form-booking__rent') #{rentFormatted)}
-                small(class = 'form-booking__term') &nbsp;#{rent.term}
+            span(class = 'form-booking__rent') 
+                | #{currencyFormat(lang, rent.currency, rent.number)}
+                small(class = 'form-booking__term') &nbsp;#{PER_DAY}
 
         +date-dropdown({
             controlClass: 'js-form-booking__date-dropdown',
@@ -76,7 +73,7 @@ mixin form-booking(formBooking, lang)
                     label: ADULTS,
                     title: ADULTS,
                     name: 'adults',
-                    initValue: guestInitValue[adults],
+                    initValue: guestsInitValue[adults],
                     maxValue: 5,
                     plural: ADULT_PLURAL,
                     boundPlural: GUEST_PLURAL,
@@ -87,7 +84,7 @@ mixin form-booking(formBooking, lang)
                     label: KIDS,
                     title: KIDS,
                     name: 'kids',
-                    initValue: guestInitValue[kids],
+                    initValue: guestsInitValue[kids],
                     maxValue: 5,
                     plural: KID_PLURAL,
                     boundPlural: GUEST_PLURAL,
@@ -98,7 +95,7 @@ mixin form-booking(formBooking, lang)
                     label: BABIES,
                     title: BABIES,
                     name: 'babies',
-                    initValue: guestInitValue[babies],
+                    initValue: guestsInitValue[babies],
                     maxValue: 5,
                     plural: BABY_PLURAL,
                 }
@@ -111,7 +108,7 @@ mixin form-booking(formBooking, lang)
                 div(class = 'form-booking__price-item')
                     dt(class = 'form-booking__description')
                         span(class = 'form-booking__text')
-                            span(class = 'form-booking__rent js-form-booking__rent') #{rentFormatted}
+                            span(class = 'form-booking__rent js-form-booking__rent') #{currencyFormat(lang, rent.currency, rent.number)}
                             |&nbsp;x&nbsp;
                             span(
                                 class = 'form-booking__period js-form-booking__period'
@@ -125,17 +122,20 @@ mixin form-booking(formBooking, lang)
                         span(class = 'form-booking__text') #{SERVICE_FEE}
                             if discount
                                 | : #{DISCOUNT} 
-                                span(class = 'form-booking__discount js-form-booking__discount') #{discountFormatted}
+                                span(class = 'form-booking__discount js-form-booking__discount') 
+                                    | #{currencyFormat(lang, discount.currency, discount.number)}
                         +tooltip(service.tooltip, lang)
 
-                    dd(class = 'form-booking__service js-form-booking__service') #{serviceFormatted)}
+                    dd(class = 'form-booking__service js-form-booking__service') 
+                        | #{currencyFormat(lang, service.currency, service.number)}
 
                 div(class = 'form-booking__price-item')
                     dt(class = 'form-booking__description') 
                         span(class = 'form-booking__text') #{ADDITION_SERVICE_FEE}
                         +tooltip(addition.tooltip, lang)
 
-                    dd(class = 'form-booking__addition js-form-booking__addition') #{additionFormatted}
+                    dd(class = 'form-booking__addition js-form-booking__addition') 
+                        | #{currencyFormat(lang, addition.currency, addition.number)}
 
                 div(class = 'form-booking__total')
                     dt(class = 'form-booking__description') #{TOTAL}
@@ -143,12 +143,12 @@ mixin form-booking(formBooking, lang)
                     
             
         div(class = 'form-booking__submit-button')
-            +button(
+            +button({
                 label: BOOK,
                 color: 'purple',
                 fill: true,
                 icon: 'arrow_forward'
-            )
+            })
 
         input(
             name = 'price'

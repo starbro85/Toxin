@@ -4,7 +4,6 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 
 const config = {
@@ -91,9 +90,6 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new MomentLocalesPlugin({
-            localesToKeep: ['ru', 'en']
-        }),
         new HtmlWebpackPlugin({
             title: 'start-menu',
             filename: 'start-menu.html',

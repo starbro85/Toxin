@@ -28,7 +28,8 @@ mixin date-dropdown(dateDropdown, lang)
                 DEPARTURE_TIME,
                 DATE_RANGE_PLACEHOLDER,
                 DATE_SINGLE_PLACEHOLDER,
-                TIME_OF_STAY
+                TIME_OF_STAY,
+                CALENDAR
             } = i18n;
 
     div(
@@ -101,8 +102,11 @@ mixin date-dropdown(dateDropdown, lang)
             })
 
         div(class = 'date-dropdown__viewport')
-            div(class = 'date-dropdown__container js-date-dropdown__container')
-                +datepicker(initValue, lang, `datepicker-${id}`)
+            section(
+                class = 'date-dropdown__container js-date-dropdown__container'
+                id = `datepicker-${id}`
+            )
+                +datepicker(initValue, lang)
 
                 if (!autoApply)
                     div(class = 'date-dropdown__control-panel')

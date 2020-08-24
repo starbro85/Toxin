@@ -2,7 +2,7 @@ include ../text-field/text-field
 
 mixin subscribtion-field(showLabel, lang)
     -
-        const i18n = require('../../globals/mocks/i18n.json'); 
+        const i18n = require('../../components/subscribtion-field/i18n.json'); 
 
         const {
             SUBSCRIBTION,
@@ -10,7 +10,10 @@ mixin subscribtion-field(showLabel, lang)
             ENTER_EMAIL
         } = i18n[lang];
 
-    form(class = 'subscribtion-field')
+    form(
+        class = 'subscribtion-field'
+        name = 'subsribtion'
+    )
         +text-field({ 
             label: showLabel ? SUBSCRIBTION : false,
             type: 'email', 

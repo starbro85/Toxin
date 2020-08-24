@@ -1,0 +1,91 @@
+include ../feature-list/feature-list
+include ../bullet-list/bullet-list
+include ../review/review
+include ../pie-chart/pie-chart
+include ../form-booking/form-booking
+
+mixin room-detail(roomDetail, lang)
+    -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+        const pluralize = require('../../globals/helpers/pluralize.js');
+
+        const {
+            images,
+            formBooking,
+            featureList,
+            pieChart,
+            reviewCount,
+            reviewList,
+            bulletList,
+            cancelInfo
+        } = roomDetail;
+
+        const i18n = require('../../components/room-detail/i18n.json')[lang]; 
+
+        const {
+            ROOM_PICTURES,
+            ROOM_DETAILS,
+            IMPRESSIONS_OF_THE_ROOM,
+            REVIEWS,
+            REVIEW_PLURAL,
+            ROOLES,
+            CANCEL
+        } = i18n;
+
+    main(class = 'room-detail js-room-detail')
+        section(class = 'room-detail__pictures')
+            h2(class = 'room-detail__heading visually-hidden') #{ROOM_PICTURES}
+            -
+                const path = getImagePath(images.primary.src);
+
+            img(
+                class = 'room-detail__image room-detail__image_primary'
+                src = path.src
+                alt = images.primary.alt
+                width = images.primary.width
+                height = images.primary.height
+                loading = images.primary.width && images.primary.height ? 'lazy' : 'auto'
+            )
+
+            each item in images.secondaryList
+                -
+                    const path = getImagePath(item.src);
+
+                img(
+                    class = 'room-detail__image room-detail__image_secondary'
+                    src = path.src
+                    alt = item.alt ? item.alt : false
+                    width = item.width ? item.width : false
+                    height = item.height ? item.height : false
+                    loading = item.width && item.height ? 'lazy' : 'auto'
+                )
+
+        div(class = 'room-detail__layout-wrapper')
+            div(class = 'room-detail__info')
+                section(class = 'room-detail__feature')
+                    h2(class = 'room-detail__heading') #{ROOM_DETAILS}
+                    +feature-list(featureList)
+
+                section(class = 'room-detail__pie')
+                    h2(class = 'room-detail__heading') #{IMPRESSIONS_OF_THE_ROOM}
+                    div(class = 'room-detail__pie-chart')
+                        +pie-chart(pieChart, lang)
+                
+                section(class = 'room-detail__review')
+                    h2(class = 'room-detail__heading') #{REVIEWS}
+                    span(class = 'room-detail__review-count') #{reviewCount} #{pluralize(lang, REVIEW_PLURAL, reviewCount)}
+                    ul(class = 'room-detail__review-list')
+                        each item in reviewList
+                            li(class = 'room-detail__review-item')
+                                +review(item, lang)
+
+                section(class = 'room-detail__rules')
+                    h2(class = 'room-detail__heading') #{ROOLES}
+                    +bullet-list(bulletList)
+                
+                section(class = 'room-detail__cancel')
+                    h2(class = 'room-detail__heading') #{CANCEL}
+                    p(class = 'room-detail__paragraph') !{cancelInfo}
+
+                div(class = 'room-detail__form-booking')
+                    +form-booking(formBooking, lang)

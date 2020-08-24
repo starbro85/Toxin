@@ -9,21 +9,21 @@ import { Expander } from '../../globals/helpers/expander';
 const normalizeStr = require('./../../globals/helpers/normalizeStr.js');
 const pluralize = require('./../../globals/helpers/pluralize.js');
 
-class QuantityDropdown {
+export class QuantityDropdown {
     constructor(node) {
-        this.root = node;
-        this.textField = this.root.querySelector('.js-quantity-dropdown__text-field');
-        this.button = this.root.querySelector('.js-quantity-dropdown__button')
-        this.counters = this.root.querySelectorAll('.js-counter');
-        this.inputs = this.root.querySelectorAll('.js-counter__input');
+        if (node) {
+            this.root = node;
+            this.textField = this.root.querySelector('.js-quantity-dropdown__text-field');
+            this.button = this.root.querySelector('.js-quantity-dropdown__button')
+            this.counters = this.root.querySelectorAll('.js-counter');
+            this.inputs = this.root.querySelectorAll('.js-counter__input');
 
-        this.autoApply = this.root.hasAttribute('data-auto-apply');
-        this.textFieldData = {};
-
-        this.init(Counter, Expander);
+            this.autoApply = this.root.hasAttribute('data-auto-apply');
+            this.textFieldData = {};
+        }
     }
       
-    getTextFieldData = () => {
+    _getTextFieldData = () => {
         this.counters.forEach(counter => counter.addEventListener('counter-data-sent', (event) => {
             const name = event.detail.name;
             const value = event.detail.value;
@@ -58,7 +58,7 @@ class QuantityDropdown {
         })); 
     }
 
-    getInputSizeInChar() {
+    _getInputSizeInChar() {
         const style = getComputedStyle(this.textField);
         const inputWidth = parseInt(style.width) - 35;
         const inputSizeInChar = Math.floor(inputWidth * 0.125);
@@ -66,7 +66,7 @@ class QuantityDropdown {
         return inputSizeInChar;
     }
     
-    getInputValue() {
+    _getInputValue() {
         const counters = Object.values(this.textFieldData);
         const inputValue = counters
             .reduce((inputValue, counter) => (counter.value !== 0) ? `${inputValue}${pluralize(counter.plural, counter.value)}, ` : `${inputValue}`, '')
@@ -75,7 +75,7 @@ class QuantityDropdown {
         return inputValue;
     }
 
-    getSubmitValue() {
+    _getSubmitValue() {
         const counters = Object.values(this.textFieldData);
         const submitValue = counters
             .reduce((submitValue, counter) => counter.value ? `${submitValue}"${counter.name}": "${counter.value}", ` : `${submitValue}`, '')
@@ -84,13 +84,15 @@ class QuantityDropdown {
         return submitValue ? `{${submitValue}}` : '';
     }
     
-    init() {
+    _init() {
+    }
+
+    render(parent) {
+        const components = parent ? parent.querySelectorAll('.js-quantity-dropdown') : document.querySelectorAll('.js-quantity-dropdown');
+
+        if (components.length > 0) {
+            Array.from(components).map((node) => new QuantityDropdown(node)._init());
+        };
     }
 }
 
-export function renderQuantityDropdown (parentNode) {
-    const components = parentNode ? parentNode.querySelectorAll('.js-quantity-dropdown') : document.querySelectorAll('.js-quantity-dropdown');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new QuantityDropdown(node));
-    };
-}

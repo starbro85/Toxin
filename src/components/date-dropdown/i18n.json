@@ -8,7 +8,8 @@
         "DEPARTURE_TIME": "Время отъезда",
         "TIME_OF_STAY": "Время прибывания в отеле",
         "DATE_RANGE_PLACEHOLDER": "ДД.ММ - ДД.ММ",
-        "DATE_SINGLE_PLACEHOLDER": "ДД.ММ.ГГГГ"
+        "DATE_SINGLE_PLACEHOLDER": "ДД.ММ.ГГГГ",
+        "CALENDAR": "Календарь"
 
     },
     "en": {
@@ -20,6 +21,7 @@
         "DEPARTURE_TIME": "Departure time",
         "TIME_OF_STAY": "Time of stay",
         "DATE_RANGE_PLACEHOLDER": "DD/MM - DD/MM",
-        "DATE_SINGLE_PLACEHOLDER": "DD/MM/YYYY"
+        "DATE_SINGLE_PLACEHOLDER": "DD/MM/YYYY",
+        "CALENDAR": "Calendar"
     }
 }

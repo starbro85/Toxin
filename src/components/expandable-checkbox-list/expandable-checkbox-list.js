@@ -4,15 +4,15 @@ import '../checkbox-list/checkbox-list.js';
 
 import { Expander } from '../../globals/helpers/expander.js';
 
-class ExpandableCheckboxList {
+export class ExpandableCheckboxList {
     constructor(node) {
-        this.root = node;
-        this.button = this.root.querySelector('.js-expandable-checkbox-list__button');
-
-        this.init();
+        if (node) {
+            this.root = node;
+            this.button = this.root.querySelector('.js-expandable-checkbox-list__button');
+        }
     }
 
-    init() {
+    _init() {
         new Expander(this.root, {
             control: this.button,
             toggleClass: 'expandable-checkbox-list_expanded', 
@@ -20,11 +20,12 @@ class ExpandableCheckboxList {
             outsideClickCollapse: false
         });
     }
-}
 
-export function renderExpandableCheckboxList (parentNode) {
-    const components = parentNode ? parentNode.querySelectorAll('.js-expandable-checkbox-list') : document.querySelectorAll('.js-expandable-checkbox-list');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new ExpandableCheckboxList(node));
-    };
+    render(parent) {
+        const components = parent ? parent.querySelectorAll('.js-expandable-checkbox-list') : document.querySelectorAll('.js-expandable-checkbox-list');
+    
+        if (components.length > 0) {
+            Array.from(components).map((node) => new ExpandableCheckboxList(node)._init());
+        };
+    }
 }

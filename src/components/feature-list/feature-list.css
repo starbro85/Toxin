@@ -3,7 +3,7 @@
 .feature-list {
     width: min(100%, 280px); 
     display: grid;
-    row-gap: 20px;
+    row-gap: 1.42857142857rem;
 }
 
 /* item */
@@ -14,10 +14,10 @@
         'icon label'
         'icon description';
     grid-template-columns: max-content;
-    column-gap: 10px;
+    column-gap: 0.71428571428rem;
     
     &:not(:last-child) {
-        padding-bottom: 20px;
+        padding-bottom: 1.42857142857rem;
         border-bottom: var(--border-1);
         border-color: var(--dark-shade-10per);
     }
@@ -28,11 +28,12 @@
 .feature-list__icon {
     grid-area: icon;
     font: var(--icon-font);
-    font-size: 48px;
+    font-size: 3.42857142857rem;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     background-clip: text;  
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    cursor: default;
 }
 
 /* label */

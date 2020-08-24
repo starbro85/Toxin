@@ -4,5 +4,5 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: max-content;
-    grid-column-gap: 20px;
+    grid-column-gap: 1.42857142857rem;
 }

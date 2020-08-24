@@ -1,13 +1,13 @@
 /* like */
 
 .like {
-    width: 41px; 
-    height: 20px;
+    width: 2.92857142857rem; 
+    height: 1.42857142857rem;
     display: flex;
     align-items: center;
     background: none;
     border: var(--border-1);
-    border-radius: 10px;
+    border-radius: 0.71428571428rem;
     cursor: pointer;
 
     &:focus {
@@ -28,17 +28,17 @@
 
 .like__count {
     font: var(--body-font);
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 0.71428571428rem;
+    line-height: 0.85714285714rem;
     color: var(--dark-shade-25per);
 }
 
 /* icon */
 
 .like__icon {
-    width: 20px;
+    width: 1.42857142857rem;
     font: var(--icon-font);
-    font-size: 10px;
+    font-size: 0.71428571428rem;
     color: var(--dark-shade-25per);
 }
 

@@ -1,26 +1,26 @@
-import './doughnut-chart.css';
+import './pie-chart.css';
 
 import Chart from "chart.js";
 
-class DoughnutChart {
+export class PieChart {
     constructor(node) {
-        this.root = node;
-        this.container = this.root.querySelector('.js-doughnut-chart__container');
-        this.canvas = this.root.querySelector('.js-doughnut-chart__canvas');
-        this.counts = JSON.parse(this.root.dataset.counts).map((item) => Number(item));
-        this.labels = JSON.parse(this.root.dataset.labels);
-        this.colors = JSON.parse(this.root.dataset.colors);
-
-        this.init();
+        if (node) {
+            this.root = node;
+            this.container = this.root.querySelector('.js-pie-chart__container');
+            this.canvas = this.root.querySelector('.js-pie-chart__canvas');
+            this.counts = JSON.parse(this.root.dataset.counts).map((item) => Number(item));
+            this.labels = JSON.parse(this.root.dataset.labels);
+            this.colors = JSON.parse(this.root.dataset.colors);
+        }
     }
 
-    setCustomTooltip = (tooltipModel) => {
-        let tooltipEl = this.container.querySelector('.js-doughnut-chart__tooltip');
+    _setCustomTooltip = (tooltipModel) => {
+        let tooltipEl = this.container.querySelector('.js-pie-chart__tooltip');
 
         if (!tooltipEl) {
             tooltipEl = document.createElement('span');
             this.container.appendChild(tooltipEl);
-            tooltipEl.classList.add('doughnut-chart__tooltip', 'js-doughnut-chart__tooltip');
+            tooltipEl.classList.add('pie-chart__tooltip', 'js-pie-chart__tooltip');
         }
 
         if (tooltipModel.body) {
@@ -45,7 +45,6 @@ class DoughnutChart {
             tooltipEl.classList.add('no-transform');
         }
 
-        
         tooltipEl.style.zIndex = '1';
         tooltipEl.style.opacity = 1;
         tooltipEl.style.position = 'absolute';
@@ -53,9 +52,9 @@ class DoughnutChart {
         tooltipEl.style.top = tooltipModel.caretY + 'px';
     };
 
-    init() {
+    _init() {
         new Chart(this.canvas, {
-            type: 'doughnut',
+            type: 'pie',
             data: {
                 labels: this.labels,
                 datasets: [
@@ -76,22 +75,22 @@ class DoughnutChart {
             },
             options: {
                 maintainAspectRatio: false,
-                cutoutPercentage: 88,
                 legend: {
                    display: false
                 }, 
                 tooltips: {
                     enabled: false,
-                    custom: this.setCustomTooltip
+                    custom: this._setCustomTooltip
                 }
             }
         });
     }
-}
 
-export function renderDoughnutChart (parentNode) {
-    const components = parentNode ? parentNode.querySelectorAll('.js-doughnut-chart') : document.querySelectorAll('.js-doughnut-chart');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new DoughnutChart(node));
-    };
+    render(parentNode) {
+        const components = parentNode ? parentNode.querySelectorAll('.js-pie-chart') : document.querySelectorAll('.js-pie-chart');
+
+        if (components.length > 0) {
+            Array.from(components).map((node) => new PieChart(node)._init());
+        };
+    }
 }

@@ -1,0 +1,46 @@
+mixin pie-chart(countList, lang)
+    -
+        const pluralize = require('./../../globals/helpers/pluralize.js');
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
+        const i18n = require('../../components/pie-chart/i18n.json')[lang];
+
+        const {
+            VOTE_PLURAL, 
+            DELIGHTFULLY,
+            GOOD, 
+            SATISFACTORILY,
+            DISAPPOINTED
+        } = i18n;
+
+        const labelList = [ DISAPPOINTED, SATISFACTORILY, GOOD, DELIGHTFULLY ];
+        const colorList = [ '#919191', '#BC9CFF', '#6FCF97', '#FFE39C' ]
+        const sumCount = countList.reduce((sum, item) => sum += item, 0);
+
+    div(
+        class = 'pie-chart js-pie-chart'
+        data-counts = countList
+        data-labels = labelList
+        data-colors = colorList
+    )
+        div(class = 'pie-chart__container js-pie-chart__container')
+            canvas(
+                class = 'pie-chart__canvas js-pie-chart__canvas'
+                role = 'img'
+                aria-labelledby = `pie-chart-label-${id}`
+            )
+            p(
+                class = 'pie-chart__label'
+                id = `pie-chart-label-${id}`
+            ) 
+                span(class = 'pie-chart__number') #{sumCount}
+                | #{pluralize(lang, VOTE_PLURAL, sumCount)}
+
+        dl(class = 'pie-chart__legend')
+            each item, index in labelList
+                dt(
+                    class = 'pie-chart__legend-item'
+                    style = `--chart-color: ${colorList[index]}`
+                ) #{item}
+                dd(class = 'pie-chart__legend-number visually-hidden') #{countList[index]}

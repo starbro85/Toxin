@@ -5,8 +5,8 @@
     grid-template-areas: 
         'input label'
         '. describtion';
-    grid-template-columns: 20px auto;
-    column-gap: 10px;
+    grid-template-columns: 1.42857142857rem auto;
+    column-gap: 0.71428571428rem;
     font: var(--body-font);   
     cursor: pointer;
 }

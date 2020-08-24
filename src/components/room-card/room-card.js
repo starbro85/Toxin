@@ -5,28 +5,23 @@ import '../rate-bar/rate-bar.js';
 
 import { Carousel } from './carousel/carousel.js';
 
-const render = require('../../globals/helpers/render.js');
-
-class RoomCard {
+export class RoomCard {
     constructor(node) {
-        this.root = node;
-        this.carousel = this.root.querySelector('.js-carousel');
-
-        this.init();
+        if (node) {
+            this.root = node;
+            this.carousel = this.root.querySelector('.js-carousel');
+        }       
     }
 
-    setCarousel() {
+    _init() {
         new Carousel(this.carousel);
     }
 
-    init() {
-        this.setCarousel();
-    }
-}
+    render(parent) {
+        const components = parent ? parent.querySelectorAll('.js-room-card') : document.querySelectorAll('.js-room-card');
 
-export function renderRoomCard (parentNode) {
-    const components = parentNode ? parentNode.querySelectorAll('.js-room-card') : document.querySelectorAll('.js-room-card');
-    if (components.length > 0) {
-        Array.from(components).map((node) => new RoomCard(node));
-    };
+        if (components.length > 0) {
+            Array.from(components).map((node) => new RoomCard(node)._init());
+        };
+    }
 }

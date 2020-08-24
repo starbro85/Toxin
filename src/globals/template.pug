@@ -1,9 +1,9 @@
 doctype html
 
 block variables
-    -let lang = 'ru';
-    -let description = 'Сервис бронирования отелей и гостиниц Toxin.';
-    -let title = 'Сервис бронирования отелей и гостиниц Toxin.';
+    -let lang;
+    -let description;
+    -let title;
 
 html(lang = lang)
     head
@@ -24,10 +24,7 @@ html(lang = lang)
         title #{title}
 
     body(class = 'page')
-        h1(
-            class = 'page__heading'
-            style = 'position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px;'
-        )
+        h1(class = 'page__heading visually-hidden')
             block heading
 
         block content

@@ -1,0 +1,104 @@
+{
+    "ru": {
+        "PREVIOUS_MONTH": "Предыдущий месяц",
+        "NEXT_MONTH": "Следующий месяц",
+        "MONTH": "Месяц",
+        "YEAR": "Год",
+        "WEEK_START": 1,
+        "MONTHS": [
+            "Январь",
+            "Февраль",
+            "Март",
+            "Апрель",
+            "Май",
+            "Июнь",
+            "Июль",
+            "Август",
+            "Сентябрь",
+            "Октябрь",
+            "Ноябрь",
+            "Декабрь"
+        ],
+        "WEEKDAYS": [
+            {
+                "full": "Понедельник",
+                "abbr": "Пн"
+            },
+            {
+                "full": "Вторник",
+                "abbr": "Вт"
+            },
+            {
+                "full": "Среда",
+                "abbr": "Ср"
+            },
+            {
+                "full": "Четверг",
+                "abbr": "Чт"
+            },
+            {
+                "full": "Пятница",
+                "abbr": "Пт"
+            },
+            {
+                "full": "Суббота",
+                "abbr": "Сб"
+            },
+            {
+                "full": "Воскресенье",
+                "abbr": "Вс"
+            }
+        ]
+    },
+    "en": {
+        "PREVIOUS_MONTH": "Previous month",
+        "NEXT_MONTH": "Next month",
+        "MONTH": "Month",
+        "YEAR": "Year",
+        "WEEK_START": 0,
+        "MONTHS": [
+            "January",
+            "Febraly",
+            "March",
+            "April",
+            "May",
+            "June",
+            "Jule",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "WEEKDAYS": [
+            {
+                "full": "Sunday",
+                "abbr": "Sun"
+            },
+            {
+                "full": "Monday",
+                "abbr": "Mon"
+            },
+            {
+                "full": "Tuesday",
+                "abbr": "Tue"
+            },
+            {
+                "full": "Wednesday",
+                "abbr": "Wed"
+            },
+            {
+                "full": "Thursday",
+                "abbr": "Th"
+            },
+            {
+                "full": "Friday",
+                "abbr": "Fr"
+            },
+            {
+                "full": "Saturday",
+                "abbr": "Sat"
+            }
+        ]
+    }
+}

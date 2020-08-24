@@ -11,21 +11,21 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 41px;
-    height: 21px;
-    margin-right: 10px;
-    padding: 0 4px;
+    width: 2.92857142857rem;
+    height: 1.5rem;
+    margin-right: 0.71428571428rem;
+    padding: 0 0.28571428571rem;
     display: flex;
     align-items: center;
     border: var(--border-1);
-    border-radius: 10px;
+    border-radius: 0.71428571428rem;
     cursor: inherit;
 
     &:before {
         content: '';
-        width: 13px;
-        height: 13px;
-        border-radius: 10px;
+        width: 0.92857142857rem;
+        height: 0.92857142857rem;
+        border-radius: 0.71428571428ren;
         background: var(--dark-shade-25per);
         transition: transform .3s;
     }  
@@ -63,7 +63,7 @@
 
 .toggle__label {
     font: var(--body-font);
-    line-height: 18px;
+    line-height: 1.28571428571rem;
     color: var(--dark-shade-75per);
 }
 

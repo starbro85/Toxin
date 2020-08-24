@@ -1,8 +1,12 @@
 {
     "ru": {
-        "CURRENCY": "RUB"
+        "CURRENCY": "RUB",
+        "RANGE_FROM": "Диапазон от",
+        "RANGE_TO": "Диапазон до"
     },
     "en": {
-        "CURRENCY": "USD"
+        "CURRENCY": "USD",
+        "RANGE_FROM": "From",
+        "RANGE_TO": "Range to"
     }
 }

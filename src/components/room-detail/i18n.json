@@ -1,0 +1,27 @@
+{
+    "ru": {
+        "ROOM_PICTURES": "Изображения номера",
+        "ROOM_DETAILS": "Сведения о номере",
+        "IMPRESSIONS_OF_THE_ROOM": "Впечаления о номера",
+        "REVIEWS": "Отзывы",
+        "REVIEW_PLURAL": {
+            "one": "Отзыв",
+            "few": "Отзыва",
+            "many": "Отзывов"
+        },
+        "ROOLES": "Правила",
+        "CANCEL": "Отмена"
+    },
+    "en": {
+        "ROOM_PICTURES": "Room pictures",
+        "ROOM_DETAILS": "Room details",
+        "IMPRESSIONS_OF_THE_ROOM": "Impressions of the room",
+        "REVIEWS": "Reviews",
+        "REVIEW_PLURAL": {
+            "one": "Review",
+            "other": "Reviews"
+        },
+        "ROOLES": "Rooles",
+        "CANCEL": "Cancel"
+    }
+}

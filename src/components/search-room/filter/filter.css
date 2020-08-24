@@ -1,10 +1,10 @@
 /* filter */
 
 .filter {
-    width: 266px;
+    width: 19rem;
     height: max-content;
     display: grid;
-    row-gap: 20px;
+    row-gap: 1.42857142857rem;
     background-color: inherit;
 }
 
@@ -21,20 +21,20 @@
 /* slider */
 
 .filter__slider {
-    margin: 10px 0;
+    margin: 0.71428571428rem 0;
 }
 
 /* checkbox group */
 
 .filter__checkbox-group {
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0.71428571428rem;
 }
 
 /* label */
 
 .filter__label {
-    margin-bottom: 16px;
+    margin-bottom: 1.14285714286rem;
     font: var(--h3-font);
     color: var(--dark-shade-100per);
     text-transform: uppercase;

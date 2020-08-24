@@ -60,7 +60,7 @@
 /* global font size */
 
 html {
-    font-size: min(3.7vmin, 14px);
+    font-size: min(3.8vw, 14px);
 }
 
 html, body {
@@ -80,4 +80,12 @@ html, body {
 
 *::selection {
     background-color: var(--dark-shade-25per);
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
 }

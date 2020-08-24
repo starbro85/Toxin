@@ -2,28 +2,18 @@
 
 .form-booking {
     width: min(100%, 380px);
-    padding: 45px min(5vw, 28px) 30px min(5vw, 28px);
+    padding: 3.21428571429rem 2rem 2.14285714286rem 2rem;
     display: grid;
-    row-gap: 22px;
+    row-gap: 1.57142857143rem;
     background-color: white;
     box-shadow: var(--shadow-3);
     border: var(--border-2);
-    border-radius: 4px; 
+    border-radius: 0.28571428571rem; 
 }
 
-/* label */
+/* heading */
 
 .form-booking__heading {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-}
-
-/* header */
-
-.form-booking__header-section {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -74,22 +64,23 @@
 
     & .form-booking__price-list {
         display: grid;
-        row-gap: 10px;
+        row-gap: 0.71428571428rem;
     
         & .form-booking__price-item {
             display: flex;
-            min-height: 24px;
+            min-height: 1.71428571429rem;
             justify-content: space-between;
-            column-gap: 10px;
+            column-gap: 0.71428571428rem;
     
             & .form-booking__description {
                 width: min(100%, 245px);
                 display: flex;
                 justify-content: space-between;
+                column-gap: 5px;
 
                 & .form-booking__text {
                     font: var(--body-font);
-                    line-height: 18px;
+                    line-height: 1.28571428571rem;
                     color: var(--dark-shade-75per);
 
                     & .form-booking__discount {
@@ -101,24 +92,24 @@
             & .form-booking__summary,
             & .form-booking__service,
             & .form-booking__addition {
-                min-width: 57px;
+                min-width: 4.07142857143rem;
                 display: inline-flex;
                 justify-content: flex-end;
                 border: none;
                 font: var(--body-font);
-                line-height: 18px;
+                line-height: 1.28571428571rem;
                 color: var(--dark-shade-75per);
                 white-space: nowrap;
             }
         }
 
         & .form-booking__total {
-            margin-top: 19px;
+            margin-top: 1.35714285714rem;
             padding: 0 2px;
             display: grid;
             grid-template-columns: max-content 1fr max-content;
             align-items: bottom;
-            column-gap: 5px;
+            column-gap: 0.35714285714rem;
 
             &:before {
                 content: '';
@@ -146,5 +137,5 @@
 }
 
 .form-booking__submit-button {
-    height: 44px;
+    height: 3.14285714286rem;
 }

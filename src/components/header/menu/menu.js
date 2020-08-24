@@ -15,8 +15,7 @@ export class Menu {
             control: this.button,
             toggleClass: 'menu_expanded',
             trapFocus: true,
-            outsideClickCollapse: true,
-            disableOutsideEvents: true
+            outsideClickCollapse: true
         });
     }
 }

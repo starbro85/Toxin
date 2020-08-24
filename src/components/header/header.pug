@@ -53,8 +53,7 @@ mixin header(header, lang)
                 ul(class = 'header__nav-list')
                     each item in navList
                         if item.isMenu
-                            li(class = 'header__nav-item')
-                                +menu(item.menu)
+                            +menu(item.menu)
 
                         else 
                             li(class = 'header__nav-item')

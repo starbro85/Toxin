@@ -34,7 +34,8 @@
             "few": "Младенца",
             "many": "Младенцев"
         },
-        "LUXURY": "Люкс"
+        "LUXURY": "Люкс",
+        "PER_DAY": "в сутки"
     },
     "en": {
         "DAY_PLURAL": {
@@ -68,6 +69,7 @@
             "one": "Baby",
             "other": "Babies"
         },
-        "LUXURY": "Luxury"
+        "LUXURY": "Lux",
+        "PER_DAY": "per day"
     }
 }

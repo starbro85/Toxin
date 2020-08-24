@@ -2,13 +2,13 @@
 
 .form-search {
     width: min(100%, 380px);
-    padding: 38px min(5vw, 28px) 30px min(5vw, 28px);
+    padding: 2.71428571429rem 2rem 2.14285714286rem 2rem;
     display: grid;
-    row-gap: 21px;
+    row-gap: 1.5rem;
     background-color: white;
     box-shadow: var(--shadow-3);
     border: var(--border-2);
-    border-radius: 4px; 
+    border-radius: 0.28571428571rem; 
 }
 
 /*  label */
@@ -21,6 +21,6 @@
 /* submit button */
 
 .form-search__submit-button {
-    margin-top: 10px;
-    height: 44px;
+    margin-top: 0.71428571428rem;
+    height: 3.14285714286rem;
 }

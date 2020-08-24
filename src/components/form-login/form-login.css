@@ -2,9 +2,9 @@
 
 .form-login {
     width: min(100%, 380px);
-    padding: 38px min(5vw, 30px) 33px min(5vw, 28px);
+    padding: 2.71428571429rem 2.14285714286rem 2.35714285714rem 2rem;
     display: grid;
-    row-gap: 20px;
+    row-gap: 1.42857142857rem;
     background-color: white;
     box-shadow: var(--shadow-3);
     border: var(--border-2);
@@ -22,19 +22,19 @@
 
 .form-login__fieldset {
     display: grid;
-    row-gap: 10px;
+    row-gap: 0.71428571428rem;
 }
 
 /* submit button */
 
 .form-login__submit-button {
-    height: 44px;
+    height: 3.14285714286rem;
 }
 
 /* registration */
 
 .form-login__registration {
-    padding-top: 10px;
+    padding-top: 0.71428571428rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,6 +50,6 @@
 /* registration button */
 
 .form-login__registration-link {
-    width: 99px;
-    height: 44px;
+    width: 7.07142857143rem;
+    height: 3.14285714286rem;
 }
