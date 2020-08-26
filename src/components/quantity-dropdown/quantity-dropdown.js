@@ -4,6 +4,7 @@ import './counter/counter.css';
 import '../text-field/text-field.js';
 
 import { Counter } from './counter/counter.js';
+import { TextField } from '../text-field/text-field.js';
 import { Expander } from '../../globals/helpers/expander';
 
 const normalizeStr = require('./../../globals/helpers/normalizeStr.js');
@@ -17,14 +18,14 @@ export class QuantityDropdown {
             this.button = this.root.querySelector('.js-quantity-dropdown__button')
             this.counters = this.root.querySelectorAll('.js-counter');
             this.inputs = this.root.querySelectorAll('.js-counter__input');
-
             this.autoApply = this.root.hasAttribute('data-auto-apply');
-            this.textFieldData = {};
+            this.lang = this.root.dataset.lang;
+            this.countersData = {};
         }
     }
       
-    _getTextFieldData = () => {
-        this.counters.forEach(counter => counter.addEventListener('counter-data-sent', (event) => {
+    _setCoutersDataAutoUpdate = () => {
+        this.counters.forEach(counter => counter.addEventListener('counter-changed', (event) => {
             const name = event.detail.name;
             const value = event.detail.value;
             const plural = event.detail.plural;
@@ -33,26 +34,26 @@ export class QuantityDropdown {
             const boundName = event.detail.boundName;
 
             if (isBound) {
-                if (!this.textFieldData[boundName])
-                    this.textFieldData[boundName] = {
+                if (!this.countersData[boundName])
+                    this.countersData[boundName] = {
                         name: boundName,
-                        isBound: isBound,
+                        isBound: true,
                         plural: boundplural,
                         originData: {}
                     }
-                this.textFieldData[boundName].originData[name] = { name: name };
-                this.textFieldData[boundName].originData[name].plural = plural;
-                this.textFieldData[boundName].originData[name].value = value;
-                this.textFieldData[boundName].value = Object.values(this.textFieldData[boundName].originData)
+                this.countersData[boundName].originData[name] = { name: name };
+                this.countersData[boundName].originData[name].plural = plural;
+                this.countersData[boundName].originData[name].value = value;
+                this.countersData[boundName].value = Object.values(this.countersData[boundName].originData)
                                                         .reduce((sumValue, data) => sumValue + data.value, 0);
             }
 
             else {
-                this.textFieldData[name] = {
+                this.countersData[name] = {
                     name: name,
                     plural: plural,
                     value: value,
-                    isBound: isBound
+                    isBound: false
                 }
             }
         })); 
@@ -67,24 +68,88 @@ export class QuantityDropdown {
     }
     
     _getInputValue() {
-        const counters = Object.values(this.textFieldData);
+        const counters = Object.values(this.countersData);
         const inputValue = counters
-            .reduce((inputValue, counter) => (counter.value !== 0) ? `${inputValue}${pluralize(counter.plural, counter.value)}, ` : `${inputValue}`, '')
-            .slice(0, -2);
+            .reduce((inputValue, counter) => (counter.value !== 0) ? `${inputValue} ${counter.value} ${pluralize(this.lang, counter.plural, counter.value)}, ` : `${inputValue}`, '')
+            .slice(1, -2);
 
         return inputValue;
     }
 
     _getSubmitValue() {
-        const counters = Object.values(this.textFieldData);
+        const counters = Object.values(this.countersData);
         const submitValue = counters
             .reduce((submitValue, counter) => counter.value ? `${submitValue}"${counter.name}": "${counter.value}", ` : `${submitValue}`, '')
             .slice(0, -2);
 
         return submitValue ? `{${submitValue}}` : '';
     }
+
+    _setTextFieldValues() {
+        new TextField(this.textField).setValue(normalizeStr(this._getInputValue(), this._getInputSizeInChar()));
+
+        new TextField(this.textField).setTitle(this._getInputValue());
+
+        new TextField(this.textField).setSubmitValue(this._getSubmitValue());
+    }
+
+    _setAutoApply() {
+
+    }
+
+    _setManualApply() {
+        this.applyButton = this.root.querySelector('.js-quantity-dropdown__apply-button');
+        this.clearButton = this.root.querySelector('.js-quantity-dropdown__clear-button');
+        
+        const setClearButtonDisabledState = () => {
+            const counters = Object.values(this.countersData);
+            const isDisabled = counters.reduce((acc, counter) => { 
+                if (counter.value) {
+                    acc = false;
+                }; 
+
+                return acc;
+            }, true);
+
+            this.clearButton.disabled = isDisabled;
+        }
+
+        this.applyButton.addEventListener('click', (event) => {
+            this._setTextFieldValues();
+
+            setClearButtonDisabledState();
+        });
+
+        this.clearButton.addEventListener('click', (event) => {
+            this.counters.forEach((counter) => counter.dispatchEvent(new CustomEvent('counter-clear')));
+
+            this._setTextFieldValues();
+
+            setClearButtonDisabledState();
+        });
+
+        setClearButtonDisabledState();
+    }
+
+    _setAutoApply() {
+        this.counters.forEach((counter) => counter.addEventListener('counter-changed', (event) => this._setTextFieldValues()));
+    }
     
     _init() {
+        this._setCoutersDataAutoUpdate();
+
+        this.counters.forEach((counter) => new Counter(counter));
+
+        new Expander(this.root, {
+            control: this.button,
+            toggleClass: 'quantity-dropdown_expanded', 
+            trapFocus: true,
+            outsideClickCollapse: true
+        });
+
+        this.autoApply ? this._setAutoApply() : this._setManualApply();
+
+        this._setTextFieldValues();
     }
 
     render(parent) {

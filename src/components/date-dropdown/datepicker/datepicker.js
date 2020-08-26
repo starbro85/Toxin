@@ -88,7 +88,8 @@ export class Datepicker {
                         this.calendar.focus();
                         break;
 
-                    case 'Enter':   
+                    case 'Enter':
+                    case 'Space':   
                         const date = new Date(Number(cell.dataset.day));
 
                         if (this.selectedDates.length > 1) {
@@ -100,7 +101,7 @@ export class Datepicker {
                         datepicker.render();
 
                         if (this.selectedCells.length > 1) {
-                            this.selectedCells[this.selectedCells.length - 1].focus();
+                            this.calendar.focus();
                         } else {
                             this.selectedCells[0].focus();
                         }
@@ -122,11 +123,22 @@ export class Datepicker {
         }
     }
 
+    _sendDates = (dates) => {
+        this.root.dispatchEvent(new CustomEvent('datepicker-date-sent', {
+            detail: {
+                dates
+            }
+        }))
+        console.log(dates)
+    }
+
     _init() {
         const datepicker = new datepickerjs(this.root, {
             inline: true,
             ranged: true,
             openOn: this.initValue ? 'first' : 'today',
+            weekStart: this.i18n.WEEK_START,
+            onChange: (date) => this._sendDates([date[0], date[date.length - 1]]),
             i18n: {
                 months: this.i18n.MONTHS,
                 weekdays: this.i18n.WEEKDAYS
@@ -167,8 +179,7 @@ export class Datepicker {
                         '<%= daynum %>',
                     '</td>'
                 ].join('')
-            },
-            weekStart: this.i18n.WEEK_START
+            }
         });
 
         datepicker.set({
@@ -182,12 +193,13 @@ export class Datepicker {
         if (this.initValue) {
             datepicker.setDate(this.initValue);
             datepicker.goToDate(this.initValue[0]);
-            this.root.dispatchEvent(new CustomEvent('datepicker-date-send', {
-                detail: {
-                    date1: this.initValue[0],
-                    date1: this.initValue[1]
-                }
-            }))
+
+            this._sendDates(this.initValue);
         }
+
+        this.root.addEventListener('datepicker-clear', (event) => {
+            datepicker.setDate('');
+            datepicker.render()
+        })
     }
 }

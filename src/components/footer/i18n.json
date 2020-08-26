@@ -2,21 +2,25 @@
     "ru": {
         "FOOTER_SITE": "Подвал сайта",
         "MAIN_PAGE": "Главная страница",
-        "AWARDS": "Награды",
+        "AWARDS": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
         "NAVIGATION": "Навигация",
         "ABOUT_US": "О нас",
         "SUPPORT": "Поддержка",
         "SUBSCRIBTION": "Подписка",
-        "WE_IN_SOCIAL_MEDIA": "Мы в социальных сетях"
+        "WE_IN_SOCIAL_MEDIA": "Мы в социальных сетях",
+        "COPYRIGHT": "Copyright © 2018 Toxin отель. Все права защищены.",
+        "SPECIAL_OFFERS": "Получайте специальные предложения и новости сервиса"
     },
     "en": {
         "FOOTER_SITE": "Footer site",
         "MAIN_PAGE": "Main page",
-        "AWARDS": "Awards",
+        "AWARDS": "Reservation of rooms in the best hotel of 2019 according to the \"Hotel Views\" association",
         "NAVIGATION": "Navigation",
         "ABOUT_US": "About us",
         "SUPPORT": "Support",
         "SUBSCRIBTION": "Subscribtion",
-        "WE_IN_SOCIAL_MEDIA": "We in social media"
+        "WE_IN_SOCIAL_MEDIA": "We in social media",
+        "COPYRIGHT": "Copyright © 2018 Toxin Hotel. All rights reserved.",
+        "SPECIAL_OFFERS": "Receive special offers and service news"
     }
 }

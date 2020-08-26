@@ -4,27 +4,27 @@
         "FILTER": "Фильтр",
         "GUESTS": "Гости",
         "GUEST_PLURAL": {
-            "one": "Гость",
-            "few": "Гостя",
-            "many": "Гостей"
+            "one": "гость",
+            "few": "гостя",
+            "many": "гостей"
         },
         "NUMBER_OF_GUESTS": "Количество гостей",
         "ADULTS": "Взрослые",
         "ADULT_PLURAL": {
-            "one": "Взрослый",
-            "other": "Взрослых"
+            "one": "взрослый",
+            "other": "взрослых"
         },
         "KIDS": "Дети",
         "KID_PLURAL": {
-            "one": "Ребёнок",
-            "few": "Ребёнка",
-            "many": "Детей"
+            "one": "ребёнок",
+            "few": "ребёнка",
+            "many": "детей"
         },
         "BABIES": "Младенцы",
         "BABY_PLURAL": {
-            "one": "Младенец",
-            "few": "Младенца",
-            "many": "Младенцев"
+            "one": "младенец",
+            "few": "младенца",
+            "many": "младенцев"
         },
         "PRICE_RANGE": "Диапазон цены",
         "PERMISSION": "Разрешено",
@@ -32,21 +32,21 @@
         "ROOM_AMENITIES": "Удобства комнаты",
         "BEDROOMS": "Спальни",
         "BEDROOM_PLURAL": {
-            "one": "Спальня",
-            "few": "Спальни",
-            "many": "Спален"
+            "one": "спальня",
+            "few": "спальни",
+            "many": "спален"
         },
         "BEDS": "Кровать",
         "BED_PLURAL": {
-            "one": "Кровать",
-            "few": "Кровати",
-            "many": "Кроватей"
+            "one": "кровать",
+            "few": "кровати",
+            "many": "кроватей"
         },
         "BATHROOMS": "Ванные комнаты",
         "BATHROOM_PLURAL": {
-            "one": "Ванная комната",
-            "few": "Ванные комнаты",
-            "many": "Ванных комнат"
+            "one": "ванная комната",
+            "few": "ванные комнаты",
+            "many": "ванных комнат"
         },
         "ADDITION_AMENITIES": "Дополнительные удобства"
     },
@@ -54,24 +54,24 @@
         "FILTER": "Фильтр",
         "GUESTS": "Guests",
         "GUEST_PLURAL": {
-            "one": "Guest",
-            "other": "Guests"
+            "one": "guest",
+            "other": "guests"
         },
         "NUMBER_OF_GUESTS": "Number of guests",
         "ADULTS": "Adults",
         "ADULT_PLURAL": {
-            "one": "Adult",
-            "other": "Adults"
+            "one": "adult",
+            "other": "adults"
         },
         "KIDS": "Kids",
         "KID_PLURAL": {
-            "one": "Kid",
-            "other": "Kids"
+            "one": "kid",
+            "other": "kids"
         },
         "BABIES": "Babies",
         "BABY_PLURAL": {
-            "one": "Baby",
-            "other": "Babies"
+            "one": "baby",
+            "other": "babies"
         },
         "PRICE_RANGE": "Price range",
         "PERMISSION": "Permission",

@@ -12,27 +12,27 @@
         "BOOK": "Забронировать",
         "GUESTS": "Гости",
         "GUEST_PLURAL": {
-            "one": "Гость",
-            "few": "Гостя",
-            "many": "Гостей"
+            "one": "гость",
+            "few": "гостя",
+            "many": "гостей"
         },
         "NUMBER_OF_GUESTS": "Количество гостей",
         "ADULTS": "Взрослые",
         "ADULT_PLURAL": {
-            "one": "Взрослый",
-            "other": "Взрослых"
+            "one": "взрослый",
+            "other": "взрослых"
         },
         "KIDS": "Дети",
         "KID_PLURAL": {
-            "one": "Ребёнок",
-            "few": "Ребёнка",
-            "many": "Детей"
+            "one": "ребёнок",
+            "few": "ребёнка",
+            "many": "детей"
         },
         "BABIES": "Младенцы",
         "BABY_PLURAL": {
-            "one": "Младенец",
-            "few": "Младенца",
-            "many": "Младенцев"
+            "one": "младенец",
+            "few": "младенца",
+            "many": "младенцев"
         },
         "LUXURY": "Люкс",
         "PER_DAY": "в сутки"
@@ -56,18 +56,18 @@
         "NUMBER_OF_GUESTS": "Number of guests",
         "ADULTS": "Adults",
         "ADULT_PLURAL": {
-            "one": "Adult",
-            "other": "Adults"
+            "one": "adult",
+            "other": "adults"
         },
         "KIDS": "Kids",
         "KID_PLURAL": {
-            "one": "Kid",
-            "other": "Kids"
+            "one": "kid",
+            "other": "kids"
         },
         "BABIES": "Babies",
         "BABY_PLURAL": {
-            "one": "Baby",
-            "other": "Babies"
+            "one": "baby",
+            "other": "babies"
         },
         "LUXURY": "Lux",
         "PER_DAY": "per day"

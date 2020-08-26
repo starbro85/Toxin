@@ -25,7 +25,9 @@ mixin footer(footer, lang)
             ABOUT_US,
             SUPPORT,
             SUBSCRIBTION,
-            WE_IN_SOCIAL_MEDIA
+            WE_IN_SOCIAL_MEDIA,
+            COPYRIGHT,
+            SPECIAL_OFFERS
         } = i18n;
 
     footer(class = 'footer')
@@ -39,26 +41,25 @@ mixin footer(footer, lang)
             )
                 +logo()
 
-            section(class = 'footer__awards-section')
-                h3(class = 'footer__label visually-hidden') #{AWARDS}  
-                p(class = 'footer__paragraph') #{awardsText}
+            section(class = 'footer__awards')
+                p(class = 'footer__paragraph') #{AWARDS}
 
             nav(class = 'footer__nav')
-                section(class = 'footer__nav-section')
+                section(class = 'footer__navigation')
                     h3(class = 'footer__label') #{NAVIGATION}
                     +link-list(navLinkList)
 
-                section(class = 'footer__about-section')
+                section(class = 'footer__about')
                     h3(class = 'footer__label') #{ABOUT_US}
                     +link-list(aboutLinkList)
 
-                section(class = 'footer__support-section')
+                section(class = 'footer__support')
                     h3(class = 'footer__label') #{SUPPORT}
                     +link-list(supportLinkList)
 
-            section(class = 'footer__subscribtion-section')
+            section(class = 'footer__subscribtion')
                 h3(class = 'footer__label') #{SUBSCRIBTION}
-                p(class = 'footer__paragraph') #{subscribtionText}
+                p(class = 'footer__paragraph') #{SPECIAL_OFFERS}
                 +subscribtion-field(false, lang)
 
         hr(class = 'footer__separator')
@@ -67,7 +68,7 @@ mixin footer(footer, lang)
             class = 'footer__basement'
             role = 'contentinfo'
         ) 
-            p(class = 'footer__copyright') #{copyright}
+            p(class = 'footer__copyright') #{COPYRIGHT}
             
             section(class = 'footer__social')
                 h3(class = 'footer__label visually-hidden') #{WE_IN_SOCIAL_MEDIA}

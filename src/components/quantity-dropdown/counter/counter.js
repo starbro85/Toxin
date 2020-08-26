@@ -10,15 +10,15 @@ export class Counter {
         this.minValue = Number(this.input.getAttribute('aria-valuemin'));
         this.maxValue = Number(this.input.getAttribute('aria-valuemax'));
 
-        this.init();
+        this._init();
     }
 
-    normalizeRange() {
+    _normalizeRange() {
         this.increment.disabled = this.value >= this.maxValue;
         this.decrement.disabled = this.value <= this.minValue;
     }
 
-    sendCounterData = () => {
+    _sendCounterData = () => {
         const name = this.input.name;
         const value = Number(this.input.value);
         const plural = JSON.parse(this.input.dataset.plural);
@@ -26,7 +26,7 @@ export class Counter {
         const boundName = isBound ? this.input.dataset.boundName : '';
         const boundPlural = isBound ? JSON.parse(this.input.dataset.boundPlural) : '';
 
-        this.root.dispatchEvent(new CustomEvent('counter-data-sent', {
+        this.root.dispatchEvent(new CustomEvent('counter-changed', {
             detail: {
                 name: name,
                 value: value,
@@ -38,7 +38,7 @@ export class Counter {
         }));
     }
 
-    handleCounterChange = (event) => {
+    _handleCounterChange = (event) => {
         if (event.target === this.increment) {
             this.value = this.value + 1;
             this.input.focus();
@@ -63,26 +63,24 @@ export class Counter {
         
         this.input.setAttribute('aria-valuenow', this.input.value);
 
-        this.sendCounterData();
-        this.normalizeRange();
+        this._sendCounterData();
+        this._normalizeRange();
     }
 
-    handleCounterClear = () => {
-        this.value = 0;
-        this.input.value = this.value;
-
-        this.sendCounterData();
-        this.normalizeRange();
-    }
-
-    init() {
-        this.normalizeRange();
-        this.sendCounterData();
+    _init() {
+        this._normalizeRange();
+        this._sendCounterData();
         
-        this.root.addEventListener('counter-value-clear', this.handleCounterClear)
-        this.increment.addEventListener('click', this.handleCounterChange);   
-        this.decrement.addEventListener('click', this.handleCounterChange);
-        this.input.addEventListener('keydown', this.handleCounterChange);
-        this.input.addEventListener('input', this.handleCounterChange);
+        this.root.addEventListener('counter-clear', (event) => {
+            this.value = 0;
+            this.input.value = this.value;
+
+            this._sendCounterData();
+            this._normalizeRange();
+        })
+        this.increment.addEventListener('click', this._handleCounterChange);   
+        this.decrement.addEventListener('click', this._handleCounterChange);
+        this.input.addEventListener('keydown', this._handleCounterChange);
+        this.input.addEventListener('input', this._handleCounterChange);
     }
 };

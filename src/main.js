@@ -13,3 +13,4 @@ import './globals/global.css';
 
 import './pages/search-room/search-room.js';
 import './pages/room-detail/room-detail.js';
+import './pages/start-menu/start-menu.js';

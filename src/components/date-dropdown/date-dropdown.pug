@@ -36,16 +36,17 @@ mixin date-dropdown(dateDropdown, lang)
         class = controlClass ? `date-dropdown js-date-dropdown ${controlClass}` : 'date-dropdown js-date-dropdown'
         data-is-twin = isTwin
         data-auto-apply = autoApply
+        data-lang = lang
     )
         if isTwin
             +text-field({ 
+                disabled,  
+                required,
                 label: ARRIVAL,
-                controlClass: 'js-date-dropdown__text-field js-date-dropdown__text-field_from',
+                controlClass: 'js-date-dropdown__text-field',
                 type: 'button',
                 name: 'arrival',
                 placeholder: DATE_SINGLE_PLACEHOLDER,
-                disabled,  
-                required,
                 title: ARRIVAL_TIME,
                 ariaExpanded: `${expanded}`,
                 ariaControls: `datepicker-${id}`,
@@ -59,13 +60,13 @@ mixin date-dropdown(dateDropdown, lang)
                 }
             })
             +text-field({ 
+                disabled,  
+                required,
                 label: DEPARTURE,
-                controlClass: 'js-date-dropdown__text-field js-date-dropdown__text-field_to',
+                controlClass: 'js-date-dropdown__text-field',
                 type: 'button',
                 name: 'departure',
                 placeholder: DATE_SINGLE_PLACEHOLDER,
-                disabled,  
-                required,
                 title: DEPARTURE_TIME,
                 ariaExpanded: `${expanded}`,
                 ariaControls: `datepicker-${id}`,
@@ -81,13 +82,13 @@ mixin date-dropdown(dateDropdown, lang)
 
         else 
             +text-field({ 
+                disabled,  
+                required,
                 label: TIME_OF_STAY,
                 controlClass: 'js-date-dropdown__text-field',
                 type: 'button',
                 name: 'rentPeriod',
                 placeholder: DATE_RANGE_PLACEHOLDER,
-                disabled,  
-                required,
                 title: TIME_OF_STAY,
                 ariaExpanded: `${expanded}`,
                 ariaControls: `datepicker-${id}`,

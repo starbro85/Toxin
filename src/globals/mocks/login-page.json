@@ -1,301 +1,173 @@
 {
     "lang": "ru",
-    "description": "Сервис поиска и бронирования отелей и гостиниц Toxin. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
-    "title": "Toxin | Страница авторизации.",
-    "heading": "Страница авторизации.",
-    "header": {
-        "auth": false,
-        "logoLink": {
-            "ariaLabel": "Домашняя страница",
-            "href": "landing-page.html",
-            "title": "Перейти на домашнюю страницу сайта"
-        },
-        "nav": [
-            {
-                "label": "О нас",
-                "href": "#",
-                "title": "Узнать о нас больше",
-                "bold": true
-            },
-            {
-                "isMenu": true,
-                "menu": {
-                    "label": "Услуги",
-                    "title": "Раскрыть меню с услугами компании",
-                    "linkList": {
-                        "list": [
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "label": "Карьера",
-                "href": "#",
-                "title": "Постройте карьеру вместе с нами"
-            },
-            {
-                "label": "Новости",
-                "href": "#",
-                "title": "Узнать о последних новостях компании"
-            },
-            {
-                "isMenu": true,
-                "menu": {
-                    "label": "Документация",
-                    "title": "Раскрыть меню с документацией",
-                    "linkList": {
-                        "list": [
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 1",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 2",
-                                "href": "#",
-                                "title": "text"
-                            },
-                            {
-                                "label": "Option 3",
-                                "href": "#",
-                                "title": "text"
-                            }
-                        ]
-                    }
-                }
-            }
-        ],
-        "signIn": {
-            "loginLink": {
-                "label": "Войти",
-                "href": "./login-page.html",
-                "title": "Перейти на страницу авторизации",
-                "button": true,
-                "border": true
-            },
-            "registrationLink": {
-                "label": "Создать",
-                "href": "./registration-page.html",
-                "title": "Перейти на страницу регистрации",
-                "button": true,
-                "fill": true
-            }
-        },
-        "button": {
-            "ariaLabel": "Открыть навигационное меню"
-        }
-    },
-    "footer": {
-        "heading": "Подвал сайта",
-        "logoLink": {
-            "ariaLabel": "Домашняя страница",
-            "href": "landing-page.html",
-            "title": "Перейти на домашнюю страницу сайта"
-        },
-        "awardSection": {
-            "label": "Наши награды",
-            "text": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-        },
-        "navSection": {
-            "label": "Навигация",
-            "linkList": {
-                "list": [
-                    {
-                        "label": "О нас",
-                        "href": "#",
-                        "title": "Узнать о нас больше"
-                    },
-                    {
-                        "label": "Новости",
-                        "href": "#",
-                        "title": "Узнать о последних новостях компании"
-                    },
-                    {
-                        "label": "Служба поддержки",
-                        "href": "#",
-                        "title": "Связаться с нашей службой поддержки"
-                    },
-                    {
+    "description": "Сервис поиска и бронирования отелей и гостиниц. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
+    "title": "Toxin | Войти",
+    "heading": "Войти",
+    "layout": {
+        "header": {
+            "auth": false,
+            "navList": [
+                {
+                    "label": "О нас",
+                    "href": "#",
+                    "title": "О нас",
+                    "bold": true
+                },
+                {
+                    "isMenu": true,
+                    "menu": {
                         "label": "Услуги",
-                        "href": "#",
-                        "title": "Узнать о предоставляемых нами услугах"
+                        "title": "Услуги",
+                        "linkList": [
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            },
+                            
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            }
+                        ]
                     }
-                ]
-            }
-        },
-        "aboutSection": {
-            "label": "О нас",
-            "linkList": {
-                "list": [
-                    {
-                        "label": "О сервисе",
-                        "href": "#",
-                        "title": "Узнать больше о нашем сервисе"
-                    },
-                    {
-                        "label": "Наша команда",
-                        "href": "#",
-                        "title": "Узнать больше о нашей команде"
-                    },
-                    {
-                        "label": "Вакансии",
-                        "href": "#",
-                        "title": "Ознакомится с вакансиями компании"
-                    },
-                    {
-                        "label": "Инвесторы",
-                        "href": "#",
-                        "title": "Наши инвесторы"
+                },
+                {
+                    "label": "Карьера",
+                    "title": "Карьера",
+                    "href": "#"
+                },
+                {
+                    "label": "Новости",
+                    "title": "Новости",
+                    "href": "#"
+                },
+                {
+                    "isMenu": true,
+                    "menu": {
+                        "label": "Документация",
+                        "title": "Документация",
+                        "linkList": [
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            }
+                        ]
                     }
-                ]
-            }
+                }
+            ]
         },
-        "supportSection": {
-            "label": "Служба поддержки",
-            "linkList": {
-                "list": [
-                    {
-                        "label": "Соглашения",
-                        "href": "#"
-                    },
-                    {
-                        "label": "Сообщества",
-                        "href": "#"
-                    },
-                    {
-                        "label": "Связь с нами",
-                        "href": "#"
-                    }
-                ]
-            }
-        },
-        "subscribtionSection": {
-            "label": "Подписка",
-            "text": "Получайте специальные предложения и новости сервиса",
-            "subscribtionField": {
-                "textField": {
-                    "input": {
-                        "title": "Введите email",
-                        "ariaLabel": "Введите email"
-                    },
-                    "button": {
-                        "ariaLabel": "Подписаться",
-                        "title": "Подписаться"
-                    }
-                }   
-            }
-        },
-        "copyright": {
-            "text": "Copyright © 2018 Toxin отель. Все права зачищены."
-        },
-        "socialSection": {
-            "label": "Мы в социальных сетях",
-            "socialList": {
-                "list": [
-                    {
-                        "type": "tw",
-                        "href": "#",
-                        "title": "Мы в Twitter",
-                        "ariaLabel": "Перейти на страницу в Twitter"
-                    },
-                    {
-                        "type": "fb",
-                        "href": "#",
-                        "title": "Мы в Facebook",
-                        "ariaLabel": "Перейти на страницу в Facebook"
-                    },
-                    {
-                        "type": "inst",
-                        "href": "#",
-                        "title": "Мы в Instagram",
-                        "ariaLabel": "Перейти на страницу в Instagram"
-                    }
-                ]
-            }      
+        "footer": {
+            "navLinkList": [
+                {
+                    "label": "О нас",
+                    "href": "#",
+                    "title": "О нас"
+                },
+                {
+                    "label": "Новости",
+                    "href": "#",
+                    "title": "Новости"
+                },
+                {
+                    "label": "Служба поддержки",
+                    "href": "#",
+                    "title": "Служба поддержки"
+                },
+                {
+                    "label": "Услуги",
+                    "href": "#",
+                    "title": "Узнать"
+                }
+            ],
+            "aboutLinkList": [
+                {
+                    "label": "О сервисе",
+                    "href": "#",
+                    "title": "О сервисе"
+                },
+                {
+                    "label": "Наша команда",
+                    "href": "#",
+                    "title": "Наша команда"
+                },
+                {
+                    "label": "Вакансии",
+                    "href": "#",
+                    "title": "Вакансии"
+                },
+                {
+                    "label": "Инвесторы",
+                    "href": "#",
+                    "title": "Инвесторы"
+                }
+            ],
+            "supportLinkList": [
+                {
+                    "label": "Соглашения",
+                    "href": "#",
+                    "title": "Соглашения"
+                },
+                {
+                    "label": "Сообщества",
+                    "href": "#",
+                    "title": "Сообщества"
+                },
+                {
+                    "label": "Связь с нами",
+                    "href": "#",
+                    "title": "Связь с нами"
+                }
+            ],
+            "socialList": [
+                {
+                    "media": "tw",
+                    "href": "#"
+                },
+                {
+                    "media": "fb",
+                    "href": "#"
+                },
+                {
+                    "media": "inst",
+                    "href": "#"
+                }
+            ]
         }
     },
-    "formLogin": {
-        "label": "Войти",
-        "loginDataGroup": {
-            "ariaLabel": "Данные для входа в сервис",
-            "emailInput": {
-                "input": {
-                    "name": "email",
-                    "type": "email",
-                    "placeholder": "Email",
-                    "required": true,
-                    "title": "Введите email",
-                    "ariaLabel": "Введите email"
-                }
-            },
-            "passwordInput": {
-                "input": {
-                    "name": "password",
-                    "type": "password",
-                    "placeholder": "Пароль",
-                    "required": true,
-                    "title": "Введите пароль",
-                    "ariaLabel": "Введите пароль"
-                }
-            }
-        },
-        "submitButton": {
-            "label": "Войти",
-            "color": "purple",
-            "fill": true,
-            "icon": "arrow_forward"
-        },
-        "registrationText": "Нет аккаунта на Toxin",
-        "registrationLink": {
-            "label": "Создать",
-            "href": "./registration-page.html",
-            "title": "Перейти на страницу реистрации",
-            "button": true,
-            "border": true
-        }
-    },
-    "image": {
-        "src": "./background-image_1440px.jpg",
-        "alt": "Картинка на заднем фоне",
-        "source": [
-            {
-                "media": "(max-width: 1024px)",
-                "srcset": "./background-image_1024px.jpg"
-            },
-            {
-                "media": "(min-width: 880px)",
-                "srcset": "./background-image_1440px.jpg"
-            }
-        ]
+    "registrationPage": {
+
     }
 }

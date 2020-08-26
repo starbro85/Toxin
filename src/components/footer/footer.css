@@ -108,13 +108,13 @@
 /* awards section */
 
 @media (width < 1167px) {
-    .footer__awards-section {
+    .footer__awards {
         display: none;
     }
 }
 
 @media (width >= 1667px) {
-    .footer__awards-section {
+    .footer__awards {
         grid-area: awards;
     }
 }
@@ -156,13 +156,13 @@
 /* subscribtion section */
 
 @media (width < 880px) {
-    .footer__subscribtion-section {
+    .footer__subscribtion {
         display: none;
     }
 }
 
 @media (width >= 880px) {
-    .footer__subscribtion-section {
+    .footer__subscribtion {
         & .footer__paragraph {
             margin-bottom: 1.42857142857rem;
         }
@@ -170,7 +170,7 @@
 }
 
 @media (width >= 1167px) { 
-    .footer__subscribtion-section {
+    .footer__subscribtion {
         grid-area: subscribtion;
         margin-top: 0.35714285714rem;
     }  

@@ -5,6 +5,7 @@
     width: min(100%, 22.8571428571rem);
     display: grid;
     grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     column-gap: 1.42857142857rem;
 }
 

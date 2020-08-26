@@ -27,9 +27,9 @@ mixin quantity-dropdown(quantityDropdown, lang)
     div(
         class = expanded ? 'quantity-dropdown quantity-dropdown_expanded js-quantity-dropdown' : 'quantity-dropdown js-quantity-dropdown'
         data-auto-apply = autoApply
+        data-lang = lang
     )
         +text-field({ 
-            type: 'button',
             label,
             name,
             placeholder,
@@ -37,6 +37,7 @@ mixin quantity-dropdown(quantityDropdown, lang)
             required,
             title,
             ariaLabel,
+            type: 'button',
             ariaExpanded: `${expanded}`,
             controlClass: 'js-quantity-dropdown__text-field',
             input: {

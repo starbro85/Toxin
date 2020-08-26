@@ -4,6 +4,7 @@ mixin radio-bar(radioBar)
     -
         const {
             radioButtons,
+            name,
             ariaLabel
         } = radioBar;
 
@@ -13,4 +14,10 @@ mixin radio-bar(radioBar)
         aria-label = ariaLabel ? ariaLabel : false
     )
         each item in radioButtons
-            +radio-button(item)
+            +radio-button({
+                name,
+                disabled,
+                value: item.value,
+                checked: item.checked,
+                label: item.label
+            })

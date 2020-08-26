@@ -1,0 +1,11 @@
+{
+    "ru": {
+        "delimiter": ".",
+        "pattern": ["d", "m", "Y"]
+    },
+    "en": {
+        
+        "delimiter": "/",
+        "pattern": ["m", "d", "Y"]
+    }
+}

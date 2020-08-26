@@ -1,4 +1,4 @@
-mixin text-field(textField)
+mixin text-field(textField, lang)
 
     -
         const { 
@@ -31,7 +31,10 @@ mixin text-field(textField)
         rootClasses = controlClass ? `${rootClasses} ${controlClass}` : rootClasses;
         rootClasses = activeClass ? `${rootClasses} ${activeClass}` : rootClasses;
     
-    div(class = rootClasses)
+    div(
+        class = rootClasses
+        data-lang = lang
+    )
         label(class = 'text-field__input-container')
             if label 
                 span(class = 'text-field__label') #{label}
@@ -57,6 +60,8 @@ mixin text-field(textField)
                 aria-controls = ariaControls
                 tabindex = tabindex
                 data-mask = mask
+                data-placeholder = (type === 'button') ? placeholder : false
+                data-title = (type === 'button') ? title : false
             )
             
             if !button

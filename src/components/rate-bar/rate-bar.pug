@@ -21,7 +21,7 @@ mixin rate-bar(rateBar, lang)
 
     div(
         class = 'rate-bar js-rate-bar'
-        role = 'group'
+        role = 'radiogroup'
         aria-label = `${RATING}: ${rating} ${OUT_OF} ${count} ${pluralize(lang, STAR_PLURAL, count)}`
     )
         - let index = 0;
@@ -35,9 +35,9 @@ mixin rate-bar(rateBar, lang)
 
             +rate-button({
                 name, 
+                disabled, 
+                checked,
                 value: index, 
                 title: `${index} ${pluralize(lang, STAR_PLURAL, index)}`,
-                ariaLabel: `${index} ${pluralize(lang, STAR_PLURAL, index)}`,
-                disabled, 
-                checked
+                ariaLabel: `${index} ${pluralize(lang, STAR_PLURAL, index)}`
             })
