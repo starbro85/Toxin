@@ -22,8 +22,7 @@ export class Header {
             control: this.button,
             toggleClass: 'header_expanded',
             trapFocus: true,
-            outsideClickCollapse: true,
-            disableOutsideEvents: true
+            outsideClickCollapse: true
         });
 
         this.menu.forEach((item) => new Menu(item))

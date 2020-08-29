@@ -39,6 +39,7 @@ export class TextField {
 
     setSubmitValue(value) {
         this.hiddenInput.value = value ? value : '';
+        console.log(this.hiddenInput.value)
     }
 
     render(parent) {

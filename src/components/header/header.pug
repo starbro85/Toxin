@@ -2,15 +2,13 @@ include ./menu/menu
 include ../logo/logo
 include ../link/link
 
-mixin header(header, lang)
+mixin header(header, lang, auth, user)
     -
         const uniqid = require('uniqid');
         const id = uniqid();
 
         const {
-            auth,
-            navList,
-            user
+            navList
         } = header;
 
         const i18n = require('../../components/header/i18n.json')[lang]; 
@@ -66,7 +64,7 @@ mixin header(header, lang)
                         )
                         li(class = 'header__nav-item')
                             +link({
-                                label: user.fullname,
+                                label: `${user.name} ${user.surname}`,
                                 href: user.href,
                                 title: PERSONAL_ACCOUNT
                             })

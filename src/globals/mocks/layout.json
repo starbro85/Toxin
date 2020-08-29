@@ -1,11 +1,6 @@
 {
-    "lang": "ru",
-    "description": "Сервис поиска и бронирования отелей и гостиниц. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
-    "title": "Toxin | Страница номера 888",
-    "heading": "Страница номера 888",
-    "layout": {
+    "ru": {
         "header": {
-            "auth": false,
             "navList": [
                 {
                     "label": "О нас",
@@ -90,6 +85,7 @@
             ]
         },
         "footer": {
+            "promo": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
             "navLinkList": [
                 {
                     "label": "О нас",
@@ -167,112 +163,168 @@
             ]
         }
     },
-    "roomDetail": {
-        "images": {
-            "primary": {
-                "src": "./888_image_1_981px.jpg",
-                "alt": "Изображение 1 номера 888",
-                "width": "981",
-                "height": "484"
-            },
-            "secondaryList": [
+    "en": {
+        "header": {
+            "navList": [
                 {
-                    "src": "./888_image_2_459px.jpg",
-                    "alt": "Изображение 2 номера 888",
-                    "width": "459",
-                    "height": "242"
+                    "label": "About Us",
+                    "href": "#",
+                    "title": "About Us",
+                    "bold": true
                 },
                 {
-                    "src": "./888_image_3_459px.jpg",
-                    "alt": "Изображение 3 номера 888",
-                    "width": "459",
-                    "height": "242"
+                    "isMenu": true,
+                    "menu": {
+                        "label": "Services",
+                        "title": "Services",
+                        "linkList": [
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            },
+                            
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "label": "Career",
+                    "title": "Career",
+                    "href": "#"
+                },
+                {
+                    "label": "News",
+                    "title": "News",
+                    "href": "#"
+                },
+                {
+                    "isMenu": true,
+                    "menu": {
+                        "label": "Documentation",
+                        "title": "Documentation",
+                        "linkList": [
+                            {
+                                "label": "Link 1",
+                                "href": "#",
+                                "title": "Link 1"
+                            },
+                            {
+                                "label": "Link 2",
+                                "href": "#",
+                                "title": "Link 2"
+                            },
+                            {
+                                "label": "Link 3",
+                                "href": "#",
+                                "title": "Link 3"
+                            }
+                        ]
+                    }
                 }
             ]
         },
-        "formBooking": {
-            "number": 888,
-            "isLuxury": true,
-            "dateInitValue": [
-                "2020-12-20T18:18:18+07:00",
-                "2020-12-24T18:18:18+07:00"
+        "footer": {
+            "promo": "Reservation of rooms in the best hotel of 2019 according to the&#10;«Hotel Views» association",
+            "navLinkList": [
+                {
+                    "label": "About Us",
+                    "href": "#",
+                    "title": "About Us"
+                },
+                {
+                    "label": "News",
+                    "href": "#",
+                    "title": "News"
+                },
+                {
+                    "label": "Support service",
+                    "href": "#",
+                    "title": "Support service"
+                },
+                {
+                    "label": "Services",
+                    "href": "#",
+                    "title": "Services"
+                }
             ],
-            "guestsInitValue": {
-                "adults": 2,
-                "kids": 1,
-                "babies": 0
-            },
-            "rent": {
-                "number": 9990,
-                "currency": "RUB"
-            },
-            "service": {
-                "number": 0,
-                "currency": "RUB",
-                "tooltip": "Some info"
-            },
-            "addition": {
-                "number": 300,
-                "currency": "RUB",
-                "tooltip": "Some info"
-            },
-            "discount": {
-                "number": 2179,
-                "currency": "RUB"
-            }
-        },
-        "featureList": [
-            {
-                "icon": "insert_emoticon",
-                "label": "Комфорт",
-                "description": "Шумопоглощающие стены"
-            },
-            {
-                "icon": "location_city",
-                "label": "Удобство",
-                "description": "Окно в каждой из спален"
-            },
-            {
-                "icon": "whatshot",
-                "label": "Уют",
-                "description": "Номер оснащён камином"
-            }
-        ],
-        "pieChart": [ 0, 65, 65, 130 ],
-        "reviewCount": "2",
-        "reviewList": [
-            {   
-                "user": {
-                    "name": "Peter",
-                    "surname": "Murphy",
-                    "image": "./user_1_44px.jpg"
+            "aboutLinkList": [
+                {
+                    "label": "About service",
+                    "href": "#",
+                    "title": "About service"
                 },
-                "pubdate": "2020-07-24T18:18:18+07:00",
-                "text": "In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum!",
-                "like": {
-                    "count": 3,
-                    "active": true
-                }
-            },
-            {
-                "user": {
-                    "name": "Патрисия",
-                    "surname": "Стёклышкова",
-                    "image": "./user_3_44px.jpg"
+                {
+                    "label": "Our team",
+                    "href": "#",
+                    "title": "Our team"
                 },
-                "pubdate": "2019-07-24T18:18:18+04:00",
-                "text": "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент.",
-                "like": {
-                    "count": 2,
-                    "active": false
+                {
+                    "label": "Vacancy",
+                    "href": "#",
+                    "title": "Vacancy"
+                },
+                {
+                    "label": "Investors",
+                    "href": "#",
+                    "title": "Investors"
                 }
-            }
-        ],
-        "bulletList": [
-            "Нельзя с питомцами",
-            "Без вечеринок и мероприятий",
-            "Время прибытия — после 13:00,&#10;а выезд до 12:00"
-        ],
-        "cancelInfo": "Бесплатная отмена в течение 48 ч. После&#10;этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+            ],
+            "supportLinkList": [
+                {
+                    "label": "Agreements",
+                    "href": "#",
+                    "title": "Agreements"
+                },
+                {
+                    "label": "Comunity",
+                    "href": "#",
+                    "title": "Comunity"
+                },
+                {
+                    "label": "Contacts",
+                    "href": "#",
+                    "title": "Contacts"
+                }
+            ],
+            "socialList": [
+                {
+                    "media": "tw",
+                    "href": "#"
+                },
+                {
+                    "media": "fb",
+                    "href": "#"
+                },
+                {
+                    "media": "inst",
+                    "href": "#"
+                }
+            ]
+        }
     }
 }

@@ -1,0 +1,556 @@
+{
+    "lang": "en",
+    "auth": false,
+    "description": "Search and reservation service for hotels and hotels. The best rooms for your work, relaxation and just inspiration.",
+    "title": "Toxin | Room search",
+    "heading": "Room search",
+    "searchRoom": {
+        "filter": {
+            "heading": "Search results filter",
+            "dateInitValue": [
+                "2020-12-20T18:18:18+07:00",
+                "2020-12-24T18:18:18+07:00"
+            ],
+            "guestsInitValue": {
+                "adults": 2,
+                "kids": 1,
+                "babies": 0
+            },
+            "amenitiesInitValue": {
+                "bedrooms": 2,
+                "beds": 2,
+                "bathrooms": 1
+            },
+            "permissionCheckboxList": [
+                {
+                    "name": "smoke",
+                    "label": "Smoke allowed"
+                },
+                {
+                    "name": "pet",
+                    "label": "Pets allowed",
+                    "checked": true
+                },
+                {
+                    "name": "guests",
+                    "label": "Guests allowed&#10;(up to 10 people)",
+                    "checked": true
+                }
+            ],
+            "accessibilityCheckboxList": [
+                {
+                    "name": "wide-corridor",
+                    "label": "Wide corridor",
+                    "description": "The width of the corridors in the room is&#10;at least 91 cm.",
+                    "title": true
+                },
+                {
+                    "name": "disabled-assistant",
+                    "label": "Disabled assistant",
+                    "description": "A specialist will meet you on the 1st floor&#10;and escort you to your room.",
+                    "title": true
+                }
+            ],
+            "additionAmenitiesCheckboxList": [
+                {
+                    "name": "breakfast",
+                    "label": "Breakfast"
+                },
+                {
+                    "name": "desk",
+                    "label": "Desk",
+                    "checked": true
+                },
+                {
+                    "name": "feeding-chair",
+                    "label": "Feeding chair",
+                    "checked": true
+                },
+                {
+                    "name": "crib",
+                    "label": "Crib",
+                    "checked": true
+                },
+                {
+                    "name": "tv",
+                    "label": "TV"
+                },
+                {
+                    "name": "schampoo",
+                    "label": "Schampoo"
+                }
+            ]
+        },
+        "searchResult": {
+            "pagination": {
+                "pageList": [
+                    {
+                        "active": true,
+                        "href": "#"
+                    },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" },
+                    { "href": "#" }
+                ],
+                "description": "1 - 12 out of 100+ rental options"
+            },
+            "resultList": [
+                {
+                    "number": "888",
+                    "isLuxury": true,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 9990
+                    },
+                    "reviewCount": 145,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./888_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 888",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./888_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 888",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./888_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 888",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./888_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 888",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "840",
+                    "isLuxury": false,
+                    "rating": 4,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 9900
+                    },
+                    "reviewCount": 65,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./840_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 840",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./840_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 840",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./840_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 840",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./840_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 840",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "350",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5000
+                    },
+                    "reviewCount": 145,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./350_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 350",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./350_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 350",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./350_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 350",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./350_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 350",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "352",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5000
+                    },
+                    "reviewCount": 55,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./352_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 352",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./352_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 352",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./352_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 352",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./352_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 352",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "444",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5000
+                    },
+                    "reviewCount": 15,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./444_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 444",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./444_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 444",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./444_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 444",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./444_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 444",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "450",
+                    "isLuxury": false,
+                    "rating": 4,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5300
+                    },
+                    "reviewCount": 39,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./450_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 450",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./450_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 450",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./450_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 450",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./450_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 450",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "666",
+                    "isLuxury": false,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5300
+                    },
+                    "reviewCount": 25,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./666_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 666",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./666_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 666",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./666_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 666",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./666_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 666",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "678",
+                    "isLuxury": false,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5500
+                    },
+                    "reviewCount": 45,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./678_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 678",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./678_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 678",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./678_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 678",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./678_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 678",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "740",
+                    "isLuxury": false,
+                    "rating": 4,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 6000
+                    },
+                    "reviewCount": 44,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./740_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 740",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./740_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 740",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./740_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 740",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./740_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 740",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "856",
+                    "isLuxury": false,
+                    "rating": 5,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 7300
+                    },
+                    "reviewCount": 19,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./856_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 856",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./856_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 856",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./856_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 856",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./856_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 856",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "980",
+                    "isLuxury": true,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 8500
+                    },
+                    "reviewCount": 35,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./980_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 980",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./980_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 980",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./980_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 980",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./980_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 980",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                },
+                {
+                    "number": "982",
+                    "isLuxury": false,
+                    "rating": 3,
+                    "rent":  {
+                        "currency": "RUB",
+                        "number": 5800
+                    },
+                    "reviewCount": 56,
+                    "href": "#",
+                    "imageList": [
+                        {
+                            "src": "./982_image_1_271px.jpg",
+                            "alt": "Picture 1 of number 982",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./982_image_2_271px.jpg",
+                            "alt": "Picture 2 of number 982",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./982_image_3_271px.jpg",
+                            "alt": "Picture 3 of number 982",
+                            "width": "271",
+                            "height": "152"
+                        },
+                        {
+                            "src": "./982_image_4_271px.jpg",
+                            "alt": "Picture 4 of number 982",
+                            "width": "271",
+                            "height": "152"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

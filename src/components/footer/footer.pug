@@ -6,12 +6,10 @@ include ../subscribtion-field/subscribtion-field
 mixin footer(footer, lang)
     -
         const {
-            awardsText,
+            promo,
             navLinkList,
             aboutLinkList,
             supportLinkList,
-            subscribtionText,
-            copyright,
             socialList
         } = footer;
 
@@ -20,7 +18,6 @@ mixin footer(footer, lang)
         const {
             FOOTER_SITE,
             MAIN_PAGE,
-            AWARDS,
             NAVIGATION,
             ABOUT_US,
             SUPPORT,
@@ -41,8 +38,8 @@ mixin footer(footer, lang)
             )
                 +logo()
 
-            section(class = 'footer__awards')
-                p(class = 'footer__paragraph') #{AWARDS}
+            section(class = 'footer__promo') 
+                p(class = 'footer__paragraph') !{promo}
 
             nav(class = 'footer__nav')
                 section(class = 'footer__navigation')

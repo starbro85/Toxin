@@ -70,7 +70,7 @@
     .footer__content {
         grid-template-areas: 
             'logo nav subscribtion'
-            'awards nav subscribtion'; 
+            'promo nav subscribtion'; 
         grid-template-columns: auto 1fr auto;
         grid-template-rows: max-content auto;
         gap: 1.28571428571rem 1.42857142857rem;
@@ -102,20 +102,21 @@
 .footer__paragraph {
     width: 18.5714285714rem;
     font: var(--body-font);
+    white-space: pre-wrap;
     color: var(--dark-shade-50per);
 }
 
-/* awards section */
+/* promo section */
 
 @media (width < 1167px) {
-    .footer__awards {
+    .footer__promo {
         display: none;
     }
 }
 
 @media (width >= 1667px) {
-    .footer__awards {
-        grid-area: awards;
+    .footer__promo {
+        grid-area: promo;
     }
 }
 

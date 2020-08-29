@@ -43,4 +43,5 @@ mixin pie-chart(countList, lang)
                     class = 'pie-chart__legend-item'
                     style = `--chart-color: ${colorList[index]}`
                 ) #{item}
-                dd(class = 'pie-chart__legend-number visually-hidden') #{countList[index]}
+                dd(class = 'pie-chart__legend-number visually-hidden') 
+                    | #{countList[index]} #{pluralize(lang, VOTE_PLURAL, countList[index])}

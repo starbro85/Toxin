@@ -41,7 +41,7 @@ export class QuantityDropdown {
                         plural: boundplural,
                         originData: {}
                     }
-                this.countersData[boundName].originData[name] = { name: name };
+                this.countersData[boundName].originData[name] = { name };
                 this.countersData[boundName].originData[name].plural = plural;
                 this.countersData[boundName].originData[name].value = value;
                 this.countersData[boundName].value = Object.values(this.countersData[boundName].originData)
@@ -66,69 +66,78 @@ export class QuantityDropdown {
 
         return inputSizeInChar;
     }
+
+    _stringMaker = (str, item) => (item.value !== 0) ? `${str} ${item.value} ${pluralize(this.lang, item.plural, item.value)},` : `${str}`
     
     _getInputValue() {
         const counters = Object.values(this.countersData);
         const inputValue = counters
-            .reduce((inputValue, counter) => (counter.value !== 0) ? `${inputValue} ${counter.value} ${pluralize(this.lang, counter.plural, counter.value)}, ` : `${inputValue}`, '')
-            .slice(1, -2);
+            .reduce(this._stringMaker, '')
+            .slice(1, -1);
 
         return inputValue;
     }
 
-    _getSubmitValue() {
+    _getInputTitle() {
         const counters = Object.values(this.countersData);
-        const submitValue = counters
-            .reduce((submitValue, counter) => counter.value ? `${submitValue}"${counter.name}": "${counter.value}", ` : `${submitValue}`, '')
-            .slice(0, -2);
+        const inputTitle = counters
+            .reduce((inputTitle, counter) => {
+                if (counter.isBound) {
+                    const originaData = Object.values(counter.originData);
+                    return `${inputTitle} ${originaData.reduce(this._stringMaker, '')},`.slice(1, -1);
+                } else {
+                    return this._stringMaker(inputTitle, counter);
+                }
+            }, '')
+            .slice(1, -1);
 
-        return submitValue ? `{${submitValue}}` : '';
+        return inputTitle;
     }
 
     _setTextFieldValues() {
         new TextField(this.textField).setValue(normalizeStr(this._getInputValue(), this._getInputSizeInChar()));
 
-        new TextField(this.textField).setTitle(this._getInputValue());
-
-        new TextField(this.textField).setSubmitValue(this._getSubmitValue());
+        new TextField(this.textField).setTitle(this._getInputTitle());
     }
 
-    _setAutoApply() {
+    _setClearButtonDisabledState = () => {
+        const counters = Object.values(this.countersData);
+        const isDisabled = counters.reduce((acc, counter) => { 
+            if (counter.value) {
+                acc = false;
+            }; 
 
+            return acc;
+        }, true);
+
+        this.clearButton.disabled = isDisabled;
+    }
+
+    _handleManualApply = (event) => {
+        if (event.target === this.applyButton) {
+            this._setTextFieldValues();
+        }
+
+        if (event.target === this.clearButton) {
+            this.counters.forEach((counter) => counter.dispatchEvent(new CustomEvent('counter-clear')));
+
+            this._setTextFieldValues();
+        }
+
+        this._setClearButtonDisabledState();
     }
 
     _setManualApply() {
         this.applyButton = this.root.querySelector('.js-quantity-dropdown__apply-button');
         this.clearButton = this.root.querySelector('.js-quantity-dropdown__clear-button');
-        
-        const setClearButtonDisabledState = () => {
-            const counters = Object.values(this.countersData);
-            const isDisabled = counters.reduce((acc, counter) => { 
-                if (counter.value) {
-                    acc = false;
-                }; 
 
-                return acc;
-            }, true);
+        this.applyButton.addEventListener('click', this._handleManualApply);
 
-            this.clearButton.disabled = isDisabled;
-        }
+        this.clearButton.addEventListener('click', this._handleManualApply);
 
-        this.applyButton.addEventListener('click', (event) => {
-            this._setTextFieldValues();
+        this._setTextFieldValues();
 
-            setClearButtonDisabledState();
-        });
-
-        this.clearButton.addEventListener('click', (event) => {
-            this.counters.forEach((counter) => counter.dispatchEvent(new CustomEvent('counter-clear')));
-
-            this._setTextFieldValues();
-
-            setClearButtonDisabledState();
-        });
-
-        setClearButtonDisabledState();
+        this._setClearButtonDisabledState();
     }
 
     _setAutoApply() {
@@ -138,6 +147,8 @@ export class QuantityDropdown {
     _init() {
         this._setCoutersDataAutoUpdate();
 
+        this.autoApply ? this._setAutoApply() : this._setManualApply();
+
         this.counters.forEach((counter) => new Counter(counter));
 
         new Expander(this.root, {
@@ -146,10 +157,6 @@ export class QuantityDropdown {
             trapFocus: true,
             outsideClickCollapse: true
         });
-
-        this.autoApply ? this._setAutoApply() : this._setManualApply();
-
-        this._setTextFieldValues();
     }
 
     render(parent) {

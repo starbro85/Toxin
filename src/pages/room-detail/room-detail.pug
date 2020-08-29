@@ -4,20 +4,21 @@ include ../../components/layout/layout
 include ../../components/room-detail/room-detail
 
 block variables
-    -const page = require('./../../globals/mocks/room-detail.json');
-    -const description = page.description;
-    -const lang = page.lang;
-    -const title = page.title;
+    -
+        const page = require('../../globals/mocks/room-detail.ru.json');
+
+        const { 
+            lang,
+            auth,
+            user,
+            title,
+            description,
+            roomDetail 
+        } = page;
 
 block heading
     | #{page.heading}
     
 block content
-    -
-        const {
-            layout,
-            roomDetail
-        } = page;
-
-    +layout(layout, lang)
+    +layout(lang, auth, user)
         +room-detail(roomDetail, lang)

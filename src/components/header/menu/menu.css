@@ -8,7 +8,7 @@
     align-items: center;
     
     &.menu_expanded {
-        z-index: 1;
+        z-index: 5;
     }
 }
 

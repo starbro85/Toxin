@@ -23,11 +23,6 @@
     text-transform: uppercase;
 }
 
-.text-field__label_hidden {
-    position: absolute;
-    color: transparent;
-}
-
 /* input */
 
 .text-field__input {

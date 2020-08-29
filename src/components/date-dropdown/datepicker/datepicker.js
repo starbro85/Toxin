@@ -39,7 +39,9 @@ export class Datepicker {
                 switch (event.code) {
                     case 'ArrowDown':      
                         if (this.dayCells[index + 7]) {
-                            this.dayCells[index + 7].focus();
+                            if (!this.dayCells[index + 7].classList.contains('is-disabled')){
+                                this.dayCells[index + 7].focus();
+                            }
                         } else {
                             datepicker.next();
                             datepicker.render();
@@ -49,7 +51,9 @@ export class Datepicker {
 
                     case 'ArrowUp': 
                         if (this.dayCells[index - 7]) {
-                            this.dayCells[index - 7].focus();
+                            if (!this.dayCells[index - 7].classList.contains('is-disabled')) {
+                                this.dayCells[index - 7].focus();
+                            }
                         } else {
                             datepicker.prev();
                             datepicker.render();
@@ -59,7 +63,9 @@ export class Datepicker {
 
                     case 'ArrowRight': 
                         if (this.dayCells[index + 1]) {
-                            this.dayCells[index + 1].focus();
+                            if (!this.dayCells[index + 1].classList.contains('is-disabled')) {
+                                this.dayCells[index + 1].focus();
+                            }
                         } else {
                             datepicker.next();
                             datepicker.render();
@@ -69,7 +75,9 @@ export class Datepicker {
 
                     case 'ArrowLeft': 
                         if (this.dayCells[index - 1]) {
-                            this.dayCells[index - 1].focus();
+                            if (!this.dayCells[index - 1].classList.contains('is-disabled')) {
+                                this.dayCells[index - 1].focus();
+                            }
                         } else {
                             datepicker.prev();
                             datepicker.render();
@@ -129,7 +137,6 @@ export class Datepicker {
                 dates
             }
         }))
-        console.log(dates)
     }
 
     _init() {
@@ -138,6 +145,7 @@ export class Datepicker {
             ranged: true,
             openOn: this.initValue ? 'first' : 'today',
             weekStart: this.i18n.WEEK_START,
+            min: Date.now() - 1000 * 60 * 60 * 24,
             onChange: (date) => this._sendDates([date[0], date[date.length - 1]]),
             i18n: {
                 months: this.i18n.MONTHS,

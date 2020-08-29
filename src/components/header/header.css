@@ -12,6 +12,7 @@
 @media (width < 880px) {
     .header {
         position: relative;
+        z-index: 5;
     }
 }
 

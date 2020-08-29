@@ -5,21 +5,21 @@ include ../../components/search-room/search-room
 
 block variables
     -
-        const page = require('../../globals/mocks/search-room.json');
-        const lang = page.lang;
-        const title = page.title;
-        const description = page.description;
+        const page = require('../../globals/mocks/search-room.ru.json');
+
+        const { 
+            lang,
+            auth,
+            user,
+            title,
+            description,
+            searchRoom 
+        } = page;
 
 block heading
     | #{page.heading}
 
 block content
-    -
-        const {
-            layout,
-            searchRoom
-        } = page;
-
-    +layout(layout, lang)
+    +layout(lang, auth, user)
         +search-room(searchRoom, lang)
 

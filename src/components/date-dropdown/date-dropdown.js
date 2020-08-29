@@ -9,13 +9,17 @@ import { TextField } from '../text-field/text-field.js';
 import { Expander } from '../../globals/helpers/expander.js';
 
 export class DateDropdown {
-    constructor(node) {
+    constructor(node, options={}) {
         if (node) {    
             this.root = node;
             this.datepicker = this.root.querySelector('.js-datepicker');
             this.lang = this.root.dataset.lang;
             this.isTwin = this.root.hasAttribute('data-is-twin');
             this.autoApply = this.root.hasAttribute('data-auto-apply');
+        }
+
+        if (options) {
+            this.options = options;
         }
     }
 
@@ -44,22 +48,22 @@ export class DateDropdown {
         return formattedDateRange;
     }
 
-    _setTextFieldValues() {
-        if (this.isTwin) {
-            this.textFields.forEach((textField, index) => {
-                new TextField(textField).setValue(this._getFormattedDates(this.dates, { day: '2-digit', month: '2-digit', year: 'numeric' })[index]);
-    
-                new TextField(textField).setTitle(this._getFormattedDates(this.dates, { day: 'numeric', month: 'long', year: 'numeric' })[index]);
-    
-                new TextField(textField).setSubmitValue(this.dates[index]);
-            });
-        } else {
-            new TextField(this.textField).setValue(this._getFormattedDateRange(this.dates, { day: 'numeric', month: 'short' }));
+    _setSingleValue() {
+        new TextField(this.textField).setValue(this._getFormattedDateRange(this.dates, { day: 'numeric', month: 'short' }));
 
-            new TextField(this.textField).setTitle(this._getFormattedDateRange(this.dates, { day: 'numeric', month: 'long' }));
+        new TextField(this.textField).setTitle(this._getFormattedDateRange(this.dates, { day: 'numeric', month: 'long' }));
 
-            new TextField(this.textField).setSubmitValue(`"${this.dates}"`);
-        }
+        new TextField(this.textField).setSubmitValue(this.dates[0] ? `"${[new Date(this.dates[0]).toISOString(), new Date(this.dates[1]).toISOString()]}"` : '');
+    }
+
+    _setTwinValue() {
+        this.textFields.forEach((textField, index) => {
+            new TextField(textField).setValue(this._getFormattedDates(this.dates, { day: '2-digit', month: '2-digit', year: 'numeric' })[index]);
+
+            new TextField(textField).setTitle(this._getFormattedDates(this.dates, { day: 'numeric', month: 'long', year: 'numeric' })[index]);
+
+            new TextField(textField).setSubmitValue(this.dates[index] ? new Date(this.dates[index]).toISOString() : '');
+        });
     }
 
     _setTwinMode() {
@@ -75,6 +79,10 @@ export class DateDropdown {
             trapFocus: true,
             outsideClickCollapse: true
         });
+
+        this._setTextFieldValues = this._setTwinValue;
+        
+        this._setTextFieldValues();
     }
     
     _setSingleMode() {
@@ -89,55 +97,77 @@ export class DateDropdown {
             trapFocus: true,
             outsideClickCollapse: true
         });
+
+        this._setTextFieldValues = this._setSingleValue;
+
+        this._setTextFieldValues();
     }
 
-    _setAutoApply() {
-        this.datepicker.addEventListener('datepicker-date-sent', (event) => this._setTextFieldValues());
+    _setAutoApply(onApply) {
+        this.datepicker.addEventListener('datepicker-date-sent', (event) => {
+            this._setTextFieldValues();
+            
+            if (onApply) {
+                onApply(this.dates);
+            }
+        });
     }
 
-    _setManualApply() {
-        this.applyButton = this.root.querySelector('.js-date-dropdown__apply-button');
-        this.clearButton = this.root.querySelector('.js-date-dropdown__clear-button');
-        
-        const setClearButtonDisabledState = () => {
-            const clearButtonIsDisabled = this.dates[0] ? false : true;
-                
-            this.clearButton.disabled = clearButtonIsDisabled;
+    _setClearButtonDisabledState = () => {
+        const clearButtonIsDisabled = this.dates[0] ? false : true;
+            
+        this.clearButton.disabled = clearButtonIsDisabled;
+    }
+
+    _handleManualApply = (event, onApply) => {
+        if (event.target === this.applyButton) {
+            this._setTextFieldValues();
         }
 
-        this.applyButton.addEventListener('click', (event) => {
-            setClearButtonDisabledState();
-
-            this._setTextFieldValues();
-        });
-
-        this.clearButton.addEventListener('click', (event) => {
+        if (event.target === this.clearButton) {
             this.dates = ['', ''];
 
             this._setTextFieldValues();
             this.datepicker.dispatchEvent(new CustomEvent('datepicker-clear'));
-            
-            this.clearButton.disabled = true;
-        });
+        }
 
-        setClearButtonDisabledState();
+        this._setClearButtonDisabledState();
+
+        if (onApply) {
+            onApply(this.dates);
+        }
+    }
+
+    _setManualApply(onApply) {
+        this.applyButton = this.root.querySelector('.js-date-dropdown__apply-button');
+        this.clearButton = this.root.querySelector('.js-date-dropdown__clear-button');
+
+        if (onApply) {
+            onApply(this.dates);
+        }
+
+        this.applyButton.addEventListener('click', (event) => this._handleManualApply(event, onApply));
+
+        this.clearButton.addEventListener('click', (event) => this._handleManualApply(event, onApply));
+
+        this._setClearButtonDisabledState();
     }
       
     _init() {
+        const { onApply } = this.options;
+
         this._setDateAutoUpdate();
 
         (this.isTwin) ? this._setTwinMode() : this._setSingleMode();
-            
-        this._setTextFieldValues();
 
-        (this.autoApply) ? this._setAutoApply() : this._setManualApply();
+        (this.autoApply) ? this._setAutoApply(onApply) : this._setManualApply(onApply);
     }
 
-    render(parent) {
+    render(parent, options) {
         const components = parent ? parent.querySelectorAll('.js-date-dropdown') : document.querySelectorAll('.js-date-dropdown');
 
         if (components.length > 0) {
-            Array.from(components).map((node) => new DateDropdown(node)._init());
+            components.forEach((node) => new DateDropdown(node, options)._init());
         };
     }
 }

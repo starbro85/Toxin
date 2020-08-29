@@ -1,0 +1,113 @@
+{
+    "lang": "ru",
+    "auth": true,
+    "user": {
+        "name": "Peter",
+        "surname": "Murphy",
+        "href": "#"
+    },
+    "description": "Сервис поиска и бронирования отелей и гостиниц. Лучшие номера для вашей работы, отдыха и просто вдохновения.",
+    "title": "Toxin | Страница номера 888",
+    "heading": "Страница номера 888",
+    "roomDetail": {
+        "images": {
+            "primary": {
+                "src": "./888_image_1_981px.jpg",
+                "alt": "Изображение 1 номера 888",
+                "width": "981",
+                "height": "484"
+            },
+            "secondaryList": [
+                {
+                    "src": "./888_image_2_459px.jpg",
+                    "alt": "Изображение 2 номера 888",
+                    "width": "459",
+                    "height": "242"
+                },
+                {
+                    "src": "./888_image_3_459px.jpg",
+                    "alt": "Изображение 3 номера 888",
+                    "width": "459",
+                    "height": "242"
+                }
+            ]
+        },
+        "formBooking": {
+            "number": 888,
+            "isLuxury": true,
+            "dateInitValue": [
+                "2020-12-20T18:18:18+07:00",
+                "2020-12-24T18:18:18+07:00"
+            ],
+            "guestsInitValue": {
+                "adults": 2,
+                "kids": 1,
+                "babies": 0
+            },
+            "currency": "RUB",
+            "rent": 9990,
+            "service": {
+                "number": 0,
+                "tooltip": "Some info"
+            },
+            "addition": {
+                "number": 300,
+                "tooltip": "Some info"
+            },
+            "discount": 2179
+        },
+        "featureList": [
+            {
+                "icon": "insert_emoticon",
+                "label": "Комфорт",
+                "description": "Шумопоглощающие стены"
+            },
+            {
+                "icon": "location_city",
+                "label": "Удобство",
+                "description": "Окно в каждой из спален"
+            },
+            {
+                "icon": "whatshot",
+                "label": "Уют",
+                "description": "Номер оснащён камином"
+            }
+        ],
+        "pieChart": [ 0, 65, 65, 130 ],
+        "reviewCount": "2",
+        "reviewList": [
+            {   
+                "user": {
+                    "name": "Peter",
+                    "surname": "Murphy",
+                    "image": "./user_1_44px.jpg"
+                },
+                "pubdate": "2020-07-24T18:18:18+07:00",
+                "text": "In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum! In nomine patri et filii et spiriti sanctum!",
+                "like": {
+                    "count": 3,
+                    "active": true
+                }
+            },
+            {
+                "user": {
+                    "name": "Патрисия",
+                    "surname": "Стёклышкова",
+                    "image": "./user_3_44px.jpg"
+                },
+                "pubdate": "2019-07-24T18:18:18+04:00",
+                "text": "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент.",
+                "like": {
+                    "count": 2,
+                    "active": false
+                }
+            }
+        ],
+        "bulletList": [
+            "Нельзя с питомцами",
+            "Без вечеринок и мероприятий",
+            "Время прибытия — после 13:00,&#10;а выезд до 12:00"
+        ],
+        "cancelInfo": "Бесплатная отмена в течение 48 ч. После&#10;этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."    
+    }
+}

@@ -1,14 +1,16 @@
 include ../header/header
 include ../footer/footer
 
-mixin layout(layout, lang)
+mixin layout(lang, auth, user)
     -
+        const layout = require('../../globals/mocks/layout.json')[lang];
+
         const {
             header,
             footer
         } = layout;
 
-    +header(header, lang)  
+    +header(header, lang, auth, user)
 
     if block
         block

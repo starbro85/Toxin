@@ -31,9 +31,11 @@ export class Expander {
             this.toggle();
 
             if (document.activeElement === document.body) {
-                if (this.options.multiple) { this.buttons[0].focus(); }
-            
-                else { this.button.focus(); }
+                if (this.options.multiple) { 
+                    this.buttons[0].focus(); 
+                } else { 
+                    this.button.focus(); 
+                }
             }
         }
     }
@@ -59,9 +61,7 @@ export class Expander {
             this.expanded = !JSON.parse(this.buttons[0].getAttribute('aria-expanded'));
 
             this.buttons.forEach((button) => button.setAttribute('aria-expanded', this.expanded)); 
-        }
-            
-        else { 
+        } else { 
             this.expanded = !JSON.parse(this.button.getAttribute('aria-expanded'));
 
             this.button.setAttribute('aria-expanded', this.expanded); 
@@ -69,8 +69,13 @@ export class Expander {
 
         this.root.classList.toggle(this.options.toggleClass);
 
-        if (this.options.trapFocus) { this.toggleTrapFocus(); }
-        if (this.options.outsideClickCollapse) { this.toggleOutsideClickCollapse(); }
+        if (this.options.trapFocus) { 
+            this.toggleTrapFocus(); 
+        }
+
+        if (this.options.outsideClickCollapse) { 
+            this.toggleOutsideClickCollapse(); 
+        }
     }
 
     init() {
