@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHardDiskPlugin = require('html-webpack-harddisk-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const postcssPresetEnv = require('postcss-preset-env');
+const postcssImports = require('postcss-import');
 
 const config = {
     context: path.resolve(__dirname, '..', 'src'),
@@ -43,6 +44,7 @@ const config = {
                         options: {
                             ident: 'postcss',
                             plugins: () => [
+                                postcssImports(),
                                 postcssPresetEnv({
                                     stage: 3,
                                     features: {
@@ -76,6 +78,12 @@ const config = {
             title: 'room-detail',
             filename: 'room-detail.html',
             template: '../src/pages/room-detail/room-detail.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'landing-page',
+            filename: 'landing-page.html',
+            template: '../src/pages/landing-page/landing-page.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

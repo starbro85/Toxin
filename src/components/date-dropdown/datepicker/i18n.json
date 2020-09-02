@@ -1,11 +1,10 @@
 {
     "ru": {
-        "PREVIOUS_MONTH": "Предыдущий месяц",
         "NEXT_MONTH": "Следующий месяц",
-        "MONTH": "Месяц",
+        "PREVIOUS_MONTH": "Предыдущий месяц",
         "YEAR": "Год",
         "WEEK_START": 1,
-        "MONTHS": [
+        "MONTHS_ARRAY": [
             "Январь",
             "Февраль",
             "Март",
@@ -19,7 +18,7 @@
             "Ноябрь",
             "Декабрь"
         ],
-        "WEEKDAYS": [
+        "WEEKDAYS_ARRAY": [
             {
                 "full": "Понедельник",
                 "abbr": "Пн"
@@ -53,10 +52,9 @@
     "en": {
         "PREVIOUS_MONTH": "Previous month",
         "NEXT_MONTH": "Next month",
-        "MONTH": "Month",
         "YEAR": "Year",
         "WEEK_START": 0,
-        "MONTHS": [
+        "MONTHS_ARRAY": [
             "January",
             "Febraly",
             "March",
@@ -70,7 +68,7 @@
             "November",
             "December"
         ],
-        "WEEKDAYS": [
+        "WEEKDAYS_ARRAY": [
             {
                 "full": "Sunday",
                 "abbr": "Sun"
@@ -89,11 +87,11 @@
             },
             {
                 "full": "Thursday",
-                "abbr": "Th"
+                "abbr": "Thu"
             },
             {
                 "full": "Friday",
-                "abbr": "Fr"
+                "abbr": "Fri"
             },
             {
                 "full": "Saturday",

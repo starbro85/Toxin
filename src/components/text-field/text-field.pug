@@ -72,7 +72,7 @@ mixin text-field(textField, lang)
                         aria-hidden = 'true'
                     ) #{icon.text}
 
-        if type === 'button'
+        if type === 'button' && name
             input(
                 class = 'text-field__hidden-input js-text-field__hidden-input'
                 name = name

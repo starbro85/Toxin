@@ -1,0 +1,57 @@
+{
+    "lang": "en",
+    "auth": false,
+    "description": "Search and reservation service for hotels and hotels. The best rooms for your work, relaxation and just inspiration.",
+    "title": "Toxin | Main page",
+    "heading": "Main page",
+    "landing": {
+        "tagline": "The best rooms for your work, relaxation and just inspiration.",
+        "slideshow": {
+            "autoplay": 7000,
+            "imageList": [
+                {   
+                    "src": "./slideshow_1_1440px.jpg",
+                    "alt": "Room in pink colors",
+                    "source": [
+                        {
+                            "media": "(max-width: 879px)",
+                            "srcset": "./slideshow_1_889px.jpg"
+                        },
+                        {
+                            "media": "(min-width: 880px)",
+                            "srcset": "./slideshow_1_1440px.jpg"
+                        }
+                    ]
+                },
+                {
+                    "src": "./slideshow_2_1440px.jpg",
+                    "alt": "Room in light blue colors",
+                    "source": [
+                        {
+                            "media": "(max-width: 879px)",
+                            "srcset": "./slideshow_2_889px.jpg"
+                        },
+                        {
+                            "media": "(min-width: 880px)",
+                            "srcset": "./slideshow_2_1440px.jpg"
+                        }
+                    ]
+                },
+                {
+                    "src": "./slideshow_3_1440px.jpg",
+                    "alt": "Room in light green colors",
+                    "source": [
+                        {
+                            "media": "(max-width: 879px)",
+                            "srcset": "./slideshow_3_889px.jpg"
+                        },
+                        {
+                            "media": "(min-width: 880px)",
+                            "srcset": "./slideshow_3_1440px.jpg"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

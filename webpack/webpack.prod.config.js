@@ -9,6 +9,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const config = {
     context: path.resolve(__dirname, '..', 'src'),
     optimization: {
+        minimize: true,
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
     entry: './main.js',
@@ -104,6 +105,11 @@ const config = {
             title: 'room-detail',
             filename: 'room-detail.html',
             template: '../src/pages/room-detail/room-detail.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'landing-page',
+            filename: 'landing-page.html',
+            template: '../src/pages/landing-page/landing-page.pug',
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',

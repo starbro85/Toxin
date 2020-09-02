@@ -1,10 +1,56 @@
 {
     "ru": {
         "WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES": "Найдём номера под ваши пожелания",
-        "FIND_A_ROOM": "Подобрать номер"
+        "FIND_A_ROOM": "Подобрать номер",
+        "GUESTS": "Гости",
+        "GUEST_PLURAL": {
+            "one": "гость",
+            "few": "гостя",
+            "many": "гостей"
+        },
+        "NUMBER_OF_GUESTS": "Количество гостей",
+        "ADULTS": "Взрослые",
+        "ADULT_PLURAL": {
+            "one": "взрослый",
+            "few": "взрослых",
+            "many": "взрослых"
+        },
+        "KIDS": "Дети",
+        "KID_PLURAL": {
+            "one": "ребёнок",
+            "few": "ребёнка",
+            "many": "детей"
+        },
+        "BABIES": "Младенцы",
+        "BABY_PLURAL": {
+            "one": "младенец",
+            "few": "младенца",
+            "many": "младенцев"
+        }
     },
     "en": {
         "WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES": "We will find rooms according to your wishes",
-        "FIND_A_ROOM": "Find a room"        
+        "FIND_A_ROOM": "Find a room",
+        "GUESTS": "Guests",
+        "GUEST_PLURAL": {
+            "one": "guest",
+            "other": "guests"
+        },
+        "NUMBER_OF_GUESTS": "Number of guests",
+        "ADULTS": "Adults",
+        "ADULT_PLURAL": {
+            "one": "adult",
+            "other": "adults"
+        },
+        "KIDS": "Kids",
+        "KID_PLURAL": {
+            "one": "kid",
+            "other": "kids"
+        },
+        "BABIES": "Babies",
+        "BABY_PLURAL": {
+            "one": "baby",
+            "other": "babies"
+        }   
     }
 }

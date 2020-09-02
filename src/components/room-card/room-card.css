@@ -2,8 +2,8 @@
 
 .room-card {
     position: relative;
-    width: min(100%, 270px);
-    max-width: 19.2857142857rem;
+    width: 19.2857142857rem;
+    height: 18.3571428571rem;
     padding-bottom: 1.21428571429rem;
     display: grid;
     row-gap: 0.71428571428rem;
@@ -31,10 +31,10 @@
 
     & .room-card__number {
         font: var(--h2-font);
-    
-        &:first-letter {
+        
+        & small {
             font-size: 1rem;
-        }   
+        }
         
         & .room-card__сategory {
             font: var(--h3-font);
@@ -80,27 +80,15 @@
     height: 100%;
     color: transparent;
 
-    &:after {
-        content: 'subdirectory_arrow_left';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        font: var(--icon-font);
-        font-size: 0.85714285714rem;
-        color: var(--dark-shade-50per);
-        opacity: 0;
-    }
-
     &:before {
         content: '';
         position: absolute;
         bottom: 0;
         right: 0;
         border-style: solid;
-        border-width: 0 0 0.35714285714rem 0.35714285714rem;
+        border-width: 0 0 0 0;
         border-color: var(--dark-shade-5per) var(--purple-100per);
-        opacity: 0;
-        transition: all ease .3s;
+        transition: border-width ease .3s;
     }
 
     &:focus {
@@ -109,16 +97,9 @@
     }
 
     &:focus, &:hover {
-        &:after {
-            opacity: 1;
-            transition: opacity .3s;
-        }
-
         &:before {
-            content: '';
-            border-width: 0 0 1.28571428571rem 1.28571428571rem;
-            opacity: 1;
-            transition: all ease .3s;
+            border-width: 0 0 .9rem .9rem;
+            transition: border-width ease .3s;
         }
     }
 }

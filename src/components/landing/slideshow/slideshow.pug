@@ -1,0 +1,40 @@
+mixin slideshow(slideshow)
+    -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+
+        const {
+            imageList,
+            autoplay
+        } = slideshow
+
+    div(
+        class = 'slideshow js-slideshow'
+        data-autoplay = autoplay
+    )
+        ul(class = 'slideshow__slides')    
+            each item, index in imageList
+                -
+                    const path = {
+                        primary: getImagePath(item.src, item.source),
+                        preloader: item.preloader ? getImagePath(item.preloader.src, item.preloader.source) : false
+                    }
+
+                li(class = 'slideshow__slide')
+                    img(
+                        class = 'slideshow__image slideshow__image_lazy'
+                        data-src = item.preloader ? path.primary.src : false
+                        src = item.preloader ? false : path.primary.src
+                        data-srcset = item.preloader ? path.primary.srcset : false
+                        srcset = item.preloader ? false : path.primary.srcset
+                        alt = item.alt ? item.alt : false
+                        loading = 'auto'
+                    )  
+                    
+                    if item.preloader
+                            img(
+                                class = 'slideshow__image slideshow__image_preloader'
+                                src = path.preloader.src
+                                srcset = path.preloader.srcset
+                                alt = item.alt ? item.alt : false
+                                loading = 'auto'
+                            )  

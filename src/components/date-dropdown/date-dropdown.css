@@ -21,7 +21,7 @@
     left: calc(var(--padding) * -1);
     top: 4.28571428571rem;
     opacity: 0;
-    visibility: hidden;
+    visibility: collapse;
     transition: visibility step-end .6s, opacity .6s, z-index step-end .6s;
 }
 

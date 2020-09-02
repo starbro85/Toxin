@@ -1,8 +1,6 @@
-import './carousel.css';
+import { Swiper, Navigation, Lazy } from 'swiper';
 
-import { Swiper, Navigation } from 'swiper';
-
-Swiper.use([ Navigation ]);
+Swiper.use([ Navigation, Lazy ]);
 
 export class Carousel {
     constructor(node) {
@@ -35,13 +33,26 @@ export class Carousel {
                 this.buttonPrev.click();
             }
         }
+    };
+
+    _setKeyboardNavigation() {
+        this.buttonPrev.addEventListener('keyup', this._handleKeyboardControl);
+        this.buttonNext.addEventListener('keyup', this._handleKeyboardControl);
     }
 
-    _init() {
+    _setSwiper() {
         new Swiper(this.root, {
+            preloadImages: false,
             navigation: {
                 nextEl: this.buttonNext,
                 prevEl: this.buttonPrev,
+            },
+            lazy: {
+                loadOnTransitionStart: true,
+                elementClass: 'carousel__image_lazy',
+                loadingClass: 'carousel__image_loading',
+                loadedClass: 'carousel__image_loaded',
+                preloaderClass: 'carousel__image_preloader'
             },
             containerModifierClass: 'carousel_',
             wrapperClass: 'carousel__slides',
@@ -55,9 +66,12 @@ export class Carousel {
             slidePrevClass: 'carousel__slide_prev',
             slideDuplicatePrevClass: 'carousel__duplicate-slide_prev',
             slideBlankClass: 'carousel__slide_blank'
-        })
+        });
 
-        if (this.buttonPrev) { this.buttonPrev.addEventListener('keyup', this._handleKeyboardControl); }
-        if (this.buttonNext) { this.buttonNext.addEventListener('keyup', this._handleKeyboardControl); }
+    }
+
+    _init() {
+        document.addEventListener('DOMContentLoaded' , event => this._setSwiper());
+        this._setKeyboardNavigation();
     }
 }

@@ -1,5 +1,3 @@
-import './datepicker.css';
-
 import datepickerjs from 'Datepicker.js';
 
 export class Datepicker {
@@ -7,10 +5,10 @@ export class Datepicker {
         this.root = node;
         this.initValue = this.root.dataset.initValue
             ? JSON.parse(this.root.dataset.initValue)
-            : '';
+            : false;
         this.lang = this.root.dataset.lang;
-
         this.i18n = require('./i18n.json')[this.lang];
+        this.dateSentEvent = 'datepicker-date-sent';
 
         this._init();
     }
@@ -134,12 +132,36 @@ export class Datepicker {
     _sendDates = (dates) => {
         this.root.dispatchEvent(new CustomEvent('datepicker-date-sent', {
             detail: {
-                dates
+                dates: dates[0] ? dates : ''
             }
         }))
     }
 
-    _init() {
+    _setInitValue(datepicker) {
+        datepicker.setDate(this.initValue);
+        datepicker.goToDate(this.initValue[0]);
+
+        this._sendDates(this.initValue);
+    }
+
+    _setDatepickerClearEventListener(datepicker) {
+        this.root.addEventListener('datepicker-clear', (event) => {
+            datepicker.setDate('');
+            datepicker.render()
+        })
+    }
+
+    _setOnRenderCallback(datepicker) {
+        datepicker.set({
+            onRender: (element) => {
+                this._getDatepickerData(element, datepicker);
+                this._addStartEndRangeClasses(element, datepicker);
+                this._setKeyboardNavigation(datepicker)
+            }
+        })
+    }
+
+    _setDatepicker() {
         const datepicker = new datepickerjs(this.root, {
             inline: true,
             ranged: true,
@@ -148,8 +170,8 @@ export class Datepicker {
             min: Date.now() - 1000 * 60 * 60 * 24,
             onChange: (date) => this._sendDates([date[0], date[date.length - 1]]),
             i18n: {
-                months: this.i18n.MONTHS,
-                weekdays: this.i18n.WEEKDAYS
+                months: this.i18n.MONTHS_ARRAY,
+                weekdays: this.i18n.WEEKDAYS_ARRAY
             },
             templates: {
                 header: [
@@ -190,24 +212,13 @@ export class Datepicker {
             }
         });
 
-        datepicker.set({
-            onRender: (element) => {
-                this._getDatepickerData(element, datepicker);
-                this._addStartEndRangeClasses(element, datepicker);
-                this._setKeyboardNavigation(datepicker)
-            }
-        })
+        if (this.initValue) { this._setInitValue(datepicker); }
 
-        if (this.initValue) {
-            datepicker.setDate(this.initValue);
-            datepicker.goToDate(this.initValue[0]);
+        this._setOnRenderCallback(datepicker);
+        this._setDatepickerClearEventListener(datepicker);
+    }
 
-            this._sendDates(this.initValue);
-        }
-
-        this.root.addEventListener('datepicker-clear', (event) => {
-            datepicker.setDate('');
-            datepicker.render()
-        })
+    _init() {
+        this._setDatepicker(); 
     }
 }

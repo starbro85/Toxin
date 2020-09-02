@@ -6,11 +6,10 @@
         "ARRIVAL_TIME": "Время прибытия",
         "DEPARTURE": "Отъезд",
         "DEPARTURE_TIME": "Время отъезда",
+        "CALENDAR": "Календарь",
         "TIME_OF_STAY": "Время прибывания в отеле",
-        "DATE_RANGE_PLACEHOLDER": "ДД.ММ - ДД.ММ",
-        "DATE_SINGLE_PLACEHOLDER": "ДД.ММ.ГГГГ",
-        "CALENDAR": "Календарь"
-
+        "DATE_PLACEHOLDER": "ДД.ММ",
+        "FULL_DATE_PLACEHOLDER": "ДД.ММ.ГГГГ"
     },
     "en": {
         "CLEAR": "Clear",
@@ -19,9 +18,9 @@
         "DATE_ARRIVAL_TITLE": "Arrival time",
         "DEPARTURE": "Departure",
         "DEPARTURE_TIME": "Departure time",
+        "CALENDAR": "Calendar",
         "TIME_OF_STAY": "Time of stay",
-        "DATE_RANGE_PLACEHOLDER": "DD/MM - DD/MM",
-        "DATE_SINGLE_PLACEHOLDER": "DD/MM/YYYY",
-        "CALENDAR": "Calendar"
+        "DATE_PLACEHOLDER": "MM/DD",
+        "FULL_DATE_PLACEHOLDER": "MM/DD/YYYY"
     }
 }

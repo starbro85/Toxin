@@ -3,10 +3,10 @@ export class Expander {
         this.root = root;
         this.options = options;
 
-        this.init();
+        this._init();
     }
 
-    handleTrapFocus = (event) => {
+    _handleTrapFocus = (event) => {
         if (this.expanded && event.code === 'Tab' && event.shiftKey && document.activeElement === this.firstFocusableElement) {
             this.lastFocusableElement.focus();
             event.preventDefault();
@@ -16,19 +16,21 @@ export class Expander {
         } 
     }
 
-    handleEscapeKeyPress = (event) => {
+    _handleEscapeKeyPress = (event) => {
         if (this.expanded && event.code === 'Escape') {
-            this.toggle();
+            this._toggle();
 
-            if (this.options.multiple) { this.buttons[0].focus(); }
-            
-            else { this.button.focus(); }
+            if (this.options.multiple) { 
+                this.buttons[0].focus(); 
+            } else { 
+                this.button.focus(); 
+            }
         }
     }
 
-    handleOutsideClick = (event) => {
+    _handleOutsideClick = (event) => {
         if (!this.root.contains(event.target)) {
-            this.toggle();
+            this._toggle();
 
             if (document.activeElement === document.body) {
                 if (this.options.multiple) { 
@@ -40,23 +42,29 @@ export class Expander {
         }
     }
 
-    toggleTrapFocus() {
+    _toggleTrapFocus() {
         if (this.expanded) {
-            this.root.addEventListener('keydown', this.handleTrapFocus);
-            document.addEventListener('keyup', this.handleEscapeKeyPress);
+            this.root.addEventListener('keydown', this._handleTrapFocus);
+            document.addEventListener('keyup', this._handleEscapeKeyPress);
         } else {
-            this.root.removeEventListener('keydown', this.handleTrapFocus);
-            document.removeEventListener('keyup', this.handleEscapeKeyPress);
+            this.root.removeEventListener('keydown', this._handleTrapFocus);
+            document.removeEventListener('keyup', this._handleEscapeKeyPress);
         }
     }
 
-    toggleOutsideClickCollapse() { 
-        if (this.expanded) { document.addEventListener('mousedown', this.handleOutsideClick); } 
-
-        else { document.removeEventListener('mousedown', this.handleOutsideClick); } 
+    _toggleOutsideClickCollapse() { 
+        if (this.expanded) { 
+            document.addEventListener('mousedown', this._handleOutsideClick); 
+        } else { 
+            document.removeEventListener('mousedown', this._handleOutsideClick); 
+        } 
     }
 
-    toggle = () => {
+    _toggelDisableForHiddenElements() {
+        this.inputs.forEach((input) => input.disabled = !this.expanded);
+    }
+
+    _toggle = () => {
         if (this.options.multiple) { 
             this.expanded = !JSON.parse(this.buttons[0].getAttribute('aria-expanded'));
 
@@ -67,18 +75,29 @@ export class Expander {
             this.button.setAttribute('aria-expanded', this.expanded); 
         }
 
+        if (this.options.disableHiddenElements) {
+            this._toggelDisableForHiddenElements();
+        }
+
         this.root.classList.toggle(this.options.toggleClass);
 
         if (this.options.trapFocus) { 
-            this.toggleTrapFocus(); 
+            this._toggleTrapFocus(); 
         }
 
         if (this.options.outsideClickCollapse) { 
-            this.toggleOutsideClickCollapse(); 
+            this._toggleOutsideClickCollapse(); 
         }
     }
 
-    init() {
+    _init() {
+        if (this.options.disableHiddenElements) {
+            this.container = this.options.container;
+            this.inputs = this.container.querySelectorAll('input');
+
+            this._toggelDisableForHiddenElements();
+        }
+
         if (this.options.trapFocus) {
             this.focusableElements = this.root.querySelectorAll('a[href]:not([disabled]):not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), [tabindex="0"]:not(:disabled)');
             this.firstFocusableElement = this.focusableElements[0];
@@ -88,13 +107,13 @@ export class Expander {
         if (this.options.multiple) { 
             this.buttons = this.options.control;
 
-            this.buttons.forEach((button) => button.addEventListener('click', this.toggle));
+            this.buttons.forEach((button) => button.addEventListener('click', this._toggle));
         }
             
         else { 
             this.button = this.options.control;
 
-            this.button.addEventListener('click', this.toggle);
+            this.button.addEventListener('click', this._toggle);
         }
     }
 };

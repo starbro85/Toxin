@@ -1,36 +1,24 @@
 extends ../../globals/template
 
 include ../../components/layout/layout
-include ../../components/form-search/form-search
-include ../../components/carousel/carousel
+include ../../components/landing/landing
 
 block variables
-    -const landingPage = require('./../../globals/mocks/landing-page.json');
-    -const user = require('./../../globals/mocks/users.json')['#1'];
-    -const lang = landingPage.lang;
-    -const title = landingPage.title;
-    -const description = landingPage.description;
+    -
+        const page = require('../../globals/mocks/landing-page.ru.json');
+
+        const { 
+            lang,
+            auth,
+            user,
+            title,
+            description,
+            landing 
+        } = page;
 
 block heading
-    | #{landingPage.heading}
-
+    | #{page.heading}
+    
 block content
-    +layout({
-            header: landingPage.header,
-            footer: landingPage.footer,
-            user: user
-        })
-        main(class = 'landing-page')
-            section(class = 'landing-page__content')
-                p(class = 'landing-page__tagline') #{landingPage.tagline}
-                +form-search(landingPage.formSearch)
-            div(class = 'landing-page__slideshow')
-                div(class = 'landing-page__carousel')
-                    +carousel({
-                        images: landingPage.slideshow.images,
-                        autoplay: {
-                            delay: '7000'
-                        },
-                        showBullets: false,
-                        showControls: false
-                    })
+    +layout(lang, auth, user)
+        +landing(landing, lang)

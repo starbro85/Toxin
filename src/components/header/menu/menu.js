@@ -1,5 +1,3 @@
-import './menu.css';
-
 import { Expander } from '../../../globals/helpers/expander.js'
 
 export class Menu {
@@ -7,15 +5,19 @@ export class Menu {
         this.root = node;
         this.button = this.root.querySelector('.js-menu__button');
 
-        this.init();
+        this._init();
     }
 
-    init() {
+    _setExpander() {
         new Expander(this.root, {
             control: this.button,
             toggleClass: 'menu_expanded',
             trapFocus: true,
             outsideClickCollapse: true
         });
+    }
+
+    _init() {
+        this._setExpander();
     }
 }

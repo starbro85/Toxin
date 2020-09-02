@@ -1,18 +1,16 @@
-import './pagination.css';
-
-export class Pagination {
+class Pagination {
     constructor(node) {
-        if (node) {
-            this.root = node;
-            this.items = Array.from(this.root.querySelectorAll('.js-pagination__item'));
-            this.activeItem = this.root.querySelector('.js-pagination__item_active');
-            this.prev = this.root.querySelector('.js-pagination__item_prev');
-            this.next = this.root.querySelector('.js-pagination__item_next');
-            this.ellipsis = '<li class="pagination__item pagination__item_ellipsis">...</li>';
-        }
+        this.root = node;
+        this.items = Array.from(this.root.querySelectorAll('.js-pagination__item'));
+        this.activeItem = this.root.querySelector('.js-pagination__item_active');
+        this.prev = this.root.querySelector('.js-pagination__item_prev');
+        this.next = this.root.querySelector('.js-pagination__item_next');
+        this.ellipsis = '<li class="pagination__item pagination__item_ellipsis">...</li>';
+
+        this._init();
     }
 
-    _normalizeItemsList() {
+    _normalizeItemList() {
         const activeItemIndex = this.items.indexOf(this.activeItem);
 
         if (activeItemIndex > 0) {
@@ -46,14 +44,14 @@ export class Pagination {
     }
 
     _init() {
-        this._normalizeItemsList();
+        this._normalizeItemList();
     }
+}
 
-    render(parent) {
-        const components = parent ? parent.querySelectorAll('.js-pagination') : document.querySelectorAll('.js-pagination');
+export default function render () {
+    const components = document.querySelectorAll('.js-pagination');
 
-        if (components.length > 0) {
-            Array.from(components).map((node) => new Pagination(node)._init());
-        };
-    }
+    if (components.length > 0) {
+        Array.from(components).map((node) => new Pagination(node));
+    };
 }

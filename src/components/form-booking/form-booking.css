@@ -22,8 +22,8 @@
     & .form-booking__number {
         font: var(--h1-font);
         line-height: 1.2142857142857142rem;
-    
-        &:first-letter {
+
+        & small {
             font-size: 1rem;
         }
 

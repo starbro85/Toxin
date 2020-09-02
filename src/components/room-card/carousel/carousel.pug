@@ -11,24 +11,31 @@ mixin carousel(imageList, lang)
 
     div(
         class = 'carousel js-carousel'
-        data-autoplay = autoplay ? true : false
         data-show-controls = showControls ? true : false
     )
         ul(class = 'carousel__slides')    
             each item, index in imageList
-                -
-                    const path = getImagePath(item.src, item.source)
-
                 li(class = 'carousel__slide')
-                    picture(class = 'carousel__picture')
+                    img(
+                        class = item.preloader ? 'carousel__image carousel__image_lazy' : 'carousel__image'
+                        data-src = item.preloader ? getImagePath(item.src).src : false
+                        src = item.preloader ? false : getImagePath(item.src).src
+                        alt = item.alt ? item.alt : false
+                        width = item.width ? item.width : false
+                        height = item.height ? item.height : false
+                        loading = item.width && item.height ? 'lazy' : 'auto'
+                    ) 
+
+                    if item.preloader 
                         img(
-                            class = 'carousel__image'
-                            src = path.src
+                            class = 'carousel__image carousel__image_preloader'
+                            src = getImagePath(item.preloader).src
                             alt = item.alt ? item.alt : false
                             width = item.width ? item.width : false
                             height = item.height ? item.height : false
                             loading = item.width && item.height ? 'lazy' : 'auto'
-                        )  
+                        )
+
 
         div(class = 'carousel__controls')
             button(

@@ -29,7 +29,9 @@ mixin room-card(roomCard, lang)
         +carousel(imageList, lang) 
 
         h3(class = 'room-card__heading')
-            span(class = 'room-card__number') № #{number}&nbsp;
+            span(class = 'room-card__number') 
+                small № 
+                | #{number}&nbsp;
                 if isLuxury
                     strong(class = 'room-card__сategory') #{LUXURY}&nbsp;
 

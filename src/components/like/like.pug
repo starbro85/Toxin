@@ -17,7 +17,7 @@ mixin like(like, lang)
             
 
     button(
-        class = 'like js-like'
+        class = active ? 'like like_active js-like' : 'like js-like'
         data-active = active ? true : false
         aria-label = `${count} ${pluralize(lang, PEOPLE_RATED_PLURAL, count)}. ${active ? REMOVE_RATING : RATE}`
         title = `${count} ${pluralize(lang, PEOPLE_RATED_PLURAL, count)}. ${active ? REMOVE_RATING : RATE}`
@@ -25,7 +25,7 @@ mixin like(like, lang)
         span(
             class = 'like__icon js-like__icon'
             aria-hidden = 'true'
-        )
+        ) #{active ? 'favorite' : 'favorite_border'}
         span(
             class = 'like__count js-like__count'
             aria-hidden = 'true'

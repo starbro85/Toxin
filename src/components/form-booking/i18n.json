@@ -52,8 +52,8 @@
         "BOOK": "Book",
         "GUESTS": "Guests",
         "GUEST_PLURAL": {
-            "one": "Guest",
-            "other": "Guests"
+            "one": "guest",
+            "other": "guests"
         },
         "NUMBER_OF_GUESTS": "Number of guests",
         "ADULTS": "Adults",

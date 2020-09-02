@@ -1,30 +1,26 @@
-import './quantity-dropdown.css';
-import './counter/counter.css';
-
-import '../text-field/text-field.js';
-
 import { Counter } from './counter/counter.js';
 import { TextField } from '../text-field/text-field.js';
 import { Expander } from '../../globals/helpers/expander';
 
-const normalizeStr = require('./../../globals/helpers/normalizeStr.js');
-const pluralize = require('./../../globals/helpers/pluralize.js');
+const normalizeStr = require('../../globals/helpers/normalizeStr.js');
+const pluralize = require('../../globals/helpers/pluralize.js');
 
-export class QuantityDropdown {
+class QuantityDropdown {
     constructor(node) {
-        if (node) {
-            this.root = node;
-            this.textField = this.root.querySelector('.js-quantity-dropdown__text-field');
-            this.button = this.root.querySelector('.js-quantity-dropdown__button')
-            this.counters = this.root.querySelectorAll('.js-counter');
-            this.inputs = this.root.querySelectorAll('.js-counter__input');
-            this.autoApply = this.root.hasAttribute('data-auto-apply');
-            this.lang = this.root.dataset.lang;
-            this.countersData = {};
-        }
+        this.root = node;
+        this.textField = this.root.querySelector('.js-quantity-dropdown__text-field');
+        this.button = this.root.querySelector('.js-quantity-dropdown__button')
+        this.container = this.root.querySelector('.js-quantity-dropdown__container')
+        this.counters = this.root.querySelectorAll('.js-counter');
+        this.inputs = this.root.querySelectorAll('.js-counter__input');
+        this.autoApply = this.root.hasAttribute('data-auto-apply');
+        this.lang = this.root.dataset.lang;
+        this.countersData = {};
+
+        this._init();
     }
       
-    _setCoutersDataAutoUpdate = () => {
+    _setCounterChangeEventListeners() {
         this.counters.forEach(counter => counter.addEventListener('counter-changed', (event) => {
             const name = event.detail.name;
             const value = event.detail.value;
@@ -67,45 +63,53 @@ export class QuantityDropdown {
         return inputSizeInChar;
     }
 
-    _stringMaker = (str, item) => (item.value !== 0) ? `${str} ${item.value} ${pluralize(this.lang, item.plural, item.value)},` : `${str}`
-    
-    _getInputValue() {
-        const counters = Object.values(this.countersData);
-        const inputValue = counters
-            .reduce(this._stringMaker, '')
-            .slice(1, -1);
+    _placehodlerStringMaker = (str, item) => (item.value !== 0) ? `${str} ${item.value} ${pluralize(this.lang, item.plural, item.value)},` : `${str}`
 
-        return inputValue;
-    }
+    _jsonObjStringMaker = (str, item) => (item.value !== 0) ? `${str} "${item.name}": "${item.value}",` : `${str}`
 
-    _getInputTitle() {
-        const counters = Object.values(this.countersData);
-        const inputTitle = counters
-            .reduce((inputTitle, counter) => {
-                if (counter.isBound) {
-                    const originaData = Object.values(counter.originData);
-                    return `${inputTitle} ${originaData.reduce(this._stringMaker, '')},`.slice(1, -1);
+    _getStringFromCounters(counters, stringMaker, displayOrigin) {
+        const str = Object
+            .values(counters)
+            .reduce((str, counter) => {
+                if (counter.isBound && displayOrigin) {
+                    return `${str} ${this._getStringFromCounters(counter.originData, stringMaker, displayOrigin)},`;
                 } else {
-                    return this._stringMaker(inputTitle, counter);
+                    return stringMaker(str, counter);
                 }
             }, '')
             .slice(1, -1);
 
-        return inputTitle;
+        return str;
     }
 
-    _setTextFieldValues() {
-        new TextField(this.textField).setValue(normalizeStr(this._getInputValue(), this._getInputSizeInChar()));
+    _setTextFieldPlaceholder() {
+        const placeholder = normalizeStr(this._getStringFromCounters(this.countersData, this._placehodlerStringMaker, false), this._getInputSizeInChar());
 
-        new TextField(this.textField).setTitle(this._getInputTitle());
+        new TextField(this.textField).setPlaceholder(placeholder);
+    }
+
+    _setTextFieldTitle() {
+        const title = this._getStringFromCounters(this.countersData, this._placehodlerStringMaker, true);
+
+        new TextField(this.textField).setTitle(title);
+    }
+
+    _setTextFieldValue() {
+        const value = this._getStringFromCounters(this.countersData, this._jsonObjStringMaker, true);
+
+        new TextField(this.textField).setValue(value ? `{${value}}` : '');
+    }
+
+    _updateTextField() {
+        this._setTextFieldPlaceholder();
+        this._setTextFieldValue();
+        this._setTextFieldTitle();
     }
 
     _setClearButtonDisabledState = () => {
         const counters = Object.values(this.countersData);
         const isDisabled = counters.reduce((acc, counter) => { 
-            if (counter.value) {
-                acc = false;
-            }; 
+            if (counter.value) { acc = false; }
 
             return acc;
         }, true);
@@ -114,14 +118,12 @@ export class QuantityDropdown {
     }
 
     _handleManualApply = (event) => {
-        if (event.target === this.applyButton) {
-            this._setTextFieldValues();
-        }
+        if (event.target === this.applyButton) { this._updateTextField(); }
 
         if (event.target === this.clearButton) {
             this.counters.forEach((counter) => counter.dispatchEvent(new CustomEvent('counter-clear')));
 
-            this._setTextFieldValues();
+            this._updateTextField();
         }
 
         this._setClearButtonDisabledState();
@@ -132,39 +134,46 @@ export class QuantityDropdown {
         this.clearButton = this.root.querySelector('.js-quantity-dropdown__clear-button');
 
         this.applyButton.addEventListener('click', this._handleManualApply);
-
         this.clearButton.addEventListener('click', this._handleManualApply);
 
-        this._setTextFieldValues();
-
+        this._updateTextField();
         this._setClearButtonDisabledState();
     }
 
     _setAutoApply() {
-        this.counters.forEach((counter) => counter.addEventListener('counter-changed', (event) => this._setTextFieldValues()));
+        this.counters.forEach((counter) => counter.addEventListener('counter-changed', (event) => this._updateTextField()));
     }
-    
-    _init() {
-        this._setCoutersDataAutoUpdate();
 
-        this.autoApply ? this._setAutoApply() : this._setManualApply();
-
+    _setCounters() {
         this.counters.forEach((counter) => new Counter(counter));
+    }
 
+    _setExpander() {
         new Expander(this.root, {
             control: this.button,
             toggleClass: 'quantity-dropdown_expanded', 
             trapFocus: true,
-            outsideClickCollapse: true
+            outsideClickCollapse: true,
+            container: this.container,
+            disableHiddenElements: true
         });
     }
 
-    render(parent) {
-        const components = parent ? parent.querySelectorAll('.js-quantity-dropdown') : document.querySelectorAll('.js-quantity-dropdown');
-
-        if (components.length > 0) {
-            Array.from(components).map((node) => new QuantityDropdown(node)._init());
-        };
+    _setApplyMode = () => this.autoApply ? this._setAutoApply() : this._setManualApply();
+    
+    _init() {
+        this._setCounterChangeEventListeners();
+        this._setCounters();
+        this._setApplyMode();
+        this._setExpander();
     }
 }
 
+
+export default function render () {
+    const components = document.querySelectorAll('.js-quantity-dropdown');
+
+    if (components.length > 0) {
+        Array.from(components).map((node) => new QuantityDropdown(node));
+    };
+}

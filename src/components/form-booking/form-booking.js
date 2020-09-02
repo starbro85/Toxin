@@ -1,33 +1,24 @@
-import './form-booking.css';
-
-import './tooltip/tooltip.js';
-import '../button/button.js';
-import '../quantity-dropdown/quantity-dropdown.js';
-
 const pluralize = require('../../globals/helpers/pluralize.js');
 const currencyFormat = require('../../globals/helpers/currencyFormat.js');
 const currencyNumberConvert = require('../../globals/helpers/currencyNumberConvert.js');
 
-import { DateDropdown } from '../date-dropdown/date-dropdown.js';
-import { QuantityDropdown } from '../quantity-dropdown/quantity-dropdown.js';
-
-export class FormBooking {
+class FormBooking {
     constructor(node) {
-        if (node) {
-            this.root = node;
-            this.periodContainer = this.root.querySelector('.js-form-booking__period');
-            this.rentContainer = this.root.querySelector('.js-form-booking__rent');
-            this.summaryContainer = this.root.querySelector('.js-form-booking__summary');
-            this.discountContainer = this.root.querySelector('.js-form-booking__discount');
-            this.serviceContainer = this.root.querySelector('.js-form-booking__service');
-            this.additionContainer = this.root.querySelector('.js-form-booking__addition');
-            this.priceContainer = this.root.querySelector('.js-form-booking__price');
-            this.input = this.root.querySelector('.js-form-booking__input');
+        this.root = node;
+        this.dateDropdown = this.root.querySelector('.js-form-booking__date-dropdown');
+        this.periodContainer = this.root.querySelector('.js-form-booking__period');
+        this.rentContainer = this.root.querySelector('.js-form-booking__rent');
+        this.summaryContainer = this.root.querySelector('.js-form-booking__summary');
+        this.discountContainer = this.root.querySelector('.js-form-booking__discount');
+        this.serviceContainer = this.root.querySelector('.js-form-booking__service');
+        this.additionContainer = this.root.querySelector('.js-form-booking__addition');
+        this.priceContainer = this.root.querySelector('.js-form-booking__price');
+        this.input = this.root.querySelector('.js-form-booking__input');
+        this.lang = this.root.dataset.lang;
+        this.currency = this.root.dataset.currency;
+        this.i18n = require('./i18n.json')[this.lang];
 
-            this.lang = this.root.dataset.lang;
-            this.currency = this.root.dataset.currency;
-            this.i18n = require('./i18n.json')[this.lang];
-        }
+        this._init()
     }
 
     _setPeriodInnerText(dates) {
@@ -58,8 +49,9 @@ export class FormBooking {
         this.input.value = this.price > 0 ? this.price : 0;
     }
 
-    _init() { 
-        this.root.addEventListener('date-dropdown-values-applied', (event) => {
+    _setEventListeners() {
+        this.root.addEventListener('date-dropdown-changed', (event) => {
+            event.stopPropagation();
             const dates = event.detail.dates;
 
             this._setPeriodInnerText(dates);
@@ -67,26 +59,17 @@ export class FormBooking {
             this._setPriceInnerText();
             this._setInputValue();
         })
-
-        new DateDropdown()
-            .render(this.root, {
-                onApply: (dates) => {
-                    this.root.dispatchEvent(new CustomEvent('date-dropdown-values-applied', {
-                        detail: {
-                            dates
-                        }
-                    }))
-                }
-        });
-
-        new QuantityDropdown().render(this.root);
     }
 
-    render(parent) {
-        const components = parent ? parent.querySelectorAll('.js-form-booking') : document.querySelectorAll('.js-form-booking');
-
-        if (components.length > 0) {
-            Array.from(components).map((node) => new FormBooking(node)._init());
-        };
+    _init() {
+        this._setEventListeners();
     }
 };
+
+export default function render () {
+    const components = document.querySelectorAll('.js-form-booking');
+
+    if (components.length > 0) {
+        Array.from(components).map((node) => new FormBooking(node));
+    };
+}

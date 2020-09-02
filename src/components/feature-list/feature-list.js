@@ -1,1 +1,0 @@
-import './feature-list.css';

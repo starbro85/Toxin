@@ -3,6 +3,9 @@ include ./counter/counter
 
 mixin quantity-dropdown(quantityDropdown, lang)
     -
+        const uniqid = require('uniqid');
+        const id = uniqid();
+
         const {
             label,
             name, 
@@ -39,6 +42,7 @@ mixin quantity-dropdown(quantityDropdown, lang)
             ariaLabel,
             type: 'button',
             ariaExpanded: `${expanded}`,
+            ariaControls: `counters-list-${id}`,
             controlClass: 'js-quantity-dropdown__text-field',
             input: {
                 activeClass: 'quantity-dropdown__button',     
@@ -52,7 +56,10 @@ mixin quantity-dropdown(quantityDropdown, lang)
 
         div(class = 'quantity-dropdown__viewport')
             div(class = 'quantity-dropdown__container js-quantity-dropdown__container')
-                ul(class = 'quantity-dropdown__counters-list')
+                ul(
+                    class = 'quantity-dropdown__counters-list'
+                    id = `counters-list-${id}`
+                )
                     each item in counterList
                         li(class = 'quantity-dropdown__counters-list-item')
                             +counter(item)

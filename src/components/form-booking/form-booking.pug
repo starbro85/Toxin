@@ -51,7 +51,9 @@ mixin form-booking(formBooking, lang)
         data-currency = currency
     )
         h2(class = 'form-booking__heading')  
-            span(class = 'form-booking__number') № #{number}
+            span(class = 'form-booking__number') 
+                small № 
+                | #{number}
                 if isLuxury
                     strong(class = 'form-booking__category') &nbsp;#{LUXURY}
 
@@ -60,13 +62,13 @@ mixin form-booking(formBooking, lang)
                 small(class = 'form-booking__term') &nbsp;#{PER_DAY}
 
         +date-dropdown({
-            controlClass: 'js-form-booking__date-dropdown',
             initValue: dateInitValue,
             isTwin: true,
             required: true
         }, lang)
         +quantity-dropdown({
             label: GUESTS,
+            name: 'guests',
             placeholder: NUMBER_OF_GUESTS,
             required: true,    
             title: NUMBER_OF_GUESTS,

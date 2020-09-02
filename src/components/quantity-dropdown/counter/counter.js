@@ -1,5 +1,3 @@
-import './counter.css';
-
 export class Counter {
     constructor(node) {
         this.root = node;
@@ -67,10 +65,7 @@ export class Counter {
         this._normalizeRange();
     }
 
-    _init() {
-        this._normalizeRange();
-        this._sendCounterData();
-        
+    _addAllEventListeners() {
         this.root.addEventListener('counter-clear', (event) => {
             this.value = 0;
             this.input.value = this.value;
@@ -82,5 +77,11 @@ export class Counter {
         this.decrement.addEventListener('click', this._handleCounterChange);
         this.input.addEventListener('keydown', this._handleCounterChange);
         this.input.addEventListener('input', this._handleCounterChange);
+    }
+
+    _init() {
+        this._normalizeRange();
+        this._sendCounterData();
+        this._addAllEventListeners();
     }
 };

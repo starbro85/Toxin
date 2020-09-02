@@ -13,8 +13,7 @@ mixin date-dropdown(dateDropdown, lang)
             autoApply=false,
             required=false,
             disabled=false,
-            initValue,
-            controlClass 
+            initValue
         } = dateDropdown;
 
         const i18n = require('../../components/date-dropdown/i18n.json')[lang];
@@ -26,10 +25,10 @@ mixin date-dropdown(dateDropdown, lang)
                 ARRIVAL_TIME,
                 DEPARTURE,
                 DEPARTURE_TIME,
-                DATE_RANGE_PLACEHOLDER,
-                DATE_SINGLE_PLACEHOLDER,
                 TIME_OF_STAY,
-                CALENDAR
+                CALENDAR,
+                FULL_DATE_PLACEHOLDER,
+                DATE_PLACEHOLDER
             } = i18n;
 
     div(
@@ -46,7 +45,7 @@ mixin date-dropdown(dateDropdown, lang)
                 controlClass: 'js-date-dropdown__text-field',
                 type: 'button',
                 name: 'arrival',
-                placeholder: DATE_SINGLE_PLACEHOLDER,
+                placeholder: FULL_DATE_PLACEHOLDER,
                 title: ARRIVAL_TIME,
                 ariaExpanded: `${expanded}`,
                 ariaControls: `datepicker-${id}`,
@@ -66,7 +65,7 @@ mixin date-dropdown(dateDropdown, lang)
                 controlClass: 'js-date-dropdown__text-field',
                 type: 'button',
                 name: 'departure',
-                placeholder: DATE_SINGLE_PLACEHOLDER,
+                placeholder: FULL_DATE_PLACEHOLDER,
                 title: DEPARTURE_TIME,
                 ariaExpanded: `${expanded}`,
                 ariaControls: `datepicker-${id}`,
@@ -88,7 +87,7 @@ mixin date-dropdown(dateDropdown, lang)
                 controlClass: 'js-date-dropdown__text-field',
                 type: 'button',
                 name: 'rentPeriod',
-                placeholder: DATE_RANGE_PLACEHOLDER,
+                placeholder: DATE_PLACEHOLDER,
                 title: TIME_OF_STAY,
                 ariaExpanded: `${expanded}`,
                 ariaControls: `datepicker-${id}`,

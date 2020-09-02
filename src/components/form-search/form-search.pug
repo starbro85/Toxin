@@ -7,12 +7,21 @@ mixin form-search(lang)
         const i18n = require('../../components/form-search/i18n.json')[lang]; 
 
         const {
+            GUESTS,
+            GUEST_PLURAL,
+            NUMBER_OF_GUESTS,
+            ADULTS,
+            ADULT_PLURAL,
+            KIDS,
+            KID_PLURAL,
+            BABIES,
+            BABY_PLURAL,
             WE_WILL_FIND_ROOMS_ACCORDING_TO_YOURS_WISHES,
             FIND_A_ROOM
         } = i18n;
 
     form(
-        class = 'form-search'
+        class = 'form-search js-form-search'
         name = 'search' 
         method = 'get'
         action = './search-room.html'
@@ -38,6 +47,7 @@ mixin form-search(lang)
                     label: ADULTS,
                     title: ADULTS,
                     name: 'adults',
+                    initValue: 0,
                     maxValue: 5,
                     plural: ADULT_PLURAL,
                     boundPlural: GUEST_PLURAL,
@@ -48,6 +58,7 @@ mixin form-search(lang)
                     label: KIDS,
                     title: KIDS,
                     name: 'kids',
+                    initValue: 0,
                     maxValue: 5,
                     plural: KID_PLURAL,
                     boundPlural: GUEST_PLURAL,
@@ -58,6 +69,7 @@ mixin form-search(lang)
                     label: BABIES,
                     title: BABIES,
                     name: 'babies',
+                    initValue: 0,
                     maxValue: 5,
                     plural: BABY_PLURAL,
                 }

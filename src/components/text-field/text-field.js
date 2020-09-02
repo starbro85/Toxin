@@ -1,5 +1,3 @@
-import './text-field.css';
-
 import Cleave from 'cleave.js';
 
 export class TextField {
@@ -8,11 +6,16 @@ export class TextField {
         this.input = this.root.querySelector('.js-text-field__input');
         this.hiddenInput = this.root.querySelector('.js-text-field__hidden-input');
         this.placeholder = this.input.dataset.placeholder;  
+        this.dateMask = this.input.dataset.dateMask;  
         this.title = this.input.dataset.title;
         this.lang = this.root.dataset.lang;
         this.i18n = require('./i18n.json')[this.lang];
 
         this._init();
+    }
+
+    _relocateHiddenInputFocus() {
+        this.hiddenInput.addEventListener('focus', (event) => this.input.focus());
     }
 
     _setDateMask() {
@@ -26,27 +29,40 @@ export class TextField {
     }
 
     _init() {
-        if (this.datemMask) { this._setDateMask(); }
+        if (this.datemMask) { 
+            this._setDateMask(); 
+        }
+
+        if (this.hiddenInput) { 
+            this._relocateHiddenInputFocus(); 
+        }
     }
 
-    setValue(value) {
-        this.input.value = value ? value : this.placeholder;
+    setPlaceholder(placeholder) {
+        if (this.input.type === 'button') {
+            this.input.value = placeholder ? placeholder : this.placeholder;
+        } else {
+            placeholder ? this.input.setAttribute('placeholder', placeholder) : this.input.setAttribute('placeholder', this.placeholder);
+        }
     }
 
-    setTitle(value) {
-        value ? this.input.setAttribute('title', value) : this.input.setAttribute('title', this.title);
+    setTitle(title) {
+        title ? this.input.setAttribute('title', title) : this.input.setAttribute('title', this.title);
     }   
 
-    setSubmitValue(value) {
-        this.hiddenInput.value = value ? value : '';
-        console.log(this.hiddenInput.value)
-    }
-
-    render(parent) {
-        const components = parent ? parent.querySelectorAll('.js-text-field') : document.querySelectorAll('.js-text-field');
-
-        if (components.length > 0) {
-            Array.from(components).map((node) => new TextField(node)._init());
-        };
+    setValue(value) {
+        if (this.input.getAttribute('type') === 'button') {
+            this.hiddenInput.value = value ? value : '';
+        } else {
+            this.input.value = value ? value : '';
+        }
     }
 };
+
+export default function render () {
+    const components = document.querySelectorAll('.js-text-field');
+
+    if (components.length > 0) {
+        Array.from(components).map((node) => new TextField(node));
+    };
+}

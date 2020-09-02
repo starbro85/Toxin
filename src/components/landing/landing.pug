@@ -1,0 +1,17 @@
+include ./slideshow/slideshow
+include ../form-search/form-search
+
+mixin landing(landing, lang)
+    -
+        const {
+            tagline,
+            slideshow
+        } = landing;
+    
+    main(class = 'landing js-landing')
+        section(class = 'landing__content')
+            p(class = 'landing__tagline') #{tagline}
+            +form-search(lang)
+        div(class = 'landing__slideshow')
+            div(class = 'landing__carousel')
+                +slideshow(slideshow)

@@ -119,24 +119,28 @@
                     "imageList": [
                         {
                             "src": "./888_image_1_271px.jpg",
+                            "preloader": "./888_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 888",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./888_image_2_271px.jpg",
+                            "preloader": "./888_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 888",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./888_image_3_271px.jpg",
+                            "preloader": "./888_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 888",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./888_image_4_271px.jpg",
+                            "preloader": "./888_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 888",
                             "width": "271",
                             "height": "152"
@@ -156,24 +160,28 @@
                     "imageList": [
                         {
                             "src": "./840_image_1_271px.jpg",
+                            "preloader": "./840_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 840",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./840_image_2_271px.jpg",
+                            "preloader": "./840_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 840",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./840_image_3_271px.jpg",
+                            "preloader": "./840_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 840",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./840_image_4_271px.jpg",
+                            "preloader": "./840_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 840",
                             "width": "271",
                             "height": "152"
@@ -193,24 +201,28 @@
                     "imageList": [
                         {
                             "src": "./350_image_1_271px.jpg",
+                            "preloader": "./350_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 350",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./350_image_2_271px.jpg",
+                            "preloader": "./350_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 350",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./350_image_3_271px.jpg",
+                            "preloader": "./350_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 350",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./350_image_4_271px.jpg",
+                            "preloader": "./350_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 350",
                             "width": "271",
                             "height": "152"
@@ -230,24 +242,28 @@
                     "imageList": [
                         {
                             "src": "./352_image_1_271px.jpg",
+                            "preloader": "./352_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 352",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./352_image_2_271px.jpg",
+                            "preloader": "./352_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 352",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./352_image_3_271px.jpg",
+                            "preloader": "./352_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 352",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./352_image_4_271px.jpg",
+                            "preloader": "./352_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 352",
                             "width": "271",
                             "height": "152"
@@ -267,24 +283,28 @@
                     "imageList": [
                         {
                             "src": "./444_image_1_271px.jpg",
+                            "preloader": "./444_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 444",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./444_image_2_271px.jpg",
+                            "preloader": "./444_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 444",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./444_image_3_271px.jpg",
+                            "preloader": "./444_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 444",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./444_image_4_271px.jpg",
+                            "preloader": "./444_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 444",
                             "width": "271",
                             "height": "152"
@@ -304,24 +324,28 @@
                     "imageList": [
                         {
                             "src": "./450_image_1_271px.jpg",
+                            "preloader": "./450_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 450",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./450_image_2_271px.jpg",
+                            "preloader": "./450_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 450",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./450_image_3_271px.jpg",
+                            "preloader": "./450_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 450",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./450_image_4_271px.jpg",
+                            "preloader": "./450_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 450",
                             "width": "271",
                             "height": "152"
@@ -341,24 +365,28 @@
                     "imageList": [
                         {
                             "src": "./666_image_1_271px.jpg",
+                            "preloader": "./666_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 666",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./666_image_2_271px.jpg",
+                            "preloader": "./666_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 666",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./666_image_3_271px.jpg",
+                            "preloader": "./666_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 666",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./666_image_4_271px.jpg",
+                            "preloader": "./666_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 666",
                             "width": "271",
                             "height": "152"
@@ -378,24 +406,28 @@
                     "imageList": [
                         {
                             "src": "./678_image_1_271px.jpg",
+                            "preloader": "./678_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 678",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./678_image_2_271px.jpg",
+                            "preloader": "./678_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 678",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./678_image_3_271px.jpg",
+                            "preloader": "./678_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 678",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./678_image_4_271px.jpg",
+                            "preloader": "./678_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 678",
                             "width": "271",
                             "height": "152"
@@ -415,24 +447,28 @@
                     "imageList": [
                         {
                             "src": "./740_image_1_271px.jpg",
+                            "preloader": "./740_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 740",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./740_image_2_271px.jpg",
+                            "preloader": "./740_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 740",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./740_image_3_271px.jpg",
+                            "preloader": "./740_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 740",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./740_image_4_271px.jpg",
+                            "preloader": "./740_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 740",
                             "width": "271",
                             "height": "152"
@@ -452,24 +488,28 @@
                     "imageList": [
                         {
                             "src": "./856_image_1_271px.jpg",
+                            "preloader": "./856_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 856",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./856_image_2_271px.jpg",
+                            "preloader": "./856_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 856",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./856_image_3_271px.jpg",
+                            "preloader": "./856_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 856",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./856_image_4_271px.jpg",
+                            "preloader": "./856_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 856",
                             "width": "271",
                             "height": "152"
@@ -489,24 +529,28 @@
                     "imageList": [
                         {
                             "src": "./980_image_1_271px.jpg",
+                            "preloader": "./980_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 980",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./980_image_2_271px.jpg",
+                            "preloader": "./980_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 980",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./980_image_3_271px.jpg",
+                            "preloader": "./980_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 980",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./980_image_4_271px.jpg",
+                            "preloader": "./980_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 980",
                             "width": "271",
                             "height": "152"
@@ -526,24 +570,28 @@
                     "imageList": [
                         {
                             "src": "./982_image_1_271px.jpg",
+                            "preloader": "./982_image_1_271px_tiny.jpg",
                             "alt": "Изображение 1 номера 982",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./982_image_2_271px.jpg",
+                            "preloader": "./982_image_2_271px_tiny.jpg",
                             "alt": "Изображение 2 номера 982",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./982_image_3_271px.jpg",
+                            "preloader": "./982_image_3_271px_tiny.jpg",
                             "alt": "Изображение 3 номера 982",
                             "width": "271",
                             "height": "152"
                         },
                         {
                             "src": "./982_image_4_271px.jpg",
+                            "preloader": "./982_image_4_271px_tiny.jpg",
                             "alt": "Изображение 4 номера 982",
                             "width": "271",
                             "height": "152"

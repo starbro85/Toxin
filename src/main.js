@@ -7,10 +7,26 @@ import './globals/polyfills/findIndex.js';
 
 import 'normalize.css';
 import './globals/fonts.css'; 
-import './globals/global.css'; 
+import './globals/global.css';
 
-/* pages */
+const scripts = {};
 
-import './pages/search-room/search-room.js';
-import './pages/room-detail/room-detail.js';
-import './pages/start-menu/start-menu.js';
+function importAllScripts(context) {
+    context.keys().forEach(key => scripts[key] = context(key));
+}
+
+function importAllStyles(context) {
+    context.keys().forEach(key => context(key));
+}
+
+function loadAllScripts(scripts) {
+    for (let key in scripts) {
+        if (scripts[key].default) {
+            scripts[key].default();
+        }
+    }
+}
+
+importAllStyles(require.context('./components/', true, /^\.\/.*\.css$/));
+importAllScripts(require.context('./components/', true, /^\.\/.*\.js$/));
+loadAllScripts(scripts);

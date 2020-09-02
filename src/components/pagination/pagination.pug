@@ -38,6 +38,7 @@ mixin pagination(pagination, lang)
                             class = 'pagination__link'
                             title = `${pageNumber} ${PAGE} (${YOU_HERE})`
                             aria-label = `${pageNumber} ${PAGE} (${YOU_HERE})`
+                            aria-current = 'page'
                         ) #{index}
                         
                 else 

@@ -2,8 +2,8 @@
 
 .carousel {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 19.2857142857rem;
+    height: 10.7857142857rem;
     display: grid;
     border-top-left-radius: 0.28571428571rem;
     border-top-right-radius: 0.28571428571rem;
@@ -13,26 +13,33 @@
 .carousel__slides {
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     list-style: none;
-}
-
-/* picture */
-
-.carousel__picture {
-    display: grid;
 }
 
 /* image */
 
 .carousel__image {
-    max-width: 100%;
+    width: 19.2857142857rem;
     height: auto;
+
+    &.carousel__image_lazy {
+        display: none;
+    }
+
+    &.carousel__image_loaded {
+        display: block;
+    }
+
+    &.carousel__image_preloader {
+        display: block;
+        filter: blur(5px);
+    }
 }
 
 /* controls */
 
-.carousel__controls {
+.carousel .carousel__controls {
     position: absolute;
     top: 0;
     left: 0;

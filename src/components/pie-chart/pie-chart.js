@@ -1,17 +1,15 @@
-import './pie-chart.css';
-
 import Chart from "chart.js";
 
-export class PieChart {
+class PieChart {
     constructor(node) {
-        if (node) {
-            this.root = node;
-            this.container = this.root.querySelector('.js-pie-chart__container');
-            this.canvas = this.root.querySelector('.js-pie-chart__canvas');
-            this.counts = JSON.parse(this.root.dataset.counts).map((item) => Number(item));
-            this.labels = JSON.parse(this.root.dataset.labels);
-            this.colors = JSON.parse(this.root.dataset.colors);
-        }
+        this.root = node;
+        this.container = this.root.querySelector('.js-pie-chart__container');
+        this.canvas = this.root.querySelector('.js-pie-chart__canvas');
+        this.counts = JSON.parse(this.root.dataset.counts).map((item) => Number(item));
+        this.labels = JSON.parse(this.root.dataset.labels);
+        this.colors = JSON.parse(this.root.dataset.colors);
+
+        this._init();
     }
 
     _setCustomTooltip = (tooltipModel) => {
@@ -52,7 +50,7 @@ export class PieChart {
         tooltipEl.style.top = tooltipModel.caretY + 'px';
     };
 
-    _init() {
+    _setChart() {
         new Chart(this.canvas, {
             type: 'pie',
             data: {
@@ -86,11 +84,15 @@ export class PieChart {
         });
     }
 
-    render(parentNode) {
-        const components = parentNode ? parentNode.querySelectorAll('.js-pie-chart') : document.querySelectorAll('.js-pie-chart');
-
-        if (components.length > 0) {
-            Array.from(components).map((node) => new PieChart(node)._init());
-        };
+    _init() {
+        this._setChart();
     }
+}
+
+export default function render () {
+    const components = document.querySelectorAll('.js-pie-chart');
+
+    if (components.length > 0) {
+        Array.from(components).map((node) => new PieChart(node));
+    };
 }

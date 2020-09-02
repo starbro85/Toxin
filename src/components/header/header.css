@@ -71,11 +71,13 @@
     .header__nav {
         position: absolute;
         top: 90%;
-        width: min(100%, 900px);
+        right: 0;
+        width: 100vw;
         display: flex;
         justify-content: center;
         visibility: hidden;
-        border: var(--border-2);
+        border-top: var(--border-2);
+        border-bottom: var(--border-2);
         border-bottom-right-radius: 0.28571428571rem;
         border-bottom-left-radius: 0.28571428571rem;
         box-shadow: var(--shadow-1);
