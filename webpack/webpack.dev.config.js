@@ -69,6 +69,12 @@ const config = {
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
+            title: 'start-menu',
+            filename: 'start-menu.html',
+            template: '../src/pages/start-menu/start-menu.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
             title: 'search-room',
             filename: 'search-room.html',
             template: '../src/pages/search-room/search-room.pug',
@@ -84,6 +90,18 @@ const config = {
             title: 'landing-page',
             filename: 'landing-page.html',
             template: '../src/pages/landing-page/landing-page.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'login-page',
+            filename: 'login-page.html',
+            template: '../src/pages/login-page/login-page.pug',
+            alwaysWriteToDisk: true,
+        }),
+        new HtmlWebpackPlugin({
+            title: 'registration-page',
+            filename: 'registration-page.html',
+            template: '../src/pages/registration-page/registration-page.pug',
             alwaysWriteToDisk: true,
         }),
         new HtmlWebpackHardDiskPlugin(),

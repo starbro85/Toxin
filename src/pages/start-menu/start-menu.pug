@@ -1,77 +1,13 @@
 extends ../../globals/template
 
-include ../../components/link/link
+include ../../components/start/start
 
 block variables
-    -title = 'Start menu';
+    -
+        title = 'Start menu';
 
 block content
-    -
-        const uiKitLinks = [
-            {
-                href: 'colors-and-type.html',
-                title: 'UI-Kit - colors & type',
-                label: 'colors & type'
-            },
-            {
-                href: 'form-elements.html',
-                title: 'UI-Kit - form elements',
-                label: 'form elements'
-            },
-            {
-                href: 'cards.html',
-                title: 'UI-Kit - cards',
-                label: 'cards'
-            },
-            {
-                href: 'headers-and-footers.html',
-                title: 'UI-Kit - headers & footers',
-                label: 'headers & footers'
-            }
-        ];
-
-        const pages = [
-            {
-                href: 'landing-page.html',
-                title: 'Pages - landing page',
-                label: 'landing page'
-            },
-            {
-                href: 'search-room.html',
-                title: 'Pages - search room',
-                label: 'search room'
-            },
-            {
-                href: 'room-detail.html',
-                title: 'Pages - room detail',
-                label: 'room detail'
-            },
-            {
-                href: 'login-page.html',
-                title: 'Pages - login page',
-                label: 'login page'
-            },
-            {
-                href: 'registration-page.html',
-                title: 'Pages - registration page',
-                label: 'registration page'
-            }
-        ];
-
-
-    div(class = 'start-menu')
-        ul(class = 'start-menu__list')
-            li(class = 'start-menu__list-item start-menu__list-item_heading') Toxin UI Kit
-
-            each data in uiKitLinks
-                li(class = 'start-menu__list-item')
-                    +link(data)
-        
-        ul(class = 'start-menu__list')
-            li(class = 'start-menu__list-item start-menu__list-item_heading') Toxin Pages
-
-            each data in pages
-                li(class = 'start-menu__list-item')
-                    +link(data)
-        
+    +start()
+    
+    
             

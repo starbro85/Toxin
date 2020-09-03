@@ -1,43 +1,23 @@
 extends ../../globals/template
 
 include ../../components/layout/layout
-include ../../components/form-login/form-login
-include ../../components/carousel/carousel
+include ../../components/login/login
 
 block variables
-    -const getImagePath = require('../../globals/helpers/getImagePath.js');  
-    -const loginPage = require('./../../globals/mocks/login-page.json');
-    -const lang = loginPage.lang;
-    -const title = loginPage.title;
-    -const description = loginPage.description;
+    -
+        const page = require('../../globals/mocks/login-page.en.json');
+
+        const { 
+            lang,
+            title,
+            description,
+            bgImage 
+        } = page;
 
 block heading
-    | #{loginPage.heading}
+    | #{page.heading}
     
 block content
-    +layout({
-            header: loginPage.header,
-            footer: loginPage.footer
-        })
-        main(class = 'login-page')
-            div(class = 'login-page__content')
-                +form-login(loginPage.formLogin)
-            div(class = 'login-page__background')
-                -
-                    const path = getImagePath({
-                                    src: loginPage.image.src,
-                                    source: loginPage.image.source
-                                })
-                picture(class = 'login-page__picture')
-                    if path.source
-                        each res in path.source
-                            source(
-                                media = res.media 
-                                srcset = res.srcset
-                            )
-                    img(
-                        class = 'login-page__background-image'
-                        src = path.src
-                        loading = 'lazy'
-                        alt = loginPage.image.alt
-                    )
+    +layout(lang)
+        +login(bgImage, lang)
+        

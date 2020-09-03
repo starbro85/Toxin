@@ -18,8 +18,8 @@ mixin carousel(imageList, lang)
                 li(class = 'carousel__slide')
                     img(
                         class = item.preloader ? 'carousel__image carousel__image_lazy' : 'carousel__image'
-                        data-src = item.preloader ? getImagePath(item.src).src : false
-                        src = item.preloader ? false : getImagePath(item.src).src
+                        data-src = item.preloader ? getImagePath(item.src) : false
+                        src = item.preloader ? false : getImagePath(item.src)
                         alt = item.alt ? item.alt : false
                         width = item.width ? item.width : false
                         height = item.height ? item.height : false
@@ -29,7 +29,7 @@ mixin carousel(imageList, lang)
                     if item.preloader 
                         img(
                             class = 'carousel__image carousel__image_preloader'
-                            src = getImagePath(item.preloader).src
+                            src = getImagePath(item.preloader)
                             alt = item.alt ? item.alt : false
                             width = item.width ? item.width : false
                             height = item.height ? item.height : false

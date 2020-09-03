@@ -6,41 +6,60 @@
     "heading": "Главная страница",
     "landing": {
         "tagline": "Лучшие номера для вашей работы, отдыха и просто вдохновения.",
+        "bgImage": "./slideshow_3_433px.jpg",
         "slideshow": {
             "autoplay": 7000,
             "imageList": [
-                {   
-                    "src": "./slideshow_1_1440px.jpg",
+                {
                     "alt": "Комната в розовых тонах",
-                    "sizes": "(max-width: 879px) 889px, (min-width: 880px) 889px",
-                    "srcset": "./slideshow_1_889px.jpg 889w, ./slideshow_1_1440px.jpg 889w",
-                    "preloader": {
-                        "src": "./slideshow_1_1440px_tiny.jpg",
-                        "sizes": "(max-width: 879px) 889px, (min-width: 880px) 889px",
-                        "srcset": "./slideshow_1_889px_tiny.jpg 889w, ./slideshow_1_1440px_tiny.jpg 889w"
-                    }
+                    "srcset": [
+                        {
+                            "media": "(max-width: 879px)",
+                            "size": "889",
+                            "src": "./slideshow_1_889px.jpg",
+                            "preloader": "./slideshow_1_889px_tiny.jpg"
+                        },
+                        {
+                            "media": "(min-width: 880px)",
+                            "size": "1440",
+                            "src": "./slideshow_1_1440px.jpg",
+                            "preloader": "./slideshow_1_1440px_tiny.jpg"
+                        }
+                    ]
                 },
                 {
-                    "src": "./slideshow_2_1440px.jpg",
                     "alt": "Комната в светло-синих тонах",
-                    "sizes": "(max-width: 879px) 889px, (min-width: 880px) 889px",
-                    "srcset": "./slideshow_2_889px.jpg 889w, ./slideshow_2_1440px.jpg 889w",
-                    "preloader": {
-                        "src": "./slideshow_2_1440px_tiny.jpg",
-                        "sizes": "(max-width: 879px) 889px, (min-width: 880px) 889px",
-                        "srcset": "./slideshow_2_889px_tiny.jpg 889w, ./slideshow_2_1440px_tiny.jpg 889w"
-                    }
+                    "srcset": [
+                        {
+                            "media": "(max-width: 879px)",
+                            "size": "889",
+                            "src": "./slideshow_2_889px.jpg",
+                            "preloader": "./slideshow_2_889px_tiny.jpg"
+                        },
+                        {
+                            "media": "(min-width: 880px)",
+                            "size": "1440",
+                            "src": "./slideshow_2_1440px.jpg",
+                            "preloader": "./slideshow_2_1440px_tiny.jpg"
+                        }
+                    ]
                 },
                 {
-                    "src": "./slideshow_3_1440px.jpg",
                     "alt": "Комната в светло-зелёных тонах",
-                    "sizes": "(max-width: 879px) 889px, (min-width: 880px) 889px",
-                    "srcset": "./slideshow_3_889px.jpg 889w, ./slideshow_3_1440px.jpg 889w",
-                    "preloader": {
-                        "src": "./slideshow_3_1440px_tiny.jpg",
-                        "sizes": "(max-width: 879px) 889px, (min-width: 880px) 889px",
-                        "srcset": "./slideshow_3_889px_tiny.jpg 889w, ./slideshow_3_1440px_tiny.jpg 889w"
-                    }
+                    "srcset": [
+                        {
+                            "media": "(max-width: 879px)",
+                            "size": "889",
+                            "src": "./slideshow_3_889px.jpg",
+                            "preloader": "./slideshow_3_889px_tiny.jpg"
+                        },
+                        {
+                            "media": "(min-width: 880px)",
+                            "size": "1440",
+                            "src": "./slideshow_3_1440px.jpg",
+                            "preloader": "./slideshow_3_1440px_tiny.jpg"
+                        }
+                    ]
                 }
             ]
         }

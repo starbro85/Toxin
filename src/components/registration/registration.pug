@@ -1,0 +1,27 @@
+include ../form-registration/form-registration
+
+mixin registration(bgImage, lang) 
+    -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+
+    main(class = 'registration-page')
+            div(class = 'registration-page__content')
+                +form-registration(lang)
+
+            div(class = 'registration-page__background')
+                picture(class = 'registration-page__picture')
+                    -
+                        const srcset = bgImage.srcset;
+
+                    each item in srcset
+                        source(
+                            media = item.media 
+                            srcset = getImagePath(item.src)
+                        )
+
+                    img(
+                        class = 'registration-page__background-image'
+                        src = getImagePath(srcset[srcset.length - 1].src)
+                        alt = bgImage.alt
+                        loading = 'auto'
+                    )

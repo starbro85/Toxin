@@ -111,6 +111,16 @@ const config = {
             filename: 'landing-page.html',
             template: '../src/pages/landing-page/landing-page.pug',
         }),
+        new HtmlWebpackPlugin({
+            title: 'login-page',
+            filename: 'login-page.html',
+            template: '../src/pages/login-page/login-page.pug',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'registration-page',
+            filename: 'registration-page.html',
+            template: '../src/pages/registration-page/registration-page.pug',
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',
         })

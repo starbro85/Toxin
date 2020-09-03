@@ -12,29 +12,37 @@ mixin slideshow(slideshow)
         data-autoplay = autoplay
     )
         ul(class = 'slideshow__slides')    
-            each item, index in imageList
+            each image in imageList
                 -
-                    const path = {
-                        primary: getImagePath(item.src, item.source),
-                        preloader: item.preloader ? getImagePath(item.preloader.src, item.preloader.source) : false
-                    }
+                    const srcset = {
+                        primary: image.srcset.reduce((acc, item) => `${acc} ${getImagePath(item.src)} ${item.size}w,`, '').slice(0, -1),
+                        preloader: image.srcset.reduce((acc, item) => `${acc} ${getImagePath(item.preloader)} ${item.size}w,`, '').slice(0, -1)
+                    };
+
+                    const src = {
+                        primary: getImagePath(image.srcset[image.srcset.length - 1].src),
+                        preloader: getImagePath(image.srcset[image.srcset.length - 1].preloader)
+                    };
+
+                    const sizes = image.srcset.reduce((acc, item) => `${acc} ${item.media} ${item.size}px,`, '').slice(0, -1);
 
                 li(class = 'slideshow__slide')
                     img(
                         class = 'slideshow__image slideshow__image_lazy'
-                        data-src = item.preloader ? path.primary.src : false
-                        src = item.preloader ? false : path.primary.src
-                        data-srcset = item.preloader ? path.primary.srcset : false
-                        srcset = item.preloader ? false : path.primary.srcset
-                        alt = item.alt ? item.alt : false
+                        data-src = src.primary
+                        data-srcset = srcset.primary
+                        sizes = sizes
+                        alt = image.alt ? image.alt : false
                         loading = 'auto'
                     )  
+
+                    img(
+                        class = 'slideshow__image slideshow__image_preloader'
+                        src = src.preloader
+                        srcset = srcset.preloader
+                        sizes = sizes
+                        alt = image.alt ? image.alt : false
+                        loading = 'auto'
+                    ) 
                     
-                    if item.preloader
-                            img(
-                                class = 'slideshow__image slideshow__image_preloader'
-                                src = path.preloader.src
-                                srcset = path.preloader.srcset
-                                alt = item.alt ? item.alt : false
-                                loading = 'auto'
-                            )  
+                     

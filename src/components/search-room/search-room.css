@@ -45,6 +45,6 @@
 @media (width < 1239px) {
     .search-room__filter {
         position: absolute;
-        display: none;
+        visibility: hidden;
     }
 }

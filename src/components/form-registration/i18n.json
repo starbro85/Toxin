@@ -18,7 +18,7 @@
         "PASSWORD": "Пароль",
         "RECEIVE_SPECIAL_OFFERS": "Получать спецпредложения",
         "PROCEED_TO_CHECKOUT": "Перейти к оплате",
-        "ALREADY_HABE_AN_ACCOUNT_ON": "Уже есть аккаунт на",
+        "ALREADY_HAVE_AN_ACCOUNT_ON": "Уже есть аккаунт на",
         "LOGIN": "Войти",
         "LOGIN_PAGE": "Страница авторизации"
     },
@@ -41,7 +41,7 @@
         "PASSWORD": "Password",
         "RECEIVE_SPECIAL_OFFERS": "Receive special offers",
         "PROCEED_TO_CHECKOUT": "Proceed to checkout",
-        "ALREADY_HABE_AN_ACCOUNT_ON": "Already have an account on",
+        "ALREADY_HAVE_AN_ACCOUNT_ON": "Already have an account on",
         "LOGIN": "Login",
         "LOGIN_PAGE": "Login page"
     }

@@ -27,7 +27,7 @@ mixin form-registration(lang)
             PASSWORD,
             RECEIVE_SPECIAL_OFFERS, 
             PROCEED_TO_CHECKOUT,
-            ALREADY_HABE_AN_ACCOUNT_ON,
+            ALREADY_HAVE_AN_ACCOUNT_ON,
             LOGIN, 
             LOGIN_PAGE
         } = i18n;
@@ -51,26 +51,27 @@ mixin form-registration(lang)
                 name: 'name',
                 placeholder: NAME,
                 required: true,
-                title: ENTER_YOUR_NAME
+                title: ENTER_YOUR_NAME,
+                ariaLabel: NAME
             })
             +text-field({
                 name: 'surname',
                 placeholder: SURNAME,
                 required: true,
-                title: ENTER_YOUR_SURNAME
+                title: ENTER_YOUR_SURNAME,
+                ariaLabel: SURNAME
             })
             +radio-bar({
                 ariaLabel: GENDER_SELECT,
+                name: 'gender',
                 radioButtons: [
                     {
                         label: MALE,
-                        name: 'gender',
                         value: 'male',
                         checked: true
                     },
                     {
                         label: FEMALE,
-                        name: 'gender',
                         value: 'female'
                     }
                 ]
@@ -78,13 +79,11 @@ mixin form-registration(lang)
 
         +text-field({
             label: DATE_OF_BIRTH,
-            input: {
-                name: 'birthday',
-                placeholder: DATE_SINGLE_PLACEHOLDER,
-                mask: 'date',
-                required: true,
-                title: ENTER_YOUR_DATE_OF_BIRTH
-            }
+            name: 'birthday',
+            placeholder: DATE_SINGLE_PLACEHOLDER,
+            mask: 'date',
+            required: true,
+            title: ENTER_YOUR_DATE_OF_BIRTH
         }, lang)
         
         div(
@@ -93,23 +92,21 @@ mixin form-registration(lang)
             aria-label = SERVICE_LOGIN_DETAILS
         )
             +text-field({
-                input: {
-                    label: SERVICE_LOGIN_DETAILS,
-                    name: 'email',
-                    type: 'email',
-                    placeholder: 'Email',
-                    required: true,
-                    title: ENTER_EMAIL
-                }
+                label: SERVICE_LOGIN_DETAILS,
+                name: 'email',
+                type: 'email',
+                placeholder: 'Email',
+                required: true,
+                title: ENTER_EMAIL,
+                ariaLabel: 'Email'
             })
             +text-field({
-                input: {
-                    name: 'password',
-                    type: 'password',
-                    placeholder: PASSWORD,
-                    required: true,
-                    title: ENTER_EMAIL
-                }
+                name: 'password',
+                type: 'password',
+                placeholder: PASSWORD,
+                required: true,
+                title: ENTER_EMAIL,
+                ariaLabel: PASSWORD
             })
             +toggle({
                 name: 'special',
@@ -123,8 +120,9 @@ mixin form-registration(lang)
                 fill: true,
                 icon: 'arrow_forward'
             })
+
         div(class = 'form-registration__login')
-            p(class = 'form-registration__login-text') #{ALREADY_HABE_AN_ACCOUNT_ON}
+            p(class = 'form-registration__login-text') #{ALREADY_HAVE_AN_ACCOUNT_ON} Toxin
             div(class = 'form-registration__login-link')
                 +link({
                     label: LOGIN,

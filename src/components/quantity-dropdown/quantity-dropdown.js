@@ -136,7 +136,6 @@ class QuantityDropdown {
         this.applyButton.addEventListener('click', this._handleManualApply);
         this.clearButton.addEventListener('click', this._handleManualApply);
 
-        this._updateTextField();
         this._setClearButtonDisabledState();
     }
 
@@ -165,6 +164,7 @@ class QuantityDropdown {
         this._setCounterChangeEventListeners();
         this._setCounters();
         this._setApplyMode();
+        this._updateTextField();
         this._setExpander();
     }
 }

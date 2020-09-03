@@ -6,48 +6,58 @@
     "heading": "Main page",
     "landing": {
         "tagline": "The best rooms for your work, relaxation and just inspiration.",
+        "bgImage": "./slideshow_3_433px.jpg",
         "slideshow": {
             "autoplay": 7000,
             "imageList": [
-                {   
-                    "src": "./slideshow_1_1440px.jpg",
+                {
                     "alt": "Room in pink colors",
-                    "source": [
+                    "srcset": [
                         {
                             "media": "(max-width: 879px)",
-                            "srcset": "./slideshow_1_889px.jpg"
+                            "size": "889",
+                            "src": "./slideshow_1_889px.jpg",
+                            "preloader": "./slideshow_1_889px_tiny.jpg"
                         },
                         {
                             "media": "(min-width: 880px)",
-                            "srcset": "./slideshow_1_1440px.jpg"
+                            "size": "1440",
+                            "src": "./slideshow_1_1440px.jpg",
+                            "preloader": "./slideshow_1_1440px_tiny.jpg"
                         }
                     ]
                 },
                 {
-                    "src": "./slideshow_2_1440px.jpg",
-                    "alt": "Room in light blue colors",
-                    "source": [
+                    "alt": "Room in linght blue colors",
+                    "srcset": [
                         {
                             "media": "(max-width: 879px)",
-                            "srcset": "./slideshow_2_889px.jpg"
+                            "size": "889",
+                            "src": "./slideshow_2_889px.jpg",
+                            "preloader": "./slideshow_2_889px_tiny.jpg"
                         },
                         {
                             "media": "(min-width: 880px)",
-                            "srcset": "./slideshow_2_1440px.jpg"
+                            "size": "1440",
+                            "src": "./slideshow_2_1440px.jpg",
+                            "preloader": "./slideshow_2_1440px_tiny.jpg"
                         }
                     ]
                 },
                 {
-                    "src": "./slideshow_3_1440px.jpg",
                     "alt": "Room in light green colors",
-                    "source": [
+                    "srcset": [
                         {
                             "media": "(max-width: 879px)",
-                            "srcset": "./slideshow_3_889px.jpg"
+                            "size": "889",
+                            "src": "./slideshow_3_889px.jpg",
+                            "preloader": "./slideshow_3_889px_tiny.jpg"
                         },
                         {
                             "media": "(min-width: 880px)",
-                            "srcset": "./slideshow_3_1440px.jpg"
+                            "size": "1440",
+                            "src": "./slideshow_3_1440px.jpg",
+                            "preloader": "./slideshow_3_1440px_tiny.jpg"
                         }
                     ]
                 }

@@ -1,0 +1,27 @@
+include ../form-login/form-login
+
+mixin login(bgImage, lang) 
+    -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+
+    main(class = 'login-page')
+        div(class = 'login-page__content')
+            +form-login(lang)
+
+        div(class = 'login-page__background')
+            picture(class = 'login-page__picture')
+                -
+                    const srcset = bgImage.srcset;
+                    
+                each item in srcset
+                    source(
+                        media = item.media 
+                        srcset = getImagePath(item.src)
+                    )
+
+                img(
+                    class = 'login-page__background-image'
+                    src = getImagePath(srcset[srcset.length - 1].src)
+                    alt = bgImage.alt
+                    loading = 'auto'
+                )

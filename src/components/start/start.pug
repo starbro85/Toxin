@@ -1,0 +1,38 @@
+include ../link/link
+
+mixin start()
+    -
+        const pages = [
+            {
+                href: 'landing-page.html',
+                title: 'landing page',
+                label: 'landing page'
+            },
+            {
+                href: 'search-room.html',
+                title: 'search room',
+                label: 'search room'
+            },
+            {
+                href: 'room-detail.html',
+                title: 'room detail',
+                label: 'room detail'
+            },
+            {
+                href: 'login-page.html',
+                title: 'Pages - login page',
+                label: 'login page'
+            },
+            {
+                href: 'registration-page.html',
+                title: 'registration page',
+                label: 'registration page'
+            }
+        ];
+
+    section(class = 'start')
+        h1(class = 'start__heading') Start menu
+        ul(class = 'start__list')
+            each data in pages
+                li(class = 'start__item')
+                    +link(data)

@@ -59,9 +59,8 @@
             'logo logo'
             'nav subscribtion';
         
-        grid-auto-columns: max-content;
-        justify-content: center;
-        column-gap: 2.14285714286rem;
+        grid-auto-columns: 33rem max-content;
+        justify-content: space-between;
         row-gap: 3.57142857143rem;
     }
 }
@@ -93,7 +92,7 @@
 
 @media (width < 1167px) {
     .footer__logo-link {
-        justify-self: center;
+        justify-self: start;
     }
 }
 
@@ -139,7 +138,7 @@
 @media (width >= 880px) and (width < 1167px) {
     .footer__nav {
         grid-auto-columns: max-content;
-        column-gap: 2.14285714286rem;
+        justify-content: space-between;
     }  
 }
 
@@ -205,7 +204,7 @@
 
 @media (width >= 880px) and (width < 1167px) {
     .footer__basement {
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 }
 

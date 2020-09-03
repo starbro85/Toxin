@@ -13,13 +13,11 @@ export class Slideshow {
     _setSwiper() {
         new Swiper(this.root, {
             spaceBetween: 25,
-            preloadImages: false,
             autoplay: {
                 delay: this.autoplay ? this.autoplay : 10000,
                 waitForTransition: false
             },
             lazy: {
-                loadOnTransitionStart: true,
                 elementClass: 'slideshow__image_lazy',
                 loadingClass: 'slideshow__image_loading',
                 loadedClass: 'slideshow__image_loaded',
@@ -37,7 +35,7 @@ export class Slideshow {
             slidePrevClass: 'slideshow__slide_prev',
             slideDuplicatePrevClass: 'slideshow__duplicate-slide_prev',
             slideBlankClass: 'slideshow__slide_blank'
-        }).autoplay.start();
+        })
     }
 
     _init() {

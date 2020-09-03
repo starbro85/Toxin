@@ -1,0 +1,31 @@
+/* start */
+
+.start {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    row-gap: 2.14285714286rem;
+}
+
+/* heading */
+
+.start__heading {
+    font: var(--h1-font);
+    color: var(--dark-shade-100per);
+    text-align: center;
+}
+
+/* list */
+
+.start__list {
+    display: grid;
+    row-gap: 1.42857142857rem; 
+    list-style: none;
+}
+
+/* item styles */
+
+.start__item {
+    justify-self: center;
+}

@@ -35,12 +35,10 @@ mixin room-detail(roomDetail, lang)
     main(class = 'room-detail js-room-detail')
         section(class = 'room-detail__pictures')
             h2(class = 'room-detail__heading visually-hidden') #{ROOM_PICTURES}
-            -
-                const path = getImagePath(images.primary.src);
 
             img(
                 class = 'room-detail__image room-detail__image_primary'
-                src = path.src
+                src = getImagePath(images.primary.src)
                 alt = images.primary.alt
                 width = images.primary.width
                 height = images.primary.height
@@ -48,12 +46,9 @@ mixin room-detail(roomDetail, lang)
             )
 
             each item in images.secondaryList
-                -
-                    const path = getImagePath(item.src);
-
                 img(
                     class = 'room-detail__image room-detail__image_secondary'
-                    src = path.src
+                    src = getImagePath(item.src)
                     alt = item.alt ? item.alt : false
                     width = item.width ? item.width : false
                     height = item.height ? item.height : false

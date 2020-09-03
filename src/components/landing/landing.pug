@@ -3,15 +3,24 @@ include ../form-search/form-search
 
 mixin landing(landing, lang)
     -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+
         const {
             tagline,
-            slideshow
+            slideshow,
+            bgImage
         } = landing;
+
+        const bgImageUrl = getImagePath(bgImage);
     
     main(class = 'landing js-landing')
         section(class = 'landing__content')
-            p(class = 'landing__tagline') #{tagline}
             +form-search(lang)
-        div(class = 'landing__slideshow')
+            p(class = 'landing__tagline') #{tagline}
+
+        div(
+            class = 'landing__background'
+            style = `--landing-bg-image: url(${bgImageUrl})`
+        )
             div(class = 'landing__carousel')
                 +slideshow(slideshow)

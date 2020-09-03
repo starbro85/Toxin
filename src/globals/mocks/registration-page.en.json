@@ -1,0 +1,19 @@
+{
+    "lang": "en",
+    "description": "Search and reservation service for hotels and hotels. The best rooms for your work, relaxation and just inspiration.",
+    "title": "Toxin | Registration",
+    "heading": "Registration",
+    "bgImage":  {
+        "alt": "Room in grey colors",
+        "srcset": [
+            {
+                "media": "(max-width: 1023px)",
+                "src": "./bg_1024px.jpg"
+            },
+            {
+                "media": "(min-width: 1024px)",
+                "src": "./bg_1440px.jpg"
+            }
+        ]
+    }
+}
