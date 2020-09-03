@@ -5,15 +5,15 @@
             "few": "человек оценили",
             "many": "человек оценили"
         },
-        "RATE": "оценить",
-        "REMOVE_RATING": "снять оценку"
+        "RATE": "Оценить",
+        "REMOVE_RATING": "Снять оценку"
     },
     "en": {
         "PEOPLE_RATED_PLURAL": {
             "one": "person rated",
             "other": "people rated"
         },
-        "RATE": "rate",
-        "REMOVE_RATING": "remove rating"
+        "RATE": "Rate",
+        "REMOVE_RATING": "Remove rating"
     }
 }

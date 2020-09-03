@@ -1,7 +1,7 @@
 /* pie chart */
 
 .pie-chart {
-    width: min(100%, 21.7142857143rem);
+    width: max-content;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -65,7 +65,7 @@
 /* legend */
 
 .pie-chart__legend {
-    margin-left: 0.71428571428rem;
+    margin-left: 2.14285714286rem;
     display: flex;
     flex-direction: column-reverse;
     font: var(--body-font);
