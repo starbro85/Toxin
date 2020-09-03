@@ -177,11 +177,11 @@ export class Datepicker {
                 header: [
                     '<div class="datepicker__header">',
                         `<button class="datepicker__prev<%= (hasPrev) ? "" : " is-disabled" %>" title="${this.i18n.PREVIOUS_MONTH}" aria-label="${this.i18n.PREVIOUS_MONTH}" data-prev>arrow_back</button>`,
-                        '<h4 class="datepicker__title" id="datepicker-title">',
+                        '<span class="datepicker__title" id="datepicker-title">',
                             '<span><%= month %></span>',
                             '&nbsp;',
                             '<span><%= year %></span>',
-                        '</h4>',
+                        '</span>',
                         `<button class="datepicker__next<%= (hasNext) ? "" : " is-disabled" %>" title="${this.i18n.NEXT_MONTH}" aria-label="${this.i18n.NEXT_MONTH}" data-next>arrow_forward</button>`,
                   '</div>'
                 ].join(''),

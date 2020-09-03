@@ -35,7 +35,7 @@ export class Slideshow {
             slidePrevClass: 'slideshow__slide_prev',
             slideDuplicatePrevClass: 'slideshow__duplicate-slide_prev',
             slideBlankClass: 'slideshow__slide_blank'
-        })
+        }).autoplay.start();
     }
 
     _init() {
