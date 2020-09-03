@@ -2,6 +2,8 @@ include ../like/like
 
 mixin review(review, lang)
     -
+        const getImagePath = require('../../globals/helpers/getImagePath.js');
+
         const {
             user,
             pubdate,
@@ -9,16 +11,13 @@ mixin review(review, lang)
             like 
         } = review;
 
-        const getImagePath = require('../../globals/helpers/getImagePath.js');
-        const path = getImagePath(user.image);
-
     article(
         class = 'review js-review'
         data-lang = lang
     )
         img(
             class = 'review__avatar'
-            src = path.src,
+            src = getImagePath(user.image),
             alt = `${user.name} ${user.surname}`
             title = `${user.name} ${user.surname}`
         )
