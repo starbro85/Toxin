@@ -6,7 +6,7 @@ export class TextField {
         this.input = this.root.querySelector('.js-text-field__input');
         this.hiddenInput = this.root.querySelector('.js-text-field__hidden-input');
         this.placeholder = this.input.dataset.placeholder;  
-        this.dateMask = this.input.dataset.dateMask;  
+        this.dateMask = this.input.hasAttribute('data-date-mask');  
         this.title = this.input.dataset.title;
         this.lang = this.root.dataset.lang;
         this.i18n = require('./i18n.json')[this.lang];
@@ -29,7 +29,7 @@ export class TextField {
     }
 
     _init() {
-        if (this.datemMask) { 
+        if (this.dateMask) { 
             this._setDateMask(); 
         }
 

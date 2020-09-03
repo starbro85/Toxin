@@ -18,7 +18,7 @@ mixin form-registration(lang)
             GENDER_SELECTION, 
             MALE,
             FEMALE, 
-            DATE_SINGLE_PLACEHOLDER,
+            DATE_PLACEHOLDER,
             DATE_OF_BIRTH, 
             ENTER_YOUR_DATE_OF_BIRTH,
             SERVICE_LOGIN_DETAILS, 
@@ -80,8 +80,8 @@ mixin form-registration(lang)
         +text-field({
             label: DATE_OF_BIRTH,
             name: 'birthday',
-            placeholder: DATE_SINGLE_PLACEHOLDER,
-            mask: 'date',
+            placeholder: DATE_PLACEHOLDER,
+            dateMask: true,
             required: true,
             title: ENTER_YOUR_DATE_OF_BIRTH
         }, lang)

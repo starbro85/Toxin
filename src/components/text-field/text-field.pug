@@ -7,7 +7,7 @@ mixin text-field(textField, lang)
             type,
             value,
             title,
-            mask,
+            dateMask,
             tabindex,
             placeholder,
             ariaLabel,
@@ -60,7 +60,7 @@ mixin text-field(textField, lang)
                 aria-expanded = ariaExpanded
                 aria-controls = ariaControls
                 tabindex = tabindex
-                data-mask = mask
+                data-date-mask = dateMask
                 data-placeholder = (type === 'button') ? placeholder : false
                 data-title = (type === 'button') ? title : false
             )
